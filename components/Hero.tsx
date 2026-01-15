@@ -15,16 +15,16 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg md:text-xl text-slate-400 max-w-2xl mb-12">
-                High-fidelity, AI-generated assets for the sustainable future.
+                次世代のGX戦略を可視化する、高品質AI生成アセット。
                 <br />
-                Liquid clarity meets infinite scalability.
+                持続可能な未来を、最高峰の視覚資産で描き出す。
             </p>
 
             {/* Search Bar */}
             <div className="relative w-full max-w-xl group">
                 <input
                     type="text"
-                    placeholder="Search for energy symbols..."
+                    placeholder="エネルギー記号を検索..."
                     className="w-full bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl py-4 pl-12 pr-4 text-white placeholder-slate-500 focus:outline-none focus:border-gx-cyan focus:ring-1 focus:ring-gx-cyan transition-all duration-300 shadow-2xl"
                 />
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 group-focus-within:text-gx-cyan transition-colors" />
@@ -32,7 +32,7 @@ export default function Hero() {
 
             {/* Floating Chips */}
             <div className="mt-12 flex flex-wrap justify-center gap-4">
-                {["#Hydrogen", "#SmartCity", "#WindPower", "#EcoTech"].map((tag, i) => (
+                {["#水素エネルギー", "#スマートシティ", "#風力発電", "#環境技術"].map((tag, i) => (
                     <span
                         key={tag}
                         className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-medium hover:bg-white/10 text-gx-cyan cursor-pointer transition-all animate-float"

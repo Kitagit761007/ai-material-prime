@@ -28,13 +28,13 @@ export default function Header() {
 
                 <nav className="hidden md:flex gap-6 items-center">
                     <Link href="#" className="text-sm font-medium hover:text-gx-cyan transition-colors">
-                        Gallery
+                        ギャラリー
                     </Link>
                     <Link href="#" className="text-sm font-medium hover:text-gx-cyan transition-colors">
-                        About
+                        当サイトについて
                     </Link>
                     <button className="px-4 py-2 text-xs font-bold uppercase tracking-widest border border-gx-cyan text-gx-cyan hover:bg-gx-cyan hover:text-white transition-all rounded-full">
-                        Connect Wallet
+                        お問い合わせ / 接続
                     </button>
                 </nav>
             </div>

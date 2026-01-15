@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
     title: 'GX Prime Visuals',
-    description: 'AI-generated high-quality GX visuals.',
+    description: 'AI生成の高品質なGXビジュアル素材。',
 }
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
+        <html lang="ja">
             <body className={inter.className}>
                 <Header />
                 <main className="min-h-screen pt-20">
