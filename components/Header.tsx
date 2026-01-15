@@ -27,10 +27,10 @@ export default function Header() {
                 </Link>
 
                 <nav className="hidden md:flex gap-6 items-center">
-                    <Link href="#" className="text-sm font-medium hover:text-gx-cyan transition-colors">
+                    <Link href="/gallery" className="text-sm font-medium hover:text-gx-cyan transition-colors">
                         ギャラリー
                     </Link>
-                    <Link href="#" className="text-sm font-medium hover:text-gx-cyan transition-colors">
+                    <Link href="/about" className="text-sm font-medium hover:text-gx-cyan transition-colors">
                         当サイトについて
                     </Link>
                     <button className="px-4 py-2 text-xs font-bold uppercase tracking-widest border border-gx-cyan text-gx-cyan hover:bg-gx-cyan hover:text-white transition-all rounded-full">
