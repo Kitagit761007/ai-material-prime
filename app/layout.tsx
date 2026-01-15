@@ -6,7 +6,7 @@ import Header from '@/components/Header'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-    title: 'Next-Gen GX Visuals',
+    title: 'GX Prime Visuals',
     description: 'AI-generated high-quality GX visuals.',
 }
 

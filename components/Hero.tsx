@@ -10,7 +10,7 @@ export default function Hero() {
 
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-gx-cyan via-white to-gx-emerald">
-                    Next-Gen GX Visuals
+                    GX Prime Visuals
                 </span>
             </h1>
 

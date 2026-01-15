@@ -7,7 +7,7 @@ export default function JsonLd({ images }: { images: any[] }) {
             "contentUrl": img.src,
             "license": "https://ai-material-prime.com/terms",
             "acquireLicensePage": "https://ai-material-prime.com/contact",
-            "creditText": "AI Material Prime",
+            "creditText": "GX Prime Visuals",
             "creator": {
                 "@type": "Person",
                 "name": "Hakut AI"
