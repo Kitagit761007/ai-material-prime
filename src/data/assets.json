@@ -1,0 +1,72 @@
+[
+    {
+        "id": "h2-plant-01",
+        "src": "/images/hydrogen/h2-plant.png",
+        "title": "未来型水素プラント",
+        "description": "カーボンニュートラルを実現する、次世代エネルギー供給の拠点。",
+        "category": "hydrogen",
+        "score": 98,
+        "tags": [
+            "#水素エネルギー",
+            "#クリーンテック",
+            "#未来インフラ",
+            "#商用利用可"
+        ]
+    },
+    {
+        "id": "smart-city-01",
+        "src": "/images/smartcity/overview.png",
+        "title": "調和するスマートシティ",
+        "description": "自然とテクノロジーが融合した、持続可能な都市モデル。",
+        "category": "smartcity",
+        "score": 97,
+        "tags": [
+            "#スマートシティ",
+            "#都市開発",
+            "#サステナブル",
+            "#商用利用可"
+        ]
+    },
+    {
+        "id": "wind-farm-01",
+        "src": "/images/infrastructure/wind.png",
+        "title": "洋上風力発電ファーム",
+        "description": "広大な海原を活用した、再生可能エネルギーの主力電源。",
+        "category": "infrastructure",
+        "score": 95,
+        "tags": [
+            "#風力発電",
+            "#海洋インフラ",
+            "#再エネ",
+            "#商用利用可"
+        ]
+    },
+    {
+        "id": "ev-station-01",
+        "src": "/images/infrastructure/ev.png",
+        "title": "次世代EVステーション",
+        "description": "都市の夜景に溶け込む、スタイリッシュな急速充電ハブ。",
+        "category": "infrastructure",
+        "score": 94,
+        "tags": [
+            "#EV",
+            "#モビリティ",
+            "#インフラ",
+            "#商用利用可"
+        ]
+    },
+    {
+        "id": "iot-center-01",
+        "src": "/images/smartcity/iot.png",
+        "title": "先進IoTデータセンター",
+        "description": "膨大なデータを高速処理する、スマート社会の頭脳。",
+        "category": "smartcity",
+        "score": 96,
+        "tags": [
+            "#IoT",
+            "#データセンター",
+            "#DX",
+            "#商用利用可"
+        ]
+    }
+]

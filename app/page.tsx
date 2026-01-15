@@ -1,56 +1,53 @@
+"use client";
+
 import Hero from "@/components/Hero";
 import ImageGrid from "@/components/ImageGrid";
 import JsonLd from "@/components/JsonLd";
 import CategorySection from "@/components/CategorySection";
-
-// Duplicated data for server-side SEO rendering (in real app, fetch from DB)
-const IMAGES = [
-    { src: "https://placehold.co/600x800/111827/00D1FF/png?text=Hydrogen+Plant" },
-    { src: "https://placehold.co/600x600/111827/00FF85/png?text=Wind+Turbines" },
-    { src: "https://placehold.co/600x900/111827/FFFFFF/png?text=Solar+Grid" },
-    { src: "https://placehold.co/600x700/111827/00D1FF/png?text=Smart+City" },
-    { src: "https://placehold.co/600x500/111827/00FF85/png?text=Bio+Lab" },
-    { src: "https://placehold.co/600x800/111827/FFFFFF/png?text=EV+Station" },
-];
+import assets from "@/data/assets.json";
 
 export default function Home() {
+    const hydrogenImages = assets.filter(item => item.category === 'hydrogen').slice(0, 3);
+    const smartCityImages = assets.filter(item => item.category === 'smartcity').slice(0, 3);
+    const infraImages = assets.filter(item => item.category === 'infrastructure').slice(0, 3);
+
     return (
         <div className="flex flex-col min-h-screen">
-            <JsonLd images={IMAGES} />
+            <JsonLd images={assets.map(a => ({ src: a.src }))} />
             <Hero />
 
-            <ImageGrid />
+            {/* Latest Grid (All) - Showing a subset or all? Let's show filtered categories first then a grid */}
 
-            {/* Category Sections */}
-            <CategorySection
-                title="水素エネルギー / Hydrogen"
-                description="次世代エネルギーの主役、水素プラントや供給チェーンのビジュアル。"
-                images={[
-                    { src: "https://placehold.co/600x800/111827/00D1FF/png?text=Hydrogen+Plant", title: "H2 Storage", score: 98 },
-                    { src: "https://placehold.co/600x800/111827/00D1FF/png?text=Fuel+Cell", title: "Fuel Cell System", score: 95 },
-                    { src: "https://placehold.co/600x800/111827/00D1FF/png?text=Transport", title: "H2 Transport", score: 92 },
-                ]}
-            />
+            {/* Category Sections - Dynamically populated */}
+            {hydrogenImages.length > 0 && (
+                <CategorySection
+                    title="水素エネルギー / Hydrogen"
+                    description="次世代エネルギーの主役、水素プラントや供給チェーンのビジュアル。"
+                    images={hydrogenImages}
+                />
+            )}
 
-            <CategorySection
-                title="スマートシティ / Smart City"
-                description="IOE技術と都市機能が融合した、未来の生活空間。"
-                images={[
-                    { src: "https://placehold.co/600x800/111827/00FF85/png?text=Smart+Grid", title: "Urban Grid", score: 97 },
-                    { src: "https://placehold.co/600x800/111827/00FF85/png?text=IoT+Center", title: "Data Center", score: 94 },
-                    { src: "https://placehold.co/600x800/111827/00FF85/png?text=Green+Build", title: "Eco Building", score: 96 },
-                ]}
-            />
+            {smartCityImages.length > 0 && (
+                <CategorySection
+                    title="スマートシティ / Smart City"
+                    description="IOE技術と都市機能が融合した、未来の生活空間。"
+                    images={smartCityImages}
+                />
+            )}
 
-            <CategorySection
-                title="次世代インフラ / Infrastructure"
-                description="強靭でサステナブルな社会基盤のイメージ。"
-                images={[
-                    { src: "https://placehold.co/600x800/111827/FFFFFF/png?text=EV+Station", title: "Super Charger", score: 99 },
-                    { src: "https://placehold.co/600x800/111827/FFFFFF/png?text=Wind+Farm", title: "Offshore Wind", score: 93 },
-                    { src: "https://placehold.co/600x800/111827/FFFFFF/png?text=Solar+Panel", title: "Mega Solar", score: 91 },
-                ]}
-            />
+            {infraImages.length > 0 && (
+                <CategorySection
+                    title="次世代インフラ / Infrastructure"
+                    description="強靭でサステナブルな社会基盤のイメージ。"
+                    images={infraImages}
+                />
+            )}
+
+            <div className="py-12 text-center border-t border-white/5 mt-12 bg-slate-900/30">
+                <h2 className="text-2xl font-bold text-slate-300 mb-2">最新アセット</h2>
+                <p className="text-slate-500 text-sm mb-8">New Arrivals</p>
+                <ImageGrid />
+            </div>
         </div>
     );
 }
