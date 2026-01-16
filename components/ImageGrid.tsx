@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import assets from "@/data/assets.json";
@@ -10,9 +10,10 @@ interface ImageGridProps {
     initialItems?: typeof assets;
     searchQuery?: string;
     showAllButton?: boolean;
+    onResultCount?: (count: number) => void;
 }
 
-export default function ImageGrid({ initialItems = assets, searchQuery = "" }: ImageGridProps) {
+export default function ImageGrid({ initialItems = assets, searchQuery = "", onResultCount }: ImageGridProps) {
     const [selectedImage, setSelectedImage] = useState<typeof assets[0] | null>(null);
     const router = useRouter();
 
@@ -27,6 +28,12 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "" }: I
             item.category.toLowerCase().includes(query)
         );
     });
+
+    useEffect(() => {
+        if (onResultCount) {
+            onResultCount(filteredItems.length);
+        }
+    }, [filteredItems.length, onResultCount]);
 
     const handleInternalTagClick = (tag: string) => {
         const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;

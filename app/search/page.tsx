@@ -4,11 +4,12 @@ import { useSearchParams } from "next/navigation";
 import ImageGrid from "@/components/ImageGrid";
 import { ChevronLeft, Search } from "lucide-react";
 import Link from "next/link";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 
 function SearchResults() {
     const searchParams = useSearchParams();
     const query = searchParams.get("q") || "";
+    const [resultCount, setResultCount] = useState<number | null>(null);
 
     return (
         <div className="flex flex-col min-h-screen pt-24 pb-12">
@@ -27,17 +28,20 @@ function SearchResults() {
                     </div>
                     <div>
                         <h1 className="text-4xl font-extrabold text-white tracking-tight">
-                            Search Results
+                            「{query}」の検索結果
                         </h1>
-                        <p className="text-slate-500 text-sm mt-1">
-                            Query: <span className="text-gx-cyan font-bold">{query}</span>
-                        </p>
+                        {resultCount !== null && (
+                            <p className="text-slate-400 text-sm mt-2 flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 bg-gx-cyan rounded-full animate-pulse" />
+                                該当する素材が <span className="text-gx-cyan font-bold text-base">{resultCount}</span> 件見つかりました
+                            </p>
+                        )}
                     </div>
                 </div>
-                <div className="h-px w-full bg-gradient-to-r from-gx-cyan/50 via-white/5 to-transparent mt-8" />
+                <div className="h-px w-full bg-gradient-to-r from-gx-cyan/50 via-white/5 to-transparent mt-10" />
             </div>
 
-            <ImageGrid searchQuery={query} />
+            <ImageGrid searchQuery={query} onResultCount={setResultCount} />
         </div>
     );
 }
