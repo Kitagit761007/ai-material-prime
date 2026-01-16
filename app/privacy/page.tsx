@@ -45,24 +45,30 @@ export default function PrivacyPage() {
                     <section>
                         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                             <span className="w-1.5 h-6 bg-gx-emerald rounded-full"></span>
-                            2. 第三者への開示・提供の禁止
+                            2. 安全管理措置
                         </h2>
                         <p>
-                            お客様よりお預かりした個人情報を適切に管理し、次のいずれかに該当する場合を除き、個人情報を第三者に開示いたしません。
+                            取得した個人情報は、不正アクセスや漏洩を防止するため、<strong className="text-white font-mono">hakuto1024@gmail.com</strong> の管理下で適切なセキュリティ対策を講じて厳重に保管いたします。
                         </p>
-                        <ul className="list-disc ml-6 mt-4 space-y-2">
-                            <li>お客様の同意がある場合</li>
-                            <li>法令に基づき開示が必要な場合</li>
-                        </ul>
                     </section>
 
                     <section>
                         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                             <span className="w-1.5 h-6 bg-gx-emerald rounded-full"></span>
-                            3. お問い合わせ先
+                            3. クッキー（Cookie）について
                         </h2>
                         <p>
-                            当サイトの個人情報の取り扱いに関するお問い合わせは、下記までご連絡ください。
+                            当サイトでは利便性向上のため、Cookieを使用する場合があります。これにより得られる情報は匿名のものであり、<strong className="text-white">個人を特定する情報を取得することはありません</strong>。
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                            <span className="w-1.5 h-6 bg-gx-emerald rounded-full"></span>
+                            4. お問い合わせ先
+                        </h2>
+                        <p>
+                            個人情報の取り扱いに関するお問い合わせは、下記までご連絡ください。
                         </p>
                         <div className="mt-6 p-6 bg-white/5 rounded-2xl border border-white/10 inline-block">
                             <p className="text-sm text-slate-400 mb-1">Email</p>
@@ -70,9 +76,9 @@ export default function PrivacyPage() {
                         </div>
                     </section>
 
-                    <section className="pt-8 border-t border-white/10">
+                    <section className="pt-8 border-t border-white/10 text-right">
                         <p className="text-sm text-slate-500">
-                            制定日：2026年1月16日
+                            最終更新日：2026年1月16日
                         </p>
                     </section>
                 </div>
