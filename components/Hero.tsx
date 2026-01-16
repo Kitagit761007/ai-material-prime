@@ -2,7 +2,21 @@
 
 import { Search, Briefcase, CheckCircle, MonitorCheck } from "lucide-react";
 
-export default function Hero() {
+interface HeroProps {
+    searchQuery: string;
+    setSearchQuery: (query: string) => void;
+}
+
+export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
+    const handleTagClick = (tag: string) => {
+        const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
+        if (searchQuery === cleanTag) {
+            setSearchQuery("");
+        } else {
+            setSearchQuery(cleanTag);
+        }
+    };
+
     return (
         <section className="relative pt-24 pb-32 px-6 flex flex-col items-center justify-center text-center overflow-hidden">
             {/* Background Glows */}
@@ -39,6 +53,8 @@ export default function Hero() {
             <div className="relative w-full max-w-xl group">
                 <input
                     type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="エネルギー記号を検索..."
                     className="w-full bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl py-4 pl-12 pr-4 text-white placeholder-slate-500 focus:outline-none focus:border-gx-cyan focus:ring-1 focus:ring-gx-cyan transition-all duration-300 shadow-2xl"
                 />
@@ -47,15 +63,23 @@ export default function Hero() {
 
             {/* Floating Chips */}
             <div className="mt-12 flex flex-wrap justify-center gap-4">
-                {["#水素エネルギー", "#スマートシティ", "#風力発電", "#環境技術"].map((tag, i) => (
-                    <span
-                        key={tag}
-                        className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-medium hover:bg-white/10 text-gx-cyan cursor-pointer transition-all animate-float"
-                        style={{ animationDelay: `${i * 0.5}s` }}
-                    >
-                        {tag}
-                    </span>
-                ))}
+                {["#水素エネルギー", "#スマートシティ", "#風力発電", "#環境技術"].map((tag, i) => {
+                    const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
+                    const isActive = searchQuery === cleanTag;
+                    return (
+                        <button
+                            key={tag}
+                            onClick={() => handleTagClick(tag)}
+                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all animate-float border ${isActive
+                                    ? "bg-gx-cyan border-gx-cyan text-white shadow-lg shadow-gx-cyan/20"
+                                    : "bg-white/5 border-white/10 text-gx-cyan hover:bg-white/10"
+                                }`}
+                            style={{ animationDelay: `${i * 0.5}s` }}
+                        >
+                            {tag}
+                        </button>
+                    );
+                })}
             </div>
         </section>
     );

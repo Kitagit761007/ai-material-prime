@@ -7,55 +7,49 @@ import assets from "@/data/assets.json";
 
 interface ImageGridProps {
     initialItems?: typeof assets;
+    searchQuery?: string;
 }
 
-export default function ImageGrid({ initialItems = assets }: ImageGridProps) {
-    const [filter, setFilter] = useState<string | null>(null);
-    const [items, setItems] = useState(initialItems);
+export default function ImageGrid({ initialItems = assets, searchQuery = "" }: ImageGridProps) {
     const [selectedImage, setSelectedImage] = useState<typeof assets[0] | null>(null);
 
-    const handleTagClick = (tag: string) => {
-        if (filter === tag) {
-            setFilter(null);
-            setItems(initialItems);
-        } else {
-            setFilter(tag);
-            setItems(initialItems.filter(item => item.tags.includes(tag)));
-        }
+    // Dynamic filtering based on searchQuery
+    const filteredItems = assets.filter(item => {
+        const query = searchQuery.toLowerCase();
+        return (
+            item.title.toLowerCase().includes(query) ||
+            item.description.toLowerCase().includes(query) ||
+            item.tags.some(tag => tag.toLowerCase().includes(query)) ||
+            item.category.toLowerCase().includes(query)
+        );
+    });
+
+    const handleInternalTagClick = (tag: string) => {
+        // This is for tags inside the lightbox. 
+        // In a real app we might want this to update the global search too.
+        // For now, we'll keep it simple or implement a callback.
     };
 
     return (
         <section className="px-6 pb-20 max-w-7xl mx-auto">
-            {/* Filter UI */}
-            {filter && (
-                <div className="mb-8 flex items-center gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
-                    <span className="text-slate-400">Filtering by:</span>
-                    <button
-                        onClick={() => { setFilter(null); setItems(initialItems); }}
-                        className="px-3 py-1 bg-gx-cyan text-white rounded-full text-sm font-bold flex items-center gap-2 hover:bg-gx-cyan/80 transition-colors"
-                    >
-                        {filter} <span className="text-xs">✕</span>
-                    </button>
-                    <button
-                        onClick={() => { setFilter(null); setItems(initialItems); }}
-                        className="text-xs text-slate-500 hover:text-white transition-colors"
-                    >
-                        Clear All
-                    </button>
-                </div>
-            )}
-
             {/* Grid */}
             <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                {items.map((img) => (
+                {filteredItems.map((img) => (
                     <ImageCard
                         key={img.id}
                         img={img}
-                        onTagClick={handleTagClick}
+                        onTagClick={handleInternalTagClick}
                         onClick={() => setSelectedImage(img)}
                     />
                 ))}
             </div>
+
+            {/* No Results Fallback */}
+            {filteredItems.length === 0 && (
+                <div className="py-20 text-center text-slate-500">
+                    <p>一致するアセットが見つかりませんでした。</p>
+                </div>
+            )}
 
             {/* Lightbox Modal */}
             {selectedImage && (
