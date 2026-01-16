@@ -1,5 +1,13 @@
 import { useRouter } from "next/navigation";
 import { Search, Briefcase, CheckCircle, MonitorCheck } from "lucide-react";
+import assets from "@/data/assets.json";
+
+const knownTags = new Set(
+    assets.flatMap(a => [
+        a.category.toLowerCase(),
+        ...a.tags.map(t => t.toLowerCase().replace("#", ""))
+    ])
+);
 
 interface HeroProps {
     searchQuery: string;
@@ -11,14 +19,23 @@ export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
 
     const handleSearch = (e?: React.FormEvent) => {
         if (e) e.preventDefault();
-        if (searchQuery.trim()) {
-            router.push(`/tags/${encodeURIComponent(searchQuery.trim().replace("#", ""))}`);
+        const term = searchQuery.trim().replace("#", "");
+        if (!term) return;
+
+        if (knownTags.has(term.toLowerCase())) {
+            router.push(`/tags/${encodeURIComponent(term)}`);
+        } else {
+            router.push(`/search?q=${encodeURIComponent(term)}`);
         }
     };
 
     const handleTagClick = (tag: string) => {
-        const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
-        router.push(`/tags/${encodeURIComponent(cleanTag)}`);
+        const term = tag.startsWith("#") ? tag.substring(1) : tag;
+        if (knownTags.has(term.toLowerCase())) {
+            router.push(`/tags/${encodeURIComponent(term)}`);
+        } else {
+            router.push(`/search?q=${encodeURIComponent(term)}`);
+        }
     };
 
     return (
