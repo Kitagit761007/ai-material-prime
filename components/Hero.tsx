@@ -45,13 +45,13 @@ export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
 
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-gx-cyan via-white to-gx-emerald">
-                    GX Asset Library
+                    GXの未来を、あなたの資料に。
                 </span>
             </h1>
 
             <p className="text-lg md:text-xl text-slate-300 max-w-2xl mb-8 leading-relaxed">
-                すべての素材は商用利用可能・ロイヤリティフリー。<br className="hidden md:block" />
-                クレジット表記不要で、資料作成やWeb制作にすぐにご活用いただけます。
+                商用利用・クレジット不要。<br className="hidden md:block" />
+                プロ仕様の次世代素材がプレゼンを加速させる。
             </p>
 
             {/* Benefit Badges */}

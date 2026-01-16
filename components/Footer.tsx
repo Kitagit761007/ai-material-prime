@@ -32,31 +32,31 @@ export default function Footer() {
                         </h3>
                         <ul className="grid grid-cols-1 gap-4">
                             <li>
-                                <Link href="/categories/Energy" className="text-slate-400 hover:text-gx-cyan transition-colors text-sm flex items-center gap-2 group">
+                                <Link href="/categories/Energy" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm flex items-center gap-2 group">
                                     <span className="w-1 h-0.5 bg-slate-800 group-hover:bg-gx-cyan transition-colors" />
                                     エネルギー
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/categories/Mobility" className="text-slate-400 hover:text-gx-cyan transition-colors text-sm flex items-center gap-2 group">
+                                <Link href="/categories/Mobility" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm flex items-center gap-2 group">
                                     <span className="w-1 h-0.5 bg-slate-800 group-hover:bg-gx-cyan transition-colors" />
                                     モビリティ
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/categories/Tech" className="text-slate-400 hover:text-gx-cyan transition-colors text-sm flex items-center gap-2 group">
+                                <Link href="/categories/Tech" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm flex items-center gap-2 group">
                                     <span className="w-1 h-0.5 bg-slate-800 group-hover:bg-gx-cyan transition-colors" />
                                     テクノロジー
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/categories/Resource" className="text-slate-400 hover:text-gx-cyan transition-colors text-sm flex items-center gap-2 group">
+                                <Link href="/categories/Resource" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm flex items-center gap-2 group">
                                     <span className="w-1 h-0.5 bg-slate-800 group-hover:bg-gx-cyan transition-colors" />
                                     資源・バイオ
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/categories/Eco-Life" className="text-slate-400 hover:text-gx-cyan transition-colors text-sm flex items-center gap-2 group">
+                                <Link href="/categories/Eco-Life" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm flex items-center gap-2 group">
                                     <span className="w-1 h-0.5 bg-slate-800 group-hover:bg-gx-cyan transition-colors" />
                                     エコ・ライフスタイル
                                 </Link>
@@ -76,7 +76,7 @@ export default function Footer() {
                                 <Link
                                     key={tag}
                                     href={`/tags/${encodeURIComponent(tag)}`}
-                                    className="px-2 py-1 bg-white/5 hover:bg-gx-cyan/10 text-slate-500 hover:text-gx-cyan rounded-md border border-white/5 hover:border-gx-cyan/20 text-xs transition-all"
+                                    className="px-2 py-1 bg-white/5 hover:bg-gx-cyan/10 text-slate-300 hover:text-gx-cyan rounded-md border border-white/5 hover:border-gx-cyan/20 text-xs transition-all"
                                 >
                                     #{tag}
                                 </Link>
@@ -92,17 +92,17 @@ export default function Footer() {
                         </h3>
                         <ul className="space-y-4">
                             <li>
-                                <Link href="/gallery" className="text-slate-400 hover:text-gx-cyan transition-colors text-sm">
+                                <Link href="/gallery" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm">
                                     ギャラリー
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/about" className="text-slate-400 hover:text-gx-cyan transition-colors text-sm">
+                                <Link href="/about" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm">
                                     当サイトについて
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/contact" className="text-slate-400 hover:text-gx-cyan transition-colors text-sm font-bold text-gx-cyan/80">
+                                <Link href="/contact" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm font-bold text-gx-cyan/80">
                                     お問い合わせ
                                 </Link>
                             </li>
@@ -118,8 +118,8 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 space-y-4 md:space-y-0">
-                    <p className="text-slate-500 text-xs font-mono">
+                <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 space-y-4 md:space-y-0 text-slate-400">
+                    <p className="text-xs font-mono">
                         © {currentYear} GX Prime Visuals. All rights reserved.
                     </p>
                     <div className="flex gap-6">

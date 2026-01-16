@@ -119,19 +119,20 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "", onR
                             </div>
 
                             {/* DOWNLOAD UI (Prioritized) */}
-                            <div className="shrink-0 p-4 bg-white/5 rounded-xl border border-white/10">
+                            <div className="shrink-0 p-5 bg-gx-cyan/5 rounded-2xl border border-gx-cyan/20">
                                 <a
                                     href={selectedImage.src}
                                     download
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center justify-center gap-2 w-full py-3.5 bg-gx-cyan text-white font-bold rounded-xl hover:bg-gx-cyan/90 transition-all shadow-lg shadow-gx-cyan/20 hover:scale-[1.02] active:scale-[0.98]"
+                                    className="flex flex-col items-center justify-center gap-1 w-full py-4 bg-gx-cyan text-white font-bold rounded-xl hover:bg-gx-cyan/90 transition-all shadow-xl shadow-gx-cyan/20 hover:scale-[1.02] active:scale-[0.98] group"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
-                                    無料ダウンロード (PNG)
+                                    <div className="flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
+                                        高解像度PNGをダウンロード
+                                    </div>
+                                    <span className="text-[10px] opacity-70 font-mono">Approx. {selectedImage.size} / Professional Grade</span>
                                 </a>
-                                <p className="text-center text-[10px] font-bold text-gx-emerald mt-3 flex items-center justify-center gap-1 opacity-90">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                                <p className="text-center text-[10px] font-bold text-gx-emerald mt-4 flex items-center justify-center gap-1.5 opacity-90">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                                     商用利用可能・ロイヤリティフリー・クレジット不要
                                 </p>
                             </div>
@@ -218,7 +219,7 @@ function ImageCard({
             />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                <h3 className="text-white font-bold text-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <h3 className="text-white font-bold text-lg tracking-tight font-sans transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                     {img.title}
                 </h3>
                 <p className="text-slate-300 text-sm mt-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75 line-clamp-2">
