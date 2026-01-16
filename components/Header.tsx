@@ -36,6 +36,9 @@ export default function Header() {
                     <Link href="/gallery" className="text-sm font-medium hover:text-gx-cyan transition-colors">
                         ギャラリー
                     </Link>
+                    <Link href="/tags" className="text-sm font-medium hover:text-gx-cyan transition-colors">
+                        タグ一覧
+                    </Link>
                     <Link href="/about" className="text-sm font-medium hover:text-gx-cyan transition-colors">
                         当サイトについて
                     </Link>
@@ -64,6 +67,13 @@ export default function Header() {
                         onClick={closeMenu}
                     >
                         ギャラリー
+                    </Link>
+                    <Link
+                        href="/tags"
+                        className="text-2xl font-bold text-white hover:text-gx-cyan transition-colors"
+                        onClick={closeMenu}
+                    >
+                        タグ一覧
                     </Link>
                     <Link
                         href="/about"
