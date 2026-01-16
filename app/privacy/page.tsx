@@ -68,11 +68,18 @@ export default function PrivacyPage() {
                             4. お問い合わせ先
                         </h2>
                         <p>
-                            個人情報の取り扱いに関するお問い合わせは、下記までご連絡ください。
+                            個人情報の取り扱いに関するお問い合わせは、下記よりご連絡ください。
                         </p>
-                        <div className="mt-6 p-6 bg-white/5 rounded-2xl border border-white/10 inline-block">
-                            <p className="text-sm text-slate-400 mb-1">Email</p>
-                            <p className="text-gx-cyan font-mono text-xl">hakuto1024@gmail.com</p>
+                        <div className="mt-6">
+                            <Link
+                                href="/contact"
+                                className="inline-flex items-center px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-gx-cyan/50 rounded-xl transition-all group"
+                            >
+                                <span className="text-gx-cyan font-bold mr-2 group-hover:translate-x-1 transition-transform">
+                                    お問い合わせフォーム
+                                </span>
+                                <ChevronLeft className="w-4 h-4 text-slate-500 rotate-180 group-hover:translate-x-1 transition-transform" />
+                            </Link>
                         </div>
                     </section>
 
