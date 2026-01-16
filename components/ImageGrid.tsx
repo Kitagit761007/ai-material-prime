@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import assets from "@/data/assets.json";
+// Trigger Run #19
 
 interface ImageGridProps {
     initialItems?: typeof assets;
@@ -62,7 +63,7 @@ export default function ImageGrid({ initialItems = assets }: ImageGridProps) {
                     {/* Backdrop Click to Close */}
                     <div className="absolute inset-0 cursor-zoom-out" onClick={() => setSelectedImage(null)} />
 
-                    <div className="relative bg-slate-900 rounded-2xl overflow-hidden max-w-6xl w-full max-h-[90vh] flex flex-col md:flex-row shadow-2xl border border-white/10 z-10" onClick={e => e.stopPropagation()}>
+                    <div className="relative bg-slate-900 rounded-2xl overflow-hidden max-w-6xl w-full h-auto max-h-[90vh] flex flex-col md:flex-row shadow-2xl border border-white/10 z-10" onClick={e => e.stopPropagation()}>
                         <button
                             onClick={() => setSelectedImage(null)}
                             className="absolute top-4 right-4 z-20 p-2 bg-black/50 text-white rounded-full hover:bg-white/20 transition-colors backdrop-blur-md"
@@ -71,7 +72,7 @@ export default function ImageGrid({ initialItems = assets }: ImageGridProps) {
                         </button>
 
                         {/* Image Side */}
-                        <div className="md:w-2/3 bg-black/50 flex items-center justify-center relative min-h-[300px] md:min-h-full">
+                        <div className="md:w-2/3 bg-black/50 flex items-center justify-center relative min-h-[300px] md:h-auto">
                             <Image
                                 src={selectedImage.src}
                                 alt={selectedImage.title}
@@ -81,41 +82,47 @@ export default function ImageGrid({ initialItems = assets }: ImageGridProps) {
                         </div>
 
                         {/* Details Side */}
-                        <div className="md:w-1/3 p-8 flex flex-col overflow-y-auto bg-slate-900">
-                            <div className="mb-6">
-                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">{selectedImage.title}</h2>
-                                <div className="flex items-center gap-2 mb-6">
-                                    <span className="px-2 py-1 bg-gx-cyan/20 text-gx-cyan text-xs font-bold rounded border border-gx-cyan/30">
+                        <div className="md:w-1/3 p-6 flex flex-col bg-slate-900 overflow-y-auto min-h-0 gap-4">
+                            {/* Header */}
+                            <div className="shrink-0">
+                                <h2 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight line-clamp-2">{selectedImage.title}</h2>
+                                <div className="flex items-center gap-2 mb-3">
+                                    <span className="px-2 py-0.5 bg-gx-cyan/20 text-gx-cyan text-xs font-bold rounded border border-gx-cyan/30">
                                         GX Score: {selectedImage.score}
                                     </span>
                                 </div>
-                                <p className="text-slate-300 leading-relaxed text-sm md:text-base">
+                                <p className="text-slate-300 leading-snug text-sm line-clamp-3">
                                     {selectedImage.description}
                                 </p>
                             </div>
 
-                            {/* SPECIFICATIONS */}
-                            <div className="mb-8 p-4 bg-white/5 rounded-xl border border-white/10">
-                                <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">SPECIFICATIONS</h3>
-                                <div className="space-y-2 text-sm text-slate-300">
-                                    <div className="flex justify-between">
-                                        <span className="text-slate-500">Resolution</span>
-                                        <span className="font-mono text-white">{selectedImage.width} x {selectedImage.height} px</span>
+                            {/* SPECIFICATIONS (Compact 2-col Grid) */}
+                            <div className="p-3 bg-white/5 rounded-lg border border-white/10 shrink-0">
+                                <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">SPECIFICATIONS</h3>
+                                <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-slate-300">
+                                    <div className="flex justify-between border-b border-white/5 pb-1">
+                                        <span className="text-slate-500 text-xs">Resolution</span>
+                                        <span className="font-mono text-white text-xs">{selectedImage.width} x {selectedImage.height}</span>
                                     </div>
-                                    <div className="flex justify-between">
-                                        <span className="text-slate-500">File Size</span>
-                                        <span className="font-mono text-white">{selectedImage.size}</span>
+                                    <div className="flex justify-between border-b border-white/5 pb-1">
+                                        <span className="text-slate-500 text-xs">Size</span>
+                                        <span className="font-mono text-white text-xs">{selectedImage.size}</span>
                                     </div>
-                                    <div className="flex justify-between">
-                                        <span className="text-slate-500">Aspect Ratio</span>
-                                        <span className="font-mono text-white">{selectedImage.aspectRatio}</span>
+                                    <div className="flex justify-between pt-1">
+                                        <span className="text-slate-500 text-xs">Ratio</span>
+                                        <span className="font-mono text-white text-xs">{selectedImage.aspectRatio}</span>
+                                    </div>
+                                    <div className="flex justify-between pt-1">
+                                        <span className="text-slate-500 text-xs">Cat</span>
+                                        <span className="font-mono text-white text-xs capitalize">{selectedImage.category}</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="mb-8">
-                                <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Tags</h3>
-                                <div className="flex flex-wrap gap-2">
+                            {/* TAGS */}
+                            <div className="shrink-0 grow">
+                                <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Tags</h3>
+                                <div className="flex flex-wrap gap-1.5">
                                     {selectedImage.tags.map((tag: string) => (
                                         <button
                                             key={tag}
@@ -131,20 +138,22 @@ export default function ImageGrid({ initialItems = assets }: ImageGridProps) {
                                 </div>
                             </div>
 
-                            <div className="mt-auto pt-6 border-t border-white/10">
+                            {/* DOWNLOAD UI */}
+                            <div className="mt-auto pt-4 border-t border-white/10 shrink-0">
+                                <p className="text-center text-xs font-bold text-gx-emerald mb-2 flex items-center justify-center gap-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                                    商用利用可能・ロイヤリティフリー・クレジット不要
+                                </p>
                                 <a
                                     href={selectedImage.src}
                                     download
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center justify-center gap-2 w-full py-4 bg-gx-cyan text-white font-bold rounded-xl hover:bg-gx-cyan/90 transition-all shadow-lg shadow-gx-cyan/20 hover:scale-[1.02] active:scale-[0.98]"
+                                    className="flex items-center justify-center gap-2 w-full py-3 bg-gx-cyan text-white font-bold rounded-xl hover:bg-gx-cyan/90 transition-all shadow-lg shadow-gx-cyan/20 hover:scale-[1.02] active:scale-[0.98]"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
                                     無料ダウンロード (PNG)
                                 </a>
-                                <p className="text-center text-xs text-slate-500 mt-3">
-                                    商用利用可能・クレジット表記不要
-                                </p>
                             </div>
                         </div>
                     </div>
