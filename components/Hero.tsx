@@ -1,5 +1,4 @@
-"use client";
-
+import { useRouter } from "next/navigation";
 import { Search, Briefcase, CheckCircle, MonitorCheck } from "lucide-react";
 
 interface HeroProps {
@@ -8,13 +7,18 @@ interface HeroProps {
 }
 
 export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
+    const router = useRouter();
+
+    const handleSearch = (e?: React.FormEvent) => {
+        if (e) e.preventDefault();
+        if (searchQuery.trim()) {
+            router.push(`/tags/${encodeURIComponent(searchQuery.trim().replace("#", ""))}`);
+        }
+    };
+
     const handleTagClick = (tag: string) => {
         const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
-        if (searchQuery === cleanTag) {
-            setSearchQuery("");
-        } else {
-            setSearchQuery(cleanTag);
-        }
+        router.push(`/tags/${encodeURIComponent(cleanTag)}`);
     };
 
     return (
@@ -51,7 +55,7 @@ export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
 
             {/* Search Bar */}
             <form
-                onSubmit={(e) => e.preventDefault()}
+                onSubmit={handleSearch}
                 className="relative w-full max-w-xl group flex items-center gap-2"
             >
                 <div className="relative flex-1">
