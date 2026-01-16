@@ -1,14 +1,9 @@
-"use client";
-
-import { use } from "react";
 import ImageGrid from "@/components/ImageGrid";
 import assets from "@/data/assets.json";
 import { ChevronLeft, Hash } from "lucide-react";
 import Link from "next/link";
 
 // Static params generation for GitHub Pages compatibility
-// Note: This needs to be in a separate layout or handled via a server component if targeting strict SSG,
-// but for this client-side filtered approach, we'll ensure it works within the export flow.
 export async function generateStaticParams() {
     const tags = new Set<string>();
     assets.forEach(asset => {
@@ -16,12 +11,12 @@ export async function generateStaticParams() {
         tags.add(asset.category);
     });
     return Array.from(tags).map((tag) => ({
-        tag: encodeURIComponent(tag),
+        tag: tag, // Next.js handles encoding automatically
     }));
 }
 
-export default function TagPage({ params }: { params: Promise<{ tag: string }> }) {
-    const resolvedParams = use(params);
+export default async function TagPage({ params }: { params: Promise<{ tag: string }> }) {
+    const resolvedParams = await params;
     const decodedTag = decodeURIComponent(resolvedParams.tag);
 
     return (

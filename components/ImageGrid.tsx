@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import assets from "@/data/assets.json";
 // Trigger Run #19
@@ -12,6 +13,7 @@ interface ImageGridProps {
 
 export default function ImageGrid({ initialItems = assets, searchQuery = "" }: ImageGridProps) {
     const [selectedImage, setSelectedImage] = useState<typeof assets[0] | null>(null);
+    const router = useRouter();
 
     // Dynamic filtering based on searchQuery
     const filteredItems = assets.filter(item => {
@@ -25,9 +27,8 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "" }: I
     });
 
     const handleInternalTagClick = (tag: string) => {
-        // This is for tags inside the lightbox. 
-        // In a real app we might want this to update the global search too.
-        // For now, we'll keep it simple or implement a callback.
+        const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
+        router.push(`/tags/${encodeURIComponent(cleanTag)}`);
     };
 
     return (
@@ -140,7 +141,7 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "" }: I
                                             key={tag}
                                             onClick={(e: React.MouseEvent) => {
                                                 setSelectedImage(null);
-                                                handleTagClick(tag);
+                                                handleInternalTagClick(tag);
                                             }}
                                             className="px-2 py-0.5 bg-white/5 text-slate-400 text-[11px] rounded border border-white/10 hover:border-gx-cyan hover:text-gx-cyan transition-colors"
                                         >
