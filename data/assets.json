@@ -106,5 +106,41 @@
             "#DX",
             "#商用利用可"
         ]
+    },
+    {
+        "id": "img_mobility_01",
+        "title": "未来都市の水素自動運転ネットワーク",
+        "description": "水素燃料で稼働する次世代モビリティが、排出ガスゼロのクリーンな都市インフラを実現。",
+        "src": "/assets/images/gx_mobility_01.jpg",
+        "category": "hydrogen",
+        "score": 99,
+        "width": 1024,
+        "height": 576,
+        "size": "512 KB",
+        "aspectRatio": "16:9 (Widescreen)",
+        "tags": [
+            "#水素エネルギー",
+            "#自動運転",
+            "#スマートシティ",
+            "#次世代交通"
+        ]
+    },
+    {
+        "id": "img_mobility_02",
+        "title": "クリーンモビリティが彩る未来の夜景",
+        "description": "高度なエネルギー管理システムにより最適化された、持続可能な都市モビリティの景観。",
+        "src": "/assets/images/gx_mobility_02.jpg",
+        "category": "hydrogen",
+        "score": 97,
+        "width": 1024,
+        "height": 576,
+        "size": "486 KB",
+        "aspectRatio": "16:9 (Widescreen)",
+        "tags": [
+            "#水素エネルギー",
+            "#EV",
+            "#スマートシティ",
+            "#脱炭素"
+        ]
     }
 ]
