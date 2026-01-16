@@ -9,6 +9,7 @@ import assets from "@/data/assets.json";
 interface ImageGridProps {
     initialItems?: typeof assets;
     searchQuery?: string;
+    showAllButton?: boolean;
 }
 
 export default function ImageGrid({ initialItems = assets, searchQuery = "" }: ImageGridProps) {
@@ -17,11 +18,12 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "" }: I
 
     // Dynamic filtering based on searchQuery
     const filteredItems = assets.filter(item => {
-        const query = searchQuery.toLowerCase();
+        if (!searchQuery) return true;
+        const query = searchQuery.toLowerCase().replace("#", "");
         return (
             item.title.toLowerCase().includes(query) ||
             item.description.toLowerCase().includes(query) ||
-            item.tags.some(tag => tag.toLowerCase().includes(query)) ||
+            item.tags.some(tag => tag.toLowerCase().replace("#", "").includes(query)) ||
             item.category.toLowerCase().includes(query)
         );
     });
@@ -47,8 +49,25 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "" }: I
 
             {/* No Results Fallback */}
             {filteredItems.length === 0 && (
-                <div className="py-20 text-center text-slate-500">
-                    <p>一致するアセットが見つかりませんでした。</p>
+                <div className="py-24 text-center flex flex-col items-center justify-center animate-in fade-in slide-in-from-bottom-4 duration-700">
+                    <div className="w-20 h-20 bg-white/5 rounded-3xl border border-white/10 flex items-center justify-center mb-6 shadow-2xl relative group overflow-hidden">
+                        <div className="absolute inset-0 bg-gx-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <svg className="w-10 h-10 text-slate-500 group-hover:text-gx-cyan transition-colors" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-3">
+                        一致するアセットが見つかりませんでした
+                    </h3>
+                    <p className="text-slate-400 mb-10 max-w-md mx-auto leading-relaxed">
+                        「<span className="text-gx-cyan font-semibold">{searchQuery}</span>」に一致する画像はありませんでした。<br />
+                        キーワードを変えるか、他のカテゴリーを探索してみてください。
+                    </p>
+                    <button
+                        onClick={() => router.push("/")}
+                        className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-2xl border border-white/10 transition-all hover:scale-105 active:scale-95 flex items-center gap-2 group"
+                    >
+                        <svg className="w-4 h-4 text-gx-cyan group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+                        全画像を表示する
+                    </button>
                 </div>
             )}
 
