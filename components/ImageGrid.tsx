@@ -98,6 +98,7 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "", onR
                                 src={selectedImage.src}
                                 alt={selectedImage.title}
                                 fill
+                                quality={80}
                                 className="object-contain"
                             />
                         </div>
@@ -210,6 +211,7 @@ function ImageCard({
                 alt={img.title}
                 width={600}
                 height={800}
+                quality={80}
                 className={`w-full h-auto object-cover transition-all duration-700 ease-in-out ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"
                     } group-hover:scale-105`}
                 onLoad={() => setLoaded(true)}
