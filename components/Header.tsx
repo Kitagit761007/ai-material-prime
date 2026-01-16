@@ -33,9 +33,11 @@ export default function Header() {
                     <Link href="/about" className="text-sm font-medium hover:text-gx-cyan transition-colors">
                         当サイトについて
                     </Link>
-                    <button className="px-4 py-2 text-xs font-bold uppercase tracking-widest border border-gx-cyan text-gx-cyan hover:bg-gx-cyan hover:text-white transition-all rounded-full">
-                        お問い合わせ / 接続
-                    </button>
+                    <Link href="/contact">
+                        <button className="px-5 py-2 text-xs font-bold uppercase tracking-widest border border-gx-cyan text-gx-cyan hover:bg-gx-cyan hover:text-white transition-all rounded-full">
+                            お問い合わせ
+                        </button>
+                    </Link>
                 </nav>
             </div>
         </header>
