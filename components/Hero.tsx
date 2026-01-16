@@ -43,11 +43,13 @@ export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
             {/* Background Glows */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gx-cyan/20 rounded-full blur-[120px] -z-10" />
 
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-gx-cyan via-white to-gx-emerald">
-                    GXの未来を、あなたの資料に。
-                </span>
-            </h1>
+            <div className="max-w-4xl mx-auto">
+                <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-gx-cyan via-white to-gx-emerald">
+                        GXの未来を、あなたの資料に。
+                    </span>
+                </h1>
+            </div>
 
             <p className="text-lg md:text-xl text-slate-300 max-w-2xl mb-8 leading-relaxed">
                 商用利用・クレジット不要。<br className="hidden md:block" />

@@ -107,7 +107,7 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "", onR
                         <div className="md:w-1/3 p-6 flex flex-col bg-slate-900 overflow-y-auto min-h-0 gap-6">
                             {/* Header */}
                             <div className="shrink-0">
-                                <h2 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight line-clamp-2">{selectedImage.title}</h2>
+                                <h2 className="text-lg md:text-xl font-bold text-white mb-2 leading-snug line-clamp-2">{selectedImage.title}</h2>
                                 <div className="flex items-center gap-2 mb-3">
                                     <span className="px-2 py-0.5 bg-gx-cyan/20 text-gx-cyan text-xs font-bold rounded border border-gx-cyan/30">
                                         GX Score: {selectedImage.score}
@@ -123,7 +123,7 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "", onR
                                 <a
                                     href={selectedImage.src}
                                     download
-                                    className="flex flex-col items-center justify-center gap-1 w-full py-4 bg-gx-cyan text-white font-bold rounded-xl hover:bg-gx-cyan/90 transition-all shadow-xl shadow-gx-cyan/20 hover:scale-[1.02] active:scale-[0.98] group"
+                                    className="flex flex-col items-center justify-center gap-1 w-full py-3 md:py-3 bg-gx-cyan text-white font-bold text-sm md:text-sm rounded-xl hover:bg-gx-cyan/90 transition-all shadow-xl shadow-gx-cyan/20 hover:scale-[1.02] active:scale-[0.98] group"
                                 >
                                     <div className="flex items-center gap-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
