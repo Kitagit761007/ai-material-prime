@@ -50,16 +50,27 @@ export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
             </div>
 
             {/* Search Bar */}
-            <div className="relative w-full max-w-xl group">
-                <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="エネルギー記号を検索..."
-                    className="w-full bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl py-4 pl-12 pr-4 text-white placeholder-slate-500 focus:outline-none focus:border-gx-cyan focus:ring-1 focus:ring-gx-cyan transition-all duration-300 shadow-2xl"
-                />
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 group-focus-within:text-gx-cyan transition-colors" />
-            </div>
+            <form
+                onSubmit={(e) => e.preventDefault()}
+                className="relative w-full max-w-xl group flex items-center gap-2"
+            >
+                <div className="relative flex-1">
+                    <input
+                        type="text"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        placeholder="キーワードを入力..."
+                        className="w-full bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl py-4 pl-12 pr-4 text-white placeholder-slate-500 focus:outline-none focus:border-gx-cyan focus:ring-1 focus:ring-gx-cyan transition-all duration-300 shadow-2xl"
+                    />
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 group-focus-within:text-gx-cyan transition-colors" />
+                </div>
+                <button
+                    type="submit"
+                    className="shrink-0 bg-gx-cyan hover:bg-gx-cyan/90 text-white font-bold py-4 px-8 rounded-2xl transition-all shadow-lg shadow-gx-cyan/20 active:scale-95"
+                >
+                    検索
+                </button>
+            </form>
 
             {/* Floating Chips */}
             <div className="mt-12 flex flex-wrap justify-center gap-4">
@@ -71,8 +82,8 @@ export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
                             key={tag}
                             onClick={() => handleTagClick(tag)}
                             className={`px-4 py-2 rounded-full text-sm font-medium transition-all animate-float border ${isActive
-                                    ? "bg-gx-cyan border-gx-cyan text-white shadow-lg shadow-gx-cyan/20"
-                                    : "bg-white/5 border-white/10 text-gx-cyan hover:bg-white/10"
+                                ? "bg-gx-cyan border-gx-cyan text-white shadow-lg shadow-gx-cyan/20"
+                                : "bg-white/5 border-white/10 text-gx-cyan hover:bg-white/10"
                                 }`}
                             style={{ animationDelay: `${i * 0.5}s` }}
                         >
