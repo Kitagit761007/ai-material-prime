@@ -94,13 +94,32 @@ export default function ImageGrid({ initialItems = assets }: ImageGridProps) {
                                 </p>
                             </div>
 
+                            {/* SPECIFICATIONS */}
+                            <div className="mb-8 p-4 bg-white/5 rounded-xl border border-white/10">
+                                <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">SPECIFICATIONS</h3>
+                                <div className="space-y-2 text-sm text-slate-300">
+                                    <div className="flex justify-between">
+                                        <span className="text-slate-500">Resolution</span>
+                                        <span className="font-mono text-white">{selectedImage.width} x {selectedImage.height} px</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span className="text-slate-500">File Size</span>
+                                        <span className="font-mono text-white">{selectedImage.size}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span className="text-slate-500">Aspect Ratio</span>
+                                        <span className="font-mono text-white">{selectedImage.aspectRatio}</span>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div className="mb-8">
                                 <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Tags</h3>
                                 <div className="flex flex-wrap gap-2">
-                                    {selectedImage.tags.map(tag => (
+                                    {selectedImage.tags.map((tag: string) => (
                                         <button
                                             key={tag}
-                                            onClick={(e) => {
+                                            onClick={(e: React.MouseEvent) => {
                                                 setSelectedImage(null);
                                                 handleTagClick(tag);
                                             }}
@@ -178,7 +197,7 @@ function ImageCard({
                     {img.tags && img.tags.slice(0, 3).map((tag: string) => (
                         <button
                             key={tag}
-                            onClick={(e) => { e.stopPropagation(); onTagClick(tag); }}
+                            onClick={(e: React.MouseEvent) => { e.stopPropagation(); onTagClick(tag); }}
                             className="px-2 py-1 bg-white/10 hover:bg-gx-cyan hover:text-white text-gx-cyan text-xs font-bold rounded cursor-pointer transition-all border border-white/5"
                         >
                             {tag}
