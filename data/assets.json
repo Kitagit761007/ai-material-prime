@@ -1,5 +1,23 @@
 [
     {
+        "id": "hydrogen-bus-future-01",
+        "src": "/images/hydrogen_bus_future_city.png",
+        "title": "次世代水素自動運転バス",
+        "description": "ネオンが輝く未来都市を駆ける、水素燃料の自動運転バスとEVモビリティ。",
+        "category": "hydrogen",
+        "score": 96,
+        "width": 1024,
+        "height": 1024,
+        "size": "950 KB",
+        "aspectRatio": "1:1 (Square)",
+        "tags": [
+            "#水素エネルギー",
+            "#自動運転",
+            "#未来都市",
+            "#商用利用可"
+        ]
+    },
+    {
         "id": "h2-plant-01",
         "src": "/images/hydrogen/h2-plant.png",
         "title": "未来型水素プラント",
