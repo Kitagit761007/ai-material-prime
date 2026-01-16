@@ -123,6 +123,14 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "", onR
                                 <a
                                     href={selectedImage.src}
                                     download
+                                    onClick={() => {
+                                        if (typeof window !== "undefined" && (window as any).dataLayer) {
+                                            (window as any).dataLayer.push({
+                                                event: 'file_download',
+                                                file_name: selectedImage.title
+                                            });
+                                        }
+                                    }}
                                     className="flex flex-col items-center justify-center gap-1 w-full py-3 md:py-3 bg-gx-cyan text-white font-bold text-sm md:text-sm rounded-xl hover:bg-gx-cyan/90 transition-all shadow-xl shadow-gx-cyan/20 hover:scale-[1.02] active:scale-[0.98] group"
                                 >
                                     <div className="flex items-center gap-2">
