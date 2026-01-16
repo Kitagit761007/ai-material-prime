@@ -39,10 +39,8 @@ export default function Header() {
                     <Link href="/about" className="text-sm font-medium hover:text-gx-cyan transition-colors">
                         当サイトについて
                     </Link>
-                    <Link href="/contact">
-                        <button className="px-5 py-2 text-xs font-bold uppercase tracking-widest border border-gx-cyan text-gx-cyan hover:bg-gx-cyan hover:text-white transition-all rounded-full">
-                            お問い合わせ
-                        </button>
+                    <Link href="/contact" className="text-sm font-medium hover:text-gx-cyan transition-colors">
+                        お問い合わせ
                     </Link>
                 </nav>
 
@@ -74,10 +72,12 @@ export default function Header() {
                     >
                         当サイトについて
                     </Link>
-                    <Link href="/contact" onClick={closeMenu}>
-                        <button className="px-8 py-4 text-sm font-bold uppercase tracking-widest bg-gx-cyan text-white shadow-lg shadow-gx-cyan/20 rounded-full">
-                            お問い合わせ
-                        </button>
+                    <Link
+                        href="/contact"
+                        className="text-2xl font-bold text-white hover:text-gx-cyan transition-colors"
+                        onClick={closeMenu}
+                    >
+                        お問い合わせ
                     </Link>
                 </div>
             </div>
