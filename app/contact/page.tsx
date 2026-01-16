@@ -1,18 +1,39 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Send, CheckCircle2 } from "lucide-react";
 
 export default function ContactPage() {
     const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setStatus("submitting");
-        // Simulate API call
-        setTimeout(() => {
-            setStatus("success");
-        }, 1200);
+
+        const formData = new FormData(e.currentTarget);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            const response = await fetch("https://formspree.io/f/xpwzzpqp", { // Placeholder for hakuto1024@gmail.com
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                setStatus("success");
+            } else {
+                throw new Error("Submission failed");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("送信に失敗しました。時間をおいて再度お試しください。");
+            setStatus("idle");
+        }
     };
 
     if (status === "success") {
@@ -26,14 +47,15 @@ export default function ContactPage() {
                     </div>
                     <h1 className="text-3xl font-bold text-white">お問い合わせありがとうございます</h1>
                     <p className="text-slate-400">
-                        内容を受け付けました。担当者より近日中にメールにてご連絡差し上げます。
+                        お問い合わせを受け付けました。3営業日以内に返信いたしますので、今しばらくお待ちください。
                     </p>
-                    <button
-                        onClick={() => setStatus("idle")}
-                        className="px-8 py-3 bg-white/5 hover:bg-white/10 text-white rounded-full transition-all border border-white/10"
-                    >
-                        トップページに戻る
-                    </button>
+                    <Link href="/">
+                        <button
+                            className="px-8 py-3 bg-gx-cyan hover:bg-gx-cyan/90 text-white font-bold rounded-full transition-all shadow-lg shadow-gx-cyan/20"
+                        >
+                            トップページに戻る
+                        </button>
+                    </Link>
                 </div>
             </div>
         );
@@ -43,7 +65,7 @@ export default function ContactPage() {
         <div className="min-h-screen pt-32 pb-20 px-6 bg-slate-950">
             <div className="max-w-3xl mx-auto">
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gx-cyan via-white to-gx-emerald mb-4">
+                    <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gx-cyan via-white to-gx-emerald mb-4 font-mono tracking-tighter">
                         Contact Us
                     </h1>
                     <p className="text-slate-400 max-w-xl mx-auto">
@@ -58,6 +80,7 @@ export default function ContactPage() {
                                 <label className="text-sm font-bold text-slate-300 ml-1">お名前</label>
                                 <input
                                     required
+                                    name="name"
                                     type="text"
                                     className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gx-cyan/50 transition-all placeholder:text-slate-600"
                                     placeholder="山田 太郎"
@@ -66,6 +89,7 @@ export default function ContactPage() {
                             <div className="space-y-2">
                                 <label className="text-sm font-bold text-slate-300 ml-1">貴社名（任意）</label>
                                 <input
+                                    name="company"
                                     type="text"
                                     className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gx-cyan/50 transition-all placeholder:text-slate-600"
                                     placeholder="株式会社GX"
@@ -77,6 +101,7 @@ export default function ContactPage() {
                             <label className="text-sm font-bold text-slate-300 ml-1">メールアドレス</label>
                             <input
                                 required
+                                name="email"
                                 type="email"
                                 className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gx-cyan/50 transition-all placeholder:text-slate-600"
                                 placeholder="name@example.com"
@@ -87,6 +112,7 @@ export default function ContactPage() {
                             <label className="text-sm font-bold text-slate-300 ml-1">お問い合わせ内容</label>
                             <textarea
                                 required
+                                name="message"
                                 rows={6}
                                 className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-gx-cyan/50 transition-all placeholder:text-slate-600 resize-none"
                                 placeholder="商用利用ライセンスの詳細について、高解像度データの特注制作のご希望など"
@@ -113,7 +139,7 @@ export default function ContactPage() {
                 <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="p-6 bg-white/5 rounded-2xl border border-white/5 text-center">
                         <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Response Time</p>
-                        <p className="text-white">24時間以内に返信</p>
+                        <p className="text-white">3営業日以内に返信</p>
                     </div>
                     <div className="p-6 bg-white/5 rounded-2xl border border-white/5 text-center">
                         <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Support</p>
@@ -121,7 +147,7 @@ export default function ContactPage() {
                     </div>
                     <div className="p-6 bg-white/5 rounded-2xl border border-white/5 text-center">
                         <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Location</p>
-                        <p className="text-white">Tokyo, Japan</p>
+                        <p className="text-white font-mono">Kyoto, Japan</p>
                     </div>
                 </div>
             </div>
