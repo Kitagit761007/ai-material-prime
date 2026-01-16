@@ -142,5 +142,95 @@
             "#スマートシティ",
             "#脱炭素"
         ]
+    },
+    {
+        "id": "gx_grid_01",
+        "title": "次世代スマートグリッドの鼓動",
+        "description": "都市全体がAIで最適化されたエネルギーネットワークで繋がり、効率的な需給調整を実現する未来の街並み。",
+        "src": "/assets/images/gx_grid_01.jpg",
+        "category": "smartcity",
+        "score": 98,
+        "width": 1024,
+        "height": 576,
+        "size": "172 KB",
+        "aspectRatio": "16:9 (Widescreen)",
+        "tags": [
+            "#スマートグリッド",
+            "#AI",
+            "#エネルギー",
+            "#未来都市"
+        ]
+    },
+    {
+        "id": "gx_grid_02",
+        "title": "エネルギーが自律するスマートシティ",
+        "description": "高度な電力網により再生可能エネルギーを完璧に制御し、都市の隅々までクリーンな電力を届けるインフラ。",
+        "src": "/assets/images/gx_grid_02.jpg",
+        "category": "smartcity",
+        "score": 99,
+        "width": 1024,
+        "height": 576,
+        "size": "211 KB",
+        "aspectRatio": "16:9 (Widescreen)",
+        "tags": [
+            "#スマートグリッド",
+            "#AI",
+            "#エネルギー",
+            "#デジタルトランスフォーメーション"
+        ]
+    },
+    {
+        "id": "gx_plant_01",
+        "title": "大気浄化と地球熱の融合",
+        "description": "地中深くから汲み上げた熱エネルギーとCCUS技術を組み合わせ、クリーンで安定した電力を供給する複合型プラント。",
+        "src": "/assets/images/gx_plant_01.jpg",
+        "category": "infrastructure",
+        "score": 96,
+        "width": 1024,
+        "height": 576,
+        "size": "167 KB",
+        "aspectRatio": "16:9 (Widescreen)",
+        "tags": [
+            "#CCUS",
+            "#地熱発電",
+            "#脱炭素",
+            "#クリーンエネルギー"
+        ]
+    },
+    {
+        "id": "gx_plant_02",
+        "title": "カーボンネガティブを実現する地熱センター",
+        "description": "最新の二酸化炭素回収・貯留技術を搭載し、エネルギー生産と同時に大気中のCO2を削減する次世代の拠点。",
+        "src": "/assets/images/gx_plant_02.jpg",
+        "category": "infrastructure",
+        "score": 95,
+        "width": 1024,
+        "height": 576,
+        "size": "148 KB",
+        "aspectRatio": "16:9 (Widescreen)",
+        "tags": [
+            "#CCUS",
+            "#地熱発電",
+            "#脱炭素",
+            "#ネガティブエミッション"
+        ]
+    },
+    {
+        "id": "gx_bio_01",
+        "title": "循環型バイオ燃料農園",
+        "description": "高効率な藻類培養施設にて生産される次世代バイオ燃料。食料生産と競合しない持続可能なエネルギー源。",
+        "src": "/assets/images/gx_bio_01.jpg",
+        "category": "hydrogen",
+        "score": 97,
+        "width": 1024,
+        "height": 576,
+        "size": "144 KB",
+        "aspectRatio": "16:9 (Widescreen)",
+        "tags": [
+            "#バイオ燃料",
+            "#藻類",
+            "#再生可能エネルギー",
+            "#バイオテクノロジー"
+        ]
     }
 ]
