@@ -36,6 +36,19 @@ export default function Header() {
                     <Link href="/gallery" className="text-sm font-medium hover:text-gx-cyan transition-colors">
                         ギャラリー
                     </Link>
+                    <div className="relative group">
+                        <button className="text-sm font-medium hover:text-gx-cyan transition-colors flex items-center gap-1">
+                            カテゴリーから探す
+                            <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        <div className="absolute top-full left-0 mt-2 w-48 bg-slate-900 border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden">
+                            <Link href="/categories/Energy" className="block px-4 py-3 text-sm hover:bg-white/5 transition-colors">エネルギー</Link>
+                            <Link href="/categories/Mobility" className="block px-4 py-3 text-sm hover:bg-white/5 transition-colors">モビリティ</Link>
+                            <Link href="/categories/Tech" className="block px-4 py-3 text-sm hover:bg-white/5 transition-colors">テクノロジー</Link>
+                            <Link href="/categories/Resource" className="block px-4 py-3 text-sm hover:bg-white/5 transition-colors">資源・バイオ</Link>
+                            <Link href="/categories/Eco-Life" className="block px-4 py-3 text-sm hover:bg-white/5 transition-colors">エコ・ライフスタイル</Link>
+                        </div>
+                    </div>
                     <Link href="/tags" className="text-sm font-medium hover:text-gx-cyan transition-colors">
                         タグ一覧
                     </Link>
@@ -68,6 +81,16 @@ export default function Header() {
                     >
                         ギャラリー
                     </Link>
+                    <div className="flex flex-col items-center gap-4">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">カテゴリーから探す</span>
+                        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                            <Link href="/categories/Energy" className="text-lg font-medium hover:text-gx-cyan transition-colors" onClick={closeMenu}>エネルギー</Link>
+                            <Link href="/categories/Mobility" className="text-lg font-medium hover:text-gx-cyan transition-colors" onClick={closeMenu}>モビリティ</Link>
+                            <Link href="/categories/Tech" className="text-lg font-medium hover:text-gx-cyan transition-colors" onClick={closeMenu}>テクノロジー</Link>
+                            <Link href="/categories/Resource" className="text-lg font-medium hover:text-gx-cyan transition-colors" onClick={closeMenu}>資源・バイオ</Link>
+                            <Link href="/categories/Eco-Life" className="text-lg font-medium hover:text-gx-cyan transition-colors" onClick={closeMenu}>エコ・ライフスタイル</Link>
+                        </div>
+                    </div>
                     <Link
                         href="/tags"
                         className="text-2xl font-bold text-white hover:text-gx-cyan transition-colors"

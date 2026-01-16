@@ -8,8 +8,8 @@ const categoryMap: Record<string, string> = {
     "Energy": "エネルギー / Energy",
     "Mobility": "モビリティ / Mobility",
     "Tech": "テクノロジー / Tech",
-    "Resource": "資源・インフラ / Resource",
-    "Eco-Life": "エコライフ / Eco-Life"
+    "Resource": "資源・バイオ / Resource",
+    "Eco-Life": "エコ・ライフスタイル / Eco-Life"
 };
 
 export async function generateStaticParams() {
