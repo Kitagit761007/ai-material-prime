@@ -1,14 +1,31 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+
+interface CategoryImage {
+    id: string;
+    src: string;
+    title: string;
+    description: string;
+    score: number;
+    width: number;
+    height: number;
+    size: string;
+    aspectRatio: string;
+    category: string;
+    tags: string[];
+}
 
 interface CategorySectionProps {
     title: string;
     description: string;
-    images: { src: string; title: string; score: number }[];
+    images: CategoryImage[];
 }
 
 export default function CategorySection({ title, description, images }: CategorySectionProps) {
+    const [selectedImage, setSelectedImage] = useState<CategoryImage | null>(null);
+
     return (
         <section className="py-20 px-6 max-w-7xl mx-auto border-t border-white/10">
             <div className="mb-12">
@@ -19,8 +36,12 @@ export default function CategorySection({ title, description, images }: Category
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {images.map((img, i) => (
-                    <div key={i} className="group relative rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5">
+                {images.map((img) => (
+                    <div
+                        key={img.id}
+                        className="group relative rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 cursor-zoom-in"
+                        onClick={() => setSelectedImage(img)}
+                    >
                         <div className="aspect-[4/5] relative">
                             <Image
                                 src={img.src}
@@ -40,6 +61,104 @@ export default function CategorySection({ title, description, images }: Category
                     </div>
                 ))}
             </div>
+
+            {/* Lightbox Modal (Mirrored from ImageGrid for consistency) */}
+            {selectedImage && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm animate-in fade-in duration-300">
+                    <div className="absolute inset-0 cursor-zoom-out" onClick={() => setSelectedImage(null)} />
+
+                    <div className="relative bg-slate-900 rounded-2xl overflow-hidden max-w-6xl w-full h-auto max-h-[90vh] flex flex-col md:flex-row shadow-2xl border border-white/10 z-10" onClick={e => e.stopPropagation()}>
+                        <button
+                            onClick={() => setSelectedImage(null)}
+                            className="absolute top-4 right-4 z-20 p-2 bg-black/50 text-white rounded-full hover:bg-white/20 transition-colors backdrop-blur-md"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="M6 6l12 12" /></svg>
+                        </button>
+
+                        {/* Image Side */}
+                        <div className="md:w-2/3 bg-black/50 flex items-center justify-center relative min-h-[300px] md:h-auto">
+                            <Image
+                                src={selectedImage.src}
+                                alt={selectedImage.title}
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+
+                        {/* Details Side */}
+                        <div className="md:w-1/3 p-6 flex flex-col bg-slate-900 overflow-y-auto min-h-0 gap-6">
+                            {/* Header */}
+                            <div className="shrink-0">
+                                <h2 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight line-clamp-2">{selectedImage.title}</h2>
+                                <div className="flex items-center gap-2 mb-3">
+                                    <span className="px-2 py-0.5 bg-gx-cyan/20 text-gx-cyan text-xs font-bold rounded border border-gx-cyan/30">
+                                        GX Score: {selectedImage.score}
+                                    </span>
+                                </div>
+                                <p className="text-slate-300 leading-snug text-sm line-clamp-3">
+                                    {selectedImage.description}
+                                </p>
+                            </div>
+
+                            {/* DOWNLOAD UI (Prioritized) */}
+                            <div className="shrink-0 p-4 bg-white/5 rounded-xl border border-white/10">
+                                <a
+                                    href={selectedImage.src}
+                                    download
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center gap-2 w-full py-3.5 bg-gx-cyan text-white font-bold rounded-xl hover:bg-gx-cyan/90 transition-all shadow-lg shadow-gx-cyan/20 hover:scale-[1.02] active:scale-[0.98]"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
+                                    無料ダウンロード (PNG)
+                                </a>
+                                <p className="text-center text-[10px] font-bold text-gx-emerald mt-3 flex items-center justify-center gap-1 opacity-90">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                                    商用利用可能・ロイヤリティフリー・クレジット不要
+                                </p>
+                            </div>
+
+                            {/* SPECIFICATIONS */}
+                            <div className="p-3 bg-white/5 rounded-lg border border-white/10 shrink-0">
+                                <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">SPECIFICATIONS</h3>
+                                <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-slate-300">
+                                    <div className="flex justify-between border-b border-white/5 pb-1">
+                                        <span className="text-slate-500 text-[10px] uppercase">Resolution</span>
+                                        <span className="font-mono text-white text-[11px]">{selectedImage.width} x {selectedImage.height}</span>
+                                    </div>
+                                    <div className="flex justify-between border-b border-white/5 pb-1">
+                                        <span className="text-slate-500 text-[10px] uppercase">Size</span>
+                                        <span className="font-mono text-white text-[11px]">{selectedImage.size}</span>
+                                    </div>
+                                    <div className="flex justify-between pt-1">
+                                        <span className="text-slate-500 text-[10px] uppercase">Ratio</span>
+                                        <span className="font-mono text-white text-[11px]">{selectedImage.aspectRatio}</span>
+                                    </div>
+                                    <div className="flex justify-between pt-1">
+                                        <span className="text-slate-500 text-[10px] uppercase">Category</span>
+                                        <span className="font-mono text-white text-[11px] capitalize">{selectedImage.category}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* TAGS */}
+                            <div className="shrink-0 pb-2">
+                                <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Tags</h3>
+                                <div className="flex flex-wrap gap-1.5">
+                                    {selectedImage.tags.map((tag: string) => (
+                                        <span
+                                            key={tag}
+                                            className="px-2 py-0.5 bg-white/5 text-slate-400 text-[11px] rounded border border-white/10"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </section>
     );
 }
