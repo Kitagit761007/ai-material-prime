@@ -524,5 +524,100 @@
             "#エコシステム",
             "#商用利用可"
         ]
+    },
+    {
+        "id": "robo-factory-01",
+        "title": "未来の自律型精密工場",
+        "description": "伝統的な景観を背景に、最新のロボットアームが電子回路を組み立てる高度自動化ライン。\n[Spec: 超精密ナノレベル実装制御]",
+        "src": "/images/robo-factory-01.jpg",
+        "category": "Tech",
+        "score": 98,
+        "width": 683,
+        "height": 1024,
+        "size": "890 KB",
+        "aspectRatio": "2:3 (Portrait)",
+        "tags": [
+            "#ロボティクス",
+            "#スマートファクトリー",
+            "#自動化",
+            "#未来都市",
+            "#商用利用可"
+        ]
+    },
+    {
+        "id": "undersea-tunnel-01",
+        "title": "深海パノラマ・トランスポート",
+        "description": "サンゴ礁の間を抜ける透明な深海トンネル。海洋生態系を間近に観察できる次世代の移動体験。\n[Spec: 超耐圧・自己修復ガラス採用]",
+        "src": "/images/undersea-tunnel-01.jpg",
+        "category": "Mobility",
+        "score": 99,
+        "width": 683,
+        "height": 1024,
+        "size": "910 KB",
+        "aspectRatio": "2:3 (Portrait)",
+        "tags": [
+            "#深海開発",
+            "#海洋モビリティ",
+            "#ツーリズム",
+            "#未来インフラ",
+            "#商用利用可"
+        ]
+    },
+    {
+        "id": "undersea-cockpit-01",
+        "title": "深海探査ポッド・コクピット",
+        "description": "魚群の群れを通り抜ける自律型探査ポッドの内部。高度なナビゲーションと生命維持システムを備える。\n[Spec: 全方位ホログラフィック・ディスプレイ]",
+        "src": "/images/undersea-cockpit-01.jpg",
+        "category": "Tech",
+        "score": 97,
+        "width": 683,
+        "height": 1024,
+        "size": "870 KB",
+        "aspectRatio": "2:3 (Portrait)",
+        "tags": [
+            "#深海探査",
+            "#バイオフィリック",
+            "#AI操縦",
+            "#次世代UI",
+            "#商用利用可"
+        ]
+    },
+    {
+        "id": "robo-factory-02",
+        "title": "都市型ロボット・マニュファクチャリング",
+        "description": "近代都市のビル群に囲まれた、省スペース・高効率な自律型生産セル。オンデマンド製造の主力拠点。\n[Spec: 分散型エッジコンピューティング制御]",
+        "src": "/images/robo-factory-02.jpg",
+        "category": "Tech",
+        "score": 96,
+        "width": 683,
+        "height": 1024,
+        "size": "930 KB",
+        "aspectRatio": "2:3 (Portrait)",
+        "tags": [
+            "#ロボティクス",
+            "#スマートシティ",
+            "#製造革命",
+            "#自動化",
+            "#商用利用可"
+        ]
+    },
+    {
+        "id": "aurora-cruise-01",
+        "title": "北極圏グリーン・クルーズ",
+        "description": "オーロラの下、氷海を静かに航行するゼロエミッション旅客船。風力タービンとソーラー、水素のハイブリッド推進。\n[Spec: 極地対応氷海航行システム]",
+        "src": "/images/aurora-cruise-01.jpg",
+        "category": "Mobility",
+        "score": 99,
+        "width": 683,
+        "height": 1024,
+        "size": "950 KB",
+        "aspectRatio": "2:3 (Portrait)",
+        "tags": [
+            "#オーロラ",
+            "#次世代船舶",
+            "#燃料電池",
+            "#エコツーリズム",
+            "#商用利用可"
+        ]
     }
 ]
