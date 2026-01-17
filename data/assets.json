@@ -232,5 +232,95 @@
             "#再生可能エネルギー",
             "#バイオテクノロジー"
         ]
+    },
+    {
+        "id": "underground-mobility-node-01",
+        "title": "磁気浮上式・地下高効率輸送ノード",
+        "description": "電磁誘導技術を用いた次世代の地下モビリティハブ。都市の過密を解消し、電力ロスの極小化を実現するGXインフラ。\n[Spec: 超伝導磁気浮上システム搭載]",
+        "src": "/images/mobility/underground-mobility-node.jpg",
+        "category": "Mobility",
+        "score": 98,
+        "width": 1024,
+        "height": 576,
+        "size": "920 KB",
+        "aspectRatio": "16:9 (Widescreen)",
+        "tags": [
+            "#次世代交通",
+            "#モビリティハブ",
+            "#都市インフラ",
+            "#GX"
+        ]
+    },
+    {
+        "id": "solar-mountain-array-01",
+        "title": "高地反射型ソーラー・マウンテン・アレイ",
+        "description": "積雪の反射光を最大限に活用するアルベド最適化ソーラーパネル群。極寒地域での安定した電力供給を支える。\n[Spec: 高耐久・防雪型単結晶シリコンモジュール]",
+        "src": "/images/infrastructure/solar-mountain-array.jpg",
+        "category": "Infrastructure",
+        "score": 97,
+        "width": 683,
+        "height": 1024,
+        "size": "850 KB",
+        "aspectRatio": "2:3 (Portrait)",
+        "tags": [
+            "#太陽光発電",
+            "#再エネ",
+            "#高地インフラ",
+            "#クリーンエネルギー"
+        ]
+    },
+    {
+        "id": "arctic-h2-hub-01",
+        "title": "極地水素貯蔵・供給拠点（アークティック・ハブ）",
+        "description": "自然冷却を利用した高効率な液体水素ストレージ。大陸間エネルギー輸送の要衝として機能する未来の水素ハブ。\n[Spec: 極低温液体水素管理システム]",
+        "src": "/images/hydrogen/arctic-h2-hub.jpg",
+        "category": "Hydrogen",
+        "score": 99,
+        "width": 683,
+        "height": 1024,
+        "size": "880 KB",
+        "aspectRatio": "2:3 (Portrait)",
+        "tags": [
+            "#水素エネルギー",
+            "#エネルギー貯蔵",
+            "#未来都市",
+            "#脱炭素"
+        ]
+    },
+    {
+        "id": "gx-logistics-terminal-01",
+        "title": "自律分散型GXロジスティクス・ターミナル",
+        "description": "AIによる完全自動仕分けと、EVトラックへの高速充電を統合した統合配送拠点。物流全体のカーボンニュートラルを牽引。\n[Spec: オートノマス・ソーティング・アルゴリズム]",
+        "src": "/images/resource/gx-logistics-terminal.jpg",
+        "category": "Resource",
+        "score": 96,
+        "width": 1024,
+        "height": 576,
+        "size": "940 KB",
+        "aspectRatio": "16:9 (Widescreen)",
+        "tags": [
+            "#スマート物流",
+            "#自動化",
+            "#サプライチェーン",
+            "#GX"
+        ]
+    },
+    {
+        "id": "vertical-forest-city-01",
+        "title": "垂直森林型スマートシティ・レジデンス",
+        "description": "建築物自体が炭素吸収源として機能するバイオフィリック・デザイン。高度な水循環と自然換気システムを統合。\n[Spec: 統合炭素オフセット建築認証]",
+        "src": "/images/smartcity/vertical-forest-city.jpg",
+        "category": "SmartCity",
+        "score": 98,
+        "width": 683,
+        "height": 1024,
+        "size": "910 KB",
+        "aspectRatio": "2:3 (Portrait)",
+        "tags": [
+            "#スマートシティ",
+            "#垂直森",
+            "#持続可能建築",
+            "#バイオフィリック"
+        ]
     }
 ]
