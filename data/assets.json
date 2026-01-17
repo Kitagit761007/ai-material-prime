@@ -224,7 +224,7 @@
     {
         "id": "gx_bio_01",
         "title": "循環型バイオ燃料農園",
-        "description": "高効率な藻類培養施設にて生産される次世代バイオ燃料。食料生産と競合しない持続可能なエネルギー源。\n[Spec: 第3世代バイオエタノール抽出プロセス]",
+        "description": "高効率な藻類培養施設にて生産される次世代バイオ燃料. 食料生産と競合しない持続可能なエネルギー源。\n[Spec: 第3世代バイオエタノール抽出プロセス]",
         "src": "/assets/images/gx_bio_01.jpg",
         "category": "Resource",
         "score": 97,
@@ -427,6 +427,101 @@
             "#バイオフィリック",
             "#垂直森林",
             "#適応戦略",
+            "#商用利用可"
+        ]
+    },
+    {
+        "id": "desert-dome-01",
+        "title": "砂漠の自律型バイオドーム",
+        "description": "極限環境下で食料自給を可能にする、AI管理の垂直農法ドーム。受粉ドローンの群れがエコシステムを維持する。\n[Spec: 統合環境制御・循環型水管理システム]",
+        "src": "/images/desert-dome-01.jpg",
+        "category": "Resource",
+        "score": 98,
+        "width": 683,
+        "height": 1024,
+        "size": "850 KB",
+        "aspectRatio": "2:3 (Portrait)",
+        "tags": [
+            "#砂漠緑化",
+            "#バイオドーム",
+            "#垂直農法",
+            "#サステナブル",
+            "#商用利用可"
+        ]
+    },
+    {
+        "id": "aurora-ship-01",
+        "title": "極地オーロラ観測・探査船",
+        "description": "北極圏の美しき光を背に航行する、最新の気候研究用燃料電池船。氷海を切り裂き、地球の未来を探る。\n[Spec: 極低温対応ゼロエミッション推進システム]",
+        "src": "/images/aurora-ship-01.jpg",
+        "category": "Mobility",
+        "score": 99,
+        "width": 683,
+        "height": 1024,
+        "size": "920 KB",
+        "aspectRatio": "2:3 (Portrait)",
+        "tags": [
+            "#極地探査",
+            "#オーロラ",
+            "#燃料電池船",
+            "#環境研究",
+            "#商用利用可"
+        ]
+    },
+    {
+        "id": "desert-dome-02",
+        "title": "オアシス・エネルギー・ドーム",
+        "description": "太陽光エネルギーを最大限に集積し、砂漠に生命の息吹を吹き込む自律型プラント。持続可能な居住区を形成。\n[Spec: 高効率集光型太陽エネルギー変換]",
+        "src": "/images/desert-dome-02.jpg",
+        "category": "Energy",
+        "score": 97,
+        "width": 683,
+        "height": 1024,
+        "size": "880 KB",
+        "aspectRatio": "2:3 (Portrait)",
+        "tags": [
+            "#砂漠開発",
+            "#クリーンエネルギー",
+            "#インフラ",
+            "#未来都市",
+            "#商用利用可"
+        ]
+    },
+    {
+        "id": "jungle-waterfall-01",
+        "title": "ジャングル・ウォーターフォール・ハブ",
+        "description": "原生林の瀑布と共生する、バイオフィリックなリサーチステーション。風力と落差を利用したマイクログリッド拠点。\n[Spec: 自然エネルギーハイブリッド抽出網]",
+        "src": "/images/jungle-waterfall-01.jpg",
+        "category": "SmartCity",
+        "score": 99,
+        "width": 683,
+        "height": 1024,
+        "size": "940 KB",
+        "aspectRatio": "2:3 (Portrait)",
+        "tags": [
+            "#バイオフィリック",
+            "#ジャングル",
+            "#マイクログリッド",
+            "#自然共生",
+            "#商用利用可"
+        ]
+    },
+    {
+        "id": "jungle-waterfall-02",
+        "title": "瀑布の霧と溶け合うエコ・シティ",
+        "description": "熱帯の霧を水分資源として回収し、都市の空調と水循環を支える森林型プロトタイプ建築。高度な炭素固定を実現。\n[Spec: 大気中水分回収システム(AWH)搭載]",
+        "src": "/images/jungle-waterfall-02.jpg",
+        "category": "Resource",
+        "score": 98,
+        "width": 683,
+        "height": 1024,
+        "size": "910 KB",
+        "aspectRatio": "2:3 (Portrait)",
+        "tags": [
+            "#垂直森林",
+            "#資源循環",
+            "#持続可能建築",
+            "#エコシステム",
             "#商用利用可"
         ]
     }
