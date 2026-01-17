@@ -40,28 +40,24 @@ export default function RootLayout({
                         }}
                     />
                 )}
-                {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-                    <>
-                        <Script
-                            strategy="afterInteractive"
-                            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
-                        />
-                        <Script
-                            id="ga-script"
-                            strategy="afterInteractive"
-                            dangerouslySetInnerHTML={{
-                                __html: `
-                                    window.dataLayer = window.dataLayer || [];
-                                    function gtag(){dataLayer.push(arguments);}
-                                    gtag('js', new Date());
-                                    gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}', {
-                                        page_path: window.location.pathname,
-                                    });
-                                `,
-                            }}
-                        />
-                    </>
-                )}
+                <Script
+                    strategy="afterInteractive"
+                    src="https://www.googletagmanager.com/gtag/js?id=G-J0S6KYW409"
+                />
+                <Script
+                    id="ga-script"
+                    strategy="afterInteractive"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('config', 'G-J0S6KYW409', {
+                                page_path: window.location.pathname,
+                            });
+                        `,
+                    }}
+                />
             </head>
             <body className={inter.className}>
                 {process.env.NEXT_PUBLIC_GTM_ID && (
