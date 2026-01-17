@@ -322,5 +322,95 @@
             "#持続可能建築",
             "#バイオフィリック"
         ]
+    },
+    {
+        "id": "offshore-drone-hub-01",
+        "title": "海上水素輸送ドローン・ポート",
+        "description": "洋上風力発電で生成されたグリーン水素をドローンで自動輸送する海上拠点。夕景に溶け込む近未来のエネルギー供給網。\n[Spec: 自律水平離着陸ドローン(VTOL)統合管理]",
+        "src": "/images/hydrogen/offshore-drone-hub.jpg",
+        "category": "Hydrogen",
+        "score": 98,
+        "width": 1024,
+        "height": 576,
+        "size": "780 KB",
+        "aspectRatio": "16:9 (Widescreen)",
+        "tags": [
+            "#水素ドローン",
+            "#グリーンエネルギー",
+            "#海洋インフラ",
+            "#GX"
+        ]
+    },
+    {
+        "id": "automated-recycling-arm-01",
+        "title": "高度資源循環型AIマニピュレーター",
+        "description": "廃棄物から希少金属を精密に抽出する自律型リサイクルアーム。循環型社会(サーキュラーエコノミー)を実現する基幹技術。\n[Spec: ハイパースペクトル画像認識による素材同定]",
+        "src": "/images/resource/automated-recycling-arm.jpg",
+        "category": "Resource",
+        "score": 97,
+        "width": 683,
+        "height": 1024,
+        "size": "820 KB",
+        "aspectRatio": "2:3 (Portrait)",
+        "tags": [
+            "#リサイクル",
+            "#都市鉱山",
+            "#AIロボティクス",
+            "#サーキュラーエコノミー"
+        ]
+    },
+    {
+        "id": "precision-recycle-bot-01",
+        "title": "精密素材選別ロボット・セル",
+        "description": "24時間稼働でプラスチック、金属、ガラスを分子レベルの精度で仕分け。資源の再生利用率を極限まで高める最新のセル。\n[Spec: 分子振動解析センシング搭載]",
+        "src": "/images/resource/precision-recycle-bot.jpg",
+        "category": "Resource",
+        "score": 96,
+        "width": 683,
+        "height": 1024,
+        "size": "790 KB",
+        "aspectRatio": "2:3 (Portrait)",
+        "tags": [
+            "#資源再生",
+            "#スマートファクトリー",
+            "#脱炭素",
+            "#クリーンテック"
+        ]
+    },
+    {
+        "id": "ocean-h2-platform-01",
+        "title": "統合型海上水素生成・貯蔵プラットフォーム",
+        "description": "波力と太陽光を併用し、海水を電解して純粋な水素を生成。自律航行するドローン輸送艦への供給ハブを兼ねる。\n[Spec: 統合海洋エネルギー変換管理(MEMS)]",
+        "src": "/images/hydrogen/ocean-h2-platform.jpg",
+        "category": "Hydrogen",
+        "score": 99,
+        "width": 1024,
+        "height": 576,
+        "size": "810 KB",
+        "aspectRatio": "16:9 (Widescreen)",
+        "tags": [
+            "#水素エネルギー",
+            "#海洋開発",
+            "#サステナブル",
+            "#次世代インフラ"
+        ]
+    },
+    {
+        "id": "cascade-forest-towers-01",
+        "title": "瀑布・垂直森林型ハイブリッド都市",
+        "description": "都市の微気候を調整する人工滝と垂直森林を統合した超高層ビル群。自然の自浄作用をテクノロジーで強化した居住空間。\n[Spec: パッシブ・エバポレーティブ冷却システム]",
+        "src": "/images/smartcity/cascade-forest-towers.jpg",
+        "category": "SmartCity",
+        "score": 99,
+        "width": 683,
+        "height": 1024,
+        "size": "950 KB",
+        "aspectRatio": "2:3 (Portrait)",
+        "tags": [
+            "#スマートシティ",
+            "#バイオフィリック",
+            "#垂直森林",
+            "#適応戦略"
+        ]
     }
 ]
