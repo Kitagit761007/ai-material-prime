@@ -15,7 +15,29 @@ interface ImageGridProps {
 
 export default function ImageGrid({ initialItems = assets, searchQuery = "", onResultCount }: ImageGridProps) {
     const [selectedImage, setSelectedImage] = useState<typeof assets[0] | null>(null);
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
     const router = useRouter();
+
+    const minSwipeDistance = 70;
+
+    const onTouchStart = (e: React.TouchEvent) => {
+        setTouchEnd(null);
+        setTouchStart(e.targetTouches[0].clientY);
+    };
+
+    const onTouchMove = (e: React.TouchEvent) => {
+        setTouchEnd(e.targetTouches[0].clientY);
+    };
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+        const distance = touchEnd - touchStart;
+        const isDownSwipe = distance > minSwipeDistance;
+        if (isDownSwipe) {
+            setSelectedImage(null);
+        }
+    };
 
     // Dynamic filtering based on searchQuery
     const filteredItems = assets.filter(item => {
@@ -80,7 +102,12 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "", onR
 
             {/* Lightbox Modal */}
             {selectedImage && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm animate-in fade-in duration-300">
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm animate-in fade-in duration-300"
+                    onTouchStart={onTouchStart}
+                    onTouchMove={onTouchMove}
+                    onTouchEnd={onTouchEnd}
+                >
                     {/* Backdrop Click to Close */}
                     <div className="absolute inset-0 cursor-zoom-out" onClick={() => setSelectedImage(null)} />
 
