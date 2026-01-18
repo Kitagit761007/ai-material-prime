@@ -25,6 +25,28 @@ interface CategorySectionProps {
 
 export default function CategorySection({ title, description, images }: CategorySectionProps) {
     const [selectedImage, setSelectedImage] = useState<CategoryImage | null>(null);
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+    const minSwipeDistance = 70;
+
+    const onTouchStart = (e: React.TouchEvent) => {
+        setTouchEnd(null);
+        setTouchStart(e.targetTouches[0].clientY);
+    };
+
+    const onTouchMove = (e: React.TouchEvent) => {
+        setTouchEnd(e.targetTouches[0].clientY);
+    };
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+        const distance = touchEnd - touchStart;
+        const isDownSwipe = distance > minSwipeDistance;
+        if (isDownSwipe) {
+            setSelectedImage(null);
+        }
+    };
 
     return (
         <section className="py-20 px-6 max-w-7xl mx-auto border-t border-white/10">
@@ -64,7 +86,12 @@ export default function CategorySection({ title, description, images }: Category
 
             {/* Lightbox Modal (Mirrored from ImageGrid for consistency) */}
             {selectedImage && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm animate-in fade-in duration-300">
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm animate-in fade-in duration-300"
+                    onTouchStart={onTouchStart}
+                    onTouchMove={onTouchMove}
+                    onTouchEnd={onTouchEnd}
+                >
                     <div className="absolute inset-0 cursor-zoom-out" onClick={() => setSelectedImage(null)} />
 
                     <div className="relative bg-slate-900 rounded-2xl overflow-hidden max-w-6xl w-full h-auto max-h-[90vh] flex flex-col md:flex-row shadow-2xl border border-white/10 z-10" onClick={e => e.stopPropagation()}>
