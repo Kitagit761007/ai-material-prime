@@ -17,6 +17,7 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "", onR
     const [selectedImage, setSelectedImage] = useState<typeof assets[0] | null>(null);
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
+    const [swipeOffset, setSwipeOffset] = useState<number>(0);
     const router = useRouter();
 
     const minSwipeDistance = 70;
@@ -24,19 +25,33 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "", onR
     const onTouchStart = (e: React.TouchEvent) => {
         setTouchEnd(null);
         setTouchStart(e.targetTouches[0].clientY);
+        setSwipeOffset(0);
     };
 
     const onTouchMove = (e: React.TouchEvent) => {
-        setTouchEnd(e.targetTouches[0].clientY);
+        if (!touchStart) return;
+        const currentTouch = e.targetTouches[0].clientY;
+        setTouchEnd(currentTouch);
+        const distance = currentTouch - touchStart;
+        // Only allow downward swipes
+        if (distance > 0) {
+            setSwipeOffset(distance);
+        }
     };
 
     const onTouchEnd = () => {
-        if (!touchStart || !touchEnd) return;
+        if (!touchStart || !touchEnd) {
+            setSwipeOffset(0);
+            return;
+        }
         const distance = touchEnd - touchStart;
         const isDownSwipe = distance > minSwipeDistance;
         if (isDownSwipe) {
             setSelectedImage(null);
         }
+        setSwipeOffset(0);
+        setTouchStart(null);
+        setTouchEnd(null);
     };
 
     // Dynamic filtering based on searchQuery
@@ -104,14 +119,26 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "", onR
             {selectedImage && (
                 <div
                     className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm animate-in fade-in duration-300"
-                    onTouchStart={onTouchStart}
-                    onTouchMove={onTouchMove}
-                    onTouchEnd={onTouchEnd}
+                    style={{
+                        opacity: swipeOffset > 0 ? Math.max(0, 1 - swipeOffset / 300) : 1
+                    }}
                 >
                     {/* Backdrop Click to Close */}
                     <div className="absolute inset-0 cursor-zoom-out" onClick={() => setSelectedImage(null)} />
 
-                    <div className="relative bg-slate-900 rounded-2xl overflow-hidden max-w-6xl w-full h-auto max-h-[90vh] flex flex-col md:flex-row shadow-2xl border border-white/10 z-10" onClick={e => e.stopPropagation()}>
+                    <div
+                        className="relative bg-slate-900 rounded-2xl overflow-hidden max-w-6xl w-full h-auto max-h-[90vh] flex flex-col md:flex-row shadow-2xl border border-white/10 z-10 transition-transform"
+                        style={{
+                            transform: `translateY(${swipeOffset}px)`,
+                            transition: swipeOffset === 0 ? 'transform 0.3s ease-out' : 'none'
+                        }}
+                        onTouchStart={onTouchStart}
+                        onTouchMove={onTouchMove}
+                        onTouchEnd={onTouchEnd}
+                        onClick={e => e.stopPropagation()}
+                    >
+                        {/* Swipe Indicator */}
+                        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-white/30 rounded-full z-30" />
                         <button
                             onClick={() => setSelectedImage(null)}
                             className="absolute top-4 right-4 z-20 p-2 bg-black/50 text-white rounded-full hover:bg-white/20 transition-all duration-200 backdrop-blur-md active:scale-95 flex items-center justify-center group"
