@@ -716,12 +716,12 @@
         "description": "伝統的な和風建築の並ぶ運河の上空をドローンが飛ぶ夜景",
         "src": "/images/1.jpg",
         "category": "Concept Art",
-        "tags": [
-            "#サイバーパンク",
-            "#和風未来",
-            "#夜景",
-            "#商用利用可"
-        ]
+        "score": 95,
+        "width": 1024,
+        "height": 1024,
+        "size": "1.2 MB",
+        "aspectRatio": "1:1",
+        "tags": ["#サイバーパンク", "#和風未来", "#夜景", "#商用利用可"]
     },
     {
         "id": "img-20260119-02",
@@ -729,12 +729,12 @@
         "description": "夕暮れ時の都市にある、緑豊かなテラスを持つモダンな建物",
         "src": "/images/2.jpg",
         "category": "Architecture",
-        "tags": [
-            "#未来都市",
-            "#緑化建築",
-            "#夕景",
-            "#商用利用可"
-        ]
+        "score": 96,
+        "width": 1024,
+        "height": 1024,
+        "size": "1.1 MB",
+        "aspectRatio": "1:1",
+        "tags": ["#未来都市", "#緑化建築", "#夕景", "#商用利用可"]
     },
     {
         "id": "img-20260119-03",
@@ -742,11 +742,12 @@
         "description": "雨の夜、植物で装飾されライトアップされた洗練されたビル",
         "src": "/images/3.jpg",
         "category": "Urban Night",
-        "tags": [
-            "#雨の夜",
-            "#バイオフィリックデザイン",
-            "#商用利用可"
-        ]
+        "score": 94,
+        "width": 1024,
+        "height": 1024,
+        "size": "1.3 MB",
+        "aspectRatio": "1:1",
+        "tags": ["#雨の夜", "#バイオフィリックデザイン", "#商用利用可"]
     },
     {
         "id": "img-20260119-04",
@@ -754,11 +755,12 @@
         "description": "建物の壁面が植物で埋め尽くされた賑やかな近未来の通り",
         "src": "/images/4.jpg",
         "category": "Cityscape",
-        "tags": [
-            "#ソーラーパンク",
-            "#垂直庭園",
-            "#商用利用可"
-        ]
+        "score": 97,
+        "width": 1024,
+        "height": 1024,
+        "size": "1.4 MB",
+        "aspectRatio": "1:1",
+        "tags": ["#ソーラーパンク", "#垂直庭園", "#商用利用可"]
     },
     {
         "id": "img-20260119-05",
@@ -766,11 +768,12 @@
         "description": "巨大な白い花が咲く海に停泊する近未来的な探査船",
         "src": "/images/5.jpg",
         "category": "Fantasy Landscape",
-        "tags": [
-            "#ファンタジー",
-            "#巨大植物",
-            "#商用利用可"
-        ]
+        "score": 98,
+        "width": 1024,
+        "height": 1024,
+        "size": "1.1 MB",
+        "aspectRatio": "1:1",
+        "tags": ["#ファンタジー", "#巨大植物", "#商用利用可"]
     },
     {
         "id": "img-20260119-06",
@@ -778,6 +781,11 @@
         "description": "巨大な睡蓮を模した神秘的な帆船が島々の間を航行する様子",
         "src": "/images/6.jpg",
         "category": "Fantasy",
+        "score": 99,
+        "width": 1024,
+        "height": 768,
+        "size": "1.2 MB",
+        "aspectRatio": "4:3",
         "tags": ["#睡蓮の船", "#幻想的な海", "#ファンタジーアート", "#商用利用可"]
     },
     {
@@ -786,6 +794,11 @@
         "description": "夕闇の海に浮かぶ、花のような形状をした未来的な海上研究施設",
         "src": "/images/7.jpg",
         "category": "Sci-Fi Architecture",
+        "score": 97,
+        "width": 1024,
+        "height": 768,
+        "size": "1.0 MB",
+        "aspectRatio": "4:3",
         "tags": ["#海上都市", "#未来建築", "#オーシャンフロント", "#商用利用可"]
     },
     {
@@ -794,22 +807,37 @@
         "description": "美しい岩礁地帯に建設された、自然の造形に調和する未来の海上基地",
         "src": "/images/8.jpg",
         "category": "Marine Base",
-        "tags": ["#海洋基地", "#サステナブルデザイン", "#美しい海", "#商用利用可"]
+        "score": 96,
+        "width": 1024,
+        "height": 768,
+        "size": "1.1 MB",
+        "aspectRatio": "4:3",
+        "tags": ["#海洋基地", "#サステナブルデザイン", "#商用利用可"]
     },
     {
         "id": "img-20260119-09",
-        "title": "フォレスト・コア・サーバー",
+        "title": "フォレスト-コア-サーバー",
         "description": "森の地面に埋め込まれた、都市のホログラムデータを映し出す透明なサーバーユニット",
         "src": "/images/9.jpg",
         "category": "Future Nature",
+        "score": 95,
+        "width": 1024,
+        "height": 768,
+        "size": "1.4 MB",
+        "aspectRatio": "4:3",
         "tags": ["#森のテクノロジー", "#データ可視化", "#バイオテクノロジー", "#商用利用可"]
     },
     {
         "id": "img-20260119-10",
-        "title": "ミスティ・フォレスト・ラボ",
+        "title": "ミスティ-フォレスト-ラボ",
         "description": "霧深い森の中で自給自足的に植物を研究する、高機能なガラスコンテナ室",
         "src": "/images/10.jpg",
         "category": "Research Lab",
+        "score": 98,
+        "width": 1024,
+        "height": 768,
+        "size": "1.3 MB",
+        "aspectRatio": "4:3",
         "tags": ["#植物研究", "#未来の農業", "#バイオドーム", "#商用利用可"]
     },
     {
@@ -818,6 +846,11 @@
         "description": "森の中に設置された、世界の環境データをホログラムで映し出す大型テラリウム型デバイス",
         "src": "/images/11.jpg",
         "category": "Future Nature",
+        "score": 97,
+        "width": 1024,
+        "height": 768,
+        "size": "1.1 MB",
+        "aspectRatio": "4:3",
         "tags": ["#デジタルネイチャー", "#ホログラム", "#森の研究室", "#商用利用可"]
     },
     {
@@ -826,6 +859,12 @@
         "description": "森の生態系とテクノロジーを融合させた、発光する植物封入型の回路キューブ",
         "src": "/images/12.jpg",
         "category": "Bio-Tech",
+        "score": 98,
+        "width": 1024,
+        "height": 768,
+        "size": "950 KB",
+        "aspectRatio": "4:3",
         "tags": ["#バイオテクノロジー", "#クリスタル", "#幻想的", "#商用利用可"]
     }
+]
 ]
