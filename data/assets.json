@@ -1164,39 +1164,69 @@
         "aspectRatio": "16:9",
         "tags": ["#未来の植物学", "#研究施設", "#エコシステム", "#商用利用可"]
     },
-    {
-    "id": "g-001",
-    "title": "Sky-Whale Cruise Ship",
-    "path": "public/images/mid/g-1.jpg",
+     {
+    "id": "img-20260121-01",
+    "title": "スカイ・ホエール・クルーザー",
+    "description": "雲海を自在に泳ぐように飛行する、クジラ型の次世代空中クルーズ客船",
+    "src": "/images/grok/g-1.jpg",
     "category": "Mobility",
-    "tags": ["Aerostat", "Future City", "Green Technology"]
+    "score": 96,
+    "width": 1024,
+    "height": 1792,
+    "size": "1.4 MB",
+    "aspectRatio": "9:16",
+    "tags": ["#空中モビリティ", "#未来都市", "#クリーンエネルギー", "#商用利用可"]
   },
   {
-    "id": "g-002",
-    "title": "Biophilic Flying Resort",
-    "path": "public/images/mid/g-2.jpg",
+    "id": "img-20260121-02",
+    "title": "バイオフィリック・フライト・リゾート",
+    "description": "垂直庭園と最新の航空技術が融合した、環境負荷ゼロの空中リゾート施設",
+    "src": "/images/grok/g-2.jpg",
     "category": "Mobility",
-    "tags": ["Aerial Garden", "Sustainable Travel", "Innovation"]
+    "score": 97,
+    "width": 1024,
+    "height": 1792,
+    "size": "1.5 MB",
+    "aspectRatio": "9:16",
+    "tags": ["#バイオフィリック", "#空中庭園", "#未来の旅", "#商用利用可"]
   },
   {
-    "id": "g-003",
-    "title": "Giant Airship over Cloud Sea",
-    "path": "public/images/mid/g-3.jpg",
+    "id": "img-20260121-03",
+    "title": "クラウド・オーシャン・エアシップ",
+    "description": "夕暮れの雲海を低速で巡航する、水素燃料を用いた巨大な次世代飛行船舶",
+    "src": "/images/grok/g-3.jpg",
     "category": "Mobility",
-    "tags": ["Next-gen Transport", "Clean Energy", "Future Vista"]
+    "score": 95,
+    "width": 1024,
+    "height": 1792,
+    "size": "1.3 MB",
+    "aspectRatio": "9:16",
+    "tags": ["#次世代輸送", "#スマートモビリティ", "#GX", "#商用利用可"]
   },
   {
-    "id": "g-004",
-    "title": "Deep Sea Panorama Restaurant",
-    "path": "public/images/mid/g-4.jpg",
+    "id": "img-20260121-04",
+    "title": "ディープシー・パノラマ・レストラン",
+    "description": "海底に広がるサンゴ礁を眺めながら食事ができる、完全防水のパノラマレストラン",
+    "src": "/images/grok/g-4.jpg",
     "category": "Architecture",
-    "tags": ["Undersea City", "Ocean Tech", "Immersive Experience"]
+    "score": 98,
+    "width": 1024,
+    "height": 1792,
+    "size": "1.6 MB",
+    "aspectRatio": "9:16",
+    "tags": ["#深海開発", "#海洋建築", "#未来の食体験", "#商用利用可"]
   },
   {
-    "id": "g-005",
-    "title": "Underwater Lounge with Coral Reef",
-    "path": "public/images/mid/g-5.jpg",
+    "id": "img-20260121-05",
+    "title": "コーラル・バイオ・ラウンジ",
+    "description": "豊かな海洋生態系を保護しながら人間との共生を目指す、自律型の海底観測ラウンジ",
+    "src": "/images/grok/g-5.jpg",
     "category": "Tech",
-    "tags": ["Bioluminescence", "Oceanic Infrastructure", "Sustainable Design"]
+    "score": 97,
+    "width": 1024,
+    "height": 1792,
+    "size": "1.5 MB",
+    "aspectRatio": "9:16",
+    "tags": ["#水中都市", "#深海探査", "#サステナブルデザイン", "#商用利用可"]
   }
 ]
