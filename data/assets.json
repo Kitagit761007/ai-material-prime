@@ -1995,5 +1995,70 @@
     "size": "1.6 MB",
     "aspectRatio": "16:9",
     "tags": ["#データセンター", "#再エネ100", "#GX", "#商用利用可"]
+  }[
+  {
+    "id": "niji-20260121-01",
+    "title": "エデン・フォール・ドーム",
+    "description": "巨大なガラスドーム内に広がる垂直の森と滝。自然エネルギー循環を体現した未来のバイオ建築。",
+    "src": "public/images/niji/niji-1.jpg",
+    "category": "Architecture",
+    "score": 98,
+    "width": 1024,
+    "height": 1024,
+    "size": "1.4 MB",
+    "aspectRatio": "1:1",
+    "tags": ["#未来建築", "#GX", "#バイオフィリック", "#商用利用可"]
+  },
+  {
+    "id": "niji-20260121-02",
+    "title": "スカイ・リバー・メトロポリス",
+    "description": "都市の中央を流れる運河と風力発電タービン。高度な水管理システムとグリーンインフラが融合したスマートシティ。",
+    "src": "public/images/niji/niji-2.jpg",
+    "category": "SmartCity",
+    "score": 96,
+    "width": 1024,
+    "height": 1024,
+    "size": "1.5 MB",
+    "aspectRatio": "1:1",
+    "tags": ["#スマートシティ", "#再生可能エネルギー", "#GX", "#商用利用可"]
+  },
+  {
+    "id": "niji-20260121-03",
+    "title": "精密製造オートメーション・ラボ",
+    "description": "対称的に配置された最新の産業用ロボットアーム。GX製品を製造するための、カーボンニュートラルなスマートファクトリー。",
+    "src": "public/images/niji/niji-3.jpg",
+    "category": "Technology",
+    "score": 93,
+    "width": 1024,
+    "height": 1024,
+    "size": "1.2 MB",
+    "aspectRatio": "1:1",
+    "tags": ["#ロボティクス", "#スマート工場", "#GX", "#商用利用可"]
+  },
+  {
+    "id": "niji-20260121-04",
+    "title": "バーティカル・ガーデン・コリドー",
+    "description": "高層ビル内に配置された垂直庭園。都市の気温上昇を抑え、人々に安らぎを与えるサステナブルな建築構造。",
+    "src": "public/images/niji/niji-4.jpg",
+    "category": "Architecture",
+    "score": 97,
+    "width": 1024,
+    "height": 1024,
+    "size": "1.4 MB",
+    "aspectRatio": "1:1",
+    "tags": ["#垂直庭園", "#都市緑化", "#GX", "#商用利用可"]
+  },
+  {
+    "id": "niji-20260121-05",
+    "title": "次世代スマートファクトリー・アセット",
+    "description": "効率を極限まで高めた自動製造ライン。クリーンエネルギーで稼働し、廃棄物を最小限に抑える最新の技術拠点。",
+    "src": "public/images/niji/niji-5.jpg",
+    "category": "Technology",
+    "score": 94,
+    "width": 1024,
+    "height": 1024,
+    "size": "1.3 MB",
+    "aspectRatio": "1:1",
+    "tags": ["#製造業", "#AI自動化", "#GX", "#商用利用可"]
   }
 ]
