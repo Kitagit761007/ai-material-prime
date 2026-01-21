@@ -1423,5 +1423,70 @@
     "size": "1.6 MB",
     "aspectRatio": "9:16",
     "tags": ["#スマートシティ", "#エネルギー網", "#夜景", "#商用利用可"]
+  },
+  {
+    "id": "img-20260121-25",
+    "title": "オーロラ_ポリアー_ベース",
+    "description": "幻想的なオーロラの下、氷海に浮かぶドーム型の次世代極地研究拠点と輸送船団。",
+    "src": "/images/grok/g-25.jpg",
+    "category": "Energy",
+    "score": 98,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.5 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#極地開発", "#オーロラ", "#未来基地", "#商用利用可"]
+  },
+  {
+    "id": "img-20260121-26",
+    "title": "アークティック_サステナブル_ハブ",
+    "description": "極寒の地でクリーンエネルギーを自給自足する、ドーム構造の最新鋭観測基地。",
+    "src": "/images/grok/g-26.jpg",
+    "category": "Tech",
+    "score": 97,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.4 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#サステナブル", "#観測基地", "#クリーンテクノロジー", "#商用利用可"]
+  },
+  {
+    "id": "img-20260121-27",
+    "title": "アンダーウォーター_メトロポリス",
+    "description": "透明な巨大チューブ内を潜水艇が往来する、サンゴ礁と共生する未来の海底都市。",
+    "src": "/images/grok/g-27.jpg",
+    "category": "Smart City",
+    "score": 99,
+    "width": 1024,
+    "height": 1792,
+    "size": "1.8 MB",
+    "aspectRatio": "9:16",
+    "tags": ["#海底都市", "#海洋建築", "#次世代モビリティ", "#商用利用可"]
+  },
+  {
+    "id": "img-20260121-28",
+    "title": "アクア_ビジョン_シティ",
+    "description": "豊かな海洋生態系に囲まれ、高度な建築技術で構築された没入型の海底居住区。",
+    "src": "/images/grok/g-28.jpg",
+    "category": "Smart City",
+    "score": 96,
+    "width": 1024,
+    "height": 1792,
+    "size": "1.7 MB",
+    "aspectRatio": "9:16",
+    "tags": ["#水中景観", "#サンゴ礁", "#エコシステム", "#商用利用可"]
+  },
+  {
+    "id": "img-20260121-29",
+    "title": "スペース_ソーラー_サテライト",
+    "description": "宇宙空間で太陽光を効率的に集電し、地球へワイヤレス給電を行う巨大発電衛星。",
+    "src": "/images/grok/g-29.jpg",
+    "category": "Energy",
+    "score": 98,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.3 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#宇宙発電", "#クリーンエネルギー", "#次世代インフラ", "#商用利用可"]
   }
 ]
