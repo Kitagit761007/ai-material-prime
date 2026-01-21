@@ -2632,5 +2632,44 @@
     "size": "1.4 MB",
     "aspectRatio": "16:9",
     "tags": ["#洋上風力", "#水素生産", "#GX", "#商用利用可"]
+  },
+  {
+    "id": "gpt-20260121-11",
+    "title": "グリーン・スカイ・コミュニティ",
+    "description": "垂直緑化された高層建築群と自律型フライング・モビリティが融合した次世代都市。都市の炭素吸収源を最大化します。",
+    "src": "/images/GPT/gpt-11.png",
+    "category": "SmartCity",
+    "score": 96,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.6 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#スマートシティ", "#空中都市", "#GX", "#商用利用可"]
+  },
+  {
+    "id": "gpt-20260121-12",
+    "title": "デジタル・グリッド・シティ・ナイト",
+    "description": "エネルギーの流動を可視化するスマートグリッド・インフラ。リアルタイムの電力最適化によりゼロエミッションを実現。",
+    "src": "/images/GPT/gpt-12.png",
+    "category": "Technology",
+    "score": 98,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.5 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#スマートグリッド", "#都市OS", "#GX", "#商用利用可"]
+  },
+  {
+    "id": "gpt-20260121-13",
+    "title": "アーバン・エア・モビリティ・ハブ",
+    "description": "都市上空を効率的に結ぶ、排出ガスゼロの航空交通ネットワーク。地上交通の混雑を解消する次世代ソリューション。",
+    "src": "/images/GPT/gpt-13.png",
+    "category": "Mobility",
+    "score": 95,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.4 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#MaaS", "#空飛ぶクルマ", "#GX", "#商用利用可"]
   }
 ]
