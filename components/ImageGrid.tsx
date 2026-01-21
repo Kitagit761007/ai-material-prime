@@ -271,7 +271,7 @@ function ImageCard({
             />
 
             <Image
-                src={`${img.src}?v=1`}
+                src={img.src + (img.id.includes('mid-2026') ? '?v=1' : '')}
                 alt={img.title}
                 width={600}
                 height={800}
