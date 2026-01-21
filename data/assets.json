@@ -1163,5 +1163,40 @@
         "size": "1.2 MB",
         "aspectRatio": "16:9",
         "tags": ["#未来の植物学", "#研究施設", "#エコシステム", "#商用利用可"]
-    }
+    },
+    {
+    "id": "g-001",
+    "title": "Sky-Whale Cruise Ship",
+    "path": "public/images/mid/g-1.jpg",
+    "category": "Mobility",
+    "tags": ["Aerostat", "Future City", "Green Technology"]
+  },
+  {
+    "id": "g-002",
+    "title": "Biophilic Flying Resort",
+    "path": "public/images/mid/g-2.jpg",
+    "category": "Mobility",
+    "tags": ["Aerial Garden", "Sustainable Travel", "Innovation"]
+  },
+  {
+    "id": "g-003",
+    "title": "Giant Airship over Cloud Sea",
+    "path": "public/images/mid/g-3.jpg",
+    "category": "Mobility",
+    "tags": ["Next-gen Transport", "Clean Energy", "Future Vista"]
+  },
+  {
+    "id": "g-004",
+    "title": "Deep Sea Panorama Restaurant",
+    "path": "public/images/mid/g-4.jpg",
+    "category": "Architecture",
+    "tags": ["Undersea City", "Ocean Tech", "Immersive Experience"]
+  },
+  {
+    "id": "g-005",
+    "title": "Underwater Lounge with Coral Reef",
+    "path": "public/images/mid/g-5.jpg",
+    "category": "Tech",
+    "tags": ["Bioluminescence", "Oceanic Infrastructure", "Sustainable Design"]
+  }
 ]
