@@ -1599,59 +1599,55 @@
     "description": "高度な微細藻類培養システムを備えた次世代バイオテクノロジー研究施設。クリーンで持続可能なエネルギー創出の最前線を描いています。",
     "category": "Technology",
     "tags": ["Biotechnology", "GX", "Research", "Algae", "Clean Energy"],
-    "image_path": "assets/images/mid-1.jpg",
+    "image_path": "public/images/mid/mid-1.jpg",
     "metadata": {
       "ratio": "4:3",
       "location": "Indoor Lab",
       "theme": "Bio & High-Tech"
-    }
-  },
+    },
   {
     "id": "mid-002",
     "title": "Sustainable Bio-Refinery",
     "description": "自然光が差し込む開放的なバイオプラントの内部。効率的なエネルギー変換プロセスと、技術と自然が調和した作業環境をビジュアル化。",
     "category": "Infrastructure",
     "tags": ["Bio-Energy", "Infrastructure", "Plant", "Sustainability", "GX"],
-    "image_path": "assets/images/mid-2.jpg",
+    "image_path": "public/images/mid/mid-2.jpg",
     "metadata": {
       "ratio": "4:3",
       "location": "Industrial Plant",
       "theme": "Green Transformation"
-    }
-  },
+    },
   {
     "id": "mid-003",
     "title": "Vertical Forest Metropolis",
     "description": "超高層ビルに垂直庭園を統合した未来のスマートシティ。都市の生物多様性維持と、ゼロエミッションを実現する建築デザイン。",
     "category": "Smart City",
     "tags": ["Vertical Forest", "Architecture", "Eco-City", "Urban Planning", "GX"],
-    "image_path": "assets/images/mid-3.jpg",
+    "image_path": "public/images/mid/mid-3.jpg",
     "metadata": {
       "ratio": "3:4",
       "location": "Urban",
       "theme": "Nature & Architecture"
-    }
-  },
+    },
   {
     "id": "mid-004",
     "title": "Eco-Friendly Urban Street",
     "description": "伝統的な街並みに最新の緑化技術とドローン物流が融合した日常風景。MaaS（Mobility as a Service）による持続可能な都市生活。",
     "category": "Lifestyle",
     "tags": ["MaaS", "Urban Greening", "Drone", "Smart Living", "GX"],
-    "image_path": "assets/images/mid-4.jpg",
+    "image_path": "public/images/mid/mid-4.jpg",
     "metadata": {
       "ratio": "3:4",
       "location": "Street",
       "theme": "Daily Future"
-    }
-  },
+    },
   {
     "id": "mid-005",
     "title": "Autonomous Energy Hub",
     "description": "森林と水辺に配置された自律型データセンター。環境への影響を最小限に抑えつつ、高度な演算能力を提供するエッジ・インフラ。",
     "category": "Infrastructure",
     "tags": ["Edge Computing", "Renewable Energy", "Landscape", "Data Center", "GX"],
-    "image_path": "assets/images/mid-5.jpg",
+    "image_path": "public/images/mid/mid-5.jpg",
     "metadata": {
       "ratio": "3:4",
       "location": "Nature",
