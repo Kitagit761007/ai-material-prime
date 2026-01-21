@@ -1228,5 +1228,70 @@
     "size": "1.5 MB",
     "aspectRatio": "9:16",
     "tags": ["#水中都市", "#深海探査", "#サステナブルデザイン", "#商用利用可"]
+  },
+  {
+    "id": "img-20260121-06",
+    "title": "アークティック_クリスタル_ライブラリー",
+    "description": "極地の雪山に佇む、全方位ガラス張りの知識貯蔵庫兼エネルギー観測拠点",
+    "src": "/images/grok/g-6.jpg",
+    "category": "Future Nature",
+    "score": 98,
+    "width": 1024,
+    "height": 1792,
+    "size": "1.2 MB",
+    "aspectRatio": "9:16",
+    "tags": ["#極地建築", "#未来の図書館", "#クリーンエネルギー", "#商用利用可"]
+  },
+  {
+    "id": "img-20260121-07",
+    "title": "ジオ_ピラミッド_ステーション",
+    "description": "氷河地帯に設置された、地熱と太陽光をハイブリッドで活用する自律型研究基地",
+    "src": "/images/grok/g-7.jpg",
+    "category": "Tech",
+    "score": 97,
+    "width": 1024,
+    "height": 1792,
+    "size": "1.3 MB",
+    "aspectRatio": "9:16",
+    "tags": ["#地熱発電", "#エネルギー拠点", "#未来のインフラ", "#商用利用可"]
+  },
+  {
+    "id": "img-20260121-08",
+    "title": "ミラー_デザート_レジデンス",
+    "description": "砂漠の熱を反射し内部を最適に保つ、鏡面仕上げのサステナブルな居住ユニット",
+    "src": "/images/grok/g-8.jpg",
+    "category": "Eco-Life",
+    "score": 96,
+    "width": 1024,
+    "height": 1792,
+    "size": "1.4 MB",
+    "aspectRatio": "9:16",
+    "tags": ["#砂漠緑化", "#スマートハウス", "#エコシステム", "#商用利用可"]
+  },
+  {
+    "id": "img-20260121-09",
+    "title": "ソーラー_パーム_オアシス",
+    "description": "太陽光パネルと植物が融合した人工樹木が並ぶ、次世代の砂漠都市モデル",
+    "src": "/images/grok/g-9.jpg",
+    "category": "Energy",
+    "score": 95,
+    "width": 1024,
+    "height": 1792,
+    "size": "1.5 MB",
+    "aspectRatio": "9:16",
+    "tags": ["#再生可能エネルギー", "#未来都市", "#環境技術", "#商用利用可"]
+  },
+  {
+    "id": "img-20260121-10",
+    "title": "バイオフィリック_スカイ_コリドー",
+    "description": "植物がビルを覆い、空中を自動運転ポッドが走行する高密度グリーンシティ",
+    "src": "/images/grok/g-10.jpg",
+    "category": "Smart City",
+    "score": 99,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.8 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#スマートシティ", "#自動運転", "#垂直森林", "#商用利用可"]
   }
 ]
