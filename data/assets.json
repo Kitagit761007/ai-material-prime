@@ -1358,5 +1358,71 @@
     "size": "1.8 MB",
     "aspectRatio": "9:16",
     "tags": ["#バイオフィリック", "#ワークスタイル", "#未来建築", "#商用利用可"]
+  },
+  {
+    "id": "img-20260121-20",
+    "title": "バイオフィリック_データセンター",
+    "description": "巨大な屋内滝と熱帯植物に囲まれた、自然冷却システムを採用した次世代の運用本部。",
+    "src": "/images/grok/g-20.jpg",
+    "category": "Eco-Life",
+    "score": 98,
+    "width": 1024,
+    "height": 1792,
+    "size": "1.8 MB",
+    "aspectRatio": "9:16",
+    "tags": ["#バイオフィリック", "#次世代オフィス", "#自然冷却", "#商用利用可"]
+  },
+  {
+    "id": "img-20260121-21",
+    "title": "プレシジョン_アグリ_ラボ",
+    "description": "LED照明とロボットアームにより、最適な環境で食料を生産する精密垂直農法ユニット。",
+    "src": "/images/grok/g-21.jpg",
+    "category": "Resource",
+    "score": 96,
+    "width": 1024,
+    "height": 1792,
+    "size": "1.5 MB",
+    "aspectRatio": "9:16",
+    "tags": ["#垂直農法", "#アグリテック", "#自動栽培", "#商用利用可"]
+  },
+  {
+    "id": "img-20260121-22",
+    "title": "スマート_ボタニカル_ファクトリー",
+    "description": "AIが植物の成長を24時間監視し、資源消費を最小限に抑えた完全自動の植物工場。",
+    "src": "/images/grok/g-22.jpg",
+    "category": "Resource",
+    "score": 95,
+    "width": 1024,
+    "height": 1792,
+    "size": "1.4 MB",
+    "aspectRatio": "9:16",
+    "tags": ["#植物工場", "#AI農法", "#サステナブルフード", "#商用利用可"]
+  },
+  {
+    "id": "img-20260121-23",
+    "title": "ルミナス_シティ_スパイラル",
+    "description": "光の軌跡がビルを包み込むように走る、高度な空中交通網が発達した未来都市の夕景。",
+    "src": "/images/grok/g-23.jpg",
+    "category": "Smart City",
+    "score": 99,
+    "width": 1024,
+    "height": 1792,
+    "size": "1.7 MB",
+    "aspectRatio": "9:16",
+    "tags": ["#未来都市", "#空中交通", "#サイバーパンク", "#商用利用可"]
+  },
+  {
+    "id": "img-20260121-24",
+    "title": "サイバー_メトロポリス_ハブ",
+    "description": "螺旋状のエネルギーラインが都市を貫く、情報と物流が高度に同期された夜のスマートシティ。",
+    "src": "/images/grok/g-24.jpg",
+    "category": "Smart City",
+    "score": 97,
+    "width": 1024,
+    "height": 1792,
+    "size": "1.6 MB",
+    "aspectRatio": "9:16",
+    "tags": ["#スマートシティ", "#エネルギー網", "#夜景", "#商用利用可"]
   }
+]
 ]
