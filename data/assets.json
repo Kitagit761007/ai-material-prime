@@ -2723,5 +2723,57 @@
     "size": "1.3 MB",
     "aspectRatio": "16:9",
     "tags": ["#太陽光発電", "#砂漠緑化", "#GX", "#商用利用可"]
+  },
+  {
+    "id": "gpt-20260121-14",
+    "title": "深海エコ・リサーチ・ステーション",
+    "description": "巨大なガラスドームで構成された深海居住施設。海洋生態系を間近で観察し、持続可能な海洋開発を研究するGX拠点。",
+    "src": "/ai-material-prime/images/GPT/gpt-14.png",
+    "category": "Technology",
+    "score": 96,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.6 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#深海開発", "#海洋保全", "#GX", "#商用利用可"]
+  },
+  {
+    "id": "gpt-20260121-15",
+    "title": "バイオフィリック・スカイ・メトロポリス",
+    "description": "空飛ぶ交通プラットフォームと垂直庭園が融合した未来の都市。河川を利用した物流とグリーンインフラがシームレスに連携。",
+    "src": "/ai-material-prime/images/GPT/gpt-15.png",
+    "category": "SmartCity",
+    "score": 98,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.5 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#未来都市", "#空中交通", "#GX建築", "#商用利用可"]
+  },
+  {
+    "id": "gpt-20260121-16",
+    "title": "砂漠のソーラー・ピラミッド・プラント",
+    "description": "広大な砂漠に建設された巨大太陽光発電ピラミッド。不毛の地を再生可能エネルギーの生産拠点へと変貌させます。",
+    "src": "/ai-material-prime/images/GPT/gpt-16.png",
+    "category": "Energy",
+    "score": 97,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.4 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#太陽光発電", "#砂漠緑化", "#GX", "#商用利用可"]
+  },
+  {
+    "id": "gpt-20260121-17",
+    "title": "極地水素エネルギー・フューチャーベース",
+    "description": "オーロラの下で輝く次世代の水素エネルギーハブ。クリーンな燃料を積んだ船舶が行き交う北極圏のインフラ。",
+    "src": "/ai-material-prime/images/GPT/gpt-17.png",
+    "category": "Energy",
+    "score": 99,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.6 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#水素社会", "#極地開発", "#ゼロエミッション", "#商用利用可"]
   }
 ]
