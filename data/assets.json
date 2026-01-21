@@ -1917,5 +1917,84 @@
     "size": "1.4 MB",
     "aspectRatio": "16:9",
     "tags": ["#ワイヤレス送電", "#宇宙発電", "#GX", "#商用利用可"]
+  },
+  {
+    "id": "mid-20260121-26",
+    "title": "バイオ・ルミネッセンス・シティ",
+    "description": "発光植物を街路灯として活用する夜のスマートシティ。エネルギー消費を抑えつつ幻想的な景観を実現。",
+    "src": "/images/mid/mid-26.jpg",
+    "category": "SmartCity",
+    "score": 97,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.4 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#バイオ発光", "#省エネ", "#未来都市", "#商用利用可"]
+  },
+  {
+    "id": "mid-20260121-27",
+    "title": "ジオ・サーマル・プラント",
+    "description": "地熱エネルギーを最大限に活用する山岳地帯の発電施設。自然の熱源を安全かつ効率的に電力へ変換。",
+    "src": "/images/mid/mid-27.jpg",
+    "category": "Energy",
+    "score": 94,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.3 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#地熱発電", "#再生可能エネルギー", "#GX", "#商用利用可"]
+  },
+  {
+    "id": "mid-20260121-28",
+    "title": "スカイ・テラス・アグリカルチャー",
+    "description": "高層ビルの屋上を利用した大規模な都市型農園。雨水利用と自動給水システムによる効率的な食料生産。",
+    "src": "/images/mid/mid-28.jpg",
+    "category": "Technology",
+    "score": 92,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.5 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#都市農業", "#屋上緑化", "#サステナブル", "#商用利用可"]
+  },
+  {
+    "id": "mid-20260121-29",
+    "title": "クリスタル・エコ・パビリオン",
+    "description": "透明な太陽光発電ガラスで構成された多目的施設。発電と採光を両立させた次世代の建築デザイン。",
+    "src": "/images/mid/mid-29.jpg",
+    "category": "Architecture",
+    "score": 96,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.2 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#太陽光ガラス", "#未来建築", "#GX", "#商用利用可"]
+  },
+  {
+    "id": "mid-20260121-30",
+    "title": "ハイドロジェン・バス・ターミナル",
+    "description": "水素燃料電池バスが集結する交通ハブ。排出物は水のみ、静粛でクリーンな都市交通の拠点。",
+    "src": "/images/mid/mid-30.jpg",
+    "category": "Mobility",
+    "score": 95,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.3 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#水素エネルギー", "#MaaS", "#ゼロエミッション", "#商用利用可"]
+  },
+  {
+    "id": "mid-20260121-31",
+    "title": "グローバル・GX・データセンター",
+    "description": "100%再生可能エネルギーで稼働する大規模計算拠点。冷却に自然の冷気を利用した高効率な設計。",
+    "src": "/images/mid/mid-31.jpg",
+    "category": "Infrastructure",
+    "score": 98,
+    "width": 1792,
+    "height": 1024,
+    "size": "1.6 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#データセンター", "#再エネ100", "#GX", "#商用利用可"]
   }
+]
 ]
