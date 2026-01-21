@@ -271,7 +271,7 @@ function ImageCard({
             />
 
             <Image
-                src={img.src}
+                src={`${img.src}?v=1`}
                 alt={img.title}
                 width={600}
                 height={800}
