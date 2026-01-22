@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import assets from "@/data/assets.json";
+// 🚨 ここを ../data/assets.json に修正しました（ビルドエラーの主因）
+import assets from "../data/assets.json";
 
 interface ImageGridProps {
     initialItems?: typeof assets;
