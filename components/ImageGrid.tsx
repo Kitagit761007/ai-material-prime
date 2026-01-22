@@ -149,15 +149,15 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "", onR
 
                         {/* Image Side */}
                         <div className="md:w-2/3 bg-black/50 flex items-center justify-center relative min-h-[300px] md:h-auto">
-                            <Image
-                                src={selectedImage.src}
-                                alt={selectedImage.title}
-                                fill
-                                quality={80}
-                                className="object-contain"
-                            />
-                        </div>
-
+    <Image
+        src={`${selectedImage.src}?v=${new Date().getTime()}`} // 👈 キャッシュ対策
+        alt={selectedImage.title}
+        fill
+        quality={80}
+        unoptimized={true} // 👈 最適化をパス
+        className="object-contain"
+    />
+</div>
                         {/* Details Side */}
                         <div className="md:w-1/3 p-6 flex flex-col bg-slate-900 overflow-y-auto min-h-0 gap-6">
                             {/* Header */}
@@ -271,15 +271,17 @@ function ImageCard({
             />
 
             <Image
-                src={img.src.includes('.jpg') ? img.src : img.src}
-                alt={img.title}
-                width={600}
-                height={800}
-                quality={80}
-                className={`w-full h-auto object-cover transition-all duration-700 ease-in-out ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"
-                    } group-hover:scale-105`}
-                onLoad={() => setLoaded(true)}
-            />
+    src={`${img.src}?v=${new Date().getTime()}`} // 👈 ここが重要：時間を付与してキャッシュを強制破壊
+    alt={img.title}
+    width={600}
+    height={800}
+    quality={80}
+    unoptimized={true} // 👈 重要：Next.jsの画像最適化によるURL変換を一旦パスさせる
+    className={`w-full h-auto object-cover transition-all duration-700 ease-in-out ${
+        loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"
+    } group-hover:scale-105`}
+    onLoad={() => setLoaded(true)}
+/>
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                 <h3 className="text-white font-bold text-lg tracking-tight font-sans transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
