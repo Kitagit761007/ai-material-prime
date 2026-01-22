@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import assets from "../data/assets.json";
+import assets from "@/data/assets.json";
 // Trigger Run #19
 
 interface ImageGridProps {
