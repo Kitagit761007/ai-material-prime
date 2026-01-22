@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
-import assets from "../data/assets.json";
+import assetsData from "../data/assets.json";
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
@@ -17,17 +17,18 @@ export default function Header() {
 
     const closeMenu = () => setIsMenuOpen(false);
 
-    // カウントを復活させる最強の集計ロジック（余計な空白を無視するように改良）
-    const getCategoryCount = (catName: string) => {
-        return assets.filter(item => item.category?.trim() === catName).length;
+    // データの「category」と、ここの「id」を一致させて集計する関数
+    const getCategoryCount = (id: string) => {
+        return (assetsData as any[]).filter(item => item.category === id).length;
     };
 
+    // IDを英語に戻すことで404エラーを確実に回避し、表示(name)だけ日本語にします
     const categories = [
-        { id: "エネルギー", name: "エネルギー" },
-        { id: "モビリティ", name: "モビリティ" },
-        { id: "テクノロジー", name: "テクノロジー" },
-        { id: "資源・バイオ", name: "資源・バイオ" },
-        { id: "スマートシティ", name: "スマートシティ" }
+        { id: "Energy", name: "エネルギー" },
+        { id: "Mobility", name: "モビリティ" },
+        { id: "Tech", name: "テクノロジー" },
+        { id: "Resource", name: "資源・バイオ" },
+        { id: "SmartCity", name: "スマートシティ" }
     ];
 
     return (
@@ -37,19 +38,17 @@ export default function Header() {
 
                 <nav className="hidden md:flex gap-8 items-center">
                     <Link href="/gallery" className="text-sm font-medium hover:text-gx-cyan transition-colors">ギャラリー</Link>
-                    
                     <div className="relative group">
                         <button className="text-sm font-medium hover:text-gx-cyan transition-colors flex items-center gap-1">カテゴリーから探す <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" /></button>
                         <div className="absolute top-full left-0 mt-2 w-56 bg-slate-900 border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden py-2">
                             {categories.map((cat) => (
-                                <Link key={cat.id} href={`/categories/${encodeURIComponent(cat.id)}`} className="flex items-center justify-between px-4 py-3 text-sm hover:bg-white/5 transition-colors group/item">
+                                <Link key={cat.id} href={`/categories/${cat.id}`} className="flex items-center justify-between px-4 py-3 text-sm hover:bg-white/5 transition-colors group/item">
                                     <span className="group-hover/item:text-gx-cyan transition-colors">{cat.name}</span>
                                     <span className="text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded">{getCategoryCount(cat.id)}</span>
                                 </Link>
                             ))}
                         </div>
                     </div>
-
                     <Link href="/tags" className="text-sm font-medium hover:text-gx-cyan transition-colors">タグ一覧</Link>
                     <Link href="/about" className="text-sm font-medium hover:text-gx-cyan transition-colors">当サイトについて</Link>
                     <Link href="/contact" className="text-sm font-medium hover:text-gx-cyan transition-colors">お問い合わせ</Link>
@@ -65,7 +64,7 @@ export default function Header() {
                         <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">Categories</span>
                         <div className="grid grid-cols-2 gap-3 w-full">
                             {categories.map((cat) => (
-                                <Link key={cat.id} href={`/categories/${encodeURIComponent(cat.id)}`} className="bg-white/5 border border-white/5 py-3 rounded-lg text-center text-sm font-medium flex flex-col items-center gap-1" onClick={closeMenu}>
+                                <Link key={cat.id} href={`/categories/${cat.id}`} className="bg-white/5 border border-white/5 py-3 rounded-lg text-center text-sm font-medium flex flex-col items-center gap-1" onClick={closeMenu}>
                                     {cat.name}
                                     <span className="text-[9px] text-gx-cyan font-mono opacity-60">{getCategoryCount(cat.id)} assets</span>
                                 </Link>
