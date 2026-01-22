@@ -1,18 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import assets from "../data/assets.json";
+import assetsData from "../data/assets.json";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
 
-    // カウントを復活させる改良ロジック（.trim() を追加して安全性を強化）
-    const getCategoryCount = (catName: string) => {
-        return assets.filter(item => item.category?.trim() === catName).length;
+    const getCategoryCount = (id: string) => {
+        return (assetsData as any[]).filter(item => item.category === id).length;
     };
 
-    const getTagCount = (tagName: string) => {
-        return assets.filter(item => item.tags.some(tag => tag.trim() === `#${tagName}`)).length;
+    const getTagCount = (name: string) => {
+        return (assetsData as any[]).filter(item => 
+            item.tags && item.tags.some((t: string) => t.includes(name))
+        ).length;
     };
 
     return (
@@ -28,14 +29,14 @@ export default function Footer() {
                         <h3 className="text-white font-bold text-sm tracking-wider uppercase flex items-center gap-2"><span className="w-1.5 h-1.5 bg-gx-cyan rounded-full" />Explore Categories</h3>
                         <ul className="grid grid-cols-1 gap-4">
                             {[
-                                { id: "エネルギー", name: "エネルギー" },
-                                { id: "モビリティ", name: "モビリティ" },
-                                { id: "テクノロジー", name: "テクノロジー" },
-                                { id: "資源・バイオ", name: "資源・バイオ" },
-                                { id: "スマートシティ", name: "スマートシティ" }
+                                { id: "Energy", name: "エネルギー" },
+                                { id: "Mobility", name: "モビリティ" },
+                                { id: "Tech", name: "テクノロジー" },
+                                { id: "Resource", name: "資源・バイオ" },
+                                { id: "SmartCity", name: "スマートシティ" }
                             ].map((cat) => (
                                 <li key={cat.id}>
-                                    <Link href={`/categories/${encodeURIComponent(cat.id)}`} className="text-slate-300 hover:text-gx-cyan transition-colors text-sm flex items-center justify-between group">
+                                    <Link href={`/categories/${cat.id}`} className="text-slate-300 hover:text-gx-cyan transition-colors text-sm flex items-center justify-between group">
                                         <div className="flex items-center gap-2"><span className="w-1 h-0.5 bg-slate-800 group-hover:bg-gx-cyan transition-colors" />{cat.name}</div>
                                         <span className="text-xs text-slate-500 font-mono">({getCategoryCount(cat.id)})</span>
                                     </Link>
