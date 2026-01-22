@@ -271,7 +271,7 @@ function ImageCard({
             />
 
             <Image
-    src={`${img.src.replace('.png', '.jpg')}?v=${new Date().getTime()}`}
+    src={`${selectedImage.id.startsWith('mid-') ? selectedImage.src.replace('.png', '.jpg') : selectedImage.src}?v=${new Date().getTime()}`}
     alt={img.title}
     width={600}
     height={800}
