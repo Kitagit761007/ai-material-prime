@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import assets from "../data/assets.json"; // 👈 枚数集計のために読み込み
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
@@ -16,8 +17,21 @@ export default function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Close menu when clicking a link
     const closeMenu = () => setIsMenuOpen(false);
+
+    // カテゴリーごとの枚数を自動集計する関数
+    const getCategoryCount = (catName: string) => {
+        return assets.filter(item => item.category === catName).length;
+    };
+
+    // カテゴリー設定 (idを日本語名に合わせることで404エラーを防止)
+    const categories = [
+        { id: "エネルギー", name: "エネルギー" },
+        { id: "モビリティ", name: "モビリティ" },
+        { id: "テクノロジー", name: "テクノロジー" },
+        { id: "資源・バイオ", name: "資源・バイオ" },
+        { id: "スマートシティ", name: "スマートシティ" }
+    ];
 
     return (
         <header
@@ -36,19 +50,29 @@ export default function Header() {
                     <Link href="/gallery" className="text-sm font-medium hover:text-gx-cyan transition-colors">
                         ギャラリー
                     </Link>
+                    
+                    {/* Categories Dropdown */}
                     <div className="relative group">
                         <button className="text-sm font-medium hover:text-gx-cyan transition-colors flex items-center gap-1">
                             カテゴリーから探す
-                            <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                            <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
                         </button>
-                        <div className="absolute top-full left-0 mt-2 w-48 bg-slate-900 border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden">
-                            <Link href="/categories/Energy" className="block px-4 py-3 text-sm hover:bg-white/5 transition-colors">エネルギー</Link>
-                            <Link href="/categories/Mobility" className="block px-4 py-3 text-sm hover:bg-white/5 transition-colors">モビリティ</Link>
-                            <Link href="/categories/Tech" className="block px-4 py-3 text-sm hover:bg-white/5 transition-colors">テクノロジー</Link>
-                            <Link href="/categories/Resource" className="block px-4 py-3 text-sm hover:bg-white/5 transition-colors">資源・バイオ</Link>
-                            <Link href="/categories/Eco-Life" className="block px-4 py-3 text-sm hover:bg-white/5 transition-colors">エコ・ライフスタイル</Link>
+                        <div className="absolute top-full left-0 mt-2 w-56 bg-slate-900 border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden py-2">
+                            {categories.map((cat) => (
+                                <Link 
+                                    key={cat.id}
+                                    href={`/categories/${encodeURIComponent(cat.id)}`} 
+                                    className="flex items-center justify-between px-4 py-3 text-sm hover:bg-white/5 transition-colors group/item"
+                                >
+                                    <span className="group-hover/item:text-gx-cyan transition-colors">{cat.name}</span>
+                                    <span className="text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded">
+                                        {getCategoryCount(cat.id)}
+                                    </span>
+                                </Link>
+                            ))}
                         </div>
                     </div>
+
                     <Link href="/tags" className="text-sm font-medium hover:text-gx-cyan transition-colors">
                         タグ一覧
                     </Link>
@@ -64,52 +88,42 @@ export default function Header() {
                 <button
                     className="md:hidden z-50 p-2 text-white"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    aria-label="Toggle Menu"
                 >
                     {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
 
                 {/* Mobile Nav Overlay */}
                 <div
-                    className={`fixed inset-0 bg-slate-950 transition-all duration-500 ease-in-out md:hidden flex flex-col items-center justify-center gap-8 ${isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none translate-y-[-20px]"
+                    className={`fixed inset-0 bg-slate-950 transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-6 ${isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none translate-y-[-20px]"
                         }`}
                 >
-                    <Link
-                        href="/gallery"
-                        className="text-2xl font-bold text-white hover:text-gx-cyan transition-colors"
-                        onClick={closeMenu}
-                    >
+                    <Link href="/gallery" className="text-2xl font-bold text-white" onClick={closeMenu}>
                         ギャラリー
                     </Link>
-                    <div className="flex flex-col items-center gap-4">
-                        <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">カテゴリーから探す</span>
-                        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-                            <Link href="/categories/Energy" className="text-lg font-medium hover:text-gx-cyan transition-colors" onClick={closeMenu}>エネルギー</Link>
-                            <Link href="/categories/Mobility" className="text-lg font-medium hover:text-gx-cyan transition-colors" onClick={closeMenu}>モビリティ</Link>
-                            <Link href="/categories/Tech" className="text-lg font-medium hover:text-gx-cyan transition-colors" onClick={closeMenu}>テクノロジー</Link>
-                            <Link href="/categories/Resource" className="text-lg font-medium hover:text-gx-cyan transition-colors" onClick={closeMenu}>資源・バイオ</Link>
-                            <Link href="/categories/Eco-Life" className="text-lg font-medium hover:text-gx-cyan transition-colors" onClick={closeMenu}>エコ・ライフスタイル</Link>
+                    
+                    <div className="flex flex-col items-center gap-3 w-full px-10">
+                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">Categories</span>
+                        <div className="grid grid-cols-2 gap-3 w-full">
+                            {categories.map((cat) => (
+                                <Link 
+                                    key={cat.id} 
+                                    href={`/categories/${encodeURIComponent(cat.id)}`} 
+                                    className="bg-white/5 border border-white/5 py-3 rounded-lg text-center text-sm font-medium flex flex-col items-center gap-1"
+                                    onClick={closeMenu}
+                                >
+                                    {cat.name}
+                                    <span className="text-[9px] text-gx-cyan font-mono opacity-60">
+                                        {getCategoryCount(cat.id)} assets
+                                    </span>
+                                </Link>
+                            ))}
                         </div>
                     </div>
-                    <Link
-                        href="/tags"
-                        className="text-2xl font-bold text-white hover:text-gx-cyan transition-colors"
-                        onClick={closeMenu}
-                    >
+
+                    <Link href="/tags" className="text-xl font-medium text-white" onClick={closeMenu}>
                         タグ一覧
                     </Link>
-                    <Link
-                        href="/about"
-                        className="text-2xl font-bold text-white hover:text-gx-cyan transition-colors"
-                        onClick={closeMenu}
-                    >
-                        当サイトについて
-                    </Link>
-                    <Link
-                        href="/contact"
-                        className="text-2xl font-bold text-white hover:text-gx-cyan transition-colors"
-                        onClick={closeMenu}
-                    >
+                    <Link href="/contact" className="text-xl font-medium text-white" onClick={closeMenu}>
                         お問い合わせ
                     </Link>
                 </div>
