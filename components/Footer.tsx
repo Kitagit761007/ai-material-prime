@@ -6,8 +6,11 @@ import assetsData from "../data/assets.json";
 export default function Footer() {
     const currentYear = new Date().getFullYear();
 
-    const getCategoryCount = (id: string) => {
-        return (assetsData as any[]).filter(item => item.category === id).length;
+    const getCategoryCount = (name: string) => {
+        return (assetsData as any[]).filter(item => 
+            item.category === name || 
+            item.category?.toLowerCase() === name.toLowerCase()
+        ).length;
     };
 
     const getTagCount = (name: string) => {
@@ -15,6 +18,14 @@ export default function Footer() {
             item.tags && item.tags.some((t: string) => t.includes(name))
         ).length;
     };
+
+    const categories = [
+        { id: "energy", name: "エネルギー", search: "Energy" },
+        { id: "mobility", name: "モビリティ", search: "Mobility" },
+        { id: "tech", name: "テクノロジー", search: "Tech" },
+        { id: "resource", name: "資源・バイオ", search: "Resource" },
+        { id: "smartcity", name: "スマートシティ", search: "SmartCity" }
+    ];
 
     return (
         <footer className="bg-slate-950 border-t border-white/10 pt-16 pb-8">
@@ -28,17 +39,11 @@ export default function Footer() {
                     <div className="space-y-6">
                         <h3 className="text-white font-bold text-sm tracking-wider uppercase flex items-center gap-2"><span className="w-1.5 h-1.5 bg-gx-cyan rounded-full" />Explore Categories</h3>
                         <ul className="grid grid-cols-1 gap-4">
-                            {[
-                                { id: "Energy", name: "エネルギー" },
-                                { id: "Mobility", name: "モビリティ" },
-                                { id: "Tech", name: "テクノロジー" },
-                                { id: "Resource", name: "資源・バイオ" },
-                                { id: "SmartCity", name: "スマートシティ" }
-                            ].map((cat) => (
+                            {categories.map((cat) => (
                                 <li key={cat.id}>
                                     <Link href={`/categories/${cat.id}`} className="text-slate-300 hover:text-gx-cyan transition-colors text-sm flex items-center justify-between group">
                                         <div className="flex items-center gap-2"><span className="w-1 h-0.5 bg-slate-800 group-hover:bg-gx-cyan transition-colors" />{cat.name}</div>
-                                        <span className="text-xs text-slate-500 font-mono">({getCategoryCount(cat.id)})</span>
+                                        <span className="text-xs text-slate-500 font-mono">({getCategoryCount(cat.search)})</span>
                                     </Link>
                                 </li>
                             ))}
