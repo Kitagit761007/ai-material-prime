@@ -1,1170 +1,954 @@
-﻿[
-    {
-        "id":  "hydrogen-bus-future-01",
-        "src":  "/images/hydrogen_bus_future_city.png",
-        "title":  "次世代水素自動運転バス",
-        "description":  "ネオンが輝く未来都市を駆ける、水素燃料の自動運転バスとEVモビリティ。\n[Spec: 自律走行レベル5想定]",
-        "category":  "Mobility",
-        "score":  96,
-        "width":  1024,
-        "height":  1024,
-        "size":  "950 KB",
-        "aspectRatio":  "1:1 (Square)",
-        "tags":  [
-                     "#水素エネルギー",
-                     "#自動運転",
-                     "#未来都市",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "h2-plant-01",
-        "src":  "/images/hydrogen/h2-plant.png",
-        "title":  "未来型水素プラント",
-        "description":  "カーボンニュートラルを実現する、次世代エネルギー供給の拠点。\n[Spec: 高効率エネルギー管理システム搭載]",
-        "category":  "Energy",
-        "score":  98,
-        "width":  1024,
-        "height":  1024,
-        "size":  "834 KB",
-        "aspectRatio":  "1:1 (Square)",
-        "tags":  [
-                     "#水素エネルギー",
-                     "#クリーンテック",
-                     "#未来インフラ",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "smart-city-01",
-        "src":  "/images/smartcity/overview.png",
-        "title":  "調和するスマートシティ",
-        "description":  "自然とテクノロジーが融合した、持続可能な都市モデル。\n[Spec: AI最適化グリッド制御対応]",
-        "category":  "Tech",
-        "score":  97,
-        "width":  1024,
-        "height":  1024,
-        "size":  "900 KB",
-        "aspectRatio":  "1:1 (Square)",
-        "tags":  [
-                     "#スマートシティ",
-                     "#都市開発",
-                     "#サステナブル",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "wind-farm-01",
-        "src":  "/images/infrastructure/wind.png",
-        "title":  "洋上風力発電ファーム",
-        "description":  "広大な海原を活用した、再生可能エネルギーの主力電源。\n[Spec: 超大型15MW級タービン採用]",
-        "category":  "Energy",
-        "score":  95,
-        "width":  1024,
-        "height":  1024,
-        "size":  "928 KB",
-        "aspectRatio":  "1:1 (Square)",
-        "tags":  [
-                     "#風力発電",
-                     "#海洋インフラ",
-                     "#再エネ",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "ev-station-01",
-        "src":  "/images/infrastructure/ev.png",
-        "title":  "次世代EVステーション",
-        "description":  "都市の夜景に溶け込む、スタイリッシュな急速充電ハブ。\n[Spec: 超急速350kW充電プロトコル準拠]",
-        "category":  "Mobility",
-        "score":  94,
-        "width":  1024,
-        "height":  1024,
-        "size":  "912 KB",
-        "aspectRatio":  "1:1 (Square)",
-        "tags":  [
-                     "#EV",
-                     "#モビリティ",
-                     "#インフラ",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "iot-center-01",
-        "src":  "/images/smartcity/iot.png",
-        "title":  "先進IoTデータセンター",
-        "description":  "膨大なデータを高速処理する、スマート社会の頭脳。\n[Spec: 浸漬冷却方式によるPUE 1.05達成]",
-        "category":  "Tech",
-        "score":  96,
-        "width":  1024,
-        "height":  1024,
-        "size":  "798 KB",
-        "aspectRatio":  "1:1 (Square)",
-        "tags":  [
-                     "#IoT",
-                     "#データセンター",
-                     "#DX",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "img_mobility_01",
-        "title":  "未来都市の水素自動運転ネットワーク",
-        "description":  "水素燃料で稼働する次世代モビリティが、排出ガスゼロのクリーンな都市インフラを実現。\n[Spec: 常温低圧水素ストレージ技術実証型]",
-        "src":  "/assets/images/gx_mobility_01.jpg",
-        "category":  "Mobility",
-        "score":  99,
-        "width":  1024,
-        "height":  576,
-        "size":  "512 KB",
-        "aspectRatio":  "16:9 (Widescreen)",
-        "tags":  [
-                     "#水素エネルギー",
-                     "#自動運転",
-                     "#スマートシティ",
-                     "#次世代交通",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "img_mobility_02",
-        "title":  "クリーンモビリティが彩る未来の夜景",
-        "description":  "高度なエネルギー管理システムにより最適化された、持続可能な都市モビリティの景観。\n[Spec: V2G (Vehicle-to-Grid) 統合制御]",
-        "src":  "/assets/images/gx_mobility_02.jpg",
-        "category":  "Mobility",
-        "score":  97,
-        "width":  1024,
-        "height":  576,
-        "size":  "486 KB",
-        "aspectRatio":  "16:9 (Widescreen)",
-        "tags":  [
-                     "#水素エネルギー",
-                     "#EV",
-                     "#スマートシティ",
-                     "#脱炭素",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "gx_grid_01",
-        "title":  "次世代スマートグリッドの鼓動",
-        "description":  "都市全体がAIで最適化されたエネルギーネットワークで繋がり、効率的な需給調整を実現する未来の街並み。\n[Spec: 自律分散型エネルギー管理 (DERMS)]",
-        "src":  "/assets/images/gx_grid_01.jpg",
-        "category":  "Tech",
-        "score":  98,
-        "width":  1024,
-        "height":  576,
-        "size":  "172 KB",
-        "aspectRatio":  "16:9 (Widescreen)",
-        "tags":  [
-                     "#スマートグリッド",
-                     "#AI",
-                     "#エネルギー",
-                     "#未来都市",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "gx_grid_02",
-        "title":  "エネルギーが自律するスマートシティ",
-        "description":  "高度な電力網により再生可能エネルギーを完璧に制御し、都市の隅々までクリーンな電力を届けるインフラ。\n[Spec: 量子暗号化セキュア通信網搭載]",
-        "src":  "/assets/images/gx_grid_02.jpg",
-        "category":  "Tech",
-        "score":  99,
-        "width":  1024,
-        "height":  576,
-        "size":  "211 KB",
-        "aspectRatio":  "16:9 (Widescreen)",
-        "tags":  [
-                     "#スマートグリッド",
-                     "#AI",
-                     "#エネルギー",
-                     "#デジタルトランスフォーメーション",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "gx_plant_01",
-        "title":  "大気浄化と地球熱の融合",
-        "description":  "地中深くから汲み上げた熱エネルギーとCCUS技術を組み合わせ、クリーンで安定した電力を供給する複合型プラント。\n[Spec: DAC (Direct Air Capture) ハイブリッド方式]",
-        "src":  "/assets/images/gx_plant_01.jpg",
-        "category":  "Energy",
-        "score":  96,
-        "width":  1024,
-        "height":  576,
-        "size":  "167 KB",
-        "aspectRatio":  "16:9 (Widescreen)",
-        "tags":  [
-                     "#CCUS",
-                     "#地熱発電",
-                     "#脱炭素",
-                     "#クリーンエネルギー",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "gx_plant_02",
-        "title":  "カーボンネガティブを実現する地熱センター",
-        "description":  "最新の二酸化炭素回収・貯留技術を搭載し、エネルギー生産と同時に大気中のCO2を削減する次世代の拠点。\n[Spec: 二酸化炭素鉱物固定化プロセス実装]",
-        "src":  "/assets/images/gx_plant_02.jpg",
-        "category":  "Energy",
-        "score":  95,
-        "width":  1024,
-        "height":  576,
-        "size":  "148 KB",
-        "aspectRatio":  "16:9 (Widescreen)",
-        "tags":  [
-                     "#CCUS",
-                     "#地熱発電",
-                     "#脱炭素",
-                     "#ネガティブエミッション",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "gx_bio_01",
-        "title":  "循環型バイオ燃料農園",
-        "description":  "高効率な藻類培養施設にて生産される次世代バイオ燃料. 食料生産と競合しない持続可能なエネルギー源。\n[Spec: 第3世代バイオエタノール抽出プロセス]",
-        "src":  "/assets/images/gx_bio_01.jpg",
-        "category":  "Resource",
-        "score":  97,
-        "width":  1024,
-        "height":  576,
-        "size":  "144 KB",
-        "aspectRatio":  "16:9 (Widescreen)",
-        "tags":  [
-                     "#バイオ燃料",
-                     "#藻類",
-                     "#再生可能エネルギー",
-                     "#バイオテクノロジー",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "underground-mobility-node-01",
-        "title":  "磁気浮上式・地下高効率輸送ノード",
-        "description":  "電磁誘導技術を用いた次世代の地下モビリティハブ。都市の過密を解消し、電力ロスの極小化を実現するGXインフラ。\n[Spec: 超伝導磁気浮上システム搭載]",
-        "src":  "/images/mobility/underground-mobility-node.jpg",
-        "category":  "Mobility",
-        "score":  98,
-        "width":  1024,
-        "height":  576,
-        "size":  "920 KB",
-        "aspectRatio":  "16:9 (Widescreen)",
-        "tags":  [
-                     "#次世代交通",
-                     "#モビリティハブ",
-                     "#都市インフラ",
-                     "#GX",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "solar-mountain-array-01",
-        "title":  "高地反射型ソーラー・マウンテン・アレイ",
-        "description":  "積雪の反射光を最大限に活用するアルベド最適化ソーラーパネル群。極寒地域での安定した電力供給を支える。\n[Spec: 高耐久・防雪型単結晶シリコンモジュール]",
-        "src":  "/images/infrastructure/solar-mountain-array.jpg",
-        "category":  "Infrastructure",
-        "score":  97,
-        "width":  683,
-        "height":  1024,
-        "size":  "850 KB",
-        "aspectRatio":  "2:3 (Portrait)",
-        "tags":  [
-                     "#太陽光発電",
-                     "#再エネ",
-                     "#高地インフラ",
-                     "#クリーンエネルギー",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "arctic-h2-hub-01",
-        "title":  "極地水素貯蔵・供給拠点（アークティック・ハブ）",
-        "description":  "自然冷却を利用した高効率な液体水素ストレージ。大陸間エネルギー輸送の要衝として機能する未来の水素ハブ。\n[Spec: 極低温液体水素管理システム]",
-        "src":  "/images/hydrogen/arctic-h2-hub.jpg",
-        "category":  "Hydrogen",
-        "score":  99,
-        "width":  683,
-        "height":  1024,
-        "size":  "880 KB",
-        "aspectRatio":  "2:3 (Portrait)",
-        "tags":  [
-                     "#水素エネルギー",
-                     "#エネルギー貯蔵",
-                     "#未来都市",
-                     "#脱炭素",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "gx-logistics-terminal-01",
-        "title":  "自律分散型GXロジスティクス・ターミナル",
-        "description":  "AIによる完全自動仕分けと、EVトラックへの高速充電を統合した統合配送拠点。物流全体のカーボンニュートラルを牽引。\n[Spec: オートノマス・ソーティング・アルゴリズム]",
-        "src":  "/images/resource/gx-logistics-terminal.jpg",
-        "category":  "Resource",
-        "score":  96,
-        "width":  1024,
-        "height":  576,
-        "size":  "940 KB",
-        "aspectRatio":  "16:9 (Widescreen)",
-        "tags":  [
-                     "#スマート物流",
-                     "#自動化",
-                     "#サプライチェーン",
-                     "#GX",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "vertical-forest-city-01",
-        "title":  "垂直森林型スマートシティ・レジデンス",
-        "description":  "建築物自体が炭素吸収源として機能するバイオフィリック・デザイン。高度な水循環と自然換気システムを統合。\n[Spec: 統合炭素オフセット建築認証]",
-        "src":  "/images/smartcity/vertical-forest-city.jpg",
-        "category":  "SmartCity",
-        "score":  98,
-        "width":  683,
-        "height":  1024,
-        "size":  "910 KB",
-        "aspectRatio":  "2:3 (Portrait)",
-        "tags":  [
-                     "#スマートシティ",
-                     "#垂直森",
-                     "#持続可能建築",
-                     "#バイオフィリック",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "offshore-drone-hub-01",
-        "title":  "海上水素輸送ドローン・ポート",
-        "description":  "洋上風力発電で生成されたグリーン水素をドローンで自動輸送する海上拠点。夕景に溶け込む近未来のエネルギー供給網。\n[Spec: 自律水平離着陸ドローン(VTOL)統合管理]",
-        "src":  "/images/hydrogen/offshore-drone-hub.jpg",
-        "category":  "Hydrogen",
-        "score":  98,
-        "width":  1024,
-        "height":  576,
-        "size":  "780 KB",
-        "aspectRatio":  "16:9 (Widescreen)",
-        "tags":  [
-                     "#水素ドローン",
-                     "#グリーンエネルギー",
-                     "#海洋インフラ",
-                     "#GX",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "automated-recycling-arm-01",
-        "title":  "高度資源循環型AIマニピュレーター",
-        "description":  "廃棄物から希少金属を精密に抽出する自律型リサイクルアーム。循環型社会(サーキュラーエコノミー)を実現する基幹技術。\n[Spec: ハイパースペクトル画像認識による素材同定]",
-        "src":  "/images/resource/automated-recycling-arm.jpg",
-        "category":  "Resource",
-        "score":  97,
-        "width":  683,
-        "height":  1024,
-        "size":  "820 KB",
-        "aspectRatio":  "2:3 (Portrait)",
-        "tags":  [
-                     "#リサイクル",
-                     "#都市鉱山",
-                     "#AIロボティクス",
-                     "#サーキュラーエコノミー",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "precision-recycle-bot-01",
-        "title":  "精密素材選別ロボット・セル",
-        "description":  "24時間稼働でプラスチック、金属、ガラスを分子レベルの精度で仕分け。資源の再生利用率を極限まで高める最新のセル。\n[Spec: 分子振動解析センシング搭載]",
-        "src":  "/images/resource/precision-recycle-bot.jpg",
-        "category":  "Resource",
-        "score":  96,
-        "width":  683,
-        "height":  1024,
-        "size":  "790 KB",
-        "aspectRatio":  "2:3 (Portrait)",
-        "tags":  [
-                     "#資源再生",
-                     "#スマートファクトリー",
-                     "#脱炭素",
-                     "#クリーンテック",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "ocean-h2-platform-01",
-        "title":  "統合型海上水素生成・貯蔵プラットフォーム",
-        "description":  "波力と太陽光を併用し、海水を電解して純粋な水素を生成。自律航行するドローン輸送艦への供給ハブを兼ねる。\n[Spec: 統合海洋エネルギー変換管理(MEMS)]",
-        "src":  "/images/hydrogen/ocean-h2-platform.jpg",
-        "category":  "Hydrogen",
-        "score":  99,
-        "width":  1024,
-        "height":  576,
-        "size":  "810 KB",
-        "aspectRatio":  "16:9 (Widescreen)",
-        "tags":  [
-                     "#水素エネルギー",
-                     "#海洋開発",
-                     "#サステナブル",
-                     "#次世代インフラ",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "cascade-forest-towers-01",
-        "title":  "瀑布・垂直森林型ハイブリッド都市",
-        "description":  "都市の微気候を調整する人工滝と垂直森林を統合した超高層ビル群。自然の自浄作用をテクノロジーで強化した居住空間。\n[Spec: パッシブ・エバポレーティブ冷却システム]",
-        "src":  "/images/smartcity/cascade-forest-towers.jpg",
-        "category":  "SmartCity",
-        "score":  99,
-        "width":  683,
-        "height":  1024,
-        "size":  "950 KB",
-        "aspectRatio":  "2:3 (Portrait)",
-        "tags":  [
-                     "#スマートシティ",
-                     "#バイオフィリック",
-                     "#垂直森林",
-                     "#適応戦略",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "desert-dome-01",
-        "title":  "砂漠の自律型バイオドーム",
-        "description":  "極限環境下で食料自給を可能にする、AI管理の垂直農法ドーム。受粉ドローンの群れがエコシステムを維持する。\n[Spec: 統合環境制御・循環型水管理システム]",
-        "src":  "/images/desert-dome-01.jpg",
-        "category":  "Resource",
-        "score":  98,
-        "width":  683,
-        "height":  1024,
-        "size":  "850 KB",
-        "aspectRatio":  "2:3 (Portrait)",
-        "tags":  [
-                     "#砂漠緑化",
-                     "#バイオドーム",
-                     "#垂直農法",
-                     "#サステナブル",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "aurora-ship-01",
-        "title":  "極地オーロラ観測・探査船",
-        "description":  "北極圏の美しき光を背に航行する、最新の気候研究用燃料電池船。氷海を切り裂き、地球の未来を探る。\n[Spec: 極低温対応ゼロエミッション推進システム]",
-        "src":  "/images/aurora-ship-01.jpg",
-        "category":  "Mobility",
-        "score":  99,
-        "width":  683,
-        "height":  1024,
-        "size":  "920 KB",
-        "aspectRatio":  "2:3 (Portrait)",
-        "tags":  [
-                     "#極地探査",
-                     "#オーロラ",
-                     "#燃料電池船",
-                     "#環境研究",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "desert-dome-02",
-        "title":  "オアシス・エネルギー・ドーム",
-        "description":  "太陽光エネルギーを最大限に集積し、砂漠に生命の息吹を吹き込む自律型プラント。持続可能な居住区を形成。\n[Spec: 高効率集光型太陽エネルギー変換]",
-        "src":  "/images/desert-dome-02.jpg",
-        "category":  "Energy",
-        "score":  97,
-        "width":  683,
-        "height":  1024,
-        "size":  "880 KB",
-        "aspectRatio":  "2:3 (Portrait)",
-        "tags":  [
-                     "#砂漠開発",
-                     "#クリーンエネルギー",
-                     "#インフラ",
-                     "#未来都市",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "jungle-waterfall-01",
-        "title":  "ジャングル・ウォーターフォール・ハブ",
-        "description":  "原生林の瀑布と共生する、バイオフィリックなリサーチステーション。風力と落差を利用したマイクログリッド拠点。\n[Spec: 自然エネルギーハイブリッド抽出網]",
-        "src":  "/images/jungle-waterfall-01.jpg",
-        "category":  "SmartCity",
-        "score":  99,
-        "width":  683,
-        "height":  1024,
-        "size":  "940 KB",
-        "aspectRatio":  "2:3 (Portrait)",
-        "tags":  [
-                     "#バイオフィリック",
-                     "#ジャングル",
-                     "#マイクログリッド",
-                     "#自然共生",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "jungle-waterfall-02",
-        "title":  "瀑布の霧と溶け合うエコ・シティ",
-        "description":  "熱帯の霧を水分資源として回収し、都市の空調と水循環を支える森林型プロトタイプ建築。高度な炭素固定を実現。\n[Spec: 大気中水分回収システム(AWH)搭載]",
-        "src":  "/images/jungle-waterfall-02.jpg",
-        "category":  "Resource",
-        "score":  98,
-        "width":  683,
-        "height":  1024,
-        "size":  "910 KB",
-        "aspectRatio":  "2:3 (Portrait)",
-        "tags":  [
-                     "#垂直森林",
-                     "#資源循環",
-                     "#持続可能建築",
-                     "#エコシステム",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "robo-factory-01",
-        "title":  "未来の自律型精密工場",
-        "description":  "伝統的な景観を背景に、最新のロボットアームが電子回路を組み立てる高度自動化ライン。\n[Spec: 超精密ナノレベル実装制御]",
-        "src":  "/images/robo-factory-01.jpg",
-        "category":  "Tech",
-        "score":  98,
-        "width":  683,
-        "height":  1024,
-        "size":  "890 KB",
-        "aspectRatio":  "2:3 (Portrait)",
-        "tags":  [
-                     "#ロボティクス",
-                     "#スマートファクトリー",
-                     "#自動化",
-                     "#未来都市",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "undersea-tunnel-01",
-        "title":  "深海パノラマ・トランスポート",
-        "description":  "サンゴ礁の間を抜ける透明な深海トンネル。海洋生態系を間近に観察できる次世代の移動体験。\n[Spec: 超耐圧・自己修復ガラス採用]",
-        "src":  "/images/undersea-tunnel-01.jpg",
-        "category":  "Mobility",
-        "score":  99,
-        "width":  683,
-        "height":  1024,
-        "size":  "910 KB",
-        "aspectRatio":  "2:3 (Portrait)",
-        "tags":  [
-                     "#深海開発",
-                     "#海洋モビリティ",
-                     "#ツーリズム",
-                     "#未来インフラ",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "undersea-cockpit-01",
-        "title":  "深海探査ポッド・コクピット",
-        "description":  "魚群の群れを通り抜ける自律型探査ポッドの内部。高度なナビゲーションと生命維持システムを備える。\n[Spec: 全方位ホログラフィック・ディスプレイ]",
-        "src":  "/images/undersea-cockpit-01.jpg",
-        "category":  "Tech",
-        "score":  97,
-        "width":  683,
-        "height":  1024,
-        "size":  "870 KB",
-        "aspectRatio":  "2:3 (Portrait)",
-        "tags":  [
-                     "#深海探査",
-                     "#バイオフィリック",
-                     "#AI操縦",
-                     "#次世代UI",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "robo-factory-02",
-        "title":  "都市型ロボット・マニュファクチャリング",
-        "description":  "近代都市のビル群に囲まれた、省スペース・高効率な自律型生産セル。オンデマンド製造の主力拠点。\n[Spec: 分散型エッジコンピューティング制御]",
-        "src":  "/images/robo-factory-02.jpg",
-        "category":  "Tech",
-        "score":  96,
-        "width":  683,
-        "height":  1024,
-        "size":  "930 KB",
-        "aspectRatio":  "2:3 (Portrait)",
-        "tags":  [
-                     "#ロボティクス",
-                     "#スマートシティ",
-                     "#製造革命",
-                     "#自動化",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "aurora-cruise-01",
-        "title":  "北極圏グリーン・クルーズ",
-        "description":  "オーロラの下、氷海を静かに航行するゼロエミッション旅客船。風力タービンとソーラー、水素のハイブリッド推進。\n[Spec: 極地対応氷海航行システム]",
-        "src":  "/images/aurora-cruise-01.jpg",
-        "category":  "Mobility",
-        "score":  99,
-        "width":  683,
-        "height":  1024,
-        "size":  "950 KB",
-        "aspectRatio":  "2:3 (Portrait)",
-        "tags":  [
-                     "#オーロラ",
-                     "#次世代船舶",
-                     "#燃料電池",
-                     "#エコツーリズム",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "quantum-tower-01",
-        "title":  "量子通信タワー",
-        "description":  "ホログラフィック通信リングを纏う次世代通信タワー",
-        "src":  "/images/smartcity/quantum-tower.jpg",
-        "category":  "Smart City",
-        "score":  98,
-        "width":  1024,
-        "height":  1024,
-        "size":  "1.2 MB",
-        "aspectRatio":  "1:1 (Square)",
-        "tags":  [
-                     "#量子通信",
-                     "#未来都市",
-                     "#5G/6G",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "central-tower-01",
-        "title":  "スマートシティ中央タワー",
-        "description":  "AI制御による都市管理システムの中枢",
-        "src":  "/images/smartcity/central-tower.jpg",
-        "category":  "Smart City",
-        "score":  97,
-        "width":  1024,
-        "height":  1024,
-        "size":  "1.1 MB",
-        "aspectRatio":  "1:1 (Square)",
-        "tags":  [
-                     "#AI都市管理",
-                     "#ドローン",
-                     "#スマートインフラ",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "biophilic-residence-01",
-        "title":  "バイオフィリック集合住宅",
-        "description":  "自然と建築が融合した有機的デザインの集合住宅",
-        "src":  "/images/architecture/biophilic-residence.jpg",
-        "category":  "Architecture",
-        "score":  99,
-        "width":  1024,
-        "height":  1024,
-        "size":  "1.3 MB",
-        "aspectRatio":  "1:1 (Square)",
-        "tags":  [
-                     "#バイオフィリック",
-                     "#グリーンビルディング",
-                     "#持続可能建築",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "organic-residence-01",
-        "title":  "オーガニック・レジデンス",
-        "description":  "流線型の有機的フォルムと垂直庭園が調和した未来型住宅",
-        "src":  "/images/architecture/organic-residence.jpg",
-        "category":  "Architecture",
-        "score":  98,
-        "width":  1024,
-        "height":  1024,
-        "size":  "1.2 MB",
-        "aspectRatio":  "1:1 (Square)",
-        "tags":  [
-                     "#オーガニック建築",
-                     "#垂直庭園",
-                     "#ウェルビーイング",
-                     "#商用利用可"
-                 ]
-    },
-    {
-        "id":  "aerial-network-01",
-        "title":  "空中交通ネットワーク",
-        "description":  "自動運転ポッドが縦横無尽に移動する3次元交通システム",
-        "src":  "/images/mobility/aerial-network.jpg",
-        "category":  "Mobility",
-        "score":  99,
-        "width":  1024,
-        "height":  576,
-        "size":  "980 KB",
-        "aspectRatio":  "16:9 (Widescreen)",
-        "tags":  [
-                     "#空中交通",
-                     "#自動運転",
-                     "#3D交通網",
-                     "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-01",
-        "title": "ネオ・江戸・キャナル",
-        "description": "伝統的な和風建築の並ぶ運河の上空をドローンが飛ぶ夜景",
-        "src": "/images/1.jpg",
-        "category": "Concept Art",
-        "score": 95,
-        "width": 1024,
-        "height": 1024,
-        "size": "1.2 MB",
-        "aspectRatio": "1:1",
-        "tags": ["#サイバーパンク", "#和風未来", "#夜景", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-02",
-        "title": "黄昏のグリーン・アーキテクチャ",
-        "description": "夕暮れ時の都市にある、緑豊かなテラスを持つモダンな建物",
-        "src": "/images/2.jpg",
-        "category": "Architecture",
-        "score": 96,
-        "width": 1024,
-        "height": 1024,
-        "size": "1.1 MB",
-        "aspectRatio": "1:1",
-        "tags": ["#未来都市", "#緑化建築", "#夕景", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-03",
-        "title": "ミッドナイト・ガーデン・ビルディング",
-        "description": "雨の夜、植物で装飾されライトアップされた洗練されたビル",
-        "src": "/images/3.jpg",
-        "category": "Urban Night",
-        "score": 94,
-        "width": 1024,
-        "height": 1024,
-        "size": "1.3 MB",
-        "aspectRatio": "1:1",
-        "tags": ["#雨の夜", "#バイオフィリックデザイン", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-04",
-        "title": "オーバーグロウ・ストリート",
-        "description": "建物の壁面が植物で埋め尽くされた賑やかな近未来の通り",
-        "src": "/images/4.jpg",
-        "category": "Cityscape",
-        "score": 97,
-        "width": 1024,
-        "height": 1024,
-        "size": "1.4 MB",
-        "aspectRatio": "1:1",
-        "tags": ["#ソーラーパンク", "#垂直庭園", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-05",
-        "title": "睡蓮の海と探査船",
-        "description": "巨大な白い花が咲く海に停泊する近未来的な探査船",
-        "src": "/images/5.jpg",
-        "category": "Fantasy Landscape",
-        "score": 98,
-        "width": 1024,
-        "height": 1024,
-        "size": "1.1 MB",
-        "aspectRatio": "1:1",
-        "tags": ["#ファンタジー", "#巨大植物", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-06",
-        "title": "ロータス・ボヤージュ",
-        "description": "巨大な睡蓮を模した神秘的な帆船が島々の間を航行する様子",
-        "src": "/images/6.jpg",
-        "category": "Fantasy",
-        "score": 99,
-        "width": 1024,
-        "height": 768,
-        "size": "1.2 MB",
-        "aspectRatio": "4:3",
-        "tags": ["#睡蓮の船", "#幻想的な海", "#ファンタジーアート", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-07",
-        "title": "シー-ブロッサム・タワー",
-        "description": "夕闇の海に浮かぶ、花のような形状をした未来的な海上研究施設",
-        "src": "/images/7.jpg",
-        "category": "Sci-Fi Architecture",
-        "score": 97,
-        "width": 1024,
-        "height": 768,
-        "size": "1.0 MB",
-        "aspectRatio": "4:3",
-        "tags": ["#海上都市", "#未来建築", "#オーシャンフロント", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-08",
-        "title": "コーラル・ハブ・ステーション",
-        "description": "美しい岩礁地帯に建設された、自然の造形に調和する未来の海上基地",
-        "src": "/images/8.jpg",
-        "category": "Marine Base",
-        "score": 96,
-        "width": 1024,
-        "height": 768,
-        "size": "1.1 MB",
-        "aspectRatio": "4:3",
-        "tags": ["#海洋基地", "#サステナブルデザイン", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-09",
-        "title": "フォレスト-コア-サーバー",
-        "description": "森の地面に埋め込まれた、都市のホログラムデータを映し出す透明なサーバーユニット",
-        "src": "/images/9.jpg",
-        "category": "Future Nature",
-        "score": 95,
-        "width": 1024,
-        "height": 768,
-        "size": "1.4 MB",
-        "aspectRatio": "4:3",
-        "tags": ["#森のテクノロジー", "#データ可視化", "#バイオテクノロジー", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-10",
-        "title": "ミスティ-フォレスト-ラボ",
-        "description": "霧深い森の中で自給自足的に植物を研究する、高機能なガラスコンテナ室",
-        "src": "/images/10.jpg",
-        "category": "Research Lab",
-        "score": 98,
-        "width": 1024,
-        "height": 768,
-        "size": "1.3 MB",
-        "aspectRatio": "4:3",
-        "tags": ["#植物研究", "#未来の農業", "#バイオドーム", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-11",
-        "title": "グローバル・フォレスト・モニター",
-        "description": "森の中に設置された、世界の環境データをホログラムで映し出す大型テラリウム型デバイス",
-        "src": "/images/11.jpg",
-        "category": "Future Nature",
-        "score": 97,
-        "width": 1024,
-        "height": 768,
-        "size": "1.1 MB",
-        "aspectRatio": "4:3",
-        "tags": ["#デジタルネイチャー", "#ホログラム", "#森の研究室", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-12",
-        "title": "バイオ・ルミナス・キューブ",
-        "description": "森の生態系とテクノロジーを融合させた、発光する植物封入型の回路キューブ",
-        "src": "/images/12.jpg",
-        "category": "Bio-Tech",
-        "score": 98,
-        "width": 1024,
-        "height": 768,
-        "size": "950 KB",
-        "aspectRatio": "4:3",
-        "tags": ["#バイオテクノロジー", "#クリスタル", "#幻想的", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-13",
-        "title": "ネオ・江戸・スカイライン",
-        "description": "伝統的な五重塔と最新の電波塔が共存し、ドローンが飛び交う夕暮れの空中都市",
-        "src": "/images/01.jpg",
-        "category": "Concept Art",
-        "score": 96,
-        "width": 1024,
-        "height": 1280,
-        "size": "1.5 MB",
-        "aspectRatio": "4:5",
-        "tags": ["#和風未来", "#ドローン都市", "#サイバーパンク江戸", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-14",
-        "title": "フォレスト・コア・ホログラム",
-        "description": "古木の根元に浮かび上がる、精密なデジタル回路とマトリックス状の青い光",
-        "src": "/images/012.jpg",
-        "category": "Bio-Tech",
-        "score": 94,
-        "width": 1024,
-        "height": 768,
-        "size": "1.1 MB",
-        "aspectRatio": "4:3",
-        "tags": ["#デジタルネイチャー", "#バイオテクノロジー", "#サイバーフォレスト", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-15",
-        "title": "トワイライト・スマート・ディストリクト",
-        "description": "高層ビル群と伝統的な家屋が入り混じる、交通システムが発達した未来の居住区",
-        "src": "/images/04.jpg",
-        "category": "Cityscape",
-        "score": 95,
-        "width": 1024,
-        "height": 1280,
-        "size": "1.6 MB",
-        "aspectRatio": "4:5",
-        "tags": ["#未来都市", "#スマートシティ", "#都市デザイン", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-16",
-        "title": "オーシャン・エネルギー・プラットフォーム",
-        "description": "巨大な風力タービンとソーラーパネルを備えた、三叉形状の海上電力生成拠点",
-        "src": "/images/05.jpg",
-        "category": "Renewable Energy",
-        "score": 97,
-        "width": 1024,
-        "height": 768,
-        "size": "1.3 MB",
-        "aspectRatio": "4:3",
-        "tags": ["#クリーンエネルギー", "#海上施設", "#未来のインフラ", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-17",
-        "title": "バーティカル・ガーデン・レジデンス",
-        "description": "全ての階層に豊かな緑が配置された、ドローンポート完備の超高層集合住宅",
-        "src": "/images/02.jpg",
-        "category": "Architecture",
-        "score": 98,
-        "width": 1024,
-        "height": 1280,
-        "size": "1.4 MB",
-        "aspectRatio": "4:5",
-        "tags": ["#垂直庭園", "#エコ建築", "#ウェルビーイング", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-18",
-        "title": "シグナス・シースキマー",
-        "description": "白鳥のような翼を持つ、高速で海上を滑走する近未来的な探査船",
-        "src": "/images/07.jpg",
-        "category": "Mobility",
-        "score": 96,
-        "width": 1024,
-        "height": 768,
-        "size": "980 KB",
-        "aspectRatio": "4:3",
-        "tags": ["#未来の船", "#流体デザイン", "#海洋探査", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-19",
-        "title": "ボタニカル・スカイ・タワー",
-        "description": "夕陽に照らされ、幾層ものテラスに植物が繁茂する未来のビルディング群",
-        "src": "/images/03.jpg",
-        "category": "Architecture",
-        "score": 95,
-        "width": 1024,
-        "height": 1280,
-        "size": "1.5 MB",
-        "aspectRatio": "4:5",
-        "tags": ["#バイオフィリック", "#都市緑化", "#トワイライト", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-20",
-        "title": "サンセット・タービン・シップ",
-        "description": "巨大な風力発電ユニットを搭載し、夕焼けの海を進む作業支援船",
-        "src": "/images/06.jpg",
-        "category": "Marine Tech",
-        "score": 93,
-        "width": 1024,
-        "height": 768,
-        "size": "1.2 MB",
-        "aspectRatio": "4:3",
-        "tags": ["#風力発電", "#エネルギー船", "#サンセット", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-21",
-        "title": "ルミナス・クリスタル・ツリー",
-        "description": "森の奥深くで青く発光する、巨大な水晶の塊が浮かび上がる聖域",
-        "src": "/images/011.jpg",
-        "category": "Fantasy",
-        "score": 99,
-        "width": 1024,
-        "height": 768,
-        "size": "1.4 MB",
-        "aspectRatio": "4:3",
-        "tags": ["#魔法の森", "#クリスタル", "#幻想的", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-22",
-        "title": "エターナル・グリーン・カプセル",
-        "description": "光り輝く情報回路に守られ、垂直に成長し続ける森の生命維持システム",
-        "src": "/images/013.jpg",
-        "category": "Bio-Tech",
-        "score": 98,
-        "width": 1024,
-        "height": 768,
-        "size": "1.3 MB",
-        "aspectRatio": "4:3",
-        "tags": ["#植物生命体", "#未来の生態系", "#バイオラボ", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-23",
-        "title": "ルミナス・スカイライン・モニュメント",
-        "description": "夜の都市に浮かび上がる、クリスタルのような輝きを放つ超高層ビル群のインスタレーション",
-        "src": "/images/08.jpg",
-        "category": "Architecture",
-        "score": 98,
-        "width": 1024,
-        "height": 768,
-        "size": "1.1 MB",
-        "aspectRatio": "4:3",
-        "tags": ["#光の都市", "#未来建築", "#ナイトビュー", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-24",
-        "title": "サイバー・スパイダー・パビリオン",
-        "description": "深い森の中に突如現れる、複雑な網目状の構造体を持つ実験的アート建築",
-        "src": "/images/09.jpg",
-        "category": "Art Installation",
-        "score": 95,
-        "width": 1024,
-        "height": 768,
-        "size": "1.4 MB",
-        "aspectRatio": "4:3",
-        "tags": ["#バイオミミクリー", "#森のアート", "#構造美", "#商用利用可"]
-    },
-    {
-        "id": "img-20260119-25",
-        "title": "ネイチャー・アーカイブ・ケース",
-        "description": "明るい森の中で、特定の植物種をデジタル保護・観察するために設置された発光コンテナ",
-        "src": "/images/010.jpg",
-        "category": "Bio-Tech",
-        "score": 97,
-        "width": 1024,
-        "height": 768,
-        "size": "1.3 MB",
-        "aspectRatio": "4:3",
-        "tags": ["#植物保護", "#エコシステム", "#デジタル森林", "#商用利用可"]
-    },
-    {
-        "id": "img-20260120-64",
-        "title": "スカイ・オーシャン・ホエール",
-        "description": "透明なソーラーウィングを持ち、雲海を回遊する超大型の自律型空中ホテル",
-        "src": "/images/m1.jpg",
-        "category": "Mobility",
-        "score": 98,
-        "width": 1024,
-        "height": 576,
-        "size": "1.2 MB",
-        "aspectRatio": "16:9",
-        "tags": ["#空中都市", "#バイオミミクリー", "#ソーラーパンク", "#商用利用可"]
-    },
-    {
-        "id": "img-20260120-65",
-        "title": "クリスタル・クラウド・シップ",
-        "description": "日没の光を反射し、優雅に飛行するクリスタル外装のクジラ型飛行体",
-        "src": "/images/m2.jpg",
-        "category": "Fantasy",
-        "score": 97,
-        "width": 1024,
-        "height": 576,
-        "size": "1.1 MB",
-        "aspectRatio": "16:9",
-        "tags": ["#幻想飛行船", "#クリスタル建築", "#絶景", "#商用利用可"]
-    },
-    {
-        "id": "img-20260120-66",
-        "title": "ルミナス・スカイ・ホエール",
-        "description": "全身に無数の光を灯し、夜の空中航路を導く守護神のような飛行体",
-        "src": "/images/m3.jpg",
-        "category": "Concept Art",
-        "score": 99,
-        "width": 1024,
-        "height": 576,
-        "size": "1.3 MB",
-        "aspectRatio": "16:9",
-        "tags": ["#サイバーパンク", "#夜景", "#空中拠点", "#商用利用可"]
-    },
-    {
-        "id": "img-20260120-67",
-        "title": "バイオ・メカニカル・フライヤー",
-        "description": "有機的なデザインと最先端の航空工学が融合した次世代探査機",
-        "src": "/images/m4.jpg",
-        "category": "Mobility",
-        "score": 96,
-        "width": 1024,
-        "height": 576,
-        "size": "1.0 MB",
-        "aspectRatio": "16:9",
-        "tags": ["#未来のモビリティ", "#生物模倣", "#スカイデザイン", "#商用利用可"]
-    },
-    {
-        "id": "img-20260120-68",
-        "title": "アクア・リフレクション・レストラン",
-        "description": "自然光が降り注ぐ、パノラマサイズのサンゴ礁を楽しめる水中ラウンジ",
-        "src": "/images/m5.jpg",
-        "category": "Urban Design",
-        "score": 98,
-        "width": 1024,
-        "height": 1280,
-        "size": "1.4 MB",
-        "aspectRatio": "4:5",
-        "tags": ["#水中レストラン", "#アンダーウォーター", "#建築美", "#商用利用可"]
-    },
-    {
-        "id": "img-20260120-69",
-        "title": "深海の静寂・アクアリウム",
-        "description": "クラゲの舞う神秘的な海と一体化できる、未来の海底宿泊施設",
-        "src": "/images/m6.jpg",
-        "category": "Urban Design",
-        "score": 95,
-        "width": 1024,
-        "height": 1280,
-        "size": "1.5 MB",
-        "aspectRatio": "4:5",
-        "tags": ["#深海建築", "#癒やしの空間", "#海洋生態系", "#商用利用可"]
-    },
-    {
-        "id": "img-20260120-70",
-        "title": "ディープ・コーラル・ラウンジ",
-        "description": "色鮮やかなサンゴに囲まれた、完全遮音・気圧管理された海底のリサーチ拠点",
-        "src": "/images/m7.jpg",
-        "category": "Marine Base",
-        "score": 97,
-        "width": 1024,
-        "height": 1280,
-        "size": "1.3 MB",
-        "aspectRatio": "4:5",
-        "tags": ["#海底基地", "#オーシャンビュー", "#未来のラボ", "#商用利用可"]
-    },
-    {
-        "id": "img-20260120-71",
-        "title": "スマート・シー・テラス",
-        "description": "波の動きに合わせる制振構造を持ち、海中都市の中心部を担うダイニングエリア",
-        "src": "/images/m8.jpg",
-        "category": "Urban Design",
-        "score": 96,
-        "width": 1024,
-        "height": 1280,
-        "size": "1.2 MB",
-        "aspectRatio": "4:5",
-        "tags": ["#スマートライフ", "#海上都市", "#グルメ", "#商用利用可"]
-    },
-    {
-        "id": "img-20260120-72",
-        "title": "デザート・ミラー・ドーム",
-        "description": "砂漠の過酷な熱から内部の生態系を守る、鏡面反射シールドを備えたバイオドーム",
-        "src": "/images/m9.jpg",
-        "category": "Future Nature",
-        "score": 97,
-        "width": 1024,
-        "height": 576,
-        "size": "1.1 MB",
-        "aspectRatio": "16:9",
-        "tags": ["#砂漠のオアシス", "#環境保全", "#建築デザイン", "#商用利用可"]
-    },
-    {
-        "id": "img-20260120-73",
-        "title": "スカイ・ブルーム・ドーム",
-        "description": "標高の高い山岳地帯に設置された、絶滅危惧種の植物を保護・栽培する実験ドーム",
-        "src": "/images/m10.jpg",
-        "category": "Future Nature",
-        "score": 98,
-        "width": 1024,
-        "height": 576,
-        "size": "1.2 MB",
-        "aspectRatio": "16:9",
-        "tags": ["#未来の植物学", "#研究施設", "#エコシステム", "#商用利用可"]
-    },
-     {
+[
+  {
+    "id": "hydrogen-bus-future-01",
+    "src": "/images/hydrogen_bus_future_city.png",
+    "title": "次世代水素自動運転バス",
+    "description": "ネオンが輝く未来都市を駆ける、水素燃料の自動運転バスとEVモビリティ。\n[Spec: 自律走行レベル5想定]",
+    "category": "Mobility",
+    "score": 96,
+    "width": 1024,
+    "height": 1024,
+    "size": "950 KB",
+    "aspectRatio": "1:1 (Square)",
+    "tags": ["#水素エネルギー", "#次世代モビリティ", "#スマートシティ"]
+  },
+  {
+    "id": "h2-plant-01",
+    "src": "/images/hydrogen/h2-plant.png",
+    "title": "未来型水素プラント",
+    "description": "カーボンニュートラルを実現する、次世代エネルギー供給の拠点。\n[Spec: 高効率エネルギー管理システム搭載]",
+    "category": "Energy",
+    "score": 98,
+    "width": 1024,
+    "height": 1024,
+    "size": "834 KB",
+    "aspectRatio": "1:1 (Square)",
+    "tags": ["#水素エネルギー", "#GXインフラ", "#先端テクノロジー"]
+  },
+  {
+    "id": "smart-city-01",
+    "src": "/images/smartcity/overview.png",
+    "title": "調和するスマートシティ",
+    "description": "自然とテクノロジーが融合した、持続可能な都市モデル。\n[Spec: AI最適化グリッド制御対応]",
+    "category": "Tech",
+    "score": 97,
+    "width": 1024,
+    "height": 1024,
+    "size": "900 KB",
+    "aspectRatio": "1:1 (Square)",
+    "tags": ["#スマートシティ", "#自然共生", "#GXインフラ"]
+  },
+  {
+    "id": "wind-farm-01",
+    "src": "/images/infrastructure/wind.png",
+    "title": "洋上風力発電ファーム",
+    "description": "広大な海原を活用した、再生可能エネルギーの主力電源。\n[Spec: 超大型15MW級タービン採用]",
+    "category": "Energy",
+    "score": 95,
+    "width": 1024,
+    "height": 1024,
+    "size": "928 KB",
+    "aspectRatio": "1:1 (Square)",
+    "tags": ["#クリーンエネルギー", "#海洋開発", "#GXインフラ"]
+  },
+  {
+    "id": "ev-station-01",
+    "src": "/images/infrastructure/ev.png",
+    "title": "次世代EVステーション",
+    "description": "都市の夜景に溶け込む、スタイリッシュな急速充電ハブ。\n[Spec: 超急速350kW充電プロトコル準拠]",
+    "category": "Mobility",
+    "score": 94,
+    "width": 1024,
+    "height": 1024,
+    "size": "912 KB",
+    "aspectRatio": "1:1 (Square)",
+    "tags": ["#次世代モビリティ", "#スマートシティ", "#GXインフラ"]
+  },
+  {
+    "id": "iot-center-01",
+    "src": "/images/smartcity/iot.png",
+    "title": "先進IoTデータセンター",
+    "description": "膨大なデータを高速処理する、スマート社会の頭脳。\n[Spec: 浸漬冷却方式によるPUE 1.05達成]",
+    "category": "Tech",
+    "score": 96,
+    "width": 1024,
+    "height": 1024,
+    "size": "798 KB",
+    "aspectRatio": "1:1 (Square)",
+    "tags": ["#先端テクノロジー", "#スマートシティ", "#GXインフラ"]
+  },
+  {
+    "id": "img_mobility_01",
+    "title": "未来都市の水素自動運転ネットワーク",
+    "description": "水素燃料で稼働する次世代モビリティが、排出ガスゼロのクリーンな都市インフラを実現。\n[Spec: 常温低圧水素ストレージ技術実証型]",
+    "src": "/assets/images/gx_mobility_01.jpg",
+    "category": "Mobility",
+    "score": 99,
+    "width": 1024,
+    "height": 576,
+    "size": "512 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": ["#水素エネルギー", "#次世代モビリティ", "#スマートシティ"]
+  },
+  {
+    "id": "img_mobility_02",
+    "title": "クリーンモビリティが彩る未来の夜景",
+    "description": "高度なエネルギー管理システムにより最適化された、持続可能な都市モビリティの景観。\n[Spec: V2G (Vehicle-to-Grid) 統合制御]",
+    "src": "/assets/images/gx_mobility_02.jpg",
+    "category": "Mobility",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "486 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": ["#水素エネルギー", "#次世代モビリティ", "#スマートシティ"]
+  },
+  {
+    "id": "gx_grid_01",
+    "title": "次世代スマートグリッドの鼓動",
+    "description": "都市全体がAIで最適化されたエネルギーネットワークで繋がり、効率的な需給調整を実現する未来の街並み。\n[Spec: 自律分散型エネルギー管理 (DERMS)]",
+    "src": "/assets/images/gx_grid_01.jpg",
+    "category": "Tech",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "172 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": ["#先端テクノロジー", "#スマートシティ", "#クリーンエネルギー"]
+  },
+  {
+    "id": "gx_grid_02",
+    "title": "エネルギーが自律するスマートシティ",
+    "description": "高度な電力網により再生可能エネルギーを完璧に制御し、都市の隅々までクリーンな電力を届けるインフラ。\n[Spec: 量子暗号化セキュア通信網搭載]",
+    "src": "/assets/images/gx_grid_02.jpg",
+    "category": "Tech",
+    "score": 99,
+    "width": 1024,
+    "height": 576,
+    "size": "211 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": ["#先端テクノロジー", "#スマートシティ", "#クリーンエネルギー"]
+  },
+  {
+    "id": "gx_plant_01",
+    "title": "大気浄化と地球熱の融合",
+    "description": "地中深くから汲み上げた熱エネルギーとCCUS技術を組み合わせ、クリーンで安定した電力を供給する複合型プラント。\n[Spec: DAC (Direct Air Capture) ハイブリッド方式]",
+    "src": "/assets/images/gx_plant_01.jpg",
+    "category": "Energy",
+    "score": 96,
+    "width": 1024,
+    "height": 576,
+    "size": "167 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": ["#GXインフラ", "#クリーンエネルギー", "#先端テクノロジー"]
+  },
+  {
+    "id": "gx_plant_02",
+    "title": "カーボンネガティブを実現する地熱センター",
+    "description": "最新の二酸化炭素回収・貯留技術を搭載し、エネルギー生産と同時に大気中のCO2を削減する次世代の拠点。\n[Spec: 二酸化炭素鉱物固定化プロセス実装]",
+    "src": "/assets/images/gx_plant_02.jpg",
+    "category": "Energy",
+    "score": 95,
+    "width": 1024,
+    "height": 576,
+    "size": "148 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": ["#GXインフラ", "#クリーンエネルギー", "#先端テクノロジー"]
+  },
+  {
+    "id": "gx_bio_01",
+    "title": "循環型バイオ燃料農園",
+    "description": "高効率な藻類培養施設にて生産される次世代バイオ燃料. 食料生産と競合しない持続可能なエネルギー源。\n[Spec: 第3世代バイオエタノール抽出プロセス]",
+    "src": "/assets/images/gx_bio_01.jpg",
+    "category": "Resource",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "144 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": ["#クリーンエネルギー", "#先端テクノロジー", "#循環型社会"]
+  },
+  {
+    "id": "underground-mobility-node-01",
+    "title": "磁気浮上式・地下高効率輸送ノード",
+    "description": "電磁誘導技術を用いた次世代の地下モビリティハブ。都市の過密を解消し、電力ロスの極小化を実現するGXインフラ。\n[Spec: 超伝導磁気浮上システム搭載]",
+    "src": "/images/mobility/underground-mobility-node.jpg",
+    "category": "Mobility",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "920 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": ["#次世代モビリティ", "#スマートシティ", "#GXインフラ"]
+  },
+  {
+    "id": "solar-mountain-array-01",
+    "title": "高地反射型ソーラー・マウンテン・アレイ",
+    "description": "積雪の反射光を最大限に活用するアルベド最適化ソーラーパネル群。極寒地域での安定した電力供給を支える。\n[Spec: 高耐久・防雪型単結晶シリコンモジュール]",
+    "src": "/images/infrastructure/solar-mountain-array.jpg",
+    "category": "Infrastructure",
+    "score": 97,
+    "width": 683,
+    "height": 1024,
+    "size": "850 KB",
+    "aspectRatio": "2:3 (Portrait)",
+    "tags": ["#クリーンエネルギー", "#GXインフラ"]
+  },
+  {
+    "id": "arctic-h2-hub-01",
+    "title": "極地水素貯蔵・供給拠点（アークティック・ハブ）",
+    "description": "自然冷却を利用した高効率な液体水素ストレージ。大陸間エネルギー輸送の要衝として機能する未来の水素ハブ。\n[Spec: 極低温液体水素管理システム]",
+    "src": "/images/hydrogen/arctic-h2-hub.jpg",
+    "category": "Hydrogen",
+    "score": 99,
+    "width": 683,
+    "height": 1024,
+    "size": "880 KB",
+    "aspectRatio": "2:3 (Portrait)",
+    "tags": ["#水素エネルギー", "#GXインフラ", "#スマートシティ"]
+  },
+  {
+    "id": "gx-logistics-terminal-01",
+    "title": "自律分散型GXロジスティクス・ターミナル",
+    "description": "AIによる完全自動仕分けと、EVトラックへの高速充電を統合した統合配送拠点。物流全体のカーボンニュートラルを牽引。\n[Spec: オートノマス・ソーティング・アルゴリズム]",
+    "src": "/images/resource/gx-logistics-terminal.jpg",
+    "category": "Resource",
+    "score": 96,
+    "width": 1024,
+    "height": 576,
+    "size": "940 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": ["#次世代モビリティ", "#先端テクノロジー", "#循環型社会"]
+  },
+  {
+    "id": "vertical-forest-city-01",
+    "title": "垂直森林型スマートシティ・レジデンス",
+    "description": "建築物自体が炭素吸収源として機能するバイオフィリック・デザイン。高度な水循環と自然換気システムを統合。\n[Spec: 統合炭素オフセット建築認証]",
+    "src": "/images/smartcity/vertical-forest-city.jpg",
+    "category": "SmartCity",
+    "score": 98,
+    "width": 683,
+    "height": 1024,
+    "size": "910 KB",
+    "aspectRatio": "2:3 (Portrait)",
+    "tags": ["#自然共生", "#スマートシティ", "#GXインフラ"]
+  },
+  {
+    "id": "offshore-drone-hub-01",
+    "title": "海上水素輸送ドローン・ポート",
+    "description": "洋上風力発電で生成されたグリーン水素をドローンで自動輸送する海上拠点。夕景に溶け込む近未来のエネルギー供給網。\n[Spec: 自律水平離着陸ドローン(VTOL)統合管理]",
+    "src": "/images/hydrogen/offshore-drone-hub.jpg",
+    "category": "Hydrogen",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "780 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": ["#水素エネルギー", "#次世代モビリティ", "#海洋開発"]
+  },
+  {
+    "id": "automated-recycling-arm-01",
+    "title": "高度資源循環型AIマニピュレーター",
+    "description": "廃棄物から希少金属を精密に抽出する自律型リサイクルアーム。循環型社会(サーキュラーエコノミー)を実現する基幹技術。\n[Spec: ハイパースペクトル画像認識による素材同定]",
+    "src": "/images/resource/automated-recycling-arm.jpg",
+    "category": "Resource",
+    "score": 97,
+    "width": 683,
+    "height": 1024,
+    "size": "820 KB",
+    "aspectRatio": "2:3 (Portrait)",
+    "tags": ["#循環型社会", "#先端テクノロジー", "#先端テクノロジー"]
+  },
+  {
+    "id": "precision-recycle-bot-01",
+    "title": "精密素材選別ロボット・セル",
+    "description": "24時間稼働でプラスチック、金属、ガラスを分子レベルの精度で仕分け。資源の再生利用率を極限まで高める最新のセル。\n[Spec: 分子振動解析センシング搭載]",
+    "src": "/images/resource/precision-recycle-bot.jpg",
+    "category": "Resource",
+    "score": 96,
+    "width": 683,
+    "height": 1024,
+    "size": "790 KB",
+    "aspectRatio": "2:3 (Portrait)",
+    "tags": ["#循環型社会", "#先端テクノロジー", "#GXインフラ"]
+  },
+  {
+    "id": "ocean-h2-platform-01",
+    "title": "統合型海上水素生成・貯蔵プラットフォーム",
+    "description": "波力と太陽光を併用し、海水を電解して純粋な水素を生成。自律航行するドローン輸送艦への供給ハブを兼ねる。\n[Spec: 統合海洋エネルギー変換管理(MEMS)]",
+    "src": "/images/hydrogen/ocean-h2-platform.jpg",
+    "category": "Hydrogen",
+    "score": 99,
+    "width": 1024,
+    "height": 576,
+    "size": "810 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": ["#水素エネルギー", "#海洋開発", "#クリーンエネルギー"]
+  },
+  {
+    "id": "cascade-forest-towers-01",
+    "title": "瀑布・垂直森林型ハイブリッド都市",
+    "description": "都市の微気候を調整する人工滝と垂直森林を統合した超高層ビル群。自然の自浄作用をテクノロジーで強化した居住空間。\n[Spec: パッシブ・エバポレーティブ冷却システム]",
+    "src": "/images/smartcity/cascade-forest-towers.jpg",
+    "category": "SmartCity",
+    "score": 99,
+    "width": 683,
+    "height": 1024,
+    "size": "950 KB",
+    "aspectRatio": "2:3 (Portrait)",
+    "tags": ["#スマートシティ", "#自然共生", "#自然共生"]
+  },
+  {
+    "id": "desert-dome-01",
+    "title": "砂漠の自律型バイオドーム",
+    "description": "極限環境下で食料自給を可能にする、AI管理の垂直農法ドーム。受粉ドローンの群れがエコシステムを維持する。\n[Spec: 統合環境制御・循環型水管理システム]",
+    "src": "/images/desert-dome-01.jpg",
+    "category": "Resource",
+    "score": 98,
+    "width": 683,
+    "height": 1024,
+    "size": "850 KB",
+    "aspectRatio": "2:3 (Portrait)",
+    "tags": ["#自然共生", "#次世代ライフスタイル", "#循環型社会"]
+  },
+  {
+    "id": "aurora-ship-01",
+    "title": "極地オーロラ観測・探査船",
+    "description": "北極圏の美しき光を背に航行する、最新の気候研究用燃料電池船。船海を切り裂き、地球の未来を探る。\n[Spec: 極低温対応ゼロエミッション推進システム]",
+    "src": "/images/aurora-ship-01.jpg",
+    "category": "Mobility",
+    "score": 99,
+    "width": 683,
+    "height": 1024,
+    "size": "920 KB",
+    "aspectRatio": "2:3 (Portrait)",
+    "tags": ["#次世代モビリティ", "#水素エネルギー", "#先端テクノロジー"]
+  },
+  {
+    "id": "desert-dome-02",
+    "title": "オアシス・エネルギー・ドーム",
+    "description": "太陽光エネルギーを最大限に集積し、砂漠に生命の息吹を吹き込む自律型プラント。持続可能な居住区を形成。\n[Spec: 高効率集光型太陽エネルギー変換]",
+    "src": "/images/desert-dome-02.jpg",
+    "category": "Energy",
+    "score": 97,
+    "width": 683,
+    "height": 1024,
+    "size": "880 KB",
+    "aspectRatio": "2:3 (Portrait)",
+    "tags": ["#クリーンエネルギー", "#スマートシティ", "#GXインフラ"]
+  },
+  {
+    "id": "jungle-waterfall-01",
+    "title": "ジャングル・ウォーターフォール・ハブ",
+    "description": "原生林の瀑布と共生する、バイオフィリックなリサーチステーション。風力と落差を利用したマイクログリッド拠点。\n[Spec: 自然エネルギーハイブリッド抽出網]",
+    "src": "/images/jungle-waterfall-01.jpg",
+    "category": "SmartCity",
+    "score": 99,
+    "width": 683,
+    "height": 1024,
+    "size": "940 KB",
+    "aspectRatio": "2:3 (Portrait)",
+    "tags": ["#自然共生", "#クリーンエネルギー", "#先端テクノロジー"]
+  },
+  {
+    "id": "jungle-waterfall-02",
+    "title": "瀑布の霧と溶け合うエコ・シティ",
+    "description": "熱帯の霧を水分資源として回収し、都市の空調と水循環を支える森林型プロトタイプ建築。高度な炭素固定を実現。\n[Spec: 大気中水分回収システム(AWH)搭載]",
+    "src": "/images/jungle-waterfall-02.jpg",
+    "category": "Resource",
+    "score": 98,
+    "width": 683,
+    "height": 1024,
+    "size": "910 KB",
+    "aspectRatio": "2:3 (Portrait)",
+    "tags": ["#自然共生", "#GXインフラ", "#循環型社会"]
+  },
+  {
+    "id": "robo-factory-01",
+    "title": "未来の自律型精密工場",
+    "description": "伝統的な景観を背景に、最新のロボットアームが電子回路を組み立てる高度自動化ライン。\n[Spec: 超精密ナノレベル実装制御]",
+    "src": "/images/robo-factory-01.jpg",
+    "category": "Tech",
+    "score": 98,
+    "width": 683,
+    "height": 1024,
+    "size": "890 KB",
+    "aspectRatio": "2:3 (Portrait)",
+    "tags": ["#先端テクノロジー", "#スマートシティ", "#先端テクノロジー"]
+  },
+  {
+    "id": "undersea-tunnel-01",
+    "title": "深海パノラマ・トランスポート",
+    "description": "サンゴ礁の間を抜ける透明な深海トンネル。海洋生態系を間近に観察できる次世代の移動体験。\n[Spec: 超耐圧・自己修復ガラス採用]",
+    "src": "/images/undersea-tunnel-01.jpg",
+    "category": "Mobility",
+    "score": 99,
+    "width": 683,
+    "height": 1024,
+    "size": "910 KB",
+    "aspectRatio": "2:3 (Portrait)",
+    "tags": ["#海洋開発", "#次世代モビリティ", "#スマートシティ"]
+  },
+  {
+    "id": "undersea-cockpit-01",
+    "title": "深海探査ポッド・コクピット",
+    "description": "魚群の群れを通り抜ける自律型探査ポッドの内部。高度なナビゲーションと生命維持システムを備える。\n[Spec: 全方位ホログラフィック・ディスプレイ]",
+    "src": "/images/undersea-cockpit-01.jpg",
+    "category": "Tech",
+    "score": 97,
+    "width": 683,
+    "height": 1024,
+    "size": "870 KB",
+    "aspectRatio": "2:3 (Portrait)",
+    "tags": ["#海洋開発", "#先端テクノロジー", "#自然共生"]
+  },
+  {
+    "id": "robo-factory-02",
+    "title": "都市型ロボット・マニュファクチャリング",
+    "description": "近代都市のビル群に囲まれた、省スペース・高効率な自律型生産セル。オンデマンド製造の主力拠点。\n[Spec: 分散型エッジコンピューティング制御]",
+    "src": "/images/robo-factory-02.jpg",
+    "category": "Tech",
+    "score": 96,
+    "width": 683,
+    "height": 1024,
+    "size": "930 KB",
+    "aspectRatio": "2:3 (Portrait)",
+    "tags": ["#先端テクノロジー", "#スマートシティ", "#先端テクノロジー"]
+  },
+  {
+    "id": "aurora-cruise-01",
+    "title": "北極圏グリーン・クルーズ",
+    "description": "オーロラの下、氷海を静かに航行するゼロエミッション旅客船。風力タービンとソーラー、水素のハイブリッド推進。\n[Spec: 極地対応氷海航行システム]",
+    "src": "/images/aurora-cruise-01.jpg",
+    "category": "Mobility",
+    "score": 99,
+    "width": 683,
+    "height": 1024,
+    "size": "950 KB",
+    "aspectRatio": "2:3 (Portrait)",
+    "tags": ["#次世代モビリティ", "#水素エネルギー", "#クリーンエネルギー"]
+  },
+  {
+    "id": "quantum-tower-01",
+    "title": "量子通信タワー",
+    "description": "ホログラフィック通信リングを纏う次世代通信タワー",
+    "src": "/images/smartcity/quantum-tower.jpg",
+    "category": "Smart City",
+    "score": 98,
+    "width": 1024,
+    "height": 1024,
+    "size": "1.2 MB",
+    "aspectRatio": "1:1 (Square)",
+    "tags": ["#先端テクノロジー", "#スマートシティ", "#スマートシティ"]
+  },
+  {
+    "id": "central-tower-01",
+    "title": "スマートシティ中央タワー",
+    "description": "AI制御による都市管理システムの中枢",
+    "src": "/images/smartcity/central-tower.jpg",
+    "category": "Smart City",
+    "score": 97,
+    "width": 1024,
+    "height": 1024,
+    "size": "1.1 MB",
+    "aspectRatio": "1:1 (Square)",
+    "tags": ["#先端テクノロジー", "#次世代モビリティ", "#GXインフラ"]
+  },
+  {
+    "id": "biophilic-residence-01",
+    "title": "バイオフィリック集合住宅",
+    "description": "自然と建築が融合した有機的デザインの集合住宅",
+    "src": "/images/architecture/biophilic-residence.jpg",
+    "category": "Architecture",
+    "score": 99,
+    "width": 1024,
+    "height": 1024,
+    "size": "1.3 MB",
+    "aspectRatio": "1:1 (Square)",
+    "tags": ["#自然共生", "#自然共生", "#GXインフラ"]
+  },
+  {
+    "id": "organic-residence-01",
+    "title": "オーガニック・レジデンス",
+    "description": "流線型の有機的フォルムと垂直庭園が調和した未来型住宅",
+    "src": "/images/architecture/organic-residence.jpg",
+    "category": "Architecture",
+    "score": 98,
+    "width": 1024,
+    "height": 1024,
+    "size": "1.2 MB",
+    "aspectRatio": "1:1 (Square)",
+    "tags": ["#自然共生", "#自然共生", "#次世代ライフスタイル"]
+  },
+  {
+    "id": "aerial-network-01",
+    "title": "空中交通ネットワーク",
+    "description": "自動運転ポッドが縦横無尽に移動する3次元交通システム",
+    "src": "/images/mobility/aerial-network.jpg",
+    "category": "Mobility",
+    "score": 99,
+    "width": 1024,
+    "height": 576,
+    "size": "980 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": ["#次世代モビリティ", "#次世代モビリティ", "#次世代モビリティ"]
+  },
+  {
+    "id": "img-20260119-01",
+    "title": "ネオ・江戸・キャナル",
+    "description": "伝統的な和風建築の並ぶ運河の上空をドローンが飛ぶ夜景",
+    "src": "/images/1.jpg",
+    "category": "Concept Art",
+    "score": 95,
+    "width": 1024,
+    "height": 1024,
+    "size": "1.2 MB",
+    "aspectRatio": "1:1",
+    "tags": ["#先端テクノロジー", "#スマートシティ", "#スマートシティ"]
+  },
+  {
+    "id": "img-20260119-02",
+    "title": "黄昏のグリーン・アーキテクチャ",
+    "description": "夕暮れ時の都市にある、緑豊かなテラスを持つモダンな建物",
+    "src": "/images/2.jpg",
+    "category": "Architecture",
+    "score": 96,
+    "width": 1024,
+    "height": 1024,
+    "size": "1.1 MB",
+    "aspectRatio": "1:1",
+    "tags": ["#スマートシティ", "#自然共生", "#スマートシティ"]
+  },
+  {
+    "id": "img-20260119-03",
+    "title": "ミッドナイト・ガーデン・ビルディング",
+    "description": "雨の夜、植物で装飾されライトアップされた洗練されたビル",
+    "src": "/images/3.jpg",
+    "category": "Urban Night",
+    "score": 94,
+    "width": 1024,
+    "height": 1024,
+    "size": "1.3 MB",
+    "aspectRatio": "1:1",
+    "tags": ["#スマートシティ", "#自然共生"]
+  },
+  {
+    "id": "img-20260119-04",
+    "title": "オーバーグロウ・ストリート",
+    "description": "建物の壁面が植物で埋め尽くされた賑やかな近未来の通り",
+    "src": "/images/4.jpg",
+    "category": "Cityscape",
+    "score": 97,
+    "width": 1024,
+    "height": 1024,
+    "size": "1.4 MB",
+    "aspectRatio": "1:1",
+    "tags": ["#スマートシティ", "#自然共生"]
+  },
+  {
+    "id": "img-20260119-05",
+    "title": "睡蓮の海と探査船",
+    "description": "巨大な白い花が咲く海に停泊する近未来的な探査船",
+    "src": "/images/5.jpg",
+    "category": "Fantasy Landscape",
+    "score": 98,
+    "width": 1024,
+    "height": 1024,
+    "size": "1.1 MB",
+    "aspectRatio": "1:1",
+    "tags": ["#海洋開発", "#自然共生"]
+  },
+  {
+    "id": "img-20260119-06",
+    "title": "ロータス・ボヤージュ",
+    "description": "巨大な睡蓮を模した神秘的な帆船が島々の間を航行する様子",
+    "src": "/images/6.jpg",
+    "category": "Fantasy",
+    "score": 99,
+    "width": 1024,
+    "height": 768,
+    "size": "1.2 MB",
+    "aspectRatio": "4:3",
+    "tags": ["#海洋開発", "#自然共生", "#次世代ライフスタイル"]
+  },
+  {
+    "id": "img-20260119-07",
+    "title": "シー-ブロッサム・タワー",
+    "description": "夕闇の海に浮かぶ、花のような形状をした未来的な海上研究施設",
+    "src": "/images/7.jpg",
+    "category": "Sci-Fi Architecture",
+    "score": 97,
+    "width": 1024,
+    "height": 768,
+    "size": "1.0 MB",
+    "aspectRatio": "4:3",
+    "tags": ["#海洋開発", "#スマートシティ", "#自然共生"]
+  },
+  {
+    "id": "img-20260119-08",
+    "title": "コーラル・ハブ・ステーション",
+    "description": "美しい岩礁地帯に建設された、自然の造形に調和する未来の海上基地",
+    "src": "/images/8.jpg",
+    "category": "Marine Base",
+    "score": 96,
+    "width": 1024,
+    "height": 768,
+    "size": "1.1 MB",
+    "aspectRatio": "4:3",
+    "tags": ["#海洋開発", "#GXインフラ"]
+  },
+  {
+    "id": "img-20260119-09",
+    "title": "フォレスト-コア-サーバー",
+    "description": "森の地面に埋め込まれた、都市のホログラムデータを映し出す透明なサーバーユニット",
+    "src": "/images/9.jpg",
+    "category": "Future Nature",
+    "score": 95,
+    "width": 1024,
+    "height": 768,
+    "size": "1.4 MB",
+    "aspectRatio": "4:3",
+    "tags": ["#自然共生", "#先端テクノロジー", "#先端テクノロジー"]
+  },
+  {
+    "id": "img-20260119-10",
+    "title": "ミスティ-フォレスト-ラボ",
+    "description": "霧深い森の中で自給自足的に植物を研究する、高機能なガラスコンテナ室",
+    "src": "/images/10.jpg",
+    "category": "Research Lab",
+    "score": 98,
+    "width": 1024,
+    "height": 768,
+    "size": "1.3 MB",
+    "aspectRatio": "4:3",
+    "tags": ["#自然共生", "#次世代ライフスタイル", "#先端テクノロジー"]
+  },
+  {
+    "id": "img-20260119-11",
+    "title": "グローバル・フォレスト・モニター",
+    "description": "森の中に設置された、世界の環境データをホログラムで映し出す大型テラリウム型デバイス",
+    "src": "/images/11.jpg",
+    "category": "Future Nature",
+    "score": 97,
+    "width": 1024,
+    "height": 768,
+    "size": "1.1 MB",
+    "aspectRatio": "4:3",
+    "tags": ["#先端テクノロジー", "#先端テクノロジー", "#自然共生"]
+  },
+  {
+    "id": "img-20260119-12",
+    "title": "バイオ・ルミナス・キューブ",
+    "description": "森の生態系とテクノロジーを融合させた、発光する植物封入型の回路キューブ",
+    "src": "/images/12.jpg",
+    "category": "Bio-Tech",
+    "score": 98,
+    "width": 1024,
+    "height": 768,
+    "size": "950 KB",
+    "aspectRatio": "4:3",
+    "tags": ["#先端テクノロジー", "#自然共生", "#自然共生"]
+  },
+  {
+    "id": "img-20260119-13",
+    "title": "ネオ・江戸・スカイライン",
+    "description": "伝統的な五重塔と最新の電波塔が共存し、ドローンが飛び交う夕暮れの空中都市",
+    "src": "/images/01.jpg",
+    "category": "Concept Art",
+    "score": 96,
+    "width": 1024,
+    "height": 1280,
+    "size": "1.5 MB",
+    "aspectRatio": "4:5",
+    "tags": ["#スマートシティ", "#次世代モビリティ", "#先端テクノロジー"]
+  },
+  {
+    "id": "img-20260119-14",
+    "title": "フォレスト・コア・ホログラム",
+    "description": "古木の根元に浮かび上がる、精密なデジタル回路とマトリックス状の青い光",
+    "src": "/images/012.jpg",
+    "category": "Bio-Tech",
+    "score": 94,
+    "width": 1024,
+    "height": 768,
+    "size": "1.1 MB",
+    "aspectRatio": "4:3",
+    "tags": ["#先端テクノロジー", "#先端テクノロジー", "#自然共生"]
+  },
+  {
+    "id": "img-20260119-15",
+    "title": "トワイライト・スマート・ディストリクト",
+    "description": "高層ビル群と伝統的な家屋が入り混じる、交通システムが発達した未来の居住区",
+    "src": "/images/04.jpg",
+    "category": "Cityscape",
+    "score": 95,
+    "width": 1024,
+    "height": 1280,
+    "size": "1.6 MB",
+    "aspectRatio": "4:5",
+    "tags": ["#スマートシティ", "#スマートシティ", "#スマートシティ"]
+  },
+  {
+    "id": "img-20260119-16",
+    "title": "オーシャン・エネルギー・プラットフォーム",
+    "description": "巨大な風力タービンとソーラーパネルを備えた、三叉形状の海上電力生成拠点",
+    "src": "/images/05.jpg",
+    "category": "Renewable Energy",
+    "score": 97,
+    "width": 1024,
+    "height": 768,
+    "size": "1.3 MB",
+    "aspectRatio": "4:3",
+    "tags": ["#クリーンエネルギー", "#海洋開発", "#GXインフラ"]
+  },
+  {
+    "id": "img-20260119-17",
+    "title": "バーティカル・ガーデン・レジデンス",
+    "description": "全ての階層に豊かな緑が配置された、ドローンポート完備の超高層集合住宅",
+    "src": "/images/02.jpg",
+    "category": "Architecture",
+    "score": 98,
+    "width": 1024,
+    "height": 1280,
+    "size": "1.4 MB",
+    "aspectRatio": "4:5",
+    "tags": ["#自然共生", "#GXインフラ", "#次世代ライフスタイル"]
+  },
+  {
+    "id": "img-20260119-18",
+    "title": "シグナス・シースキマー",
+    "description": "白鳥のような翼を持つ、高速で海上を滑走する近未来的な探査船",
+    "src": "/images/07.jpg",
+    "category": "Mobility",
+    "score": 96,
+    "width": 1024,
+    "height": 768,
+    "size": "980 KB",
+    "aspectRatio": "4:3",
+    "tags": ["#次世代モビリティ", "#海洋開発", "#次世代モビリティ"]
+  },
+  {
+    "id": "img-20260119-19",
+    "title": "ボタニカル・スカイ・タワー",
+    "description": "夕陽に照らされ、幾層ものテラスに植物が繁茂する未来のビルディング群",
+    "src": "/images/03.jpg",
+    "category": "Architecture",
+    "score": 95,
+    "width": 1024,
+    "height": 1280,
+    "size": "1.5 MB",
+    "aspectRatio": "4:5",
+    "tags": ["#自然共生", "#自然共生", "#スマートシティ"]
+  },
+  {
+    "id": "img-20260119-20",
+    "title": "サンセット・タービン・シップ",
+    "description": "巨大な風力発電ユニットを搭載し、夕焼けの海を進む作業支援船",
+    "src": "/images/06.jpg",
+    "category": "Marine Tech",
+    "score": 93,
+    "width": 1024,
+    "height": 768,
+    "size": "1.2 MB",
+    "aspectRatio": "4:3",
+    "tags": ["#クリーンエネルギー", "#次世代モビリティ", "#クリーンエネルギー"]
+  },
+  {
+    "id": "img-20260119-21",
+    "title": "ルミナス・クリスタル・ツリー",
+    "description": "森の奥深くで青く発光する、巨大な水晶の塊が浮かび上がる聖域",
+    "src": "/images/011.jpg",
+    "category": "Fantasy",
+    "score": 99,
+    "width": 1024,
+    "height": 768,
+    "size": "1.4 MB",
+    "aspectRatio": "4:3",
+    "tags": ["#自然共生", "#先端テクノロジー", "#自然共生"]
+  },
+  {
+    "id": "img-20260119-22",
+    "title": "エターナル・グリーン・カプセル",
+    "description": "光り輝く情報回路に守られ、垂直に成長し続ける森の生命維持システム",
+    "src": "/images/013.jpg",
+    "category": "Bio-Tech",
+    "score": 98,
+    "width": 1024,
+    "height": 768,
+    "size": "1.3 MB",
+    "aspectRatio": "4:3",
+    "tags": ["#自然共生", "#次世代ライフスタイル", "#先端テクノロジー"]
+  },
+  {
+    "id": "img-20260119-23",
+    "title": "ルミナス・スカイライン・モニュメント",
+    "description": "夜の都市に浮かび上がる、クリスタルのような輝きを放つ超高層ビル群のインスタレーション",
+    "src": "/images/08.jpg",
+    "category": "Architecture",
+    "score": 98,
+    "width": 1024,
+    "height": 768,
+    "size": "1.1 MB",
+    "aspectRatio": "4:3",
+    "tags": ["#スマートシティ", "#スマートシティ", "#スマートシティ"]
+  },
+  {
+    "id": "img-20260119-24",
+    "title": "サイバー・スパイダー・パビリオン",
+    "description": "深い森の中に突如現れる、複雑な網目状の構造体を持つ実験的アート建築",
+    "src": "/images/09.jpg",
+    "category": "Art Installation",
+    "score": 95,
+    "width": 1024,
+    "height": 768,
+    "size": "1.4 MB",
+    "aspectRatio": "4:3",
+    "tags": ["#自然共生", "#自然共生", "#先端テクノロジー"]
+  },
+  {
+    "id": "img-20260119-25",
+    "title": "ネイチャー・アーカイブ・ケース",
+    "description": "明るい森の中で、特定の植物種をデジタル保護・観察するために設置された発光コンテナ",
+    "src": "/images/010.jpg",
+    "category": "Bio-Tech",
+    "score": 97,
+    "width": 1024,
+    "height": 768,
+    "size": "1.3 MB",
+    "aspectRatio": "4:3",
+    "tags": ["#自然共生", "#循環型社会", "#先端テクノロジー"]
+  },
+  {
+    "id": "img-20260120-64",
+    "title": "スカイ・オーシャン・ホエール",
+    "description": "透明なソーラーウィングを持ち、雲海を回遊する超大型の自律型空中ホテル",
+    "src": "/images/m1.jpg",
+    "category": "Mobility",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "1.2 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#スマートシティ", "#自然共生", "#クリーンエネルギー"]
+  },
+  {
+    "id": "img-20260120-65",
+    "title": "クリスタル・クラウド・シップ",
+    "description": "日没の光を反射し、優雅に飛行するクリスタル外装のクジラ型飛行体",
+    "src": "/images/m2.jpg",
+    "category": "Fantasy",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "1.1 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#次世代モビリティ", "#先端テクノロジー"]
+  },
+  {
+    "id": "img-20260120-66",
+    "title": "ルミナス・スカイ・ホエール",
+    "description": "全身に無数の光を灯し、夜の空中航路を導く守護神のような飛行体",
+    "src": "/images/m3.jpg",
+    "category": "Concept Art",
+    "score": 99,
+    "width": 1024,
+    "height": 576,
+    "size": "1.3 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#先端テクノロジー", "#スマートシティ"]
+  },
+  {
+    "id": "img-20260120-67",
+    "title": "バイオ・メカニカル・フライヤー",
+    "description": "有機的なデザインと最先端の航空工学が融合した次世代探査機",
+    "src": "/images/m4.jpg",
+    "category": "Mobility",
+    "score": 96,
+    "width": 1024,
+    "height": 576,
+    "size": "1.0 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#次世代モビリティ", "#自然共生", "#先端テクノロジー"]
+  },
+  {
+    "id": "img-20260120-68",
+    "title": "アクア・リフレクション・レストラン",
+    "description": "自然光が降り注ぐ、パノラマサイズのサンゴ礁を楽しめる水中ラウンジ",
+    "src": "/images/m5.jpg",
+    "category": "Urban Design",
+    "score": 98,
+    "width": 1024,
+    "height": 1280,
+    "size": "1.4 MB",
+    "aspectRatio": "4:5",
+    "tags": ["#海洋開発", "#海洋開発", "#次世代ライフスタイル"]
+  },
+  {
+    "id": "img-20260120-69",
+    "title": "深海の静寂・アクアリウム",
+    "description": "クラゲの舞う神秘的な海と一体化できる、未来の海底宿泊施設",
+    "src": "/images/m6.jpg",
+    "category": "Urban Design",
+    "score": 95,
+    "width": 1024,
+    "height": 1280,
+    "size": "1.5 MB",
+    "aspectRatio": "4:5",
+    "tags": ["#海洋開発", "#次世代ライフスタイル", "#自然共生"]
+  },
+  {
+    "id": "img-20260120-70",
+    "title": "ディープ・コーラル・ラウンジ",
+    "description": "色鮮やかなサンゴに囲まれた、完全遮音・気圧管理された海底のリサーチ拠点",
+    "src": "/images/m7.jpg",
+    "category": "Marine Base",
+    "score": 97,
+    "width": 1024,
+    "height": 1280,
+    "size": "1.3 MB",
+    "aspectRatio": "4:5",
+    "tags": ["#海洋開発", "#自然共生", "#先端テクノロジー"]
+  },
+  {
+    "id": "img-20260120-71",
+    "title": "スマート・シー・テラス",
+    "description": "波の動きに合わせる制振構造を持ち、海中都市の中心部を担うダイニングエリア",
+    "src": "/images/m8.jpg",
+    "category": "Urban Design",
+    "score": 96,
+    "width": 1024,
+    "height": 1280,
+    "size": "1.2 MB",
+    "aspectRatio": "4:5",
+    "tags": ["#スマートシティ", "#海洋開発", "#次世代ライフスタイル"]
+  },
+  {
+    "id": "img-20260120-72",
+    "title": "デザート・ミラー・ドーム",
+    "description": "砂漠の過酷な熱から内部の生態系を守る、鏡面反射シールドを備えたバイオドーム",
+    "src": "/images/m9.jpg",
+    "category": "Future Nature",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "1.1 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#自然共生", "#GXインフラ", "#スマートシティ"]
+  },
+  {
+    "id": "img-20260120-73",
+    "title": "スカイ・ブルーム・ドーム",
+    "description": "標高の高い山岳地帯に設置された、絶滅危惧種の植物を保護・栽培する実験ドーム",
+    "src": "/images/m10.jpg",
+    "category": "Future Nature",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "1.2 MB",
+    "aspectRatio": "16:9",
+    "tags": ["#自然共生", "#先端テクノロジー", "#循環型社会"]
+  },
+  {
     "id": "img-20260121-01",
     "title": "スカイ・ホエール・クルーザー",
     "description": "雲海を自在に泳ぐように飛行する、クジラ型の次世代空中クルーズ客船",
@@ -1175,7 +959,7 @@
     "height": 1792,
     "size": "1.4 MB",
     "aspectRatio": "9:16",
-    "tags": ["#空中モビリティ", "#未来都市", "#クリーンエネルギー", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#スマートシティ", "#クリーンエネルギー"]
   },
   {
     "id": "img-20260121-02",
@@ -1188,7 +972,7 @@
     "height": 1792,
     "size": "1.5 MB",
     "aspectRatio": "9:16",
-    "tags": ["#バイオフィリック", "#空中庭園", "#未来の旅", "#商用利用可"]
+    "tags": ["#自然共生", "#自然共生", "#次世代ライフスタイル"]
   },
   {
     "id": "img-20260121-03",
@@ -1201,7 +985,7 @@
     "height": 1792,
     "size": "1.3 MB",
     "aspectRatio": "9:16",
-    "tags": ["#次世代輸送", "#スマートモビリティ", "#GX", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#次世代モビリティ", "#水素エネルギー"]
   },
   {
     "id": "img-20260121-04",
@@ -1214,7 +998,7 @@
     "height": 1792,
     "size": "1.6 MB",
     "aspectRatio": "9:16",
-    "tags": ["#深海開発", "#海洋建築", "#未来の食体験", "#商用利用可"]
+    "tags": ["#海洋開発", "#海洋開発", "#次世代ライフスタイル"]
   },
   {
     "id": "img-20260121-05",
@@ -1227,7 +1011,7 @@
     "height": 1792,
     "size": "1.5 MB",
     "aspectRatio": "9:16",
-    "tags": ["#水中都市", "#深海探査", "#サステナブルデザイン", "#商用利用可"]
+    "tags": ["#スマートシティ", "#海洋開発", "#自然共生"]
   },
   {
     "id": "img-20260121-10",
@@ -1240,7 +1024,7 @@
     "height": 1792,
     "size": "1.6 MB",
     "aspectRatio": "9:16",
-    "tags": ["#空中モビリティ", "#未来都市", "#クリーンエネルギー", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#スマートシティ", "#クリーンエネルギー"]
   },
   {
     "id": "img-20260121-11",
@@ -1253,7 +1037,7 @@
     "height": 1792,
     "size": "1.5 MB",
     "aspectRatio": "9:16",
-    "tags": ["#研究施設", "#バイオフィリック", "#クリーンテクノロジー", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#自然共生", "#先端テクノロジー"]
   },
   {
     "id": "img-20260121-12",
@@ -1266,7 +1050,7 @@
     "height": 1792,
     "size": "1.4 MB",
     "aspectRatio": "9:16",
-    "tags": ["#植物工学", "#未来の農業", "#スマートシティ", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#次世代ライフスタイル", "#スマートシティ"]
   },
   {
     "id": "img-20260121-13",
@@ -1279,7 +1063,7 @@
     "height": 1792,
     "size": "1.3 MB",
     "aspectRatio": "9:16",
-    "tags": ["#次世代交通", "#自動運転", "#VTOL", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#次世代モビリティ", "#次世代モビリティ"]
   },
   {
     "id": "img-20260121-14",
@@ -1292,7 +1076,7 @@
     "height": 1792,
     "size": "1.4 MB",
     "aspectRatio": "9:16",
-    "tags": ["#スマートシティ", "#電気自動車", "#モビリティハブ", "#商用利用可"]
+    "tags": ["#スマートシティ", "#次世代モビリティ", "#次世代モビリティ"]
   },
   {
     "id": "img-20260121-15",
@@ -1305,7 +1089,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "16:9",
-    "tags": ["#再生可能エネルギー", "#風力発電", "#スマートグリッド", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#クリーンエネルギー", "#先端テクノロジー"]
   },
   {
     "id": "img-20260121-16",
@@ -1318,7 +1102,7 @@
     "height": 1024,
     "size": "1.3 MB",
     "aspectRatio": "16:9",
-    "tags": ["#洋上発電", "#水素エネルギー", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#水素エネルギー"]
   },
   {
     "id": "img-20260121-17",
@@ -1331,7 +1115,7 @@
     "height": 1792,
     "size": "1.7 MB",
     "aspectRatio": "9:16",
-    "tags": ["#産業用ロボット", "#リサイクル", "#オートメーション", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#循環型社会", "#先端テクノロジー"]
   },
   {
     "id": "img-20260121-18",
@@ -1344,7 +1128,7 @@
     "height": 1792,
     "size": "1.6 MB",
     "aspectRatio": "9:16",
-    "tags": ["#スマートファクトリー", "#AI", "#製造業", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#先端テクノロジー", "#先端テクノロジー"]
   },
   {
     "id": "img-20260121-19",
@@ -1357,7 +1141,7 @@
     "height": 1792,
     "size": "1.8 MB",
     "aspectRatio": "9:16",
-    "tags": ["#バイオフィリック", "#ワークスタイル", "#未来建築", "#商用利用可"]
+    "tags": ["#自然共生", "#次世代ライフスタイル", "#自然共生"]
   },
   {
     "id": "img-20260121-20",
@@ -1370,7 +1154,7 @@
     "height": 1792,
     "size": "1.8 MB",
     "aspectRatio": "9:16",
-    "tags": ["#バイオフィリック", "#次世代オフィス", "#自然冷却", "#商用利用可"]
+    "tags": ["#自然共生", "#次世代ライフスタイル", "#自然共生"]
   },
   {
     "id": "img-20260121-21",
@@ -1383,7 +1167,7 @@
     "height": 1792,
     "size": "1.5 MB",
     "aspectRatio": "9:16",
-    "tags": ["#垂直農法", "#アグリテック", "#自動栽培", "#商用利用可"]
+    "tags": ["#循環型社会", "#先端テクノロジー", "#次世代ライフスタイル"]
   },
   {
     "id": "img-20260121-22",
@@ -1396,7 +1180,7 @@
     "height": 1792,
     "size": "1.4 MB",
     "aspectRatio": "9:16",
-    "tags": ["#植物工場", "#AI農法", "#サステナブルフード", "#商用利用可"]
+    "tags": ["#次世代ライフスタイル", "#先端テクノロジー", "#循環型社会"]
   },
   {
     "id": "img-20260121-23",
@@ -1409,7 +1193,7 @@
     "height": 1792,
     "size": "1.7 MB",
     "aspectRatio": "9:16",
-    "tags": ["#未来都市", "#空中交通", "#サイバーパンク", "#商用利用可"]
+    "tags": ["#スマートシティ", "#次世代モビリティ", "#先端テクノロジー"]
   },
   {
     "id": "img-20260121-24",
@@ -1422,7 +1206,7 @@
     "height": 1792,
     "size": "1.6 MB",
     "aspectRatio": "9:16",
-    "tags": ["#スマートシティ", "#エネルギー網", "#夜景", "#商用利用可"]
+    "tags": ["#スマートシティ", "#クリーンエネルギー", "#先端テクノロジー"]
   },
   {
     "id": "img-20260121-25",
@@ -1435,7 +1219,7 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "16:9",
-    "tags": ["#極地開発", "#オーロラ", "#未来基地", "#商用利用可"]
+    "tags": ["#GXインフラ", "#クリーンエネルギー", "#スマートシティ"]
   },
   {
     "id": "img-20260121-26",
@@ -1448,7 +1232,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "16:9",
-    "tags": ["#サステナブル", "#観測基地", "#クリーンテクノロジー", "#商用利用可"]
+    "tags": ["#GXインフラ", "#GXインフラ", "#先端テクノロジー"]
   },
   {
     "id": "img-20260121-27",
@@ -1461,7 +1245,7 @@
     "height": 1792,
     "size": "1.8 MB",
     "aspectRatio": "9:16",
-    "tags": ["#海底都市", "#海洋建築", "#次世代モビリティ", "#商用利用可"]
+    "tags": ["#スマートシティ", "#海洋開発", "#次世代モビリティ"]
   },
   {
     "id": "img-20260121-28",
@@ -1474,7 +1258,7 @@
     "height": 1792,
     "size": "1.7 MB",
     "aspectRatio": "9:16",
-    "tags": ["#水中景観", "#サンゴ礁", "#エコシステム", "#商用利用可"]
+    "tags": ["#海洋開発", "#自然共生", "#次世代ライフスタイル"]
   },
   {
     "id": "img-20260121-29",
@@ -1487,7 +1271,7 @@
     "height": 1024,
     "size": "1.3 MB",
     "aspectRatio": "16:9",
-    "tags": ["#宇宙発電", "#クリーンエネルギー", "#次世代インフラ", "#商用利用可"]
+    "tags": ["#宇宙開発", "#クリーンエネルギー", "#先端テクノロジー"]
   },
   {
     "id": "img-20260121-30",
@@ -1500,7 +1284,7 @@
     "height": 1024,
     "size": "1.3 MB",
     "aspectRatio": "16:9",
-    "tags": ["#宇宙発電", "#クリーンエネルギー", "#次世代インフラ", "#商用利用可"]
+    "tags": ["#宇宙開発", "#クリーンエネルギー", "#先端テクノロジー"]
   },
   {
     "id": "img-20260121-31",
@@ -1513,7 +1297,7 @@
     "height": 1024,
     "size": "1.9 MB",
     "aspectRatio": "16:9",
-    "tags": ["#バイオドーム", "#砂漠緑化", "#未来都市", "#商用利用可"]
+    "tags": ["#自然共生", "#自然共生", "#スマートシティ"]
   },
   {
     "id": "img-20260121-32",
@@ -1526,7 +1310,7 @@
     "height": 1024,
     "size": "1.7 MB",
     "aspectRatio": "16:9",
-    "tags": ["#環境再生", "#サステナブル", "#テラフォーミング", "#商用利用可"]
+    "tags": ["#自然共生", "#GXインフラ", "#宇宙開発"]
   },
   {
     "id": "img-20260121-33",
@@ -1539,7 +1323,7 @@
     "height": 1792,
     "size": "1.8 MB",
     "aspectRatio": "9:16",
-    "tags": ["#次世代交通", "#空中軌道", "#スマートシティ", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#次世代モビリティ", "#スマートシティ"]
   },
   {
     "id": "img-20260121-34",
@@ -1552,7 +1336,7 @@
     "height": 1792,
     "size": "1.6 MB",
     "aspectRatio": "9:16",
-    "tags": ["#ドローン物流", "#自動輸送", "#垂直庭園", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#次世代モビリティ", "#自然共生"]
   },
   {
     "id": "img-20260121-35",
@@ -1565,7 +1349,7 @@
     "height": 1024,
     "size": "1.9 MB",
     "aspectRatio": "16:9",
-    "tags": ["#垂直森林", "#スマートシティ", "#バイオフィリック", "#商用利用可"]
+    "tags": ["#自然共生", "#スマートシティ", "#自然共生"]
   },
   {
     "id": "img-20260121-36",
@@ -1578,7 +1362,7 @@
     "height": 1792,
     "size": "1.6 MB",
     "aspectRatio": "9:16",
-    "tags": ["#藻類バイオ", "#再生可能エネルギー", "#次世代ラボ", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#クリーンエネルギー", "#先端テクノロジー"]
   },
   {
     "id": "img-20260121-37",
@@ -1591,7 +1375,7 @@
     "height": 1792,
     "size": "1.5 MB",
     "aspectRatio": "9:16",
-    "tags": ["#バイオテクノロジー", "#クリーンテクノロジー", "#研究開発", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#先端テクノロジー", "#先端テクノロジー"]
   },
   {
     "id": "mid-20260121-01",
@@ -1604,7 +1388,7 @@
     "height": 1024,
     "size": "1.2 MB",
     "aspectRatio": "16:9",
-    "tags": ["#バイオ燃料", "#GX", "#次世代インフラ", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#先端テクノロジー"]
   },
   {
     "id": "mid-20260121-02",
@@ -1617,7 +1401,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "16:9",
-    "tags": ["#クリーンエネルギー", "#バイオ技術", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#先端テクノロジー"]
   },
   {
     "id": "mid-20260121-03",
@@ -1630,7 +1414,7 @@
     "height": 1792,
     "size": "1.5 MB",
     "aspectRatio": "9:16",
-    "tags": ["#スマートシティ", "#垂直都市", "#未来都市", "#商用利用可"]
+    "tags": ["#スマートシティ", "#自然共生", "#スマートシティ"]
   },
   {
     "id": "mid-20260121-04",
@@ -1643,7 +1427,7 @@
     "height": 1792,
     "size": "1.3 MB",
     "aspectRatio": "9:16",
-    "tags": ["#MaaS", "#都市緑化", "#次世代モビリティ", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#自然共生", "#次世代モビリティ"]
   },
   {
     "id": "mid-20260121-05",
@@ -1656,7 +1440,7 @@
     "height": 1792,
     "size": "1.1 MB",
     "aspectRatio": "9:16",
-    "tags": ["#エッジコンピューティング", "#再生可能エネルギー", "#未来建築", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#クリーンエネルギー", "#先端テクノロジー"]
   },
   {
     "id": "mid-20260121-06",
@@ -1669,7 +1453,7 @@
     "height": 1792,
     "size": "1.4 MB",
     "aspectRatio": "9:16",
-    "tags": ["#未来建築", "#自然共生", "#GX", "#商用利用可"]
+    "tags": ["#スマートシティ", "#自然共生"]
   },
   {
     "id": "mid-20260121-07",
@@ -1682,7 +1466,7 @@
     "height": 1792,
     "size": "1.3 MB",
     "aspectRatio": "9:16",
-    "tags": ["#次世代モビリティ", "#スマートシティ", "#GX", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#スマートシティ"]
   },
   {
     "id": "mid-20260121-08",
@@ -1695,7 +1479,7 @@
     "height": 1792,
     "size": "1.5 MB",
     "aspectRatio": "9:16",
-    "tags": ["#MaaS", "#自律走行", "#未来都市", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#次世代モビリティ", "#スマートシティ"]
   },
   {
     "id": "mid-20260121-09",
@@ -1708,7 +1492,7 @@
     "height": 1024,
     "size": "1.6 MB",
     "aspectRatio": "16:9",
-    "tags": ["#洋上風力", "#再生可能エネルギー", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#クリーンエネルギー"]
   },
   {
     "id": "mid-20260121-10",
@@ -1721,7 +1505,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "16:9",
-    "tags": ["#海洋インフラ", "#自律型施設", "#GX", "#商用利用可"]
+    "tags": ["#海洋開発", "#クリーンエネルギー"]
   },
   {
     "id": "mid-20260121-11",
@@ -1734,7 +1518,7 @@
     "height": 1024,
     "size": "1.2 MB",
     "aspectRatio": "16:9",
-    "tags": ["#ロボティクス", "#農業AI", "#サステナブル", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#自然共生", "#次世代ライフスタイル"]
   },
   {
     "id": "mid-20260121-12",
@@ -1747,7 +1531,7 @@
     "height": 1024,
     "size": "1.3 MB",
     "aspectRatio": "16:9",
-    "tags": ["#スマート農業", "#自動化", "#GX", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#先端テクノロジー"]
   },
   {
     "id": "mid-20260121-13",
@@ -1760,7 +1544,7 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "16:9",
-    "tags": ["#インテリアデザイン", "#自然共生", "#未来建築", "#商用利用可"]
+    "tags": ["#自然共生", "#スマートシティ"]
   },
   {
     "id": "mid-20260121-14",
@@ -1773,7 +1557,7 @@
     "height": 1024,
     "size": "1.6 MB",
     "aspectRatio": "16:9",
-    "tags": ["#バイオフィリックデザイン", "#未来の働き方", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#次世代ライフスタイル"]
   },
   {
     "id": "mid-20260121-15",
@@ -1786,7 +1570,7 @@
     "height": 1024,
     "size": "1.1 MB",
     "aspectRatio": "16:9",
-    "tags": ["#垂直農業", "#植物工場", "#GX", "#商用利用可"]
+    "tags": ["#循環型社会", "#先端テクノロジー"]
   },
   {
     "id": "mid-20260121-16",
@@ -1799,7 +1583,7 @@
     "height": 1024,
     "size": "1.2 MB",
     "aspectRatio": "16:9",
-    "tags": ["#垂直農業", "#植物工場", "#GX", "#商用利用可"]
+    "tags": ["#循環型社会", "#先端テクノロジー"]
   },
   {
     "id": "mid-20260121-17",
@@ -1812,7 +1596,7 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "16:9",
-    "tags": ["#スマートグリッド", "#未来都市", "#GX", "#商用利用可"]
+    "tags": ["#スマートシティ", "#スマートシティ"]
   },
   {
     "id": "mid-20260121-18",
@@ -1825,7 +1609,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "16:9",
-    "tags": ["#都市OS", "#インフラ", "#未来予想図", "#商用利用可"]
+    "tags": ["#スマートシティ", "#GXインフラ"]
   },
   {
     "id": "mid-20260121-19",
@@ -1838,7 +1622,7 @@
     "height": 1024,
     "size": "1.3 MB",
     "aspectRatio": "16:9",
-    "tags": ["#極地インフラ", "#再生可能エネルギー", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#クリーンエネルギー"]
   },
   {
     "id": "mid-20260121-20",
@@ -1851,7 +1635,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "16:9",
-    "tags": ["#自律型施設", "#サステナブル", "#GX", "#商用利用可"]
+    "tags": ["#GXインフラ", "#次世代ライフスタイル"]
   },
   {
     "id": "mid-20260121-21",
@@ -1864,11 +1648,11 @@
     "height": 1024,
     "size": "1.6 MB",
     "aspectRatio": "16:9",
-    "tags": ["#海洋共生", "#未来インフラ", "#GX", "#商用利用可"]
+    "tags": ["#海洋開発", "#スマートシティ"]
   },
   {
     "id": "mid-20260121-22",
-    "title": "ディープシー・スマート・パス",
+    "title": "ディープシー_スマート_パス",
     "description": "深海に張り巡らされた透明な交通インフラ。最新の耐圧技術とエコ・推進システムを搭載した移動体。",
     "src": "/images/mid/mid-22.jpg",
     "category": "Mobility",
@@ -1877,7 +1661,7 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "16:9",
-    "tags": ["#水中モビリティ", "#深海開発", "#GX", "#商用利用可"]
+    "tags": ["#海洋開発", "#次世代モビリティ"]
   },
   {
     "id": "mid-20260121-23",
@@ -1890,7 +1674,7 @@
     "height": 1024,
     "size": "1.2 MB",
     "aspectRatio": "16:9",
-    "tags": ["#宇宙発電", "#次世代インフラ", "#GX", "#商用利用可"]
+    "tags": ["#宇宙開発", "#スマートシティ"]
   },
   {
     "id": "mid-20260121-24",
@@ -1903,7 +1687,7 @@
     "height": 1024,
     "size": "1.1 MB",
     "aspectRatio": "16:9",
-    "tags": ["#宇宙輸送", "#ソーラーセイル", "#GX", "#商用利用可"]
+    "tags": ["#宇宙開発", "#次世代モビリティ"]
   },
   {
     "id": "mid-20260121-25",
@@ -1916,7 +1700,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "16:9",
-    "tags": ["#ワイヤレス送電", "#宇宙発電", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#宇宙開発"]
   },
   {
     "id": "mid-20260121-26",
@@ -1929,7 +1713,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "16:9",
-    "tags": ["#バイオ発光", "#省エネ", "#未来都市", "#商用利用可"]
+    "tags": ["#自然共生", "#スマートシティ"]
   },
   {
     "id": "niji-20260121-01",
@@ -1942,7 +1726,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "1:1",
-    "tags": ["#未来建築", "#GX", "#バイオフィリック", "#商用利用可"]
+    "tags": ["#自然共生", "#スマートシティ"]
   },
   {
     "id": "niji-20260121-02",
@@ -1955,7 +1739,7 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "1:1",
-    "tags": ["#スマートシティ", "#再生可能エネルギー", "#GX", "#商用利用可"]
+    "tags": ["#スマートシティ", "#クリーンエネルギー"]
   },
   {
     "id": "niji-20260121-03",
@@ -1968,7 +1752,7 @@
     "height": 1024,
     "size": "1.2 MB",
     "aspectRatio": "1:1",
-    "tags": ["#ロボティクス", "#スマート工場", "#GX", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#先端テクノロジー"]
   },
   {
     "id": "niji-20260121-04",
@@ -1981,7 +1765,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "1:1",
-    "tags": ["#垂直庭園", "#都市緑化", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#自然共生"]
   },
   {
     "id": "niji-20260121-05",
@@ -1994,7 +1778,7 @@
     "height": 1024,
     "size": "1.3 MB",
     "aspectRatio": "1:1",
-    "tags": ["#製造業", "#AI自動化", "#GX", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#先端テクノロジー"]
   },
   {
     "id": "niji-20260121-06",
@@ -2007,7 +1791,7 @@
     "height": 1024,
     "size": "1.2 MB",
     "aspectRatio": "1:1",
-    "tags": ["#バイオ発光", "#省エネ", "#未来都市", "#商用利用可"]
+    "tags": ["#自然共生", "#スマートシティ"]
   },
   {
     "id": "niji-20260121-07",
@@ -2020,7 +1804,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "1:1",
-    "tags": ["#アクアポニックス", "#循環型農業", "#GX", "#商用利用可"]
+    "tags": ["#循環型社会", "#循環型社会"]
   },
   {
     "id": "niji-20260121-08",
@@ -2033,7 +1817,7 @@
     "height": 1024,
     "size": "1.1 MB",
     "aspectRatio": "1:1",
-    "tags": ["#水素エネルギー", "#次世代インフラ", "#GX", "#商用利用可"]
+    "tags": ["#水素エネルギー", "#スマートシティ"]
   },
   {
     "id": "niji-20260121-09",
@@ -2046,7 +1830,7 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "1:1",
-    "tags": ["#太陽光発電", "#未来建築", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#スマートシティ"]
   },
   {
     "id": "niji-20260121-10",
@@ -2059,7 +1843,7 @@
     "height": 1024,
     "size": "1.3 MB",
     "aspectRatio": "1:1",
-    "tags": ["#ドローン物流", "#ゼロエミッション", "#GX", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#次世代モビリティ"]
   },
   {
     "id": "niji-20260121-11",
@@ -2072,7 +1856,7 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "1:1",
-    "tags": ["#未来建築", "#デジタルツイン", "#GX", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#自然共生"]
   },
   {
     "id": "niji-20260121-12",
@@ -2085,7 +1869,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "1:1",
-    "tags": ["#バイオフィリック", "#未来の働き方", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#次世代ライフスタイル"]
   },
   {
     "id": "niji-20260121-13",
@@ -2098,7 +1882,7 @@
     "height": 1024,
     "size": "1.2 MB",
     "aspectRatio": "1:1",
-    "tags": ["#植物工場", "#スマート農業", "#GX", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#循環型社会"]
   },
   {
     "id": "niji-20260121-14",
@@ -2111,7 +1895,7 @@
     "height": 1024,
     "size": "1.3 MB",
     "aspectRatio": "1:1",
-    "tags": ["#水耕栽培", "#アグリテック", "#GX", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#循環型社会"]
   },
   {
     "id": "niji-20260121-15",
@@ -2124,7 +1908,7 @@
     "height": 1024,
     "size": "1.6 MB",
     "aspectRatio": "1:1",
-    "tags": ["#スマートシティ", "#都市OS", "#GX", "#商用利用可"]
+    "tags": ["#スマートシティ", "#スマートシティ"]
   },
   {
     "id": "niji-20260121-16",
@@ -2137,7 +1921,7 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "1:1",
-    "tags": ["#スマートグリッド", "#次世代技術", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#先端テクノロジー"]
   },
   {
     "id": "niji-20260121-17",
@@ -2150,7 +1934,7 @@
     "height": 1024,
     "size": "1.3 MB",
     "aspectRatio": "1:1",
-    "tags": ["#蓄電技術", "#極地開発", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#GXインフラ"]
   },
   {
     "id": "niji-20260121-18",
@@ -2163,7 +1947,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "1:1",
-    "tags": ["#水素船舶", "#サステナブル輸送", "#GX", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#水素エネルギー"]
   },
   {
     "id": "niji-20260121-19",
@@ -2176,7 +1960,7 @@
     "height": 1024,
     "size": "1.6 MB",
     "aspectRatio": "1:1",
-    "tags": ["#水中交通", "#海洋保全", "#GX", "#商用利用可"]
+    "tags": ["#海洋開発", "#次世代モビリティ"]
   },
   {
     "id": "niji-20260121-20",
@@ -2189,7 +1973,7 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "1:1",
-    "tags": ["#水中モビリティ", "#次世代インフラ", "#GX", "#商用利用可"]
+    "tags": ["#海洋開発", "#次世代モビリティ"]
   },
   {
     "id": "niji-20260121-21",
@@ -2202,7 +1986,7 @@
     "height": 1024,
     "size": "1.3 MB",
     "aspectRatio": "1:1",
-    "tags": ["#宇宙発電", "#クリーンエネルギー", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#宇宙開発"]
   },
   {
     "id": "niji-20260121-22",
@@ -2215,7 +1999,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "1:1",
-    "tags": ["#再生可能エネルギー", "#宇宙開発", "#GX", "#商用利用可"]
+    "tags": ["#宇宙開発", "#クリーンエネルギー"]
   },
   {
     "id": "niji-20260121-23",
@@ -2228,7 +2012,7 @@
     "height": 1024,
     "size": "1.2 MB",
     "aspectRatio": "1:1",
-    "tags": ["#ワイヤレス送電", "#サステナブル", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#宇宙開発"]
   },
   {
     "id": "niji-20260121-24",
@@ -2241,7 +2025,7 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "1:1",
-    "tags": ["#未来建築", "#砂漠緑化", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#スマートシティ"]
   },
   {
     "id": "niji-20260121-25",
@@ -2254,7 +2038,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "1:1",
-    "tags": ["#サステナブル建築", "#自然共生", "#GX", "#商用利用可"]
+    "tags": ["#スマートシティ", "#自然共生"]
   },
   {
     "id": "niji-20260121-26",
@@ -2267,7 +2051,7 @@
     "height": 1024,
     "size": "1.3 MB",
     "aspectRatio": "1:1",
-    "tags": ["#都市開発", "#エコシステム", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#GXインフラ"]
   },
   {
     "id": "niji-20260121-27",
@@ -2280,12 +2064,12 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "1:1",
-    "tags": ["#スマートシティ", "#未来都市", "#GX", "#商用利用可"]
+    "tags": ["#スマートシティ", "#次世代モビリティ"]
   },
   {
     "id": "niji-20260121-28",
     "title": "ハイパー・モビリティ・グリッド",
-    "description": "自律走行ドローンと高速移動体がシームレスに連携する都市交通インフラ。渋滞ゼロ、排出ゼロを実現。",
+    "description": "自律走行ドローンと高速移動体がシームレスに連携する都市交通インフラ. 渋滞ゼロ、排出ゼロを実現。",
     "src": "/images/niji/niji-28.jpg",
     "category": "Mobility",
     "score": 95,
@@ -2293,7 +2077,7 @@
     "height": 1024,
     "size": "1.6 MB",
     "aspectRatio": "1:1",
-    "tags": ["#MaaS", "#次世代交通", "#GX", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#スマートシティ"]
   },
   {
     "id": "niji-20260121-29",
@@ -2306,11 +2090,11 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "1:1",
-    "tags": ["#垂直都市", "#エコインフラ", "#GX", "#商用利用可"]
+    "tags": ["#スマートシティ", "#GXインフラ"]
   },
   {
     "id": "niji-20260121-30",
-    "title": "クラウド・フューチャー・シティ",
+    "title": "クラウド_フューチャー_シティ",
     "description": "雲の上まで届く超高層建築と空中庭園。高度な環境エンジニアリングがもたらす、地上とは異なる清浄な居住空間。",
     "src": "/images/niji/niji-30.jpg",
     "category": "SmartCity",
@@ -2319,7 +2103,7 @@
     "height": 1024,
     "size": "1.3 MB",
     "aspectRatio": "1:1",
-    "tags": ["#未来の暮らし", "#空中都市", "#GX", "#商用利用可"]
+    "tags": ["#スマートシティ", "#自然共生"]
   },
   {
     "id": "nano-20260121-01",
@@ -2332,7 +2116,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "16:9",
-    "tags": ["#バイオ燃料", "#GX", "#研究開発", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#先端テクノロジー"]
   },
   {
     "id": "nano-20260121-02",
@@ -2345,7 +2129,7 @@
     "height": 784,
     "size": "1.5 MB",
     "aspectRatio": "21:9",
-    "tags": ["#再生可能エネルギー", "#洋上発電", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#海洋開発"]
   },
   {
     "id": "nano-20260121-03",
@@ -2358,7 +2142,7 @@
     "height": 784,
     "size": "1.3 MB",
     "aspectRatio": "21:9",
-    "tags": ["#未来建築", "#自然共生", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#スマートシティ"]
   },
   {
     "id": "nano-20260121-04",
@@ -2371,7 +2155,7 @@
     "height": 1024,
     "size": "1.6 MB",
     "aspectRatio": "16:9",
-    "tags": ["#スマートシティ", "#MaaS", "#都市緑化", "#商用利用可"]
+    "tags": ["#自然共生", "#次世代モビリティ"]
   },
   {
     "id": "nano-20260121-05",
@@ -2384,11 +2168,11 @@
     "height": 784,
     "size": "1.4 MB",
     "aspectRatio": "21:9",
-    "tags": ["#砂漠緑化", "#サステナブル", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#GXインフラ"]
   },
   {
     "id": "nano-20260121-06",
-    "title": "スマート・アグリカルチャー・ハブ",
+    "title": "スマート_アグリカルチャー_ハブ",
     "description": "LED制御による高度な垂直農業施設。都市型自給自足モデルを実現するクリーンルーム。",
     "src": "/images/nano/nano-6.jpg",
     "category": "Technology",
@@ -2397,12 +2181,12 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "16:9",
-    "tags": ["#垂直農業", "#植物工場", "#GX", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#循環型社会"]
   },
   {
     "id": "nano-20260121-07",
     "title": "スカイライン・グリーン・グリッド",
-    "description": "高層建築間を結ぶ次世代交通インフラ。空中庭園とドローン輸送がシームレスに連携する都市景観。",
+    "description": "高層建築間を結ぶ次世代交通インフラ. 空中庭園とドローン輸送がシームレスに連携する都市景観。",
     "src": "/images/nano/nano-7.jpg",
     "category": "SmartCity",
     "score": 96,
@@ -2410,7 +2194,7 @@
     "height": 784,
     "size": "1.4 MB",
     "aspectRatio": "21:9",
-    "tags": ["#未来都市", "#交通インフラ", "#GX", "#商用利用可"]
+    "tags": ["#スマートシティ", "#次世代モビリティ"]
   },
   {
     "id": "nano-20260121-08",
@@ -2423,7 +2207,7 @@
     "height": 784,
     "size": "1.2 MB",
     "aspectRatio": "21:9",
-    "tags": ["#宇宙発電", "#ワイヤレス送電", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#宇宙開発"]
   },
   {
     "id": "nano-20260121-09",
@@ -2436,12 +2220,12 @@
     "height": 784,
     "size": "1.6 MB",
     "aspectRatio": "21:9",
-    "tags": ["#未来の働き方", "#自然共生建築", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#次世代ライフスタイル"]
   },
   {
     "id": "nano-20260121-10",
     "title": "アクア・エコ・スマートコリドー",
-    "description": "サンゴ礁を保護する透明な水中交通網。海洋生態系を観察しながら移動できる持続可能な観光・交通モデル。",
+    "description": "サンゴ礁を保護する透明な水中交通網. 海洋生態系を観察しながら移動できる持続可能な観光・交通モデル。",
     "src": "/images/nano/nano-10.jpg",
     "category": "Mobility",
     "score": 95,
@@ -2449,12 +2233,12 @@
     "height": 784,
     "size": "1.5 MB",
     "aspectRatio": "21:9",
-    "tags": ["#水中モビリティ", "#海洋保全", "#GX", "#商用利用可"]
+    "tags": ["#海洋開発", "#次世代モビリティ"]
   },
   {
     "id": "nano-20260121-11",
     "title": "デジタル・グリッド・メトロポリス",
-    "description": "光の環が都市のエネルギー流を可視化。リアルタイムで最適化されるスマートシティの夜景。",
+    "description": "光の環が都市のエネルギー流を可視化. リアルタイムで最適化されるスマートシティの夜景。",
     "src": "/images/nano/nano-11.jpg",
     "category": "SmartCity",
     "score": 96,
@@ -2462,12 +2246,12 @@
     "height": 784,
     "size": "1.6 MB",
     "aspectRatio": "21:9",
-    "tags": ["#スマートグリッド", "#都市OS", "#GX", "#商用利用可"]
+    "tags": ["#スマートシティ", "#先端テクノロジー"]
   },
   {
     "id": "nano-20260121-12",
     "title": "精密クリスタル・製造オートメーション",
-    "description": "エネルギー結晶を精製するクリーンルーム。自律型アームが極限の精度で次世代デバイスを組み立てる。",
+    "description": "エネルギー結晶を精製するクリーンルーム. 自律型アームが極限の精度で次世代デバイスを組み立てる。",
     "src": "/images/nano/nano-12.jpg",
     "category": "Technology",
     "score": 94,
@@ -2475,12 +2259,12 @@
     "height": 1024,
     "size": "1.3 MB",
     "aspectRatio": "16:9",
-    "tags": ["#ロボティクス", "#スマート工場", "#GX", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#循環型社会"]
   },
   {
     "id": "nano-20260121-13",
-    "title": "ポーラー・エナジー・ドームハブ",
-    "description": "オーロラの下、極地に配置された自律型蓄電施設。厳しい環境下でエネルギーの安定供給を支える。",
+    "title": "ポーラー・エナジー_ドームハブ",
+    "description": "オーロラの下、極地に配置された自律型蓄電施設. 厳しい環境下でエネルギーの安定供給を支える。",
     "src": "/images/nano/nano-13.jpg",
     "category": "Energy",
     "score": 98,
@@ -2488,12 +2272,12 @@
     "height": 784,
     "size": "1.4 MB",
     "aspectRatio": "21:9",
-    "tags": ["#極地開発", "#再生可能エネルギー", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#GXインフラ"]
   },
   {
     "id": "nano-20260121-14",
-    "title": "アーバン・スカイ・モビリティ網",
-    "description": "垂直緑化された高層ビル間を飛行する自律型移動体。都市の高度を有効活用した渋滞ゼロの交通システム。",
+    "title": "アーバン_スカイ_モビリティ網",
+    "description": "垂直緑化された高層ビル間を飛行する自律型移動体. 都市の高度を有効活用した渋滞ゼロの交通システム。",
     "src": "/images/nano/nano-14.jpg",
     "category": "Mobility",
     "score": 95,
@@ -2501,7 +2285,7 @@
     "height": 784,
     "size": "1.5 MB",
     "aspectRatio": "21:9",
-    "tags": ["#空飛ぶクルマ", "#未来の交通", "#GX", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#スマートシティ"]
   },
   {
     "id": "gpt-20260121-01",
@@ -2514,7 +2298,7 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "16:9",
-    "tags": ["#未来の交通", "#MaaS", "#スマートシティ", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#スマートシティ"]
   },
   {
     "id": "gpt-20260121-02",
@@ -2527,7 +2311,7 @@
     "height": 1024,
     "size": "1.3 MB",
     "aspectRatio": "16:9",
-    "tags": ["#ロボティクス", "#スマート工場", "#GX", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#循環型社会"]
   },
   {
     "id": "gpt-20260121-03",
@@ -2540,7 +2324,7 @@
     "height": 1024,
     "size": "1.6 MB",
     "aspectRatio": "16:9",
-    "tags": ["#未来の働き方", "#バイオフィリック", "#GX建築", "#商用利用可"]
+    "tags": ["#自然共生", "#次世代ライフスタイル"]
   },
   {
     "id": "gpt-20260121-04",
@@ -2553,7 +2337,7 @@
     "height": 1024,
     "size": "1.2 MB",
     "aspectRatio": "16:9",
-    "tags": ["#宇宙発電", "#ワイヤレス送電", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#宇宙開発"]
   },
   {
     "id": "gpt-20260121-05",
@@ -2566,7 +2350,7 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "16:9",
-    "tags": ["#都市緑化", "#再生可能エネルギー", "#未来都市", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#自然共生"]
   },
   {
     "id": "gpt-20260121-06",
@@ -2579,7 +2363,7 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "16:9",
-    "tags": ["#水素エネルギー", "#極地開発", "#GX", "#商用利用可"]
+    "tags": ["#水素エネルギー", "#GXインフラ"]
   },
   {
     "id": "gpt-20260121-07",
@@ -2592,7 +2376,7 @@
     "height": 1024,
     "size": "1.3 MB",
     "aspectRatio": "16:9",
-    "tags": ["#スマート物流", "#ドローン配送", "#未来都市", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#先端テクノロジー"]
   },
   {
     "id": "gpt-20260121-08",
@@ -2605,7 +2389,7 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "16:9",
-    "tags": ["#砂漠緑化", "#持続可能農業", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#循環型社会"]
   },
   {
     "id": "gpt-20260121-09",
@@ -2618,12 +2402,12 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "16:9",
-    "tags": ["#洋上風力", "#水素生産", "#GX", "#商用利用可"]
+    "tags": ["#水素エネルギー", "#海洋開発"]
   },
   {
     "id": "gpt-20260121-10",
     "title": "バーティカル・ガーデン・メトロポリス",
-    "description": "高層ビル間を飛行するモビリティと豊かな緑。都市の垂直空間を有効活用したサステナブルな景観。",
+    "description": "高層ビル間を飛行するモビリティと豊かな緑. 都市の垂直空間を有効活用したサステナブルな景観。",
     "src": "/images/GPT/gpt-10.png",
     "category": "SmartCity",
     "score": 96,
@@ -2631,12 +2415,12 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "16:9",
-    "tags": ["#垂直都市", "#空中交通", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#次世代モビリティ"]
   },
   {
     "id": "gpt-20260121-11",
     "title": "グリーン・スカイ・コミュニティ",
-    "description": "垂直緑化された高層建築群と自律型フライング・モビリティが融合した次世代都市。都市の炭素吸収源を最大化します。",
+    "description": "垂直緑化された高層建築群と自律型フライング・モビリティが融合した次世代都市. 都市の炭素吸収源を最大化します。",
     "src": "/images/GPT/gpt-11.png",
     "category": "SmartCity",
     "score": 96,
@@ -2644,12 +2428,12 @@
     "height": 1024,
     "size": "1.6 MB",
     "aspectRatio": "16:9",
-    "tags": ["#スマートシティ", "#空中都市", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#次世代モビリティ"]
   },
   {
     "id": "gpt-20260121-12",
     "title": "デジタル・グリッド・シティ・ナイト",
-    "description": "エネルギーの流動を可視化するスマートグリッド・インフラ。リアルタイムの電力最適化によりゼロエミッションを実現。",
+    "description": "エネルギーの流動を可視化するスマートグリッド・インフラ. リアルタイムの電力最適化によりゼロエミッションを実現。",
     "src": "/images/GPT/gpt-12.png",
     "category": "Technology",
     "score": 98,
@@ -2657,12 +2441,12 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "16:9",
-    "tags": ["#スマートグリッド", "#都市OS", "#GX", "#商用利用可"]
+    "tags": ["#先端テクノロジー", "#スマートシティ"]
   },
   {
     "id": "gpt-20260121-13",
-    "title": "アーバン・エア・モビリティ・ハブ",
-    "description": "都市上空を効率的に結ぶ、排出ガスゼロの航空交通ネットワーク。地上交通の混雑を解消する次世代ソリューション。",
+    "title": "アーバン_エア_モビリティ_ハブ",
+    "description": "都市上空を効率的に結ぶ、排出ガスゼロの航空交通ネットワーク. 地上交通の混雑を解消する次世代ソリューション。",
     "src": "/images/GPT/gpt-13.png",
     "category": "Mobility",
     "score": 95,
@@ -2670,12 +2454,12 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "16:9",
-    "tags": ["#MaaS", "#空飛ぶクルマ", "#GX", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#スマートシティ"]
   },
   {
     "id": "gpt-20260121-14",
     "title": "深海エコ・リサーチ・ステーション",
-    "description": "巨大なガラスドームで構成された深海居住施設。海洋生態系を間近で観察し、持続可能な海洋開発を研究するGX拠点。",
+    "description": "巨大なガラスドームで構成された深海居住施設. 海洋生態系を間近で観察し、持続可能な海洋開発を研究するGX拠点。",
     "src": "/images/GPT/gpt-14.png",
     "category": "Technology",
     "score": 96,
@@ -2683,12 +2467,12 @@
     "height": 1024,
     "size": "1.6 MB",
     "aspectRatio": "16:9",
-    "tags": ["#深海開発", "#海洋保全", "#GX", "#商用利用可"]
+    "tags": ["#海洋開発", "#先端テクノロジー"]
   },
   {
     "id": "gpt-20260121-15",
     "title": "バイオフィリック・スカイ・メトロポリス",
-    "description": "空飛ぶ交通プラットフォームと垂直庭園が融合した未来の都市。河川を利用した物流とグリーンインフラがシームレスに連携。",
+    "description": "空飛ぶ交通プラットフォームと垂直庭園が融合した未来の都市. 河川を利用した物流とグリーンインフラがシームレスに連携。",
     "src": "/images/GPT/gpt-15.png",
     "category": "SmartCity",
     "score": 98,
@@ -2696,12 +2480,12 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "16:9",
-    "tags": ["#未来都市", "#空中交通", "#GX建築", "#商用利用可"]
+    "tags": ["#自然共生", "#次世代モビリティ"]
   },
   {
     "id": "gpt-20260121-16",
     "title": "砂漠のソーラー・ピラミッド・プラント",
-    "description": "広大な砂漠に建設された巨大太陽光発電ピラミッド。不毛の地を再生可能エネルギーの生産拠点へと変貌させます。",
+    "description": "広大な砂漠に建設された巨大太陽光発電ピラミッド. 不毛の地を再生可能エネルギーの生産拠点へと変貌させます。",
     "src": "/images/GPT/gpt-16.png",
     "category": "Energy",
     "score": 97,
@@ -2709,12 +2493,12 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "16:9",
-    "tags": ["#太陽光発電", "#砂漠緑化", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#自然共生"]
   },
   {
     "id": "gpt-20260121-17",
     "title": "極地水素エネルギー・フューチャーベース",
-    "description": "オーロラの下で輝く次世代の水素エネルギーハブ。クリーンな燃料を積んだ船舶が行き交う北極圏のインフラ。",
+    "description": "オーロラの下で輝く次世代の水素エネルギーハブ. クリーンな燃料を積んだ船舶が行き交う北極圏のインフラ。",
     "src": "/images/GPT/gpt-17.png",
     "category": "Energy",
     "score": 99,
@@ -2722,12 +2506,12 @@
     "height": 1024,
     "size": "1.6 MB",
     "aspectRatio": "16:9",
-    "tags": ["#水素社会", "#極地開発", "#ゼロエミッション", "#商用利用可"]
+    "tags": ["#水素エネルギー", "#GXインフラ"]
   },
   {
     "id": "mid-20260121-32",
-    "title": "フローティング・ウィンド・ファーム",
-    "description": "雲海の上に浮かぶ浮遊式の風力発電都市。高度な気流を利用して無尽蔵のエネルギーを生成します。",
+    "title": "フローティング_ウィンド_ファーム",
+    "description": "雲海の上に浮かぶ浮遊式の風力発電都市. 高度な気流を利用して無尽蔵のエネルギーを生成します。",
     "src": "/images/mid/mid-32.png",
     "category": "Energy",
     "score": 97,
@@ -2735,12 +2519,12 @@
     "height": 1792,
     "size": "1.8 MB",
     "aspectRatio": "9:16",
-    "tags": ["#再生可能エネルギー", "#浮遊都市", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#スマートシティ"]
   },
   {
     "id": "mid-20260121-33",
     "title": "バーティカル・エコロジカル・キャニオン",
-    "description": "切り立った断崖に構築された垂直型の森林都市。中心を流れる川が都市の生態系を維持します。",
+    "description": "切り立った断崖に構築された垂直型の森林都市. 中心を流れる川が都市の生態系を維持します。",
     "src": "/images/mid/mid-33.png",
     "category": "SmartCity",
     "score": 95,
@@ -2748,12 +2532,12 @@
     "height": 1792,
     "size": "1.7 MB",
     "aspectRatio": "9:16",
-    "tags": ["#垂直都市", "#自然共生", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#スマートシティ"]
   },
   {
     "id": "mid-20260121-34",
     "title": "スカイドーム・バイオスフィア",
-    "description": "天空に浮かぶ巨大な植物ドーム。地球上の希少種を保護しながら、クリーンな空気を生成する生命維持拠点。",
+    "description": "天空に浮かぶ巨大な植物ドーム. 地球上の希少種を保護しながら、クリーンな空気を生成する生命維持拠点。",
     "src": "/images/mid/mid-34.png",
     "category": "Architecture",
     "score": 98,
@@ -2761,12 +2545,12 @@
     "height": 1792,
     "size": "1.9 MB",
     "aspectRatio": "9:16",
-    "tags": ["#バイオスフィア", "#空中建築", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#先端テクノロジー"]
   },
   {
     "id": "mid-20260121-35",
-    "title": "クラウド・スカイライン・タワー",
-    "description": "雲を突き抜けてそびえ立つ超高層グリーンビルディング。最上階にはドーム状の植物園を備えています。",
+    "title": "クラウド_スカイライン_タワー",
+    "description": "雲を突き抜けてそびえ立つ超高層グリーンビルディング. 最上階にはドーム状の植物園を備えています。",
     "src": "/images/mid/mid-35.png",
     "category": "Architecture",
     "score": 96,
@@ -2774,12 +2558,12 @@
     "height": 1792,
     "size": "1.9 MB",
     "aspectRatio": "9:16",
-    "tags": ["#超高層ビル", "#未来都市", "#GX建築", "#商用利用可"]
+    "tags": ["#自然共生", "#スマートシティ"]
   },
   {
     "id": "mid-20260121-36",
     "title": "トロピカル・テラス・メトロポリス",
-    "description": "熱帯の植物が建物を覆う、ジャングルと化した未来の都市。運河が交通の要となります。",
+    "description": "熱帯の植物が建物を覆う、ジャングルと化した未来の都市. 運河が交通の要となります。",
     "src": "/images/mid/mid-36.png",
     "category": "SmartCity",
     "score": 94,
@@ -2787,7 +2571,7 @@
     "height": 1792,
     "size": "1.8 MB",
     "aspectRatio": "9:16",
-    "tags": ["#都市緑化", "#水上都市", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#スマートシティ"]
   },
   {
     "id": "mid-20260121-37",
@@ -2800,12 +2584,12 @@
     "height": 1792,
     "size": "1.7 MB",
     "aspectRatio": "9:16",
-    "tags": ["#自然共生", "#GX", "#未来都市", "#商用利用可"]
+    "tags": ["#自然共生", "#GXインフラ"]
   },
   {
     "id": "gpt-20260121-38",
     "title": "深海ブルー・ハブ・ドッキング",
-    "description": "深海に浮かぶドッキングポート。青い光に包まれた、海洋資源開発と研究の最前線基地。",
+    "description": "深海に浮かぶドッキングポート. 青い光に包まれた、海洋資源開発と研究の最前線基地。",
     "src": "/images/mid/mid-38.png",
     "category": "Technology",
     "score": 97,
@@ -2813,12 +2597,12 @@
     "height": 1792,
     "size": "1.6 MB",
     "aspectRatio": "9:16",
-    "tags": ["#深海開発", "#次世代技術", "#GX", "#商用利用可"]
+    "tags": ["#海洋開発", "#先端テクノロジー"]
   },
   {
     "id": "mid-20260121-39",
     "title": "ルミナス・アンダーウォーター・ステーション",
-    "description": "深海の静寂の中に浮かぶ、エネルギー供給・研究施設。幻想的な照明が作業を照らします。",
+    "description": "深海の静寂の中に浮かぶ、エネルギー供給・研究施設. 幻想的な照明が作業を照らします。",
     "src": "/images/mid/mid-39.png",
     "category": "Technology",
     "score": 96,
@@ -2826,12 +2610,12 @@
     "height": 1792,
     "size": "1.5 MB",
     "aspectRatio": "9:16",
-    "tags": ["#深海基地", "#海洋インフラ", "#GX", "#商用利用可"]
+    "tags": ["#海洋開発", "#先端テクノロジー"]
   },
   {
     "id": "mid-20260121-40",
-    "title": "スカイ・テラス・アーキペラゴ",
-    "description": "複数の浮遊島が橋で繋がれた、空中の複合都市。風力発電と居住空間が完全に融合しています。",
+    "title": "スカイ_テラス_アーキペラゴ",
+    "description": "複数の浮遊島が橋で繋がれた、空中の複合都市. 風力発電と居住空間が完全に融合しています。",
     "src": "/images/mid/mid-40.png",
     "category": "Energy",
     "score": 98,
@@ -2839,12 +2623,12 @@
     "height": 1792,
     "size": "1.8 MB",
     "aspectRatio": "9:16",
-    "tags": ["#浮遊島", "#空中都市", "#GX", "#商用利用可"]
+    "tags": ["#スマートシティ", "#クリーンエネルギー"]
   },
   {
     "id": "mid-20260121-41",
     "title": "エアリアル・グリーン・ハブ",
-    "description": "雲の上に広がる広大な空中庭園。未来の都市居住者が自然と触れ合うための高高度オアシス。",
+    "description": "雲の上に広がる広大な空中庭園. 未来の都市居住者が自然と触れ合うための高高度オアシス。",
     "src": "/images/mid/mid-41.png",
     "category": "Architecture",
     "score": 95,
@@ -2852,12 +2636,12 @@
     "height": 1792,
     "size": "1.8 MB",
     "aspectRatio": "9:16",
-    "tags": ["#空中庭園", "#未来建築", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#次世代ライフスタイル"]
   },
   {
-    "id": "mid-20260121-32",
+    "id": "mid-20260121-32-jpg",
     "title": "ハイパー・スカイスクレイパー・サンライズ",
-    "description": "雲海の上にそびえ立つ垂直都市。高度な太陽光エネルギー利用を象徴するGX建築。",
+    "description": "雲海の上にそびえ立つ垂直都市. 高度な太陽光エネルギー利用を象徴するGX建築。",
     "src": "/images/mid/mid-32.jpg",
     "category": "Architecture",
     "score": 97,
@@ -2865,12 +2649,12 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "16:9",
-    "tags": ["#超高層建築", "#未来都市", "#GX", "#商用利用可"]
+    "tags": ["#スマートシティ", "#クリーンエネルギー"]
   },
   {
-    "id": "mid-20260121-33",
-    "title": "クラウド-アーチ・ブリッジ・シティ",
-    "description": "雲を貫く巨大なアーチ構造を持つ空中都市。風力発電タービンを随所に配置。",
+    "id": "mid-20260121-33-jpg",
+    "title": "クラウド-アーチ・ブリッジ_シティ",
+    "description": "雲を貫く巨大なアーチ構造を持つ空中都市. 風力発電タービンを随所に配置。",
     "src": "/images/mid/mid-33.jpg",
     "category": "Energy",
     "score": 98,
@@ -2878,11 +2662,11 @@
     "height": 1024,
     "size": "1.6 MB",
     "aspectRatio": "16:9",
-    "tags": ["#風力発電", "#空中都市", "#GX", "#商用利用可"]
+    "tags": ["#クリーンエネルギー", "#スマートシティ"]
   },
   {
-    "id": "mid-20260121-34",
-    "title": "スカイ・ハイウェイ・メトロポリス",
+    "id": "mid-20260121-34-jpg",
+    "title": "スカイ_ハイウェイ_メトロポリス",
     "description": "高度数千メートルに架かる橋が、浮遊するビル群を繋ぐ未来の移動システム。",
     "src": "/images/mid/mid-34.jpg",
     "category": "Mobility",
@@ -2891,12 +2675,12 @@
     "height": 1024,
     "size": "1.4 MB",
     "aspectRatio": "16:9",
-    "tags": ["#次世代交通", "#空中回廊", "#GX", "#商用利用可"]
+    "tags": ["#次世代モビリティ", "#スマートシティ"]
   },
   {
-    "id": "mid-20260121-35",
-    "title": "セレスティアル・タワー・ガーデン",
-    "description": "雲の合間に点在する天空の居住区。都市全体が巨大な空気清浄システムとして機能。",
+    "id": "mid-20260121-35-jpg",
+    "title": "セレスティアル・タワー_ガーデン",
+    "description": "雲の合間に点在する天空の居住区. 都市全体が巨大な空気清浄システムとして機能。",
     "src": "/images/mid/mid-35.jpg",
     "category": "Architecture",
     "score": 95,
@@ -2904,11 +2688,11 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "16:9",
-    "tags": ["#垂直都市", "#空中庭園", "#GX建築", "#商用利用可"]
+    "tags": ["#自然共生", "#スマートシティ"]
   },
   {
-    "id": "mid-20260121-36",
-    "title": "エメラルド・ヴァレー・テラス",
+    "id": "mid-20260121-36-jpg",
+    "title": "エメラルド・ヴァレー_テラス",
     "description": "巨大な岩の空洞内に構築された、水と緑が豊かなバイオフィリック都市。",
     "src": "/images/mid/mid-36.jpg",
     "category": "SmartCity",
@@ -2917,10 +2701,10 @@
     "height": 1024,
     "size": "1.7 MB",
     "aspectRatio": "16:9",
-    "tags": ["#自然共生", "#バイオフィリック", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#スマートシティ"]
   },
   {
-    "id": "mid-20260121-37",
+    "id": "mid-20260121-37-jpg",
     "title": "クリフサイド・エコ・エステート",
     "description": "断崖絶壁にせり出すように設計された、エネルギー自給自足型のリゾート居住区。",
     "src": "/images/mid/mid-37.jpg",
@@ -2930,10 +2714,10 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "16:9",
-    "tags": ["#垂直建築", "#自然保護", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#GXインフラ"]
   },
   {
-    "id": "mid-20260121-38",
+    "id": "mid-38-jpg",
     "title": "フォレスト・キャニオン・モール",
     "description": "高層ビルと熱帯林が完全に融合した多層階空中回廊。",
     "src": "/images/mid/mid-38.jpg",
@@ -2943,10 +2727,10 @@
     "height": 1024,
     "size": "1.8 MB",
     "aspectRatio": "16:9",
-    "tags": ["#都市緑化", "#未来都市", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#スマートシティ"]
   },
   {
-    "id": "mid-20260121-39",
+    "id": "mid-20260121-39-jpg",
     "title": "リバー・サイド・バイオ・ドーム",
     "description": "都市の中心を流れる運河沿いに並ぶ、自律型居住ドーム群。",
     "src": "/images/mid/mid-39.jpg",
@@ -2956,12 +2740,12 @@
     "height": 1024,
     "size": "1.6 MB",
     "aspectRatio": "16:9",
-    "tags": ["#水上都市", "#ドーム建築", "#GX", "#商用利用可"]
+    "tags": ["#自然共生", "#スマートシティ"]
   },
   {
-    "id": "mid-20260121-40",
+    "id": "mid-20260121-40-jpg",
     "title": "アンダーウォーター・エコ・リサーチ",
-    "description": "海底の地形を活かした巨大な半透明ドーム。海洋生態系を守りつつ水中居住を実現。",
+    "description": "海底の地形を活かした巨大な半透明ドーム. 海洋生態系を守りつつ水中居住を実現。",
     "src": "/images/mid/mid-40.jpg",
     "category": "Technology",
     "score": 98,
@@ -2969,12 +2753,12 @@
     "height": 1024,
     "size": "1.5 MB",
     "aspectRatio": "4:3",
-    "tags": ["#水中居住", "#海洋保全", "#GX", "#商用利用可"]
+    "tags": ["#海洋開発", "#自然共生"]
   },
   {
-    "id": "mid-20260121-41",
-    "title": "マリン・バイオスフィア・ドーム",
-    "description": "水中の植物工場を核とした研究施設。食料自給と環境再生を両立。",
+    "id": "mid-20260121-41-jpg",
+    "title": "マリン・バイオスフィア_ドーム",
+    "description": "水中の植物工場を核とした研究施設. 食料自給と環境再生を両立。",
     "src": "/images/mid/mid-41.jpg",
     "category": "Technology",
     "score": 95,
@@ -2982,6 +2766,6 @@
     "height": 1024,
     "size": "1.6 MB",
     "aspectRatio": "4:3",
-    "tags": ["#水中農業", "#環境再生", "#GX", "#商用利用可"]
+    "tags": ["#海洋開発", "#循環型社会"]
   }
 ]
