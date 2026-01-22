@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import assets from "../data/assets.json"; // 👈 集計のためにデータを読み込みます
+import assets from "../data/assets.json"; // 👈 これで218枚のデータから自動集計します
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
 
-    // --- カテゴリーごとの枚数を自動集計 ---
+    // カテゴリーごとの枚数を自動集計する関数
     const getCategoryCount = (catName: string) => {
         return assets.filter(item => item.category === catName).length;
     };
 
-    // --- 特定のタグを持つ枚数を自動集計 ---
+    // 特定のタグを持つ枚数を自動集計する関数
     const getTagCount = (tagName: string) => {
         return assets.filter(item => item.tags.includes(`#${tagName}`)).length;
     };
@@ -28,14 +28,9 @@ export default function Footer() {
                         <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
                             AIでGXの未来を可視化するアセットライブラリ。すべての素材は商用利用可能・クレジット不要。
                         </p>
-                        <div className="flex gap-4 pt-2">
-                            <span className="text-gx-emerald underline decoration-gx-emerald/30 underline-offset-4 text-xs font-bold font-mono">
-                                #RoyaltyFreeAssets
-                            </span>
-                        </div>
                     </div>
 
-                    {/* Column 2: Explore Categories (新しいカテゴリー名に修正) */}
+                    {/* Column 2: Explore Categories (404エラー対策済み) */}
                     <div className="space-y-6">
                         <h3 className="text-white font-bold text-sm tracking-wider uppercase flex items-center gap-2">
                             <span className="w-1.5 h-1.5 bg-gx-cyan rounded-full" />
@@ -43,14 +38,17 @@ export default function Footer() {
                         </h3>
                         <ul className="grid grid-cols-1 gap-4">
                             {[
-                                { id: "Energy", name: "エネルギー" },
-                                { id: "Mobility", name: "モビリティ" },
-                                { id: "Tech", name: "テクノロジー" },
-                                { id: "Resource", name: "資源・バイオ" },
-                                { id: "SmartCity", name: "スマートシティ" }
+                                { id: "エネルギー", name: "エネルギー" },
+                                { id: "モビリティ", name: "モビリティ" },
+                                { id: "テクノロジー", name: "テクノロジー" },
+                                { id: "資源・バイオ", name: "資源・バイオ" },
+                                { id: "スマートシティ", name: "スマートシティ" }
                             ].map((cat) => (
                                 <li key={cat.id}>
-                                    <Link href={`/categories/${cat.id}`} className="text-slate-300 hover:text-gx-cyan transition-colors text-sm flex items-center justify-between group">
+                                    <Link 
+                                        href={`/categories/${encodeURIComponent(cat.id)}`} 
+                                        className="text-slate-300 hover:text-gx-cyan transition-colors text-sm flex items-center justify-between group"
+                                    >
                                         <div className="flex items-center gap-2">
                                             <span className="w-1 h-0.5 bg-slate-800 group-hover:bg-gx-cyan transition-colors" />
                                             {cat.name}
@@ -62,7 +60,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Column 3: Popular Tags (精鋭10種に修正 & 件数自動表示) */}
+                    {/* Column 3: Popular Tags (精鋭タグに修正) */}
                     <div className="space-y-6">
                         <h3 className="text-white font-bold text-sm tracking-wider uppercase flex items-center gap-2">
                             <span className="w-1.5 h-1.5 bg-gx-cyan rounded-full" />
@@ -86,31 +84,21 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Column 4: Links & Contact */}
+                    {/* Column 4: Links */}
                     <div className="space-y-6">
                         <h3 className="text-white font-bold text-sm tracking-wider uppercase flex items-center gap-2">
                             <span className="w-1.5 h-1.5 bg-gx-cyan rounded-full" />
                             Resources
                         </h3>
                         <ul className="space-y-4">
-                            <li>
-                                <Link href="/gallery" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm">ギャラリー</Link>
-                            </li>
-                            <li>
-                                <Link href="/about" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm">当サイトについて</Link>
-                            </li>
-                            <li>
-                                <Link href="/contact" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm font-bold text-gx-cyan/80">お問い合わせ</Link>
-                            </li>
-                            <li className="pt-2 flex gap-4 border-t border-white/5 mt-4">
-                                <Link href="/terms" className="text-slate-500 hover:text-slate-300 transition-colors text-[10px] uppercase tracking-tighter">Terms</Link>
-                                <Link href="/privacy" className="text-slate-500 hover:text-slate-300 transition-colors text-[10px] uppercase tracking-tighter">Privacy</Link>
-                            </li>
+                            <li><Link href="/gallery" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm">ギャラリー</Link></li>
+                            <li><Link href="/about" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm">当サイトについて</Link></li>
+                            <li><Link href="/contact" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm font-bold text-gx-cyan/80">お問い合わせ</Link></li>
                         </ul>
                     </div>
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 space-y-4 md:space-y-0 text-slate-400">
+                <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 text-slate-400">
                     <p className="text-xs font-mono">
                         © {currentYear} GX Prime Visuals. All rights reserved.
                     </p>
