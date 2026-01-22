@@ -148,13 +148,14 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "", onR
                         </button>
 
                         {/* Image Side */}
-                        <div className="md:w-2/3 bg-black/50 flex items-center justify-center relative min-h-[300px] md:h-auto">
+                        {/* Image Side */}
+<div className="md:w-2/3 bg-black/50 flex items-center justify-center relative min-h-[300px] md:h-auto">
     <Image
-        src={`${selectedImage.src}?v=${new Date().getTime()}`} // 👈 キャッシュ対策
+        src={`${selectedImage.src.replace('.png', '.jpg')}?v=${new Date().getTime()}`}
         alt={selectedImage.title}
         fill
         quality={80}
-        unoptimized={true} // 👈 最適化をパス
+        unoptimized={true}
         className="object-contain"
     />
 </div>
@@ -271,12 +272,12 @@ function ImageCard({
             />
 
             <Image
-    src={`${img.src}?v=${new Date().getTime()}`} // 👈 ここが重要：時間を付与してキャッシュを強制破壊
+    src={`${img.src.replace('.png', '.jpg')}?v=${new Date().getTime()}`}
     alt={img.title}
     width={600}
     height={800}
     quality={80}
-    unoptimized={true} // 👈 重要：Next.jsの画像最適化によるURL変換を一旦パスさせる
+    unoptimized={true}
     className={`w-full h-auto object-cover transition-all duration-700 ease-in-out ${
         loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"
     } group-hover:scale-105`}
