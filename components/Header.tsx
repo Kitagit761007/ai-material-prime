@@ -17,18 +17,21 @@ export default function Header() {
 
     const closeMenu = () => setIsMenuOpen(false);
 
-    // データの「category」と、ここの「id」を一致させて集計する関数
-    const getCategoryCount = (id: string) => {
-        return (assetsData as any[]).filter(item => item.category === id).length;
+    // どんな形式（日本語・英語・大文字小文字）でも集計を成功させる関数
+    const getCategoryCount = (name: string) => {
+        return (assetsData as any[]).filter(item => 
+            item.category === name || 
+            item.category?.toLowerCase() === name.toLowerCase()
+        ).length;
     };
 
-    // IDを英語に戻すことで404エラーを確実に回避し、表示(name)だけ日本語にします
+    // idは「すべて小文字」にすることで404エラーを確実に防ぎます
     const categories = [
-        { id: "Energy", name: "エネルギー" },
-        { id: "Mobility", name: "モビリティ" },
-        { id: "Tech", name: "テクノロジー" },
-        { id: "Resource", name: "資源・バイオ" },
-        { id: "SmartCity", name: "スマートシティ" }
+        { id: "energy", name: "エネルギー", search: "Energy" },
+        { id: "mobility", name: "モビリティ", search: "Mobility" },
+        { id: "tech", name: "テクノロジー", search: "Tech" },
+        { id: "resource", name: "資源・バイオ", search: "Resource" },
+        { id: "smartcity", name: "スマートシティ", search: "SmartCity" }
     ];
 
     return (
@@ -44,7 +47,7 @@ export default function Header() {
                             {categories.map((cat) => (
                                 <Link key={cat.id} href={`/categories/${cat.id}`} className="flex items-center justify-between px-4 py-3 text-sm hover:bg-white/5 transition-colors group/item">
                                     <span className="group-hover/item:text-gx-cyan transition-colors">{cat.name}</span>
-                                    <span className="text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded">{getCategoryCount(cat.id)}</span>
+                                    <span className="text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded">{getCategoryCount(cat.search)}</span>
                                 </Link>
                             ))}
                         </div>
@@ -66,7 +69,7 @@ export default function Header() {
                             {categories.map((cat) => (
                                 <Link key={cat.id} href={`/categories/${cat.id}`} className="bg-white/5 border border-white/5 py-3 rounded-lg text-center text-sm font-medium flex flex-col items-center gap-1" onClick={closeMenu}>
                                     {cat.name}
-                                    <span className="text-[9px] text-gx-cyan font-mono opacity-60">{getCategoryCount(cat.id)} assets</span>
+                                    <span className="text-[9px] text-gx-cyan font-mono opacity-60">{getCategoryCount(cat.search)} assets</span>
                                 </Link>
                             ))}
                         </div>
