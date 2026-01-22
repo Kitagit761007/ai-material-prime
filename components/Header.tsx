@@ -17,21 +17,20 @@ export default function Header() {
 
     const closeMenu = () => setIsMenuOpen(false);
 
-    // どんな形式（日本語・英語・大文字小文字）でも集計を成功させる関数
+    // データの「category」の中身（日本語・英語問わず）を検索して件数を出す
     const getCategoryCount = (name: string) => {
         return (assetsData as any[]).filter(item => 
-            item.category === name || 
-            item.category?.toLowerCase() === name.toLowerCase()
+            item.category === name || item.category?.toLowerCase() === name.toLowerCase()
         ).length;
     };
 
-    // idは「すべて小文字」にすることで404エラーを確実に防ぎます
+    // 404を回避するため、リンク先(href)をすべて「日本語」に固定します
     const categories = [
-        { id: "energy", name: "エネルギー", search: "Energy" },
-        { id: "mobility", name: "モビリティ", search: "Mobility" },
-        { id: "tech", name: "テクノロジー", search: "Tech" },
-        { id: "resource", name: "資源・バイオ", search: "Resource" },
-        { id: "smartcity", name: "スマートシティ", search: "SmartCity" }
+        { name: "エネルギー" },
+        { name: "モビリティ" },
+        { name: "テクノロジー" },
+        { name: "資源・バイオ" },
+        { name: "スマートシティ" }
     ];
 
     return (
@@ -45,9 +44,9 @@ export default function Header() {
                         <button className="text-sm font-medium hover:text-gx-cyan transition-colors flex items-center gap-1">カテゴリーから探す <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" /></button>
                         <div className="absolute top-full left-0 mt-2 w-56 bg-slate-900 border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden py-2">
                             {categories.map((cat) => (
-                                <Link key={cat.id} href={`/categories/${cat.id}`} className="flex items-center justify-between px-4 py-3 text-sm hover:bg-white/5 transition-colors group/item">
+                                <Link key={cat.name} href={`/categories/${encodeURIComponent(cat.name)}`} className="flex items-center justify-between px-4 py-3 text-sm hover:bg-white/5 transition-colors group/item">
                                     <span className="group-hover/item:text-gx-cyan transition-colors">{cat.name}</span>
-                                    <span className="text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded">{getCategoryCount(cat.search)}</span>
+                                    <span className="text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded">{getCategoryCount(cat.name)}</span>
                                 </Link>
                             ))}
                         </div>
@@ -67,9 +66,9 @@ export default function Header() {
                         <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">Categories</span>
                         <div className="grid grid-cols-2 gap-3 w-full">
                             {categories.map((cat) => (
-                                <Link key={cat.id} href={`/categories/${cat.id}`} className="bg-white/5 border border-white/5 py-3 rounded-lg text-center text-sm font-medium flex flex-col items-center gap-1" onClick={closeMenu}>
+                                <Link key={cat.name} href={`/categories/${encodeURIComponent(cat.name)}`} className="bg-white/5 border border-white/5 py-3 rounded-lg text-center text-sm font-medium flex flex-col items-center gap-1" onClick={closeMenu}>
                                     {cat.name}
-                                    <span className="text-[9px] text-gx-cyan font-mono opacity-60">{getCategoryCount(cat.search)} assets</span>
+                                    <span className="text-[9px] text-gx-cyan font-mono opacity-60">{getCategoryCount(cat.name)} assets</span>
                                 </Link>
                             ))}
                         </div>
