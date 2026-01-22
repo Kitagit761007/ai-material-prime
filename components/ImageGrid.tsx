@@ -148,7 +148,6 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "", onR
                         </button>
 
                         {/* Image Side */}
-                        {/* Image Side */}
 <div className="md:w-2/3 bg-black/50 flex items-center justify-center relative min-h-[300px] md:h-auto">
     <Image
         src={`${selectedImage.src.replace('.png', '.jpg')}?v=${new Date().getTime()}`}
