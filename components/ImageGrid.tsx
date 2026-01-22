@@ -110,7 +110,7 @@ export default function ImageGrid({ initialItems = assets, searchQuery = "", onR
 
                         <div className="md:w-2/3 bg-black/50 flex items-center justify-center relative min-h-[300px] md:h-auto">
                             <Image
-                                src={`${selectedImage.id.startsWith('mid-') ? selectedImage.src.replace('.png', '.jpg') : selectedImage.src}?v=${new Date().getTime()}`}
+                                src={`${selectedImage.src.includes('mid/mid-') ? selectedImage.src.replace('.png', '.jpg') : selectedImage.src}?v=${new Date().getTime()}`}
                                 alt={selectedImage.title}
                                 fill
                                 quality={80}
@@ -150,7 +150,7 @@ function ImageCard({ img, onTagClick, onClick }: { img: any, onTagClick: (tag: s
         <div className="relative group rounded-2xl overflow-hidden break-inside-avoid shadow-2xl bg-slate-900/50 border border-white/5 cursor-zoom-in" onClick={onClick}>
             <div className={`absolute inset-0 bg-slate-800 animate-pulse transition-opacity duration-500 ${loaded ? "opacity-0 pointer-events-none" : "opacity-100"}`} />
             <Image
-                src={`${img.id.startsWith('mid-') ? img.src.replace('.png', '.jpg') : img.src}?v=${new Date().getTime()}`}
+                src={`${img.src.includes('mid/mid-') ? img.src.replace('.png', '.jpg') : img.src}?v=${new Date().getTime()}`}
                 alt={img.title}
                 width={600}
                 height={800}
