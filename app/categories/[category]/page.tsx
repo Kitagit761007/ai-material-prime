@@ -9,11 +9,12 @@ const categoryMap: Record<string, string> = {
     "Mobility": "モビリティ / Mobility",
     "Tech": "テクノロジー / Tech",
     "Resource": "資源・バイオ / Resource",
+    "SmartCity": "スマートシティ / SmartCity",
     "Eco-Life": "エコ・ライフスタイル / Eco-Life"
 };
 
 export async function generateStaticParams() {
-    const categories = ["Energy", "Mobility", "Tech", "Resource", "Eco-Life"];
+    const categories = ["Energy", "Mobility", "Tech", "Resource", "SmartCity", "Eco-Life"];
     return categories.map((cat) => ({
         category: cat,
     }));
