@@ -39,7 +39,7 @@ export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
     };
 
     return (
-        <section className="relative pt-24 pb-32 px-6 flex flex-col items-center justify-center text-center overflow-hidden">
+        <section className="relative pt-24 pb-8 px-6 flex flex-col items-center justify-center text-center overflow-hidden">
             {/* Background Glows */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gx-cyan/20 rounded-full blur-[120px] -z-10" />
 
@@ -56,19 +56,19 @@ export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
                 プロ仕様の次世代素材がプレゼンを加速させる。
             </p>
 
-            {/* Benefit Badges */}
-            <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-12">
-                <div className="flex items-center gap-2 text-slate-300 bg-white/5 px-4 py-2 rounded-full border border-white/10">
-                    <Briefcase className="w-4 h-4 text-gx-cyan" />
-                    <span className="text-sm font-bold">商用利用OK</span>
+            {/* Benefit Badges - Updated for Trust/Density */}
+            <div className="flex flex-wrap justify-center gap-3 md:gap-6 mb-8">
+                <div className="flex items-center gap-2 text-slate-300 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 shadow-sm">
+                    <span className="flex h-2 w-2 rounded-full bg-gx-cyan animate-pulse"></span>
+                    <span className="text-xs md:text-sm font-bold font-mono">{assets.length}+ Assets</span>
                 </div>
-                <div className="flex items-center gap-2 text-slate-300 bg-white/5 px-4 py-2 rounded-full border border-white/10">
-                    <CheckCircle className="w-4 h-4 text-gx-emerald" />
-                    <span className="text-sm font-bold">クレジット不要</span>
+                <div className="flex items-center gap-2 text-slate-300 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 shadow-sm">
+                    <MonitorCheck className="w-3 h-3 md:w-4 md:h-4 text-blue-400" />
+                    <span className="text-xs md:text-sm font-bold">High-Res AI Generated</span>
                 </div>
-                <div className="flex items-center gap-2 text-slate-300 bg-white/5 px-4 py-2 rounded-full border border-white/10">
-                    <MonitorCheck className="w-4 h-4 text-blue-400" />
-                    <span className="text-sm font-bold">高解像度AI生成</span>
+                <div className="flex items-center gap-2 text-slate-300 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 shadow-sm">
+                    <Briefcase className="w-3 h-3 md:w-4 md:h-4 text-gx-emerald" />
+                    <span className="text-xs md:text-sm font-bold">Commercial License included</span>
                 </div>
             </div>
 
@@ -96,7 +96,7 @@ export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
             </form>
 
             {/* Floating Chips */}
-            <div className="mt-12 flex flex-wrap justify-center gap-4">
+            <div className="mt-6 flex flex-wrap justify-center gap-4">
                 {["#水素エネルギー", "#スマートシティ", "#風力発電", "#環境技術"].map((tag, i) => {
                     const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
                     const isActive = searchQuery === cleanTag;

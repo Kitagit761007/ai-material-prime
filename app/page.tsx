@@ -44,7 +44,7 @@ export default function Home() {
                 />
             )}
 
-            <div className="py-12 text-center border-t border-white/5 mt-12 bg-slate-900/30">
+            <div className="py-12 text-center border-t border-white/5 mt-6 bg-slate-900/30">
                 <h2 className="text-2xl font-bold text-slate-300 mb-2">最新アセット</h2>
                 <p className="text-slate-500 text-sm mb-8">New Arrivals</p>
                 <ImageGrid searchQuery={searchQuery} />
