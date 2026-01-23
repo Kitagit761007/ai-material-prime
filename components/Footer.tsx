@@ -5,7 +5,7 @@ import assetsDataRaw from "../data/assets.json";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
-    const assets = Array.isArray(assetsDataRaw) ? assetsDataRaw : [];
+    const assets = Array.isArray(assetsDataRaw) ? (assetsDataRaw as any[]) : [];
 
     const getCategoryCount = (name: string) => {
         return assets.filter((item: any) => {
