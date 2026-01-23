@@ -39,7 +39,7 @@ export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
     };
 
     return (
-        <section className="relative pt-24 pb-8 px-6 flex flex-col items-center justify-center text-center overflow-hidden">
+        <section className="relative pt-16 pb-6 px-6 flex flex-col items-center justify-center text-center overflow-hidden">
             {/* Background Glows */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gx-cyan/20 rounded-full blur-[120px] -z-10" />
 

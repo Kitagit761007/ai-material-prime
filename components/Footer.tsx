@@ -34,95 +34,91 @@ export default function Footer() {
                             GX Prime Visuals
                         </Link>
                         <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-                            AIでGXの未来を可視化するアセットライブラリ。すべての素材は商用利用可能・クレジット不要。
+                            ビジネス・プレゼンテーションのための<br />
+                            高解像度AI生成アセットライブラリ。
                         </p>
-                        <div className="flex gap-4 pt-2">
-                            <span className="text-gx-emerald underline decoration-gx-emerald/30 underline-offset-4 text-xs font-bold font-mono">
-                                #RoyaltyFreeAssets
+                        <div className="flex flex-col gap-1">
+                            <span className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">License</span>
+                            <span className="text-gx-emerald text-xs font-bold font-mono">
+                                #CommercialUse #RoyaltyFree
                             </span>
                         </div>
                     </div>
 
-                    {/* Column 2: Explore Categories */}
+                    {/* Column 2: Categories */}
                     <div className="space-y-6">
                         <h3 className="text-white font-bold text-sm tracking-wider uppercase flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 bg-gx-cyan rounded-full" />
-                            Explore Categories
+                            Categories
                         </h3>
-                        <ul className="grid grid-cols-1 gap-4">
+                        <ul className="grid grid-cols-1 gap-3">
                             {categories.map((cat) => (
                                 <li key={cat.id}>
                                     <Link
                                         href={`/categories/${cat.id}`}
-                                        className="text-slate-300 hover:text-gx-cyan transition-colors text-sm flex items-center gap-2 group"
+                                        className="text-slate-400 hover:text-white transition-colors text-sm flex items-center justify-between group"
                                     >
-                                        <span className="w-1 h-0.5 bg-slate-800 group-hover:bg-gx-cyan transition-colors" />
-                                        {cat.name} <span className="text-slate-500 text-xs">({getCategoryCount(cat.id)})</span>
+                                        <span>{cat.name}</span>
+                                        <span className="text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-slate-600 group-hover:text-gx-cyan transition-colors">{getCategoryCount(cat.id)}</span>
                                     </Link>
                                 </li>
                             ))}
                         </ul>
                     </div>
 
-                    {/* Column 3: Popular Tags */}
+                    {/* Column 3: Legal & Info */}
                     <div className="space-y-6">
-                        <h3 className="text-white font-bold text-sm tracking-wider uppercase flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 bg-gx-cyan rounded-full" />
-                            Popular Tags
-                        </h3>
-                        <div className="flex flex-wrap gap-2">
-                            {["水素エネルギー", "スマートシティ", "自動運転", "再エネ", "脱炭素", "未来都市", "AI", "インフラ", "EV", "CCUS"].map((tag) => (
-                                <Link
-                                    key={tag}
-                                    href={`/tags/${encodeURIComponent(tag)}`}
-                                    className="px-2 py-1 bg-white/5 hover:bg-gx-cyan/10 text-slate-300 hover:text-gx-cyan rounded-md border border-white/5 hover:border-gx-cyan/20 text-xs transition-all"
-                                >
-                                    #{tag}
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Column 4: Links & Contact */}
-                    <div className="space-y-6">
-                        <h3 className="text-white font-bold text-sm tracking-wider uppercase flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 bg-gx-cyan rounded-full" />
-                            Resources
+                        <h3 className="text-white font-bold text-sm tracking-wider uppercase">
+                            Information
                         </h3>
                         <ul className="space-y-4">
                             <li>
-                                <Link href="/gallery" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm">
-                                    ギャラリー
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/about" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm">
+                                <Link href="/about" className="text-slate-400 hover:text-gx-cyan transition-colors text-sm">
                                     当サイトについて
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/contact" className="text-slate-300 hover:text-gx-cyan transition-colors text-sm font-bold text-gx-cyan/80">
-                                    お問い合わせ
+                                <Link href="/contact" className="text-slate-400 hover:text-gx-cyan transition-colors text-sm font-bold">
+                                    お問い合わせ (Contact)
                                 </Link>
                             </li>
-                            <li className="pt-2 flex gap-4 border-t border-white/5 mt-4">
-                                <Link href="/terms" className="text-slate-500 hover:text-slate-300 transition-colors text-[10px] uppercase tracking-tighter">
-                                    Terms
+                            <li className="pt-4 border-t border-white/5">
+                                <Link href="/terms" className="block text-slate-500 hover:text-slate-300 transition-colors text-xs mb-2">
+                                    利用規約 (Terms of Service)
                                 </Link>
-                                <Link href="/privacy" className="text-slate-500 hover:text-slate-300 transition-colors text-[10px] uppercase tracking-tighter">
-                                    Privacy
+                                <Link href="/privacy" className="block text-slate-500 hover:text-slate-300 transition-colors text-xs">
+                                    プライバシーポリシー
                                 </Link>
                             </li>
                         </ul>
                     </div>
+
+                    {/* Column 4: Contact/Action */}
+                    <div className="space-y-6">
+                        <h3 className="text-white font-bold text-sm tracking-wider uppercase">
+                            Support
+                        </h3>
+                        <p className="text-xs text-slate-500 leading-relaxed">
+                            アセットのリクエストや、<br />
+                            エンタープライズ利用に関するご相談は<br />
+                            フォームよりご連絡ください。
+                        </p>
+                        <Link
+                            href="/contact"
+                            className="inline-flex items-center justify-center w-full px-4 py-3 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white text-sm font-bold rounded-lg transition-all"
+                        >
+                            お問い合わせフォーム
+                        </Link>
+                    </div>
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 space-y-4 md:space-y-0 text-slate-400">
-                    <p className="text-xs font-mono">
+                <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 space-y-4 md:space-y-0 text-slate-500">
+                    <p className="text-[10px] font-mono uppercase">
                         © {currentYear} GX Prime Visuals. All rights reserved.
                     </p>
-                    <div className="flex gap-6">
-                        {/* SNS links could go here in the future */}
+                    <div className="flex gap-4 text-[10px] font-mono uppercase tracking-wider">
+                        <span>Built for Future</span>
+                        <span>•</span>
+                        <span>Tokyo, Japan</span>
                     </div>
                 </div>
             </div>

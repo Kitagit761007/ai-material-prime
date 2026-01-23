@@ -3,6 +3,7 @@ import assets from "@/data/assets.json";
 import { ChevronLeft, LayoutGrid } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 
 const categoryMap: Record<string, string> = {
     "Energy": "エネルギー / Energy",
@@ -13,6 +14,26 @@ const categoryMap: Record<string, string> = {
     "Eco-Life": "エコ・ライフスタイル / Eco-Life"
 };
 
+type Props = {
+    params: Promise<{ category: string }>
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { category } = await params;
+    const japaneseTitle = categoryMap[category];
+
+    if (!japaneseTitle) {
+        return {
+            title: "Category Not Found | AI MATERIAL PRIME",
+        };
+    }
+
+    return {
+        title: `${japaneseTitle} | AI MATERIAL PRIME`,
+        description: `Download high-quality, royalty-free AI generated assets for ${japaneseTitle}.`,
+    };
+}
+
 export async function generateStaticParams() {
     const categories = ["Energy", "Mobility", "Tech", "Resource", "SmartCity", "Eco-Life"];
     return categories.map((cat) => ({
@@ -20,9 +41,8 @@ export async function generateStaticParams() {
     }));
 }
 
-export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
-    const resolvedParams = await params;
-    const category = resolvedParams.category;
+export default async function CategoryPage({ params }: Props) {
+    const { category } = await params;
     const japaneseTitle = categoryMap[category];
 
     if (!japaneseTitle) {
