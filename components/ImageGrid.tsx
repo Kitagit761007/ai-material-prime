@@ -148,7 +148,7 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
                                     fill
                                     quality={100}
                                     priority
-                                    unoptimized={true}
+                                    sizes="75vw"
                                     className="object-contain drop-shadow-2xl"
                                 />
                             </div>
@@ -256,7 +256,7 @@ function ImageCard({ img, onTagClick, onClick }: { img: typeof assets[0], onTagC
                 width={600}
                 height={800}
                 quality={80}
-                unoptimized={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className={`w-full h-auto object-cover transition-all duration-700 ease-in-out ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"} group-hover:scale-105`}
                 onLoad={() => setLoaded(true)}
             />
