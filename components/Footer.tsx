@@ -7,21 +7,21 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
     const assets = Array.isArray(assetsDataRaw) ? (assetsDataRaw as any[]) : [];
 
-    const getCategoryCount = (name: string) => {
+    const getCategoryCount = (id: string) => {
         return assets.filter((item: any) => {
             const cat = String(item.category || "").toLowerCase();
-            const target = name.toLowerCase();
-            return cat.includes(target) || target.includes(cat);
+            const target = id.toLowerCase();
+            return cat === target || cat.replace(/\s+/g, '') === target.replace(/\s+/g, '');
         }).length;
     };
 
     const categories = [
-        { name: "エネルギー" },
-        { name: "モビリティ" },
-        { name: "テクノロジー" },
-        { name: "資源・バイオ" },
-        { name: "スマートシティ" },
-        { name: "エコ・ライフスタイル" }
+        { name: "エネルギー", id: "Energy" },
+        { name: "モビリティ", id: "Mobility" },
+        { name: "テクノロジー", id: "Tech" },
+        { name: "資源・バイオ", id: "Resource" },
+        { name: "スマートシティ", id: "SmartCity" },
+        { name: "エコ・ライフスタイル", id: "Eco-Life" }
     ];
 
     return (
@@ -51,13 +51,13 @@ export default function Footer() {
                         </h3>
                         <ul className="grid grid-cols-1 gap-4">
                             {categories.map((cat) => (
-                                <li key={cat.name}>
+                                <li key={cat.id}>
                                     <Link
-                                        href={`/categories/${encodeURIComponent(cat.name)}`}
+                                        href={`/categories/${cat.id}`}
                                         className="text-slate-300 hover:text-gx-cyan transition-colors text-sm flex items-center gap-2 group"
                                     >
                                         <span className="w-1 h-0.5 bg-slate-800 group-hover:bg-gx-cyan transition-colors" />
-                                        {cat.name} <span className="text-slate-500 text-xs">({getCategoryCount(cat.name)})</span>
+                                        {cat.name} <span className="text-slate-500 text-xs">({getCategoryCount(cat.id)})</span>
                                     </Link>
                                 </li>
                             ))}
