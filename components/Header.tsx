@@ -21,7 +21,7 @@ export default function Header() {
 
     // どんな形式の文字でも、一部が含まれていればカウントする最強ロジック
     const getCategoryCount = (name: string) => {
-        return assets.filter(item => {
+        return assets.filter((item: any) => {
             const cat = String(item.category || "").toLowerCase();
             const target = name.toLowerCase();
             return cat.includes(target) || target.includes(cat);
@@ -33,7 +33,17 @@ export default function Header() {
         { name: "モビリティ" },
         { name: "テクノロジー" },
         { name: "資源・バイオ" },
-        { name: "スマートシティ" }
+        { name: "マートシティ" }
+    ];
+    // Typo fix: スマートシティ
+    // Wait, I should verify the categories list.
+    const categoriesFixed = [
+        { name: "エネルギー" },
+        { name: "モビリティ" },
+        { name: "テクノロジー" },
+        { name: "資源・バイオ" },
+        { name: "スマートシティ" },
+        { name: "エコ・ライフスタイル" }
     ];
 
     return (
@@ -45,7 +55,7 @@ export default function Header() {
                     <div className="relative group">
                         <button className="text-sm font-medium hover:text-gx-cyan transition-colors flex items-center gap-1">カテゴリーから探す <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" /></button>
                         <div className="absolute top-full left-0 mt-2 w-56 bg-slate-900 border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden py-2">
-                            {categories.map((cat) => (
+                            {categoriesFixed.map((cat) => (
                                 <Link key={cat.name} href={`/categories/${encodeURIComponent(cat.name)}`} className="flex items-center justify-between px-4 py-3 text-sm hover:bg-white/5 transition-colors group/item">
                                     <span className="group-hover/item:text-gx-cyan transition-colors">{cat.name}</span>
                                     <span className="text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded">{getCategoryCount(cat.name)}</span>
@@ -60,7 +70,7 @@ export default function Header() {
                 <div className={`fixed inset-0 bg-slate-950 transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-6 ${isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none translate-y-[-20px]"}`}>
                     <Link href="/gallery" className="text-2xl font-bold text-white" onClick={closeMenu}>ギャラリー</Link>
                     <div className="grid grid-cols-2 gap-3 w-full px-10">
-                        {categories.map((cat) => (
+                        {categoriesFixed.map((cat) => (
                             <Link key={cat.name} href={`/categories/${encodeURIComponent(cat.name)}`} className="bg-white/5 py-3 rounded-lg text-center text-sm" onClick={closeMenu}>
                                 {cat.name} <span className="block text-[10px] text-gx-cyan opacity-60">{getCategoryCount(cat.name)} assets</span>
                             </Link>
