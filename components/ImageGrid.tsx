@@ -15,6 +15,7 @@ interface ImageGridProps {
 export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGridProps) {
     const [selectedImage, setSelectedImage] = useState<typeof assets[0] | null>(null);
     const [displayCount, setDisplayCount] = useState(20);
+    const [isZoomed, setIsZoomed] = useState(false);
     const router = useRouter();
 
     // 検索・フィルタリングロジック
@@ -37,6 +38,10 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
         }
     }, [filteredItems.length, onResultCount]);
 
+    useEffect(() => {
+        setIsZoomed(false);
+    }, [selectedImage]);
+
     // 無限スクロール
     const handleScroll = useCallback(() => {
         if (typeof window === "undefined") return;
@@ -58,26 +63,39 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
         if (selectedImage) setSelectedImage(null);
     };
 
-    // Aspect Ratio Calculation
     const getAspectRatio = (w: number, h: number) => {
         const ratio = w / h;
         if (Math.abs(ratio - 16 / 9) < 0.1) return "16:9";
         if (Math.abs(ratio - 9 / 16) < 0.1) return "9:16";
         if (Math.abs(ratio - 4 / 3) < 0.1) return "4:3";
         if (Math.abs(ratio - 3 / 4) < 0.1) return "3:4";
-        if (Math.abs(ratio - 1) < 0.1) return "1:1 (Square)";
+        if (Math.abs(ratio - 1) < 0.1) return "1:1";
         if (Math.abs(ratio - 21 / 9) < 0.1) return "21:9";
         return "Free";
     };
 
-    // SNS Share Links
     const getShareLinks = (img: typeof assets[0]) => {
         const url = typeof window !== 'undefined' ? window.location.href : '';
         const text = `${img.title} - GX Prime Visuals`;
         return [
-            { name: "X (Twitter)", icon: "𝕏", href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}` },
-            { name: "LinkedIn", icon: "in", href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}` },
-            { name: "LINE", icon: "L", href: `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}` }
+            {
+                name: "X (Twitter)",
+                icon: <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>,
+                href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
+                hoverClass: "hover:bg-black hover:border-black hover:text-white"
+            },
+            {
+                name: "LinkedIn",
+                icon: <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 21.227.792 22 1.771 22h20.451C23.2 22 24 21.227 24 20.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>,
+                href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+                hoverClass: "hover:bg-[#0077b5] hover:border-[#0077b5] hover:text-white"
+            },
+            {
+                name: "LINE",
+                icon: <span className="font-bold text-xs">LINE</span>,
+                href: `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}`,
+                hoverClass: "hover:bg-[#06C755] hover:border-[#06C755] hover:text-white"
+            }
         ];
     };
 
@@ -118,9 +136,12 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M18 6L6 18M6 6l12 12" /></svg>
                         </button>
 
-                        {/* Image Section */}
-                        <div className="md:w-3/4 h-[50vh] md:h-full bg-slate-900/50 flex items-center justify-center relative border-b md:border-b-0 md:border-r border-white/5">
-                            <div className="relative w-full h-full p-4 md:p-8">
+                        {/* Image Section - Interactive Zoom */}
+                        <div
+                            className={`md:w-3/4 h-[50vh] md:h-full bg-black/40 flex items-center justify-center relative border-b md:border-b-0 md:border-r border-white/5 overflow-hidden transition-all ${isZoomed ? "cursor-zoom-out" : "cursor-zoom-in"}`}
+                            onClick={() => setIsZoomed(!isZoomed)}
+                        >
+                            <div className={`relative w-full h-full p-2 transition-transform duration-500 ease-out will-change-transform ${isZoomed ? "scale-150" : "scale-100"}`}>
                                 <Image
                                     src={`${selectedImage.src.includes('mid/mid-') ? selectedImage.src.replace('.png', '.jpg') : selectedImage.src}?v=${new Date().getTime()}`}
                                     alt={selectedImage.title}
@@ -133,65 +154,68 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
                             </div>
                         </div>
 
-                        {/* Info Section */}
+                        {/* Info Section - Refined Layout */}
                         <div className="md:w-1/4 h-[50vh] md:h-full bg-slate-950 flex flex-col border-l border-white/5 relative">
-                            <div className="flex-1 overflow-y-auto p-6 space-y-8">
+                            {/* Scrollable Content */}
+                            <div className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
                                 <div>
-                                    <h2 className="text-xl font-bold text-white mb-2 leading-tight">{selectedImage.title}</h2>
-                                    <div className="flex gap-2 mb-4">
-                                        <span className="text-[10px] font-mono bg-gx-cyan/20 text-gx-cyan px-2 py-0.5 rounded border border-gx-cyan/20">
+                                    <h2 className="text-xl font-bold text-white mb-3 leading-tight tracking-tight">{selectedImage.title}</h2>
+
+                                    {/* Compact Metadata Row (Above Fold) */}
+                                    <div className="flex flex-wrap gap-2 mb-4">
+                                        <span className="text-[10px] font-mono font-bold bg-gx-cyan/10 text-gx-cyan px-2 py-0.5 rounded border border-gx-cyan/20">
                                             {getAspectRatio(selectedImage.width, selectedImage.height)}
                                         </span>
-                                        <span className="text-[10px] font-mono bg-white/10 text-slate-300 px-2 py-0.5 rounded border border-white/5">
+                                        <span className="text-[10px] font-mono bg-white/5 text-slate-400 px-2 py-0.5 rounded border border-white/5">
                                             {selectedImage.width} x {selectedImage.height}
                                         </span>
-                                    </div>
-                                    <p className="text-slate-400 text-sm leading-relaxed">{selectedImage.description}</p>
-                                </div>
-
-                                {/* Metadata Grid */}
-                                <div className="space-y-4 pt-4 border-t border-white/5">
-                                    <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest">Asset Info</h3>
-                                    <div className="grid grid-cols-1 gap-3">
-                                        <div className="flex justify-between items-center text-sm">
-                                            <span className="text-slate-500">File Name</span>
-                                            <span className="text-slate-300 font-mono text-xs truncate max-w-[120px]" title={selectedImage.src.split('/').pop()}>
-                                                {selectedImage.src.split('/').pop()}
-                                            </span>
-                                        </div>
-                                        <div className="flex justify-between items-center text-sm">
-                                            <span className="text-slate-500">License</span>
-                                            <span className="text-gx-emerald text-xs font-bold flex items-center gap-1">
-                                                Royalty Free
-                                                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                                            </span>
-                                        </div>
+                                        <span className="text-[10px] font-bold bg-gx-emerald/10 text-gx-emerald px-2 py-0.5 rounded border border-gx-emerald/20 flex items-center gap-1">
+                                            Royalty Free
+                                        </span>
                                     </div>
                                 </div>
 
-                                {/* Tags */}
+                                {/* Tags - High Priority (Above Fold) */}
                                 <div>
-                                    <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Tags</h3>
-                                    <div className="flex flex-wrap gap-2">
+                                    <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Tags</h3>
+                                    <div className="flex flex-wrap gap-1.5">
                                         {selectedImage.tags.map(tag => (
                                             <button
                                                 key={tag}
-                                                onClick={() => handleInternalTagClick(tag)}
-                                                className="text-xs text-slate-400 hover:text-white hover:underline transition-colors"
+                                                onClick={(e) => { e.stopPropagation(); handleInternalTagClick(tag); }}
+                                                className="text-[11px] px-2 py-1 bg-white/5 text-slate-300 hover:bg-gx-cyan hover:text-white rounded border border-white/5 transition-all"
                                             >
                                                 {tag}
                                             </button>
                                         ))}
                                     </div>
                                 </div>
+
+                                {/* Description - Secondary Priority */}
+                                <div className="pt-4 border-t border-white/5">
+                                    <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Description</h3>
+                                    <p className="text-xs text-slate-400 leading-relaxed font-medium">
+                                        {selectedImage.description}
+                                    </p>
+                                </div>
+
+                                {/* File Name - Low Priority */}
+                                <div className="pt-2">
+                                    <div className="flex justify-between items-center text-[10px] text-slate-600 font-mono">
+                                        <span>FILENAME</span>
+                                        <span className="truncate max-w-[150px]" title={selectedImage.src.split('/').pop()}>
+                                            {selectedImage.src.split('/').pop()}
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
 
                             {/* Sticky Footer for Actions */}
-                            <div className="p-6 bg-slate-950 border-t border-white/10 space-y-4 z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+                            <div className="p-6 bg-slate-950/90 backdrop-blur-md border-t border-white/10 space-y-3 z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
                                 <a
                                     href={selectedImage.src}
                                     download
-                                    className="block w-full py-4 bg-gx-cyan text-white text-center font-bold text-sm rounded-xl hover:bg-gx-cyan/90 transition-all shadow-lg shadow-gx-cyan/20 flex items-center justify-center gap-2 group"
+                                    className="block w-full py-3.5 bg-gx-cyan text-white text-center font-bold text-sm rounded-xl hover:bg-gx-cyan/90 transition-all shadow-lg shadow-gx-cyan/20 flex items-center justify-center gap-2 group"
                                 >
                                     <svg className="w-4 h-4 group-hover:animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                                     Download High-Res
@@ -203,16 +227,10 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
                                             href={sns.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex-1 py-2.5 bg-white/5 hover:bg-white/10 border border-white/5 rounded-lg flex items-center justify-center text-slate-300 hover:text-white transition-colors"
+                                            className={`flex-1 py-2.5 bg-transparent border border-white/10 rounded-lg flex items-center justify-center text-slate-400 transition-all duration-300 ${sns.hoverClass}`}
                                             title={`Share on ${sns.name}`}
                                         >
-                                            {sns.name === "X (Twitter)" ? (
-                                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
-                                            ) : sns.name === "LinkedIn" ? (
-                                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 21.227.792 22 1.771 22h20.451C23.2 22 24 21.227 24 20.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
-                                            ) : (
-                                                <span className="font-bold text-xs">LINE</span>
-                                            )}
+                                            {sns.icon}
                                         </a>
                                     ))}
                                 </div>
