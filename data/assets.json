@@ -2771,66 +2771,92 @@
   {
     "id": "mid-52",
     "title": "アクア・ドーム・レジデンス",
-    "category": "スマートシティ",
-    "tags": ["海上都市", "居住区", "ドーム構造", "近未来"],
-    "aspectRatio": "4:3",
-    "path": "/images/mid/mid-52.jpg",
-    "description": "高度な環境制御システムを備えた海上ドーム型居住施設。持続可能な海洋生活を体現した建築デザイン。"
+    "description": "高度な環境制御システムを備えた海上ドーム型居住施設。持続可能な海洋生活を体現した建築デザイン。",
+    "src": "/images/mid/mid-52.jpg",
+    "category": "SmartCity",
+    "score": 97,
+    "width": 1024,
+    "height": 768,
+    "size": "890 KB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": ["#スマートシティ", "#海洋開発", "#自然共生"]
   },
   {
     "id": "mid-53",
     "title": "深海バイオスフィア・ラボ",
-    "category": "資源・バイオ",
-    "tags": ["海洋資源", "研究施設", "水中都市", "バイオテクノロジー"],
-    "aspectRatio": "4:3",
-    "path": "/images/mid/mid-53.jpg",
-    "description": "海洋生態系の保護と資源研究を両立させる水中バイオドーム。自律型エネルギー循環システムを搭載。"
+    "description": "海洋生態系の保護と資源研究を両立させる水中バイオドーム。自律型エネルギー循環システムを搭載。",
+    "src": "/images/mid/mid-53.jpg",
+    "category": "Resource",
+    "score": 96,
+    "width": 1024,
+    "height": 768,
+    "size": "920 KB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": ["#海洋開発", "#先端テクノロジー", "#循環型社会"]
   },
   {
     "id": "mid-54",
     "title": "砂漠のメガ・ピラミッド：エコ・ハブ",
-    "category": "エネルギー",
-    "tags": ["メガストラクチャー", "砂漠開発", "ソーラー電力", "未来都市"],
-    "aspectRatio": "16:9",
-    "path": "/images/mid/mid-54.jpg",
-    "description": "過酷な砂漠環境を克服する巨大ピラミッド型都市。内部に広大な緑地と水資源循環システムを保持。"
+    "description": "過酷な砂漠環境を克服する巨大ピラミッド型都市。内部に広大な緑地と水資源循環システムを保持。",
+    "src": "/images/mid/mid-54.jpg",
+    "category": "Energy",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "850 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": ["#クリーンエネルギー", "#スマートシティ", "#GXインフラ"]
   },
   {
     "id": "mid-55",
     "title": "デザート・クリスタル・シティ",
-    "category": "テクノロジー",
-    "tags": ["砂漠", "ピラミッド", "光反射パネル", "次世代インフラ"],
-    "aspectRatio": "16:9",
-    "path": "/images/mid/mid-55.jpg",
-    "description": "表面全体がエネルギー吸収層で覆われたピラミッド型建築群。砂漠の熱エネルギーを都市電力に変換。"
+    "description": "表面全体がエネルギー吸収層で覆われたピラミッド型建築群。砂漠の熱エネルギーを都市電力に変換。",
+    "src": "/images/mid/mid-55.jpg",
+    "category": "Tech",
+    "score": 95,
+    "width": 1024,
+    "height": 576,
+    "size": "780 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": ["#先端テクノロジー", "#クリーンエネルギー", "#GXインフラ"]
   },
   {
     "id": "mid-56",
     "title": "オアシス・メガ・シェルター",
-    "category": "エコ・ライフスタイル",
-    "tags": ["環境保護", "居住ドーム", "オアシス", "気候変動対策"],
-    "aspectRatio": "16:9",
-    "path": "/images/mid/mid-56.jpg",
-    "description": "人工オアシスを内包した巨大ドーム都市。外部の乾燥した気候から隔離された理想的な生活空間。"
+    "description": "人工オアシスを内包した巨大ドーム都市。外部の乾燥した気候から隔離された理想的な生活空間。",
+    "src": "/images/mid/mid-56.jpg",
+    "category": "Eco-Life",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "940 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": ["#自然共生", "#次世代ライフスタイル", "#スマートシティ"]
   },
   {
     "id": "mid-57",
     "title": "未来のナイル：ピラミッド・コンプレックス",
-    "category": "スマートシティ",
-    "tags": ["水辺都市", "ピラミッド型居住区", "景観デザイン", "持続可能性"],
-    "aspectRatio": "16:9",
-    "path": "/images/mid/mid-57.jpg",
-    "description": "歴史的意匠と未来技術が融合した水辺の居住コンプレックス。高度な水質浄化システムを組み込み。"
+    "description": "歴史的意匠と未来技術が融合した水辺の居住コンプレックス。高度な水質浄化システムを組み込み。",
+    "src": "/images/mid/mid-57.jpg",
+    "category": "SmartCity",
+    "score": 96,
+    "width": 1024,
+    "height": 576,
+    "size": "810 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": ["#スマートシティ", "#自然共生", "#GXインフラ"]
   },
   {
     "id": "mid-58",
     "title": "オーロラ・アイス・マリーナ",
-    "category": "モビリティ",
-    "tags": ["寒冷地都市", "海上輸送", "氷上建築", "オーロラ"],
-    "aspectRatio": "4:3",
-    "path": "/images/mid/mid-58.jpg",
-    "description": "極圏に位置するクリスタル型港湾施設。北極圏の物流拠点として、美しさと強固なインフラを両立。"
+    "description": "極圏に位置するクリスタル型港湾施設。北極圏の物流拠点として、美しさと強固なインフラを両立。",
+    "src": "/images/mid/mid-58.jpg",
+    "category": "Mobility",
+    "score": 99,
+    "width": 1024,
+    "height": 768,
+    "size": "950 KB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": ["#次世代モビリティ", "#水素エネルギー", "#GXインフラ"]
   }
-]
-
-
+ ]
