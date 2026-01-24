@@ -4546,5 +4546,583 @@
       "#次世代建築",
       "#自然共生"
     ]
+  },
+  {
+    "id": "niji-31",
+    "title": "スカイ・ハイ・テラス：アバブ・クラウド",
+    "description": "雲海の上に広がる空中庭園。風力発電と高度な居住システムが融合した、浮遊都市のプロトタイプ。",
+    "src": "/images/niji/niji-31.jpg",
+    "category": "SmartCity",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "920 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#浮遊都市",
+      "#次世代建築",
+      "#風力発電"
+    ]
+  },
+  {
+    "id": "niji-32",
+    "title": "セレスティアル・アーク・メトロポリス",
+    "description": "朝焼けに染まる巨大な空中構造物。クリスタルのような外装が太陽エネルギーを効率的に収集する、次世代の居住区。",
+    "src": "/images/niji/niji-32.jpg",
+    "category": "SmartCity",
+    "score": 99,
+    "width": 1024,
+    "height": 576,
+    "size": "950 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#クリーンエネルギー",
+      "#次世代ライフスタイル"
+    ]
+  },
+  {
+    "id": "niji-33",
+    "title": "エーテル・ウィンド・シティー",
+    "description": "果てしない雲の海に点在する、風力タービン一体型のビル群。都市そのものが巨大なエネルギー生成装置として機能。",
+    "src": "/images/niji/niji-33.jpg",
+    "category": "Energy",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "890 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#風力発電",
+      "#次世代インフラ",
+      "#環境技術"
+    ]
+  },
+  {
+    "id": "niji-34",
+    "title": "ヘリカル・スカイ・プラットフォーム",
+    "description": "螺旋状の構造を持つ空中都市。上空の安定した気流を利用し、都市全体のエネルギーを賄う自律型建築。",
+    "src": "/images/niji/niji-34.jpg",
+    "category": "SmartCity",
+    "score": 96,
+    "width": 1024,
+    "height": 576,
+    "size": "910 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#次世代建築",
+      "#風力発電"
+    ]
+  },
+  {
+    "id": "niji-35",
+    "title": "ヴァーティカル・ガーデン・コリドー",
+    "description": "高層ビルのテラスが巨大な森林と化した空中回廊。都市のヒートアイランド現象を克服する、徹底した緑化デザイン。",
+    "src": "/images/niji/niji-35.jpg",
+    "category": "Eco-Life",
+    "score": 98,
+    "width": 1024,
+    "height": 768,
+    "size": "1.1 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#自然共生",
+      "#次世代建築",
+      "#GX"
+    ]
+  },
+  {
+    "id": "niji-36",
+    "title": "スカイ・オアシス：タワー・クラスター",
+    "description": "澄み渡る青空の下、ビル全体が植生に覆われたエコ・シティー。居住空間と自然が垂直方向に融合。",
+    "src": "/images/niji/niji-36.jpg",
+    "category": "SmartCity",
+    "score": 97,
+    "width": 1024,
+    "height": 768,
+    "size": "1.2 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#スマートシティ",
+      "#自然共生",
+      "#次世代ライフスタイル"
+    ]
+  },
+  {
+    "id": "niji-37",
+    "title": "ルミナス・ホワイト・アーク",
+    "description": "純白の曲線美が際立つ、未来の垂直都市。各フロアに配置された円形テラスが、自然光を最大限に取り入れる。",
+    "src": "/images/niji/niji-37.jpg",
+    "category": "SmartCity",
+    "score": 99,
+    "width": 1024,
+    "height": 768,
+    "size": "1.3 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#次世代建築",
+      "#スマートシティ",
+      "#環境技術"
+    ]
+  },
+  {
+    "id": "niji-38",
+    "title": "フォグ・フォレスト・レジデンス",
+    "description": "霧の中にそびえ立つ、霧回収システムを搭載した高層ビル。大気中の水分を生活用水に変換する、自律循環型建築。",
+    "src": "/images/niji/niji-38.jpg",
+    "category": "Eco-Life",
+    "score": 96,
+    "width": 1024,
+    "height": 768,
+    "size": "1.1 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#資源循環",
+      "#自然共生",
+      "#GX"
+    ]
+  },
+  {
+    "id": "niji-39",
+    "title": "アンダーウォーター・クリスタル・パレス",
+    "description": "深海の底に輝く巨大な居住ドーム。水圧をエネルギーに変換する外壁を備えた、究極のフロンティア建築。",
+    "src": "/images/niji/niji-39.jpg",
+    "category": "Eco-Life",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "960 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#海洋開発",
+      "#次世代ライフスタイル",
+      "#先端テクノロジー"
+    ]
+  },
+  {
+    "id": "niji-40",
+    "title": "バイオ・メデューサ・マリーナ",
+    "description": "クラゲの生体構造を模した水中研究都市。海洋生物と共生しながら、海の浄化とエネルギー生産を同時に行う。",
+    "src": "/images/niji/niji-40.jpg",
+    "category": "Resource",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "940 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#海洋開発",
+      "#自然共生",
+      "#環境技術"
+    ]
+  },
+  {
+    "id": "niji-41",
+    "title": "ディープシー・バイオ・ドーム：研究区画",
+    "description": "サンゴ礁の合間に広がる大規模な海底研究施設。水圧を利用したエネルギー生成と、海洋生態系の保護を両立させた次世代インフラ。",
+    "src": "/images/niji/niji-41.jpg",
+    "category": "Resource",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "940 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#海洋開発",
+      "#先端テクノロジー",
+      "#環境技術"
+    ]
+  },
+  {
+    "id": "niji-42",
+    "title": "ソーラー・ピラミッド・メトロポリス：全景",
+    "description": "砂漠に広がるピラミッド型発電都市群。鏡面仕上げの外壁が太陽光を効率的に集約し、周辺の砂漠緑化を支えるエネルギーを供給。",
+    "src": "/images/niji/niji-42.jpg",
+    "category": "Energy",
+    "score": 99,
+    "width": 1024,
+    "height": 768,
+    "size": "1.1 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#クリーンエネルギー",
+      "#砂漠緑化",
+      "#次世代建築"
+    ]
+  },
+  {
+    "id": "niji-43",
+    "title": "デザート・オアシス・コア：近未来",
+    "description": "幾何学的なソーラーパネルに囲まれた、砂漠の人工オアシス。水資源の高度な循環システムを備えた、持続可能な都市モデル。",
+    "src": "/images/niji/niji-43.jpg",
+    "category": "SmartCity",
+    "score": 97,
+    "width": 1024,
+    "height": 768,
+    "size": "1.3 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#スマートシティ",
+      "#資源循環",
+      "#環境技術"
+    ]
+  },
+  {
+    "id": "niji-44",
+    "title": "ハイパー・ソーラー・ハーベスト・フィールド",
+    "description": "乾燥地帯に整然と配置された太陽光発電モジュール。AI制御により、太陽の動きに合わせた最適な受光角度を維持。",
+    "src": "/images/niji/niji-44.jpg",
+    "category": "Energy",
+    "score": 96,
+    "width": 1024,
+    "height": 768,
+    "size": "1.2 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#クリーンエネルギー",
+      "#GXインフラ",
+      "#先端テクノロジー"
+    ]
+  },
+  {
+    "id": "niji-45",
+    "title": "クリスタル・ピラミッド・エナジー・ハブ",
+    "description": "地平線の彼方まで続くピラミッド型ソーラー・ファーム。広大な未利用地を地球規模のエネルギー生産拠点へと変貌させる。",
+    "src": "/images/niji/niji-45.jpg",
+    "category": "Energy",
+    "score": 98,
+    "width": 1024,
+    "height": 768,
+    "size": "1.0 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#クリーンエネルギー",
+      "#GXインフラ",
+      "#次世代建築"
+    ]
+  },
+  {
+    "id": "niji-46",
+    "title": "アイス・クリスタル・要塞：極地インフラ",
+    "description": "オーロラと落雷のエネルギーを収集・蓄電する極地研究拠点。自然エネルギーの極限利用に挑む、未来の要塞建築。",
+    "src": "/images/niji/niji-46.jpg",
+    "category": "Tech",
+    "score": 99,
+    "width": 1024,
+    "height": 576,
+    "size": "980 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#先端テクノロジー",
+      "#北極圏開発",
+      "#クリーンエネルギー"
+    ]
+  },
+  {
+    "id": "niji-47",
+    "title": "オーロラ・アイス・マリーナ：トランスポート",
+    "description": "氷の海に浮かぶ、美しい発光ラインを備えた船舶基地。過酷な環境下での自律航行とロジスティクスを支える拠点。",
+    "src": "/images/niji/niji-47.jpg",
+    "category": "Mobility",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "920 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#次世代モビリティ",
+      "#北極圏開発",
+      "#水素インフラ"
+    ]
+  },
+  {
+    "id": "niji-48",
+    "title": "フローズン・データ・シティー",
+    "description": "極低温環境を活かした、超巨大なデータセンター都市。外気による自然冷却により、エネルギー消費を極限まで抑制。",
+    "src": "/images/niji/niji-48.jpg",
+    "category": "SmartCity",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "960 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#先端テクノロジー",
+      "#DX"
+    ]
+  },
+  {
+    "id": "niji-49",
+    "title": "極圏バイオ・ドーム：エントランス",
+    "description": "氷の大地から突き出した、クリスタル状のバイオ・ハブ。内部には豊かな森林が広がり、極地での持続可能な居住を可能にする。",
+    "src": "/images/niji/niji-49.jpg",
+    "category": "Eco-Life",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "910 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#自然共生",
+      "#北極圏開発",
+      "#次世代建築"
+    ]
+  },
+  {
+    "id": "niji-50",
+    "title": "アーバン・バーティカル・ファクトリー：自動化",
+    "description": "都市のビル内にて稼働する、完全自動化された屋内栽培工場。紫色のLED光の下、AIとロボットが食料生産を管理。",
+    "src": "/images/niji/niji-50.jpg",
+    "category": "Tech",
+    "score": 98,
+    "width": 1024,
+    "height": 768,
+    "size": "1.4 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#アグリテック",
+      "#ロボティクス",
+      "#スマートシティ"
+    ]
+  },
+  {
+    "id": "niji-51",
+    "title": "ハイパー・バーティカル・ファーム：ラボ",
+    "description": "高層ビルの上層階に設置された精密農業ユニット。自動アームが24時間体制で苗の管理と収穫を行う、都市自給のコア施設。",
+    "src": "/images/niji/niji-51.jpg",
+    "category": "Tech",
+    "score": 98,
+    "width": 1024,
+    "height": 768,
+    "size": "1.3 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#アグリテック",
+      "#ロボティクス",
+      "#スマートシティ"
+    ]
+  },
+  {
+    "id": "niji-52",
+    "title": "アーバン・バイオ・ファクトリー：夜景",
+    "description": "都市の摩天楼を背景に稼働する植物工場。紫色の補光と外光を組み合わせ、最小のエネルギーで最大の収穫量を目指す設計。",
+    "src": "/images/niji/niji-52.jpg",
+    "category": "Eco-Life",
+    "score": 97,
+    "width": 1024,
+    "height": 768,
+    "size": "1.4 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#自然共生",
+      "#先端テクノロジー",
+      "#GX"
+    ]
+  },
+  {
+    "id": "niji-53",
+    "title": "自動化アグリ・ステーション：モジュラー",
+    "description": "複数の独立した栽培ラインを備えた、大規模な屋内農場。AIが全プラントを同期制御し、効率的な物流を実現。",
+    "src": "/images/niji/niji-53.jpg",
+    "category": "Tech",
+    "score": 96,
+    "width": 1024,
+    "height": 768,
+    "size": "1.2 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#アグリテック",
+      "#スマートシティ",
+      "#DX"
+    ]
+  },
+  {
+    "id": "niji-54",
+    "title": "宇宙太陽光発電：アンテナ・アレイ",
+    "description": "地球軌道上で巨大なマイクロ波ビームを放射する発電衛星の近接図。クリーンなエネルギーを地上へダイレクトに送電。",
+    "src": "/images/niji/niji-54.jpg",
+    "category": "Energy",
+    "score": 99,
+    "width": 1024,
+    "height": 768,
+    "size": "1.1 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#クリーンエネルギー",
+      "#宇宙開発",
+      "#次世代インフラ"
+    ]
+  },
+  {
+    "id": "niji-55",
+    "title": "エナジー・ビーム・トランスミッター",
+    "description": "激しく発光するエネルギー伝送ユニット。宇宙空間での電力網構築を可能にする、高度な物理工学の結晶。",
+    "src": "/images/niji/niji-55.jpg",
+    "category": "Energy",
+    "score": 98,
+    "width": 1024,
+    "height": 768,
+    "size": "1.0 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#宇宙開発",
+      "#クリーンエネルギー",
+      "#先端テクノロジー"
+    ]
+  },
+  {
+    "id": "niji-56",
+    "title": "ソーラー・サテライト：コア・ユニット",
+    "description": "太陽を背に受けて稼働する発電衛星の中心構造体。宇宙の過酷な環境に耐える堅牢なモジュール設計。",
+    "src": "/images/niji/niji-56.jpg",
+    "category": "Energy",
+    "score": 97,
+    "width": 1024,
+    "height": 768,
+    "size": "950 KB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#宇宙開発",
+      "#クリーンエネルギー",
+      "#GX"
+    ]
+  },
+  {
+    "id": "niji-57",
+    "title": "軌道上パワー・ステーション：パノラマ",
+    "description": "地球の曲線を見下ろしながら展開される巨大な太陽光パネル群。人類のエネルギー源を宇宙へとシフトさせる旗艦アセット。",
+    "src": "/images/niji/niji-57.jpg",
+    "category": "Energy",
+    "score": 99,
+    "width": 1024,
+    "height": 768,
+    "size": "1.2 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#宇宙開発",
+      "#クリーンエネルギー",
+      "#次世代インフラ"
+    ]
+  },
+  {
+    "id": "niji-58",
+    "title": "サイバー・グリッド・ネットワーク",
+    "description": "光のラインで構築されたデジタル都市の鳥瞰図。情報、エネルギー、人流が完全に電子制御されたスマートシティの極致。",
+    "src": "/images/niji/niji-58.jpg",
+    "category": "SmartCity",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "1.1 MB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#DX",
+      "#先端テクノロジー"
+    ]
+  },
+  {
+    "id": "niji-59",
+    "title": "デジタル・コア・メトロポリス",
+    "description": "光の奔流が都市の中枢を貫く。高度な通信インフラが街全体を巨大な回路のように繋ぎ、リアルタイムで最適化を実行。",
+    "src": "/images/niji/niji-59.jpg",
+    "category": "SmartCity",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "1.3 MB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#先端テクノロジー",
+      "#DX"
+    ]
+  },
+  {
+    "id": "niji-60",
+    "title": "ルミナス・データ・プラットフォーム",
+    "description": "ビル自体が情報発信端末として機能する、未来の都市区画。デジタルツイン技術により、現実と仮想が完全に同期。",
+    "src": "/images/niji/niji-60.jpg",
+    "category": "SmartCity",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "1.2 MB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#DX",
+      "#次世代建築"
+    ]
+  },
+  {
+    "id": "niji-61",
+    "title": "サイバー・ネットワーク・トポロジー",
+    "description": "都市全体が巨大なサーバーのように機能する、デジタル・ツイン・メトロポリス。情報密度を視覚化したネットワーク・アートのような夜景。",
+    "src": "/images/niji/niji-61.jpg",
+    "category": "SmartCity",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "1.2 MB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#DX",
+      "#先端テクノロジー"
+    ]
+  },
+  {
+    "id": "niji-62",
+    "title": "バイオ・フューエル・リザーバー：夕景",
+    "description": "夕暮れ時に輝くバイオ燃料貯蔵タンク群。藻類によるエネルギー生成が、都市の持続可能な電力を支える。",
+    "src": "/images/niji/niji-62.jpg",
+    "category": "Energy",
+    "score": 97,
+    "width": 1024,
+    "height": 768,
+    "size": "950 KB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#クリーンエネルギー",
+      "#GXインフラ",
+      "#環境技術"
+    ]
+  },
+  {
+    "id": "niji-63",
+    "title": "アドバンスド・バイオ・リアクター・アレイ",
+    "description": "巨大なガラスシリンダー内で高速培養されるエネルギー藻類。GX社会の基盤となる次世代の発電プラント。",
+    "src": "/images/niji/niji-63.jpg",
+    "category": "Energy",
+    "score": 99,
+    "width": 1024,
+    "height": 768,
+    "size": "1.1 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#クリーンエネルギー",
+      "#次世代インフラ",
+      "#環境技術"
+    ]
+  },
+  {
+    "id": "niji-64",
+    "title": "インダストリアル・エコ・エナジー・パーク",
+    "description": "広大な敷地に展開するバイオ燃料精製施設。工業デザインと環境技術が融合した、未来の産業景観。",
+    "src": "/images/niji/niji-64.jpg",
+    "category": "Resource",
+    "score": 96,
+    "width": 1024,
+    "height": 768,
+    "size": "980 KB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#先端テクノロジー",
+      "#GXインフラ",
+      "#資源循環"
+    ]
   }
 ]
