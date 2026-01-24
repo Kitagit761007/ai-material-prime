@@ -4002,5 +4002,549 @@
       "#先端テクノロジー",
       "#次世代建築"
     ]
+  },
+  {
+    "id": "g-38",
+    "title": "深海バイオスフィア・レジデンス",
+    "description": "サンゴ礁の傍らに設置された、透明ドーム型の水中居住施設。海洋生態系を間近で観察しながら、高度な気密性と快適性を維持する未来の生活空間。",
+    "src": "/images/grok/g-38.jpg",
+    "category": "Eco-Life",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "950 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#海洋開発",
+      "#自然共生",
+      "#次世代ライフスタイル"
+    ]
+  },
+  {
+    "id": "g-39",
+    "title": "ヴァーダント・スカイウェイ・メトロポリス",
+    "description": "高層ビル間を透明なチューブ状の緑道が繋ぐ、垂直都市のプロトタイプ。都市全体が巨大な温室として機能し、炭素固定を最大化。",
+    "src": "/images/grok/g-39.jpg",
+    "category": "SmartCity",
+    "score": 99,
+    "width": 1024,
+    "height": 576,
+    "size": "1.1 MB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#自然共生",
+      "#次世代建築"
+    ]
+  },
+  {
+    "id": "g-40",
+    "title": "海底フューチャー・ラボ：モジュラー",
+    "description": "複数のドームが連結された水中研究コンプレックス。完全自動化された潜水艇が常駐し、深海資源の持続可能な利活用を研究。",
+    "src": "/images/grok/g-40.jpg",
+    "category": "Resource",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "980 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#海洋開発",
+      "#先端テクノロジー",
+      "#環境技術"
+    ]
+  },
+  {
+    "id": "g-41",
+    "title": "ソーラー・ピラミッド・コンプレックス",
+    "description": "砂漠地帯に建設された、表面全体が鏡面パネルの巨大発電ユニット。歴史的意匠と最新の光熱発電技術が融合。",
+    "src": "/images/grok/g-41.jpg",
+    "category": "Energy",
+    "score": 96,
+    "width": 1024,
+    "height": 576,
+    "size": "820 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#クリーンエネルギー",
+      "#GXインフラ",
+      "#砂漠緑化"
+    ]
+  },
+  {
+    "id": "g-42",
+    "title": "デザート・エコ・ジェネレーター",
+    "description": "ピラミッド型構造体に太陽光追尾システムを組み込んだ、砂漠専用の電力供給ハブ。周囲の緑化を支えるエネルギー源。",
+    "src": "/images/grok/g-42.jpg",
+    "category": "Energy",
+    "score": 95,
+    "width": 1024,
+    "height": 576,
+    "size": "840 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#クリーンエネルギー",
+      "#GXインフラ",
+      "#環境技術"
+    ]
+  },
+  {
+    "id": "g-43",
+    "title": "極地クリスタル・ステーション",
+    "description": "オーロラの下で稼働する、氷の結晶を模した科学研究拠点。海中からエネルギーを供給する自律型インフラを備える。",
+    "src": "/images/grok/g-43.jpg",
+    "category": "Tech",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "910 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#先端テクノロジー",
+      "#北極圏開発",
+      "#水素インフラ"
+    ]
+  },
+  {
+    "id": "g-44",
+    "title": "オーロラ・アイス・ベース：アドバンス",
+    "description": "厳しい極地環境に耐える、幾何学的なシェル構造を持つ基地。地中熱と海洋熱のハイブリッド発電で運用。",
+    "src": "/images/grok/g-44.jpg",
+    "category": "SmartCity",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "930 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#クリーンエネルギー",
+      "#次世代建築"
+    ]
+  },
+  {
+    "id": "g-45",
+    "title": "スカイ・ファーム・オートメーション：A",
+    "description": "摩天楼を背景に、紫色のLED光の下で精密に管理される垂直農場。ロボットアームが収穫と播種を24時間体制で実行。",
+    "src": "/images/grok/g-45.jpg",
+    "category": "Tech",
+    "score": 99,
+    "width": 1024,
+    "height": 576,
+    "size": "890 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#アグリテック",
+      "#ロボティクス",
+      "#GX"
+    ]
+  },
+  {
+    "id": "g-46",
+    "title": "スカイ・ファーム・オートメーション：B",
+    "description": "都市の食料自給率を向上させる、AI制御の植物工場。省スペースかつ超高効率な資源循環を実現。",
+    "src": "/images/grok/g-46.jpg",
+    "category": "Eco-Life",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "870 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#アグリテック",
+      "#先端テクノロジー",
+      "#自然共生"
+    ]
+  },
+  {
+    "id": "g-47",
+    "title": "スカイ・ファーム・オートメーション：C",
+    "description": "超高層ビル内の一角に設けられた、次世代の都市型農業ユニット。新鮮な作物を都市中心部へ直接供給。",
+    "src": "/images/grok/g-47.jpg",
+    "category": "SmartCity",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "860 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#アグリテック",
+      "#スマートシティ",
+      "#次世代建築"
+    ]
+  },
+  {
+    "id": "g-48",
+    "title": "アドバンスド・バイオ・ラボラトリー",
+    "description": "都市のビル内にて運用される高効率な植物栽培ユニット。AIが最適なスペクトルで光を制御し、食料自給と空気清浄を同時に実現。",
+    "src": "/images/grok/g-48.jpg",
+    "category": "Tech",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "890 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#アグリテック",
+      "#先端テクノロジー",
+      "#GX"
+    ]
+  },
+  {
+    "id": "g-49",
+    "title": "未来型垂直農場：インターナル",
+    "description": "洗練された内装デザインと融合した都市農業システム。居住者の憩いの場としても機能する、次世代のバイオフィリック・オフィス。",
+    "src": "/images/grok/g-49.jpg",
+    "category": "Eco-Life",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "850 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#自然共生",
+      "#次世代ライフスタイル",
+      "#スマートシティ"
+    ]
+  },
+  {
+    "id": "g-50",
+    "title": "サイバー・データ・ハブ",
+    "description": "都市全域の情報を処理する、光ファイバーとホログラフィック・ディスプレイが交差するサーバー・センター。DX社会の心臓部。",
+    "src": "/images/grok/g-50.jpg",
+    "category": "SmartCity",
+    "score": 99,
+    "width": 1024,
+    "height": 768,
+    "size": "1.1 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#スマートシティ",
+      "#DX",
+      "#先端テクノロジー"
+    ]
+  },
+  {
+    "id": "g-51",
+    "title": "ネオン・コリドー：インテリジェント",
+    "description": "光のガイドレールに沿って自律移動ユニットが稼働する都市インフラ。効率的な物流と人流の統合を象徴する夜景。",
+    "src": "/images/grok/g-51.jpg",
+    "category": "Mobility",
+    "score": 96,
+    "width": 1024,
+    "height": 768,
+    "size": "980 KB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#次世代モビリティ",
+      "#スマートシティ",
+      "#先端テクノロジー"
+    ]
+  },
+  {
+    "id": "g-52",
+    "title": "ルミナス・データ・ジャンクション",
+    "description": "光の格子が都市を包み込む、高度にデジタル化された近未来の交差点。リアルタイムの交通制御とデータ通信を可視化。",
+    "src": "/images/grok/g-52.jpg",
+    "category": "SmartCity",
+    "score": 98,
+    "width": 1024,
+    "height": 768,
+    "size": "1.3 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#スマートシティ",
+      "#DX",
+      "#次世代建築"
+    ]
+  },
+  {
+    "id": "g-53",
+    "title": "スカイ・ハブ：トランスポート",
+    "description": "高層階に設けられたドローンと空飛ぶクルマのポート。地上渋滞を解消する、垂直方向の交通ネットワークの拠点。",
+    "src": "/images/grok/g-53.jpg",
+    "category": "Mobility",
+    "score": 97,
+    "width": 1024,
+    "height": 768,
+    "size": "920 KB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#次世代モビリティ",
+      "#宇宙開発",
+      "#スマートシティ"
+    ]
+  },
+  {
+    "id": "g-54",
+    "title": "ホログラフィック・シティ・センター",
+    "description": "空中投影された巨大なホログラムが情報を提示する、未来の都市広場。市民とAIが直接的に対話するインターフェース。",
+    "src": "/images/grok/g-54.jpg",
+    "category": "SmartCity",
+    "score": 95,
+    "width": 1024,
+    "height": 768,
+    "size": "1.1 MB",
+    "aspectRatio": "4:3 (Landscape)",
+    "tags": [
+      "#スマートシティ",
+      "#先端テクノロジー",
+      "#DX"
+    ]
+  },
+  {
+    "id": "g-55",
+    "title": "ハイパー・トランスポート・ターミナル",
+    "description": "超高速移動を実現するチューブ型交通システムのゲートウェイ。幾何学的で洗練されたデザインが、未来の旅を予感させる。",
+    "src": "/images/grok/g-55.jpg",
+    "category": "Mobility",
+    "score": 99,
+    "width": 1024,
+    "height": 576,
+    "size": "870 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#次世代モビリティ",
+      "#先端テクノロジー",
+      "#次世代建築"
+    ]
+  },
+  {
+    "id": "g-56",
+    "title": "都市型垂直ガーデン：レジデンス",
+    "description": "ビル自体が一本の巨木のように機能する、植栽と建築が完全に一体化した超高層住宅。GX時代のスタンダードな居住形態。",
+    "src": "/images/grok/g-56.jpg",
+    "category": "Eco-Life",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "940 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#自然共生",
+      "#スマートシティ",
+      "#次世代建築"
+    ]
+  },
+  {
+    "id": "g-57",
+    "title": "バイオ・アトリウム・スカイロビー",
+    "description": "摩天楼の雲上階に広がる、光溢れる植物園。都市全体の空気循環を担う巨大なバイオフィルターとしての役割も持つ。",
+    "src": "/images/grok/g-57.jpg",
+    "category": "SmartCity",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "910 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#自然共生",
+      "#GX"
+    ]
+  },
+  {
+    "id": "g-58",
+    "title": "スマート・グリッド・ジャンクション",
+    "description": "都市のエネルギー流をリアルタイムで可視化する発光道路。AIによる交通最適化と分散型電源の統合を象徴する夜景。",
+    "src": "/images/grok/g-58.jpg",
+    "category": "SmartCity",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "1.1 MB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#DX",
+      "#次世代インフラ"
+    ]
+  },
+  {
+    "id": "g-59",
+    "title": "ネオン・サーキット・メトロポリス",
+    "description": "データ通信の光が地表を走る、高度情報化された都市の中枢。ドローンによる空中輸送と地上交通が完全に同期。",
+    "src": "/images/grok/g-59.jpg",
+    "category": "SmartCity",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "1.2 MB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#先端テクノロジー",
+      "#次世代モビリティ"
+    ]
+  },
+  {
+    "id": "g-60",
+    "title": "デジタル・リネージ・スクエア",
+    "description": "光の回路が都市の歴史的建築を保護するように巡らされた、デジタル・ツイン都市のシンボル空間。",
+    "src": "/images/grok/g-60.jpg",
+    "category": "SmartCity",
+    "score": 96,
+    "width": 1024,
+    "height": 576,
+    "size": "980 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#DX",
+      "#先端テクノロジー"
+    ]
+  },
+  {
+    "id": "g-61",
+    "title": "藻類由来バイオ・リアクター：B",
+    "description": "夕暮れ時に稼働する、大規模な藻類培養エネルギー施設。大気中の二酸化炭素を吸収し、クリーンなバイオ燃料を精製。",
+    "src": "/images/grok/g-61.jpg",
+    "category": "Energy",
+    "score": 99,
+    "width": 1024,
+    "height": 576,
+    "size": "890 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#クリーンエネルギー",
+      "#GXインフラ",
+      "#環境技術"
+    ]
+  },
+  {
+    "id": "g-62",
+    "title": "ドーム型バイオ・プラント",
+    "description": "透明な半球体に守られた、自律型エネルギー精製ハブ。水辺の景観を維持しながら、都市のエネルギー自給に貢献。",
+    "src": "/images/grok/g-62.jpg",
+    "category": "Energy",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "920 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#クリーンエネルギー",
+      "#次世代インフラ",
+      "#自然共生"
+    ]
+  },
+  {
+    "id": "g-63",
+    "title": "エメラルド・エナジー・グリッド",
+    "description": "蛍光グリーンの光を放つ次世代エネルギーパイプライン。都市の地下を巡るエネルギーの血流を表現。",
+    "src": "/images/grok/g-63.jpg",
+    "category": "Energy",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "870 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#先端テクノロジー",
+      "#GXインフラ",
+      "#クリーンエネルギー"
+    ]
+  },
+  {
+    "id": "g-64",
+    "title": "ソーラー・バイオ・ハーベスト施設",
+    "description": "太陽光発電パネルとバイオリアクターを組み合わせた、ハイブリッド型の再生可能エネルギー発電所。",
+    "src": "/images/grok/g-64.jpg",
+    "category": "Energy",
+    "score": 96,
+    "width": 1024,
+    "height": 576,
+    "size": "840 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#クリーンエネルギー",
+      "#環境技術",
+      "#GX"
+    ]
+  },
+  {
+    "id": "g-65",
+    "title": "ヴァーダント・スカイライン・ハブ",
+    "description": "高層ビル間を繋ぐ緑の回廊と、風力発電タービンが融合した空中都市。自然の風を活用するサステナブル建築。",
+    "src": "/images/grok/g-65.jpg",
+    "category": "SmartCity",
+    "score": 99,
+    "width": 1024,
+    "height": 576,
+    "size": "1.3 MB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#風力発電",
+      "#次世代建築"
+    ]
+  },
+  {
+    "id": "g-66",
+    "title": "クラウド・タワー・ジェネレーター",
+    "description": "雲を突き抜ける超高層ビルに組み込まれた、大規模風力発電システム。上空の安定した風を都市の電力に変換。",
+    "src": "/images/grok/g-66.jpg",
+    "category": "SmartCity",
+    "score": 98,
+    "width": 1024,
+    "height": 576,
+    "size": "950 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#風力発電",
+      "#次世代建築"
+    ]
+  },
+  {
+    "id": "g-67",
+    "title": "スカイ・エッジ・ウィンド・ファーム",
+    "description": "天空にそびえる居住タワーと、その周囲に配置された風力タービン群。気流を読み解くAI制御により発電効率を最適化。",
+    "src": "/images/grok/g-67.jpg",
+    "category": "SmartCity",
+    "score": 97,
+    "width": 1024,
+    "height": 576,
+    "size": "980 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#風力発電",
+      "#クリーンエネルギー"
+    ]
+  },
+  {
+    "id": "g-68",
+    "title": "ルミナス_ウォーター_プロムナード",
+    "description": "夜景に浮かび上がる、植物と水、そして光の彫刻が融合した未来の都市公園。市民のウェルビーイングを支援するGX空間。",
+    "src": "/images/grok/g-68.jpg",
+    "category": "Eco-Life",
+    "score": 96,
+    "width": 1024,
+    "height": 576,
+    "size": "890 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#次世代ライフスタイル",
+      "#自然共生",
+      "#スマートシティ"
+    ]
+  },
+  {
+    "id": "g-69",
+    "title": "ボタニカル・ドーム・プラザ",
+    "description": "幾何学的なルーフで覆われた、全天候型の都市公園。AIが最適な温湿度を維持し、一年中豊かな植生を楽しむことができる。",
+    "src": "/images/grok/g-69.jpg",
+    "category": "SmartCity",
+    "score": 95,
+    "width": 1024,
+    "height": 576,
+    "size": "860 KB",
+    "aspectRatio": "16:9 (Widescreen)",
+    "tags": [
+      "#スマートシティ",
+      "#次世代建築",
+      "#自然共生"
+    ]
   }
 ]
