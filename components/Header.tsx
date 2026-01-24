@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import assetsDataRaw from "../data/assets.json";
 
 export default function Header() {
@@ -63,18 +63,33 @@ export default function Header() {
                     <Link href="/contact" className="text-sm font-medium hover:text-gx-cyan transition-colors">お問い合わせ</Link>
                 </nav>
                 <button className="md:hidden z-50 p-2 text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}</button>
-                <div className={`fixed inset-0 bg-slate-950 transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-6 ${isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none translate-y-[-20px]"}`}>
-                    <Link href="/gallery" className="text-2xl font-bold text-white mb-4" onClick={closeMenu}>ギャラリー</Link>
+                <div className={`fixed inset-0 bg-slate-950 transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-4 ${isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none translate-y-[-20px]"}`}>
+                    <Link href="/gallery" className="w-[calc(100%-3rem)] bg-white/5 p-4 rounded-xl flex items-center justify-between group active:bg-white/10 transition-colors border border-white/5" onClick={closeMenu}>
+                        <span className="text-xl font-bold text-white">ギャラリー (Gallery)</span>
+                        <ChevronRight className="w-5 h-5 text-gx-cyan" />
+                    </Link>
+
                     <div className="grid grid-cols-2 gap-3 w-full px-6">
                         {categories.map((cat) => (
-                            <Link key={cat.id} href={`/categories/${cat.id}`} className="bg-white/5 p-3 rounded-lg flex flex-col items-center justify-center text-center" onClick={closeMenu}>
-                                <span className="text-sm font-bold text-white leading-tight">{cat.name}</span>
-                                <span className="text-[9px] text-slate-400 mb-1">{cat.en}</span>
+                            <Link key={cat.id} href={`/categories/${cat.id}`} className="bg-white/5 p-4 rounded-xl flex flex-col items-center justify-center text-center relative group active:bg-white/10 active:scale-[0.98] transition-all border border-white/5" onClick={closeMenu}>
+                                <span className="text-sm font-bold text-white leading-tight mb-1">{cat.name}</span>
+                                <span className="text-[9px] text-slate-400 mb-2">{cat.en}</span>
                                 <span className="text-[9px] text-gx-cyan opacity-60 font-mono">{getCategoryCount(cat.id)} assets</span>
+                                <ChevronRight className="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 text-white/20 group-active:text-gx-cyan group-active:translate-x-1 transition-all" />
                             </Link>
                         ))}
                     </div>
-                    <Link href="/tags" className="text-xl font-medium text-white" onClick={closeMenu}>タグ一覧</Link>
+
+                    <div className="w-full px-6 flex flex-col gap-3 mt-2">
+                        <Link href="/tags" className="bg-white/5 p-4 rounded-xl flex items-center justify-between group active:bg-white/10 transition-colors border border-white/5" onClick={closeMenu}>
+                            <span className="text-lg font-bold text-slate-300">タグ一覧 (Tags)</span>
+                            <ChevronRight className="w-5 h-5 text-slate-500 group-active:text-gx-cyan" />
+                        </Link>
+                        <Link href="/contact" className="bg-white/5 p-4 rounded-xl flex items-center justify-between group active:bg-white/10 transition-colors border border-white/5" onClick={closeMenu}>
+                            <span className="text-lg font-bold text-slate-300">お問い合わせ (Contact)</span>
+                            <ChevronRight className="w-5 h-5 text-slate-500 group-active:text-gx-cyan" />
+                        </Link>
+                    </div>
                 </div>
             </div>
         </header>
