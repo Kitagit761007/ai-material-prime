@@ -11,6 +11,14 @@ export default function AboutPage() {
                     GX Prime Visualsについて
                 </h1>
 
+                {/* English Summary Section */}
+                <div className="mb-16 p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-xl shadow-2xl">
+                    <h2 className="text-xs font-bold text-gx-cyan uppercase tracking-widest mb-4">[About This Site]</h2>
+                    <p className="text-slate-300 text-base leading-relaxed font-medium">
+                        This site provides high-quality, AI-generated futuristic architectural assets for creators worldwide. All resources are available for free to support your creative projects.
+                    </p>
+                </div>
+
                 <section className="mb-20 space-y-8">
                     <h2 className="text-2xl font-bold text-white border-l-4 border-gx-cyan pl-4">
                         ミッション

@@ -18,6 +18,25 @@ export default function TermsOfService() {
                     利用規約
                 </h1>
 
+                {/* English Summary Section */}
+                <div className="mb-12 p-6 bg-gx-cyan/5 border border-gx-cyan/20 rounded-2xl">
+                    <h2 className="text-xs font-bold text-gx-cyan uppercase tracking-widest mb-3">[English Summary]</h2>
+                    <ul className="text-sm text-slate-300 space-y-2 list-none">
+                        <li className="flex gap-2">
+                            <span className="text-gx-cyan">•</span>
+                            <span>All assets are free for commercial and personal use.</span>
+                        </li>
+                        <li className="flex gap-2">
+                            <span className="text-gx-cyan">•</span>
+                            <span>No attribution or credit required.</span>
+                        </li>
+                        <li className="flex gap-2 text-gx-emerald">
+                            <span className="text-gx-emerald">•</span>
+                            <span>Redistribution or selling the images as standalone assets is prohibited.</span>
+                        </li>
+                    </ul>
+                </div>
+
                 <section className="space-y-8 text-sm md:text-base leading-relaxed">
                     <div>
                         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">

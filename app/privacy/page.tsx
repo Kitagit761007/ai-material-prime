@@ -18,6 +18,21 @@ export default function PrivacyPolicy() {
                     プライバシーポリシー
                 </h1>
 
+                {/* English Summary Section */}
+                <div className="mb-12 p-6 bg-gx-emerald/5 border border-gx-emerald/20 rounded-2xl">
+                    <h2 className="text-xs font-bold text-gx-emerald uppercase tracking-widest mb-3">[English Summary]</h2>
+                    <ul className="text-sm text-slate-300 space-y-2 list-none">
+                        <li className="flex gap-2">
+                            <span className="text-gx-emerald">•</span>
+                            <span>We collect minimal data via Google Analytics to improve our service.</span>
+                        </li>
+                        <li className="flex gap-2">
+                            <span className="text-gx-emerald">•</span>
+                            <span>We do not sell your personal information to third parties.</span>
+                        </li>
+                    </ul>
+                </div>
+
                 <section className="space-y-8 text-sm md:text-base leading-relaxed">
                     <div>
                         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">

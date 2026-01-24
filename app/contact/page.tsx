@@ -71,6 +71,10 @@ export default function ContactPage() {
                     <p className="text-slate-400 max-w-xl mx-auto">
                         商用利用のご相談、特注制作の依頼、その他ご不明な点など、お気軽にお問い合わせください。
                     </p>
+                    <div className="mt-4 flex items-center justify-center gap-2 text-gx-cyan bg-gx-cyan/10 px-4 py-2 rounded-full w-fit mx-auto border border-gx-cyan/20 animate-pulse">
+                        <span className="text-[10px] font-bold uppercase tracking-widest">[Note]</span>
+                        <span className="text-xs font-medium">Inquiries can be sent in Japanese or English.</span>
+                    </div>
                 </div>
 
                 <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
