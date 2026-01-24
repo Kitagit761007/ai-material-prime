@@ -186,9 +186,27 @@ Error: Cannot find module './hash-utils'
 - ファイルサイズ制限: GitHub APIの制限に準拠（通常100MB）
 - 同時アップロード: 1ファイルずつ処理
 
+## 画像配信フォーマットについて
+
+当サイトでは、表示速度の最適化のため、ユーザーのブラウザには自動的に **WebP** フォーマットで画像が配信されるように設定されています。
+
+- **プレビュー表示**: WebP（軽量・高速）
+- **ダウンロード**: 元のアップロード形式 (PNG/JPG)
+
+### アップロード後の処理
+現在は手動または一括スクリプトでWebP生成を行っています。新規に大量の画像を追加した場合は、以下の変換コマンド（ffmpeg推奨）を実行してください。
+
+```powershell
+# PowerShellでの一括変換例
+Get-ChildItem -Path public/images -Recurse -Include *.png, *.jpg | ForEach-Object {
+    $webp = $_.FullName -replace '\.(png|jpg)$', '.webp'
+    if (-not (Test-Path $webp)) { ffmpeg -i $_.FullName -c:v libwebp -q:v 80 $webp }
+}
+```
+
 ## 今後の拡張予定
 
 - [ ] バッチアップロード機能
 - [ ] 画像リサイズ機能
-- [ ] WebP自動変換
+- [x] WebP自動変換 (実装済み)
 - [ ] メタデータ自動抽出（EXIF情報）

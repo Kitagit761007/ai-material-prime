@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { getDisplaySrc } from "../lib/imageUtils";
 // 🚨 インポートパスを物理相対パスで確定（ビルドエラー回避）
 import assets from "../data/assets.json";
 
@@ -143,7 +144,7 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
                         >
                             <div className={`relative w-full h-full p-2 transition-transform duration-500 ease-out will-change-transform ${isZoomed ? "scale-150" : "scale-100"}`}>
                                 <Image
-                                    src={`${selectedImage.src.includes('mid/mid-') ? selectedImage.src.replace('.png', '.jpg') : selectedImage.src}?v=${new Date().getTime()}`}
+                                    src={getDisplaySrc(selectedImage.src)}
                                     alt={selectedImage.title}
                                     fill
                                     quality={100}
@@ -257,8 +258,7 @@ function ImageCard({ img, onTagClick, onClick }: { img: typeof assets[0], onTagC
         <div className="relative group rounded-2xl overflow-hidden break-inside-avoid shadow-2xl bg-slate-900/50 border border-white/5 cursor-zoom-in" onClick={onClick}>
             <div className={`absolute inset-0 bg-slate-800 animate-pulse transition-opacity duration-500 ${loaded ? "opacity-0 pointer-events-none" : "opacity-100"}`} />
             <Image
-                // 🚨 ここもパス判定ルールを維持
-                src={`${img.src.includes('mid/mid-') ? img.src.replace('.png', '.jpg') : img.src}?v=${new Date().getTime()}`}
+                src={getDisplaySrc(img.src)}
                 alt={img.title}
                 width={600}
                 height={800}

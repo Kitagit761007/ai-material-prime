@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { getDisplaySrc } from "../lib/imageUtils";
 
 interface CategoryImage {
     id: string;
@@ -81,7 +82,7 @@ export default function CategorySection({ title, description, images }: Category
                     >
                         <div className="aspect-[4/5] relative">
                             <Image
-                                src={img.src}
+                                src={getDisplaySrc(img.src)}
                                 alt={img.title}
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -133,7 +134,7 @@ export default function CategorySection({ title, description, images }: Category
                         {/* Image Side */}
                         <div className="md:w-2/3 bg-black/50 flex items-center justify-center relative min-h-[300px] md:h-auto">
                             <Image
-                                src={selectedImage.src}
+                                src={getDisplaySrc(selectedImage.src)}
                                 alt={selectedImage.title}
                                 fill
                                 className="object-contain"
