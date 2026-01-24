@@ -133,8 +133,12 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-2xl animate-in fade-in duration-300">
                     <div className="absolute inset-0 cursor-zoom-out" onClick={() => setSelectedImage(null)} />
                     <div className="relative bg-slate-950 rounded-2xl overflow-hidden max-w-7xl w-full h-[90vh] flex flex-col md:flex-row shadow-2xl border border-white/10 z-10" onClick={e => e.stopPropagation()}>
-                        <button onClick={() => setSelectedImage(null)} className="absolute top-4 right-4 z-20 p-2 bg-black/50 text-white rounded-full hover:bg-white/20 transition-all border border-white/10">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                        <button
+                            onClick={() => setSelectedImage(null)}
+                            className="absolute top-4 right-4 z-20 p-2 bg-white text-slate-900 rounded-full hover:bg-gx-cyan hover:text-white transition-all shadow-xl z-50 flex items-center justify-center border border-white"
+                            aria-label="Close modal"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M18 6L6 18M6 6l12 12" /></svg>
                         </button>
 
                         {/* Image Section - Interactive Zoom */}

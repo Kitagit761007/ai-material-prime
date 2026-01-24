@@ -125,10 +125,10 @@ export default function CategorySection({ title, description, images }: Category
                         <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-white/30 rounded-full z-30" />
                         <button
                             onClick={() => setSelectedImage(null)}
-                            className="absolute top-4 right-4 z-20 p-2 bg-black/50 text-white rounded-full hover:bg-white/20 transition-all duration-200 backdrop-blur-md active:scale-95 flex items-center justify-center group"
+                            className="absolute top-4 right-4 z-50 p-2 bg-white text-slate-900 rounded-full hover:bg-gx-cyan hover:text-white transition-all duration-200 shadow-xl flex items-center justify-center group border border-white"
                             aria-label="Close modal"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 transition-transform group-hover:rotate-90"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 transition-transform group-hover:rotate-90"><path d="M18 6L6 18M6 6l12 12" /></svg>
                         </button>
 
                         {/* Image Side */}
