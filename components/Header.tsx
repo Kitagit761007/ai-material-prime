@@ -29,12 +29,14 @@ export default function Header() {
     };
 
     const categories = [
-        { name: "エネルギー", id: "Energy" },
-        { name: "モビリティ", id: "Mobility" },
-        { name: "テクノロジー", id: "Tech" },
-        { name: "資源・バイオ", id: "Resource" },
-        { name: "スマートシティ", id: "SmartCity" },
-        { name: "エコ・ライフスタイル", id: "Eco-Life" }
+        { name: "GX", id: "Energy", en: "Green Transformation (GX)" },
+        { name: "未来都市", id: "SmartCity", en: "Future City" },
+        { name: "モビリティ", id: "Mobility", en: "Clean Mobility" },
+        { name: "テクノロジー", id: "Tech", en: "Advanced Technology" },
+        { name: "宇宙", id: "Space", en: "Space & Galaxy" },
+        { name: "水中", id: "Underwater", en: "Underwater City" },
+        { name: "資源・バイオ", id: "Resource", en: "Sustainable Resources" },
+        { name: "エコ・ライフ", id: "Eco-Life", en: "Eco Lifestyle" }
     ];
 
     return (
@@ -45,10 +47,13 @@ export default function Header() {
                     <Link href="/gallery" className="text-sm font-medium hover:text-gx-cyan transition-colors">ギャラリー</Link>
                     <div className="relative group">
                         <button className="text-sm font-medium hover:text-gx-cyan transition-colors flex items-center gap-1">カテゴリーから探す <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" /></button>
-                        <div className="absolute top-full left-0 mt-2 w-56 bg-slate-900 border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden py-2">
+                        <div className="absolute top-full left-0 mt-2 w-64 bg-slate-900 border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden py-2">
                             {categories.map((cat) => (
-                                <Link key={cat.id} href={`/categories/${cat.id}`} className="flex items-center justify-between px-4 py-3 text-sm hover:bg-white/5 transition-colors group/item">
-                                    <span className="group-hover/item:text-gx-cyan transition-colors">{cat.name}</span>
+                                <Link key={cat.id} href={`/categories/${cat.id}`} className="flex items-center justify-between px-4 py-3 hover:bg-white/5 transition-colors group/item border-b border-white/5 last:border-0">
+                                    <div className="flex flex-col">
+                                        <span className="text-sm group-hover/item:text-gx-cyan transition-colors">{cat.name}</span>
+                                        <span className="text-[10px] text-slate-500 font-medium">{cat.en}</span>
+                                    </div>
                                     <span className="text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded">{getCategoryCount(cat.id)}</span>
                                 </Link>
                             ))}
@@ -59,11 +64,13 @@ export default function Header() {
                 </nav>
                 <button className="md:hidden z-50 p-2 text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}</button>
                 <div className={`fixed inset-0 bg-slate-950 transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-6 ${isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none translate-y-[-20px]"}`}>
-                    <Link href="/gallery" className="text-2xl font-bold text-white" onClick={closeMenu}>ギャラリー</Link>
-                    <div className="grid grid-cols-2 gap-3 w-full px-10">
+                    <Link href="/gallery" className="text-2xl font-bold text-white mb-4" onClick={closeMenu}>ギャラリー</Link>
+                    <div className="grid grid-cols-2 gap-3 w-full px-6">
                         {categories.map((cat) => (
-                            <Link key={cat.id} href={`/categories/${cat.id}`} className="bg-white/5 py-3 rounded-lg text-center text-sm" onClick={closeMenu}>
-                                {cat.name} <span className="block text-[10px] text-gx-cyan opacity-60">{getCategoryCount(cat.id)} assets</span>
+                            <Link key={cat.id} href={`/categories/${cat.id}`} className="bg-white/5 p-3 rounded-lg flex flex-col items-center justify-center text-center" onClick={closeMenu}>
+                                <span className="text-sm font-bold text-white leading-tight">{cat.name}</span>
+                                <span className="text-[9px] text-slate-400 mb-1">{cat.en}</span>
+                                <span className="text-[9px] text-gx-cyan opacity-60 font-mono">{getCategoryCount(cat.id)} assets</span>
                             </Link>
                         ))}
                     </div>

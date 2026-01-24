@@ -6,12 +6,14 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
 const categoryMap: Record<string, string> = {
-    "Energy": "エネルギー / Energy",
-    "Mobility": "モビリティ / Mobility",
-    "Tech": "テクノロジー / Tech",
-    "Resource": "資源・バイオ / Resource",
-    "SmartCity": "スマートシティ / SmartCity",
-    "Eco-Life": "エコ・ライフスタイル / Eco-Life"
+    "Energy": "GX / Green Transformation (GX)",
+    "Mobility": "モビリティ / Clean Mobility",
+    "Tech": "テクノロジー / Advanced Tech",
+    "Resource": "資源・バイオ / Sustainable Resource",
+    "SmartCity": "未来都市 / Future City",
+    "Eco-Life": "エコ・ライフ / Eco Lifestyle",
+    "Space": "宇宙 / Space & Galaxy",
+    "Underwater": "水中 / Underwater City"
 };
 
 type Props = {
@@ -35,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-    const categories = ["Energy", "Mobility", "Tech", "Resource", "SmartCity", "Eco-Life"];
+    const categories = ["Energy", "Mobility", "Tech", "Resource", "SmartCity", "Eco-Life", "Space", "Underwater"];
     return categories.map((cat) => ({
         category: cat,
     }));

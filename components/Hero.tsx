@@ -54,6 +54,9 @@ export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
             <p className="text-lg md:text-xl text-slate-300 max-w-2xl mb-8 leading-relaxed">
                 商用利用・クレジット不要。<br className="hidden md:block" />
                 プロ仕様の次世代素材がプレゼンを加速させる。
+                <span className="block text-sm text-slate-400 mt-2 font-medium">
+                    Commercial Use OK / No Attribution Required
+                </span>
             </p>
 
             {/* Benefit Badges - Updated for Trust/Density */}

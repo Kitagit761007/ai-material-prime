@@ -10,9 +10,9 @@ import assets from "@/data/assets.json";
 export default function Home() {
     const [searchQuery, setSearchQuery] = useState("");
 
-    const hydrogenImages = assets.filter(item => item.category === 'hydrogen').slice(0, 3);
-    const smartCityImages = assets.filter(item => item.category === 'smartcity').slice(0, 3);
-    const infraImages = assets.filter(item => item.category === 'infrastructure').slice(0, 3);
+    const energyImages = assets.filter(item => item.category === 'Energy').slice(0, 3);
+    const smartCityImages = assets.filter(item => item.category === 'SmartCity').slice(0, 3);
+    const mobilityImages = assets.filter(item => item.category === 'Mobility').slice(0, 3);
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -20,27 +20,27 @@ export default function Home() {
             <Hero searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 
             {/* Category Sections */}
-            {hydrogenImages.length > 0 && (
+            {energyImages.length > 0 && (
                 <CategorySection
-                    title="水素エネルギー / Hydrogen"
-                    description="次世代エネルギーの主役、水素プラントや供給チェーンのビジュアル。"
-                    images={hydrogenImages}
+                    title="GX / Green Transformation (GX)"
+                    description="次世代エネルギーの主役、水素プラントや供給チェーンのビジュアル。 [Free Assets for All Creators]"
+                    images={energyImages}
                 />
             )}
 
             {smartCityImages.length > 0 && (
                 <CategorySection
-                    title="スマートシティ / Smart City"
-                    description="IOE技術と都市機能が融合した、未来の生活空間。"
+                    title="未来都市 / Future City"
+                    description="AI技術と都市機能が融合した、持続可能な生活空間。 [Commercial Use OK]"
                     images={smartCityImages}
                 />
             )}
 
-            {infraImages.length > 0 && (
+            {mobilityImages.length > 0 && (
                 <CategorySection
-                    title="次世代インフラ / Infrastructure"
-                    description="強靭でサステナブルな社会基盤のイメージ。"
-                    images={infraImages}
+                    title="モビリティ / Clean Mobility"
+                    description="排出ゼロ、自律走行。都市の移動をアップデートするビジュアル。"
+                    images={mobilityImages}
                 />
             )}
 

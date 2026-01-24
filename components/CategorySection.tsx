@@ -165,12 +165,16 @@ export default function CategorySection({ title, description, images }: Category
                                     className="flex items-center justify-center gap-2 w-full py-3.5 bg-gx-cyan text-white font-bold rounded-xl hover:bg-gx-cyan/90 transition-all shadow-lg shadow-gx-cyan/20 hover:scale-[1.02] active:scale-[0.98]"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
-                                    無料ダウンロード (PNG)
+                                    無料ダウンロード / Download
                                 </a>
-                                <p className="text-center text-[10px] font-bold text-gx-emerald mt-3 flex items-center justify-center gap-1 opacity-90">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                                    商用利用可能・ロイヤリティフリー・クレジット不要
-                                </p>
+                                <div className="text-center mt-2">
+                                    <span className="text-[10px] font-bold text-gx-cyan tracking-widest uppercase block mb-1">Free Assets for All Creators</span>
+                                    <p className="text-center text-[10px] font-bold text-gx-emerald flex items-center justify-center gap-1 opacity-90">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                                        商用利用可能・クレジット不要<br />
+                                        Commercial Use OK / No Attribution Required
+                                    </p>
+                                </div>
                             </div>
 
                             {/* SPECIFICATIONS */}

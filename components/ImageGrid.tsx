@@ -170,9 +170,10 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
                                             {selectedImage.width} x {selectedImage.height}
                                         </span>
                                         <span className="text-[10px] font-bold bg-gx-emerald/10 text-gx-emerald px-2 py-0.5 rounded border border-gx-emerald/20 flex items-center gap-1">
-                                            Royalty Free
+                                            商用利用可 / Royalty Free
                                         </span>
                                     </div>
+                                    <p className="text-[10px] text-slate-500 font-medium">Commercial Use OK / No Attribution Required</p>
                                 </div>
 
                                 {/* Tags - High Priority (Above Fold) */}
@@ -212,14 +213,20 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
 
                             {/* Sticky Footer for Actions */}
                             <div className="p-6 bg-slate-950/90 backdrop-blur-md border-t border-white/10 space-y-3 z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+                                <div className="text-center mb-2">
+                                    <span className="text-[10px] font-bold text-gx-cyan tracking-widest uppercase">Free Assets for All Creators</span>
+                                </div>
                                 <a
                                     href={selectedImage.src}
                                     download
                                     className="block w-full py-3.5 bg-gx-cyan text-white text-center font-bold text-sm rounded-xl hover:bg-gx-cyan/90 transition-all shadow-lg shadow-gx-cyan/20 flex items-center justify-center gap-2 group"
                                 >
                                     <svg className="w-4 h-4 group-hover:animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-                                    Download (Full Resolution)
+                                    無料ダウンロード / Download
                                 </a>
+                                <div className="text-center">
+                                    <p className="text-[9px] text-slate-500 italic">Commercial Use OK / No Attribution Required</p>
+                                </div>
                                 <div className="flex justify-between items-center gap-2">
                                     {getShareLinks(selectedImage).map((sns) => (
                                         <a

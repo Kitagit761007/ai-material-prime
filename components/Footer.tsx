@@ -16,12 +16,14 @@ export default function Footer() {
     };
 
     const categories = [
-        { name: "エネルギー", id: "Energy" },
-        { name: "モビリティ", id: "Mobility" },
-        { name: "テクノロジー", id: "Tech" },
-        { name: "資源・バイオ", id: "Resource" },
-        { name: "スマートシティ", id: "SmartCity" },
-        { name: "エコ・ライフスタイル", id: "Eco-Life" }
+        { name: "GX", id: "Energy", en: "Green Transformation (GX)" },
+        { name: "未来都市", id: "SmartCity", en: "Future City" },
+        { name: "モビリティ", id: "Mobility", en: "Clean Mobility" },
+        { name: "テクノロジー", id: "Tech", en: "Advanced Technology" },
+        { name: "宇宙", id: "Space", en: "Space & Galaxy" },
+        { name: "水中", id: "Underwater", en: "Underwater City" },
+        { name: "資源・バイオ", id: "Resource", en: "Sustainable Resources" },
+        { name: "エコ・ライフ", id: "Eco-Life", en: "Eco Lifestyle" }
     ];
 
     return (
@@ -33,14 +35,18 @@ export default function Footer() {
                         <Link href="/" className="text-xl font-bold font-mono tracking-tighter text-gx-cyan">
                             GX Prime Visuals
                         </Link>
-                        <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
+                        <p className="text-slate-400 text-xs leading-relaxed max-w-xs">
                             ビジネス・プレゼンテーションのための<br />
-                            高解像度AI生成アセットライブラリ。
+                            高解像度AI生成アセットライブラリ。<br />
+                            <span className="text-slate-500 block mt-2 leading-tight">
+                                All images are AI-generated and available for free commercial and personal use under a royalty-free license.
+                            </span>
                         </p>
                         <div className="flex flex-col gap-1">
                             <span className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">License</span>
-                            <span className="text-gx-emerald text-xs font-bold font-mono">
-                                #CommercialUse #RoyaltyFree
+                            <span className="text-gx-emerald text-[10px] font-bold font-mono leading-tight">
+                                #CommercialUse #RoyaltyFree<br />
+                                Commercial Use OK / No Attribution Required
                             </span>
                         </div>
                     </div>
@@ -57,7 +63,10 @@ export default function Footer() {
                                         href={`/categories/${cat.id}`}
                                         className="text-slate-400 hover:text-white transition-colors text-sm flex items-center justify-between group"
                                     >
-                                        <span>{cat.name}</span>
+                                        <div className="flex flex-col">
+                                            <span>{cat.name}</span>
+                                            <span className="text-[10px] text-slate-600 group-hover:text-slate-400 transition-colors">{cat.en}</span>
+                                        </div>
                                         <span className="text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-slate-600 group-hover:text-gx-cyan transition-colors">{getCategoryCount(cat.id)}</span>
                                     </Link>
                                 </li>
@@ -73,7 +82,7 @@ export default function Footer() {
                         <ul className="space-y-4">
                             <li>
                                 <Link href="/about" className="text-slate-400 hover:text-gx-cyan transition-colors text-sm">
-                                    当サイトについて
+                                    当サイトについて (About)
                                 </Link>
                             </li>
                             <li>
@@ -86,7 +95,7 @@ export default function Footer() {
                                     利用規約 (Terms of Service)
                                 </Link>
                                 <Link href="/privacy" className="block text-slate-500 hover:text-slate-300 transition-colors text-xs">
-                                    プライバシーポリシー
+                                    プライバシーポリシー (Privacy Policy)
                                 </Link>
                             </li>
                         </ul>
@@ -100,7 +109,8 @@ export default function Footer() {
                         <p className="text-xs text-slate-500 leading-relaxed">
                             アセットのリクエストや、<br />
                             エンタープライズ利用に関するご相談は<br />
-                            フォームよりご連絡ください。
+                            フォームよりご連絡ください。<br />
+                            <span className="text-[10px] text-slate-400 block mt-1">Free Assets for All Creators</span>
                         </p>
                         <Link
                             href="/contact"
@@ -113,7 +123,7 @@ export default function Footer() {
 
                 <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 space-y-4 md:space-y-0 text-slate-500">
                     <p className="text-[10px] font-mono uppercase">
-                        © {currentYear} GX Prime Visuals. All rights reserved.
+                        © {currentYear} GX Prime Visuals. All images are AI-generated and available for free commercial and personal use.
                     </p>
                     <div className="flex gap-4 text-[10px] font-mono uppercase tracking-wider">
                         <span>Built for Future</span>
