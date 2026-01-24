@@ -71,13 +71,15 @@ export default function ContactPage() {
                     <p className="text-slate-400 max-w-xl mx-auto">
                         商用利用のご相談、特注制作の依頼、その他ご不明な点など、お気軽にお問い合わせください。
                     </p>
-                    <div className="mt-4 flex items-center justify-center gap-2 text-gx-cyan bg-gx-cyan/10 px-4 py-2 rounded-full w-fit mx-auto border border-gx-cyan/20 animate-pulse">
-                        <span className="text-[10px] font-bold uppercase tracking-widest">[Note]</span>
-                        <span className="text-xs font-medium">Inquiries can be sent in Japanese or English.</span>
-                    </div>
                 </div>
 
                 <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
+                    <div className="mb-8 pb-6 border-b border-white/10">
+                        <p className="text-sm text-slate-300 flex items-start gap-3 leading-relaxed">
+                            <span className="shrink-0 text-gx-cyan font-bold font-mono tracking-widest text-[10px] mt-1 bg-gx-cyan/10 px-2 py-0.5 rounded border border-gx-cyan/20">[Inquiries]</span>
+                            <span>Please feel free to send your inquiries in English or Japanese.<br className="hidden md:block" /><span className="text-slate-500">（日本語または英語でお気軽にお問い合わせください）</span></span>
+                        </p>
+                    </div>
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
