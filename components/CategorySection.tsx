@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Heart } from "lucide-react";
@@ -33,11 +33,26 @@ export default function CategorySection({ title, description, images }: Category
     const [isZoomed, setIsZoomed] = useState(false);
     const router = useRouter();
     const { isFavorite, toggleFavorite } = useFavorites();
+    const lastTapRef = useRef<number>(0);
 
     const handleTagClick = (tag: string) => {
         const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
         router.push(`/tags/${encodeURIComponent(cleanTag)}`);
         setSelectedImage(null);
+    };
+
+    const handleModalImageClick = (e: React.MouseEvent) => {
+        const now = Date.now();
+        const DOUBLE_TAP_DELAY = 300;
+
+        if (now - lastTapRef.current < DOUBLE_TAP_DELAY) {
+            if (selectedImage) {
+                toggleFavorite(selectedImage.id);
+            }
+        } else {
+            setIsZoomed(!isZoomed);
+        }
+        lastTapRef.current = now;
     };
 
     return (
@@ -70,12 +85,15 @@ export default function CategorySection({ title, description, images }: Category
 
                         {/* Image Area */}
                         <div className="relative flex-1 bg-black/40 flex items-center justify-center overflow-hidden">
-                            <div className={`relative w-full h-full p-4 transition-transform duration-300 ${isZoomed ? "scale-150 cursor-zoom-out" : "scale-100 cursor-zoom-in"}`} onClick={() => setIsZoomed(!isZoomed)}>
+                            <div
+                                className={`relative w-full h-full p-4 transition-transform duration-300 ${isZoomed ? "scale-150 cursor-zoom-out" : "scale-100 cursor-zoom-in"}`}
+                                onClick={handleModalImageClick}
+                            >
                                 <Image
                                     src={modalImgSrc || getDisplaySrc(selectedImage.src)}
                                     alt={selectedImage.title}
                                     fill
-                                    className="object-contain"
+                                    className="object-contain pointer-events-none select-none"
                                     onError={() => setModalImgSrc(selectedImage.src)}
                                 />
                             </div>
@@ -83,7 +101,7 @@ export default function CategorySection({ title, description, images }: Category
                             {/* Floating Heart Button in Modal */}
                             <button
                                 onClick={(e) => { e.stopPropagation(); toggleFavorite(selectedImage.id); }}
-                                className={`absolute bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all shadow-2xl z-30 active:scale-90 bg-black/40 backdrop-blur-xl ${isFavorite(selectedImage.id) ? "bg-rose-500 border-rose-500 text-white" : "border-white/30 text-white"
+                                className={`absolute bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all shadow-2xl z-30 active:scale-90 bg-black/40 backdrop-blur-xl ${isFavorite(selectedImage.id) ? "bg-rose-500 border-rose-500 text-white animate-heart-pop" : "border-white/30 text-white"
                                     }`}
                             >
                                 <Heart className={`w-7 h-7 ${isFavorite(selectedImage.id) ? "fill-white" : ""}`} />
@@ -122,7 +140,7 @@ export default function CategorySection({ title, description, images }: Category
                             </div>
 
                             <div className="p-6 bg-slate-950 border-t border-white/10">
-                                <a href={selectedImage.src} download className="flex items-center justify-center gap-3 w-full py-4 bg-white text-black font-extrabold rounded-2xl hover:bg-gx-cyan hover:text-white transition-all shadow-xl active:scale-95">
+                                <a href={selectedImage.src} download onClick={e => e.stopPropagation()} className="flex items-center justify-center gap-3 w-full py-4 bg-white text-black font-extrabold rounded-2xl hover:bg-gx-cyan hover:text-white transition-all shadow-xl active:scale-95">
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                                     DOWNLOAD HD
                                 </a>
@@ -167,7 +185,7 @@ function CatCard({ img, isFavorite, onToggleFavorite, onClick }: {
             {/* Favorite Button on Card Grid */}
             <button
                 onClick={(e) => { e.stopPropagation(); onToggleFavorite(); }}
-                className={`absolute bottom-3 right-3 w-9 h-9 rounded-full flex items-center justify-center border transition-all z-10 ${isFavorite ? "bg-rose-500 border-rose-500 text-white" : "bg-black/40 border-white/20 text-white backdrop-blur-md opacity-0 group-hover:opacity-100"
+                className={`absolute bottom-3 right-3 w-9 h-9 rounded-full flex items-center justify-center border transition-all z-10 ${isFavorite ? "bg-rose-500 border-rose-500 text-white animate-heart-pop" : "bg-black/40 border-white/20 text-white backdrop-blur-md opacity-0 group-hover:opacity-100"
                     }`}
             >
                 <Heart className={`w-5 h-5 ${isFavorite ? "fill-white" : ""}`} />

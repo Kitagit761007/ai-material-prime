@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Heart } from "lucide-react";
@@ -21,6 +21,7 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
     const [isZoomed, setIsZoomed] = useState(false);
     const router = useRouter();
     const { isFavorite, toggleFavorite } = useFavorites();
+    const lastTapRef = useRef<number>(0);
 
     // 検索・フィルタリングロジック
     const baseItems = initialItems || assets;
@@ -68,27 +69,25 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
         if (selectedImage) setSelectedImage(null);
     };
 
-    const getAspectRatio = (w: number, h: number) => {
-        const ratio = w / h;
-        if (Math.abs(ratio - 16 / 9) < 0.1) return "16:9";
-        if (Math.abs(ratio - 9 / 16) < 0.1) return "9:16";
-        if (Math.abs(ratio - 4 / 3) < 0.1) return "4:3";
-        if (Math.abs(ratio - 3 / 4) < 0.1) return "3:4";
-        if (Math.abs(ratio - 1) < 0.1) return "1:1";
-        return "Free";
+    const handleModalImageClick = (e: React.MouseEvent) => {
+        const now = Date.now();
+        const DOUBLE_TAP_DELAY = 300;
+
+        if (now - lastTapRef.current < DOUBLE_TAP_DELAY) {
+            // Double Tap Detected
+            if (selectedImage) {
+                toggleFavorite(selectedImage.id);
+            }
+        } else {
+            // Single Click -> Toggle Zoom
+            setIsZoomed(!isZoomed);
+        }
+        lastTapRef.current = now;
     };
 
-    const getShareLinks = (img: typeof assets[0]) => {
-        const url = typeof window !== 'undefined' ? window.location.href : '';
-        const text = `${img.title} - GX Prime Visuals`;
-        return [
-            {
-                name: "X",
-                icon: <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>,
-                href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
-                hoverClass: "hover:bg-black hover:text-white"
-            }
-        ];
+    // Shared Download logic
+    const handleDownload = (e: React.MouseEvent | React.TouchEvent, src: string) => {
+        e.stopPropagation();
     };
 
     return (
@@ -130,12 +129,15 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
 
                         {/* Image Section */}
                         <div className="relative flex-1 bg-black/40 flex items-center justify-center overflow-hidden">
-                            <div className={`relative w-full h-full p-4 transition-transform duration-300 ${isZoomed ? "scale-150 cursor-zoom-out" : "scale-100 cursor-zoom-in"}`} onClick={() => setIsZoomed(!isZoomed)}>
+                            <div
+                                className={`relative w-full h-full p-4 transition-transform duration-300 ${isZoomed ? "scale-150 cursor-zoom-out" : "scale-100 cursor-zoom-in"}`}
+                                onClick={handleModalImageClick}
+                            >
                                 <Image
                                     src={modalImgSrc || getDisplaySrc(selectedImage.src)}
                                     alt={selectedImage.title}
                                     fill
-                                    className="object-contain"
+                                    className="object-contain pointer-events-none select-none"
                                     onLoad={() => { }}
                                     onError={() => setModalImgSrc(selectedImage.src)}
                                 />
@@ -143,7 +145,8 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
 
                             {/* Navigation */}
                             <div className="absolute top-1/2 -translate-y-1/2 left-4 z-20">
-                                <button onClick={() => {
+                                <button onClick={(e) => {
+                                    e.stopPropagation();
                                     const idx = filteredItems.findIndex(i => i.id === selectedImage.id);
                                     setSelectedImage(filteredItems[(idx - 1 + filteredItems.length) % filteredItems.length]);
                                     setModalImgSrc("");
@@ -152,7 +155,8 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                                 </button>
                             </div>
                             <div className="absolute top-1/2 -translate-y-1/2 right-4 z-20">
-                                <button onClick={() => {
+                                <button onClick={(e) => {
+                                    e.stopPropagation();
                                     const idx = filteredItems.findIndex(i => i.id === selectedImage.id);
                                     setSelectedImage(filteredItems[(idx + 1) % filteredItems.length]);
                                     setModalImgSrc("");
@@ -164,7 +168,7 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                             {/* Floating Heart Button in Modal */}
                             <button
                                 onClick={(e) => { e.stopPropagation(); toggleFavorite(selectedImage.id); }}
-                                className={`absolute bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all shadow-2xl z-30 active:scale-90 bg-black/40 backdrop-blur-xl ${isFavorite(selectedImage.id) ? "bg-rose-500 border-rose-500 text-white" : "border-white/30 text-white"
+                                className={`absolute bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all shadow-2xl z-30 active:scale-90 bg-black/40 backdrop-blur-xl ${isFavorite(selectedImage.id) ? "bg-rose-500 border-rose-500 text-white animate-heart-pop" : "border-white/30 text-white"
                                     }`}
                             >
                                 <Heart className={`w-7 h-7 ${isFavorite(selectedImage.id) ? "fill-white" : ""}`} />
@@ -203,7 +207,7 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                             </div>
 
                             <div className="p-6 bg-slate-950 border-t border-white/10">
-                                <a href={selectedImage.src} download className="flex items-center justify-center gap-3 w-full py-4 bg-white text-black font-extrabold rounded-2xl hover:bg-gx-cyan hover:text-white transition-all shadow-xl active:scale-95">
+                                <a href={selectedImage.src} download onClick={e => e.stopPropagation()} className="flex items-center justify-center gap-3 w-full py-4 bg-white text-black font-extrabold rounded-2xl hover:bg-gx-cyan hover:text-white transition-all shadow-xl active:scale-95">
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                                     DOWNLOAD HD
                                 </a>
@@ -250,7 +254,7 @@ function ImageCard({ img, isFavorite, onToggleFavorite, onTagClick, onClick }: {
             {/* Favorite Button on Card Grid */}
             <button
                 onClick={(e) => { e.stopPropagation(); onToggleFavorite(); }}
-                className={`absolute bottom-3 right-3 w-9 h-9 rounded-full flex items-center justify-center border transition-all z-10 ${isFavorite ? "bg-rose-500 border-rose-500 text-white" : "bg-black/40 border-white/20 text-white backdrop-blur-md opacity-0 group-hover:opacity-100"
+                className={`absolute bottom-3 right-3 w-9 h-9 rounded-full flex items-center justify-center border transition-all z-10 ${isFavorite ? "bg-rose-500 border-rose-500 text-white animate-heart-pop" : "bg-black/40 border-white/20 text-white backdrop-blur-md opacity-0 group-hover:opacity-100"
                     }`}
             >
                 <Heart className={`w-5 h-5 ${isFavorite ? "fill-white" : ""}`} />
