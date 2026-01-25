@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, Heart } from "lucide-react";
 import assetsDataRaw from "../data/assets.json";
 
 export default function Header() {
@@ -72,6 +72,10 @@ export default function Header() {
                         </div>
                     </div>
                     <Link href="/tags" className="text-sm font-medium hover:text-gx-cyan transition-colors">タグ一覧</Link>
+                    <Link href="/favorites" className="text-sm font-medium hover:text-gx-cyan transition-colors flex items-center gap-1.5">
+                        <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />
+                        保存済み
+                    </Link>
                     <Link href="/contact" className="text-sm font-medium hover:text-gx-cyan transition-colors">お問い合わせ</Link>
                 </nav>
                 <button className={`md:hidden p-2 text-white transition-all ${isMenuOpen ? "z-[101]" : "z-50"}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}</button>
