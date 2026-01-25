@@ -257,12 +257,13 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
 
 function ImageCard({ img, onTagClick, onClick }: { img: typeof assets[0], onTagClick: (tag: string) => void, onClick: () => void }) {
     const [loaded, setLoaded] = useState(false);
+    const [imgSrc, setImgSrc] = useState(getDisplaySrc(img.src));
 
     return (
         <div className="relative group rounded-2xl overflow-hidden break-inside-avoid shadow-2xl bg-slate-900/50 border border-white/5 cursor-zoom-in" onClick={onClick}>
             <div className={`absolute inset-0 bg-slate-800 animate-pulse transition-opacity duration-500 ${loaded ? "opacity-0 pointer-events-none" : "opacity-100"}`} />
             <Image
-                src={getDisplaySrc(img.src)}
+                src={imgSrc}
                 alt={img.title}
                 width={600}
                 height={800}
@@ -270,6 +271,7 @@ function ImageCard({ img, onTagClick, onClick }: { img: typeof assets[0], onTagC
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className={`w-full h-auto object-cover transition-all duration-700 ease-in-out ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"} group-hover:scale-105`}
                 onLoad={() => setLoaded(true)}
+                onError={() => setImgSrc(img.src)}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                 <h3 className="text-white font-bold text-lg">{img.title}</h3>

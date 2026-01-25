@@ -17,7 +17,8 @@ export function getDisplaySrc(src: string): string {
     }
 
     // For local images, we've pre-converted them to WebP
-    if (normalized.includes('/images/')) {
+    // EXCEPTION: Specific images like gx_mobility_0x don't have WebP versions yet
+    if (normalized.includes('/images/') && !normalized.includes('gx_')) {
         // Remove version query if exists for extension replacement
         const baseSrc = normalized.split('?')[0];
         const ext = baseSrc.split('.').pop();

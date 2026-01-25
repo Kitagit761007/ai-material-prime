@@ -74,30 +74,34 @@ export default function CategorySection({ title, description, images }: Category
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {images.map((img) => (
-                    <div
-                        key={img.id}
-                        className="group relative rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 cursor-zoom-in"
-                        onClick={() => setSelectedImage(img)}
-                    >
-                        <div className="aspect-[4/5] relative">
-                            <Image
-                                src={getDisplaySrc(img.src)}
-                                alt={img.title}
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-                        </div>
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-6">
-                            <h3 className="text-white font-bold text-lg mb-1">{img.title}</h3>
-                            <div className="flex items-center gap-2">
-                                <span className="px-2 py-1 bg-gx-cyan/20 text-gx-cyan text-xs font-bold rounded">
-                                    Score: {img.score}
-                                </span>
+                {images.map((img) => {
+                    const [currentSrc, setCurrentSrc] = useState(getDisplaySrc(img.src));
+                    return (
+                        <div
+                            key={img.id}
+                            className="group relative rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 cursor-zoom-in"
+                            onClick={() => setSelectedImage(img)}
+                        >
+                            <div className="aspect-[4/5] relative">
+                                <Image
+                                    src={currentSrc}
+                                    alt={img.title}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                    onError={() => setCurrentSrc(img.src)}
+                                />
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-6">
+                                <h3 className="text-white font-bold text-lg mb-1">{img.title}</h3>
+                                <div className="flex items-center gap-2">
+                                    <span className="px-2 py-1 bg-gx-cyan/20 text-gx-cyan text-xs font-bold rounded">
+                                        Score: {img.score}
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
 
             {/* Lightbox Modal (Mirrored from ImageGrid for consistency) */}
