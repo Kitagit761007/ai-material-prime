@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import { Heart, Download, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { getDisplaySrc } from "../lib/imageUtils";
@@ -20,6 +20,7 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
     const [displayCount, setDisplayCount] = useState(20);
     const [isZoomed, setIsZoomed] = useState(false);
     const router = useRouter();
+    const pathname = usePathname();
     const { isFavorite, toggleFavorite } = useFavorites();
     const lastTapRef = useRef<number>(0);
 
@@ -46,15 +47,64 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
         setIsZoomed(false);
     }, [selectedImage]);
 
+    // --- Modal Management (Back Gesture & Scroll Lock) ---
+
+    // Close modal reliably
+    const closeModal = useCallback(() => {
+        if (selectedImage) {
+            setSelectedImage(null);
+            setModalImgSrc("");
+            setIsZoomed(false);
+            // If the hash was added by us, we might want to clean history but 
+            // the popstate listener handles the state change.
+        }
+    }, [selectedImage]);
+
+    // Handle Browser Back Button / Gesture
+    useEffect(() => {
+        if (!selectedImage) return;
+
+        // Push a state to history so "Back" closes the modal instead of navigating away
+        // We use a small hash or just state.
+        const currentPath = window.location.href;
+        window.history.pushState({ modalOpen: true }, "");
+
+        const handlePopState = () => {
+            // This triggers when user hits "Back"
+            setSelectedImage(null);
+            setModalImgSrc("");
+            setIsZoomed(false);
+        };
+
+        window.addEventListener("popstate", handlePopState);
+
+        // Prevent background scrolling
+        document.body.style.overflow = "hidden";
+
+        return () => {
+            window.removeEventListener("popstate", handlePopState);
+            document.body.style.overflow = "";
+        };
+    }, [selectedImage]);
+
+    // Close logic for UI buttons (X, Backdrop)
+    const handleManualClose = () => {
+        if (window.history.state?.modalOpen) {
+            window.history.back(); // This will trigger popstate and close the modal
+        } else {
+            closeModal();
+        }
+    };
+
     // Infinite Scroll
     const handleScroll = useCallback(() => {
-        if (typeof window === "undefined") return;
+        if (typeof window === "undefined" || selectedImage) return; // Don't trigger while modal open
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 800) {
             if (displayCount < filteredItems.length) {
                 setDisplayCount(prev => Math.min(prev + 20, filteredItems.length));
             }
         }
-    }, [displayCount, filteredItems.length]);
+    }, [displayCount, filteredItems.length, selectedImage]);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -64,7 +114,7 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
     const handleInternalTagClick = (tag: string) => {
         const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
         router.push(`/tags/${encodeURIComponent(cleanTag)}`);
-        if (selectedImage) setSelectedImage(null);
+        if (selectedImage) handleManualClose();
     };
 
     const handleModalImageClick = (e: React.MouseEvent) => {
@@ -96,7 +146,7 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
             {selectedImage && (
                 <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 backdrop-blur-xl duration-300 animate-in fade-in">
                     {/* Backdrop */}
-                    <div className="absolute inset-0 z-0 bg-transparent" onClick={() => { setSelectedImage(null); setModalImgSrc(""); setIsZoomed(false); }} />
+                    <div className="absolute inset-0 z-0 bg-transparent" onClick={handleManualClose} />
 
                     <div className="relative z-10 w-full h-[100dvh] md:h-[90vh] max-w-[100vw] md:max-w-[95vw] flex flex-col md:flex-row bg-slate-950 md:rounded-3xl overflow-hidden shadow-2xl border-white/10 md:border" onClick={e => e.stopPropagation()}>
 
@@ -126,7 +176,7 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                             </button>
 
                             {/* Mobile Close Icon */}
-                            <button onClick={() => setSelectedImage(null)} className="md:hidden absolute top-4 left-4 p-2 bg-black/40 rounded-full text-white backdrop-blur-md z-30">
+                            <button onClick={handleManualClose} className="md:hidden absolute top-4 left-4 p-2 bg-black/40 rounded-full text-white backdrop-blur-md z-30">
                                 <X className="w-6 h-6" />
                             </button>
 
@@ -158,7 +208,7 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                                     href={selectedImage.src}
                                     download
                                     onClick={e => e.stopPropagation()}
-                                    className="flex items-center justify-center gap-3 w-full py-5 bg-white text-slate-950 font-black rounded-2xl hover:bg-gx-cyan hover:text-white transition-all shadow-xl active:scale-95 group"
+                                    className="flex items-center justify-center gap-3 w-full py-5 bg-white text-slate-950 font-black rounded-2xl hover:bg-gy-cyan hover:text-white transition-all shadow-xl active:scale-95 group"
                                 >
                                     <Download className="w-6 h-6 group-hover:animate-bounce" />
                                     FREE DOWNLOAD HD
@@ -217,7 +267,7 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                         </div>
 
                         {/* Large Desktop Close */}
-                        <button onClick={() => setSelectedImage(null)} className="hidden md:flex absolute top-8 right-8 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full z-[100] backdrop-blur-md border border-white/10 transition-all active:scale-95 shadow-2xl">
+                        <button onClick={handleManualClose} className="hidden md:flex absolute top-8 right-8 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full z-[100] backdrop-blur-md border border-white/10 transition-all active:scale-95 shadow-2xl">
                             <X className="w-8 h-8" />
                         </button>
                     </div>

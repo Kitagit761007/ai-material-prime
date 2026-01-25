@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Heart, Download, X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -38,7 +38,7 @@ export default function CategorySection({ title, description, images }: Category
     const handleTagClick = (tag: string) => {
         const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
         router.push(`/tags/${encodeURIComponent(cleanTag)}`);
-        setSelectedImage(null);
+        handleManualClose();
     };
 
     const handleModalImageClick = (e: React.MouseEvent) => {
@@ -49,6 +49,42 @@ export default function CategorySection({ title, description, images }: Category
             setIsZoomed(!isZoomed);
         }
         lastTapRef.current = now;
+    };
+
+    // --- Modal Management (Back Gesture & Scroll Lock) ---
+
+    const closeModal = useCallback(() => {
+        setSelectedImage(null);
+        setModalImgSrc("");
+        setIsZoomed(false);
+    }, []);
+
+    useEffect(() => {
+        if (!selectedImage) return;
+
+        window.history.pushState({ modalOpen: true }, "");
+
+        const handlePopState = () => {
+            setSelectedImage(null);
+            setModalImgSrc("");
+            setIsZoomed(false);
+        };
+
+        window.addEventListener("popstate", handlePopState);
+        document.body.style.overflow = "hidden";
+
+        return () => {
+            window.removeEventListener("popstate", handlePopState);
+            document.body.style.overflow = "";
+        };
+    }, [selectedImage]);
+
+    const handleManualClose = () => {
+        if (window.history.state?.modalOpen) {
+            window.history.back();
+        } else {
+            closeModal();
+        }
     };
 
     return (
@@ -79,12 +115,12 @@ export default function CategorySection({ title, description, images }: Category
             {/* Pro Modal */}
             {selectedImage && (
                 <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 backdrop-blur-xl duration-300 animate-in fade-in">
-                    <div className="absolute inset-0 z-0 bg-transparent" onClick={() => { setSelectedImage(null); setModalImgSrc(""); setIsZoomed(false); }} />
+                    <div className="absolute inset-0 z-0 bg-transparent" onClick={handleManualClose} />
 
                     <div className="relative z-10 w-full h-[100dvh] md:h-[90vh] max-w-[100vw] md:max-w-[95vw] flex flex-col md:flex-row bg-slate-950 md:rounded-3xl overflow-hidden shadow-2xl border-white/10 md:border" onClick={e => e.stopPropagation()}>
 
                         {/* Image Area */}
-                        <div className="relative flex-1 bg-black/40 flex items-center justify-center overflow-hidden min-h-[40vh] md:min-h-0">
+                        <div className="relative flex-1 bg-black/40 flex items-center justify-center min-h-[40vh] md:min-h-0 overflow-hidden">
                             <div
                                 className={`relative w-full h-full p-4 transition-transform duration-500 ease-out will-change-transform ${isZoomed ? "scale-150 cursor-zoom-out" : "scale-100 cursor-zoom-in"}`}
                                 onClick={handleModalImageClick}
@@ -107,7 +143,7 @@ export default function CategorySection({ title, description, images }: Category
                                 <Heart className={`w-7 h-7 ${isFavorite(selectedImage.id) ? "fill-white" : ""}`} />
                             </button>
 
-                            <button onClick={() => setSelectedImage(null)} className="md:hidden absolute top-4 left-4 p-2 bg-black/40 rounded-full text-white backdrop-blur-md z-30">
+                            <button onClick={handleManualClose} className="md:hidden absolute top-4 left-4 p-2 bg-black/40 rounded-full text-white backdrop-blur-md z-30">
                                 <X className="w-6 h-6" />
                             </button>
                         </div>
@@ -166,7 +202,7 @@ export default function CategorySection({ title, description, images }: Category
                         </div>
 
                         {/* Desktop Close */}
-                        <button onClick={() => setSelectedImage(null)} className="hidden md:flex absolute top-8 right-8 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full z-100 backdrop-blur-md border border-white/10 transition-all">
+                        <button onClick={handleManualClose} className="hidden md:flex absolute top-8 right-8 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full z-100 backdrop-blur-md border border-white/10 transition-all">
                             <X className="w-8 h-8" />
                         </button>
                     </div>
