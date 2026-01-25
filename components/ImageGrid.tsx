@@ -230,7 +230,7 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                         <div className="w-full md:w-[420px] flex flex-col bg-slate-900 overflow-hidden h-[60vh] md:h-full border-t md:border-t-0 md:border-l border-white/10">
 
                             {/* TOP ACTION BAR - STICKY */}
-                            <div className="p-6 bg-slate-950/80 backdrop-blur-md border-b border-white/10 shrink-0 z-10">
+                            <div className="p-6 md:pt-14 bg-slate-950/80 backdrop-blur-md border-b border-white/10 shrink-0 z-10 relative">
                                 <button
                                     onClick={handleDownload}
                                     className="flex items-center justify-center gap-3 w-full py-5 bg-white text-slate-950 font-black rounded-2xl hover:bg-gx-cyan hover:text-white transition-all shadow-xl active:scale-95 group"
@@ -292,8 +292,8 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                         </div>
 
                         {/* Large Desktop Close */}
-                        <button onClick={handleManualClose} className="hidden md:flex absolute top-8 right-8 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full z-[100] backdrop-blur-md border border-white/10 transition-all active:scale-95 shadow-2xl">
-                            <X className="w-8 h-8" />
+                        <button onClick={handleManualClose} className="hidden md:flex absolute top-4 right-4 p-2.5 bg-white/10 hover:bg-rose-500 text-white rounded-full z-[100] backdrop-blur-md border border-white/10 transition-all active:scale-95 shadow-xl group">
+                            <X className="w-6 h-6 group-hover:rotate-90 transition-transform" />
                         </button>
                     </div>
                 </div>
@@ -335,8 +335,8 @@ function ImageCard({ img, isFavorite, onToggleFavorite, onTagClick, onClick }: {
                     onToggleFavorite();
                 }}
                 className={`absolute bottom-[10px] right-[10px] w-10 h-10 rounded-full flex items-center justify-center transition-all z-10 backdrop-blur-sm ${isFavorite
-                        ? "bg-rose-500 text-white shadow-lg shadow-rose-500/40 animate-heart-pop"
-                        : "bg-black/40 border-2 border-white/30 text-white group-hover:border-white hover:bg-white hover:text-black"
+                    ? "bg-rose-500 text-white shadow-lg shadow-rose-500/40 animate-heart-pop"
+                    : "bg-black/40 border-2 border-white/30 text-white group-hover:border-white hover:bg-white hover:text-black"
                     }`}
                 aria-label="お気に入り"
             >
