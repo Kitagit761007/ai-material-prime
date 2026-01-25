@@ -8,6 +8,8 @@ import MobileNav from '@/components/MobileNav'
 import PwaHandler from '@/components/PwaHandler'
 import InstallBanner from '@/components/InstallBanner'
 
+import { FavoritesProvider } from '@/context/FavoritesContext'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -74,24 +76,26 @@ export default function RootLayout({
                 <link rel="manifest" href="/manifest.json" />
             </head>
             <body className={inter.className}>
-                {process.env.NEXT_PUBLIC_GTM_ID && (
-                    <noscript>
-                        <iframe
-                            src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
-                            height="0"
-                            width="0"
-                            style={{ display: 'none', visibility: 'hidden' }}
-                        />
-                    </noscript>
-                )}
-                <PwaHandler />
-                <Header />
-                <main className="min-h-screen pt-20">
-                    {children}
-                </main>
-                <InstallBanner />
-                <Footer />
-                <MobileNav />
+                <FavoritesProvider>
+                    {process.env.NEXT_PUBLIC_GTM_ID && (
+                        <noscript>
+                            <iframe
+                                src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
+                                height="0"
+                                width="0"
+                                style={{ display: 'none', visibility: 'hidden' }}
+                            />
+                        </noscript>
+                    )}
+                    <PwaHandler />
+                    <Header />
+                    <main className="min-h-screen pt-20">
+                        {children}
+                    </main>
+                    <InstallBanner />
+                    <Footer />
+                    <MobileNav />
+                </FavoritesProvider>
             </body>
         </html >
     )

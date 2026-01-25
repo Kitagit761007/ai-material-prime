@@ -3,9 +3,9 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Heart, Download } from "lucide-react";
+import { Heart, Download, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { getDisplaySrc } from "../lib/imageUtils";
-import { useFavorites } from "../hooks/useFavorites";
+import { useFavorites } from "@/context/FavoritesContext";
 
 interface CategoryImage {
     id: string;
@@ -54,10 +54,14 @@ export default function CategorySection({ title, description, images }: Category
     return (
         <section className="py-20 px-6 max-w-7xl mx-auto border-t border-white/10">
             <div className="mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400 mb-4">
+                <div className="flex items-center gap-3 mb-4">
+                    <span className="h-1 w-10 bg-gx-cyan rounded-full" />
+                    <span className="text-xs font-black text-gx-cyan uppercase tracking-[0.3em]">Collection</span>
+                </div>
+                <h2 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400 mb-6 tracking-tight">
                     {title}
                 </h2>
-                <p className="text-slate-400 max-w-2xl">{description}</p>
+                <p className="text-slate-400 max-w-2xl leading-relaxed">{description}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -72,23 +76,24 @@ export default function CategorySection({ title, description, images }: Category
                 ))}
             </div>
 
-            {/* Modal */}
+            {/* Pro Modal */}
             {selectedImage && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-xl transition-all duration-300">
+                <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 backdrop-blur-xl duration-300 animate-in fade-in">
                     <div className="absolute inset-0 z-0 bg-transparent" onClick={() => { setSelectedImage(null); setModalImgSrc(""); setIsZoomed(false); }} />
 
-                    <div className="relative z-10 w-full h-[100dvh] md:h-[90vh] max-w-[100vw] md:max-w-[95vw] flex flex-col md:flex-row bg-slate-950 md:rounded-3xl overflow-hidden shadow-2xl border-white/5 md:border" onClick={e => e.stopPropagation()}>
+                    <div className="relative z-10 w-full h-[100dvh] md:h-[90vh] max-w-[100vw] md:max-w-[95vw] flex flex-col md:flex-row bg-slate-950 md:rounded-3xl overflow-hidden shadow-2xl border-white/10 md:border" onClick={e => e.stopPropagation()}>
 
                         {/* Image Area */}
                         <div className="relative flex-1 bg-black/40 flex items-center justify-center overflow-hidden min-h-[40vh] md:min-h-0">
                             <div
-                                className={`relative w-full h-full p-4 transition-transform duration-300 ${isZoomed ? "scale-150 cursor-zoom-out" : "scale-100 cursor-zoom-in"}`}
+                                className={`relative w-full h-full p-4 transition-transform duration-500 ease-out will-change-transform ${isZoomed ? "scale-150 cursor-zoom-out" : "scale-100 cursor-zoom-in"}`}
                                 onClick={handleModalImageClick}
                             >
                                 <Image
                                     src={modalImgSrc || getDisplaySrc(selectedImage.src)}
                                     alt={selectedImage.title}
                                     fill
+                                    priority
                                     className="object-contain pointer-events-none select-none"
                                     onError={() => setModalImgSrc(selectedImage.src)}
                                 />
@@ -101,13 +106,17 @@ export default function CategorySection({ title, description, images }: Category
                             >
                                 <Heart className={`w-7 h-7 ${isFavorite(selectedImage.id) ? "fill-white" : ""}`} />
                             </button>
+
+                            <button onClick={() => setSelectedImage(null)} className="md:hidden absolute top-4 left-4 p-2 bg-black/40 rounded-full text-white backdrop-blur-md z-30">
+                                <X className="w-6 h-6" />
+                            </button>
                         </div>
 
                         {/* Side Panel */}
-                        <div className="w-full md:w-[400px] flex flex-col bg-slate-900/90 border-t md:border-t-0 md:border-l border-white/10 overflow-hidden h-[60vh] md:h-full">
+                        <div className="w-full md:w-[420px] flex flex-col bg-slate-900 overflow-hidden h-[60vh] md:h-full border-t md:border-t-0 md:border-l border-white/10">
 
-                            {/* Primary Action Zone */}
-                            <div className="p-6 bg-slate-950/50 border-b border-white/10">
+                            {/* Sticky Top Action */}
+                            <div className="p-6 bg-slate-950/80 backdrop-blur-md border-b border-white/10 shrink-0 z-10">
                                 <a
                                     href={selectedImage.src}
                                     download
@@ -117,32 +126,38 @@ export default function CategorySection({ title, description, images }: Category
                                     <Download className="w-6 h-6 group-hover:animate-bounce" />
                                     FREE DOWNLOAD HD
                                 </a>
+                                <p className="text-[10px] text-slate-500 italic mt-3 text-center">Standard License: Commercial OK</p>
                             </div>
 
-                            {/* Info Area (Scrollable) */}
-                            <div className="flex-1 overflow-y-auto p-6 md:p-8 space-y-8 scrollbar-thin scrollbar-thumb-white/10">
-                                <div className="flex justify-between items-start">
-                                    <h2 className="text-2xl font-bold text-white leading-tight tracking-tight">{selectedImage.title}</h2>
-                                    <button onClick={() => setSelectedImage(null)} className="p-2 bg-white/10 rounded-full text-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
-                                    </button>
+                            {/* Scrollable Info */}
+                            <div className="flex-1 overflow-y-auto p-6 md:p-8 space-y-10 scrollbar-thin scrollbar-thumb-white/10 overscroll-contain">
+                                <div>
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <span className="h-0.5 w-6 bg-gx-cyan rounded-full" />
+                                        <span className="text-[10px] font-black text-gx-cyan uppercase tracking-widest">Metadata</span>
+                                    </div>
+                                    <h2 className="text-2xl font-bold text-white leading-tight tracking-tight mb-4">{selectedImage.title}</h2>
+                                    <p className="text-slate-400 text-sm leading-relaxed">{selectedImage.description}</p>
                                 </div>
-                                <p className="text-slate-400 text-sm leading-relaxed">{selectedImage.description}</p>
 
                                 <div className="grid grid-cols-2 gap-4">
-                                    <div className="bg-white/5 p-4 rounded-xl border border-white/5">
+                                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
                                         <span className="block text-[10px] text-slate-500 uppercase font-black mb-1">Resolution</span>
                                         <span className="text-white text-sm font-mono font-bold">{selectedImage.width} × {selectedImage.height}</span>
                                     </div>
-                                    <div className="bg-white/5 p-4 rounded-xl border border-white/5">
+                                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
                                         <span className="block text-[10px] text-slate-500 uppercase font-black mb-1">Category</span>
-                                        <span className="text-gx-cyan text-sm font-black uppercase">{selectedImage.category}</span>
+                                        <span className="text-gx-cyan text-sm font-black uppercase tracking-tighter">{selectedImage.category}</span>
                                     </div>
                                 </div>
 
-                                <div className="flex flex-wrap gap-2">
+                                <div className="flex flex-wrap gap-2.5">
                                     {selectedImage.tags.map(tag => (
-                                        <button key={tag} onClick={() => handleTagClick(tag)} className="px-4 py-2 bg-white/5 hover:bg-gx-cyan text-slate-300 hover:text-black rounded-full text-xs font-bold transition-all border border-white/10">
+                                        <button
+                                            key={tag}
+                                            onClick={() => handleTagClick(tag)}
+                                            className="px-4 py-2 bg-white/5 hover:bg-gx-cyan border border-white/10 hover:border-transparent text-slate-300 hover:text-slate-950 rounded-full text-xs font-bold transition-all"
+                                        >
                                             {tag}
                                         </button>
                                     ))}
@@ -151,8 +166,8 @@ export default function CategorySection({ title, description, images }: Category
                         </div>
 
                         {/* Desktop Close */}
-                        <button onClick={() => setSelectedImage(null)} className="hidden md:flex absolute top-8 right-8 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full z-50 backdrop-blur-md border border-white/10">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                        <button onClick={() => setSelectedImage(null)} className="hidden md:flex absolute top-8 right-8 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full z-100 backdrop-blur-md border border-white/10 transition-all">
+                            <X className="w-8 h-8" />
                         </button>
                     </div>
                 </div>
@@ -171,24 +186,24 @@ function CatCard({ img, isFavorite, onToggleFavorite, onClick }: {
     const [imgSrc, setImgSrc] = useState(getDisplaySrc(img.src));
 
     return (
-        <div className="group relative rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 cursor-zoom-in aspect-[4/3]" onClick={onClick}>
+        <div className="group relative rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 cursor-zoom-in aspect-[4/3] shadow-xl" onClick={onClick}>
             <div className={`absolute inset-0 bg-slate-800 animate-pulse transition-opacity duration-500 ${loaded ? "opacity-0" : "opacity-100"}`} />
             <Image
                 src={imgSrc}
                 alt={img.title}
                 fill
-                className={`object-cover transition-all duration-700 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"} group-hover:scale-105`}
+                className={`object-cover transition-all duration-700 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"} group-hover:scale-110`}
                 onLoad={() => setLoaded(true)}
                 onError={() => setImgSrc(img.src)}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                <p className="text-white text-xs font-bold truncate">{img.title}</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5">
+                <p className="text-white text-sm font-bold truncate">{img.title}</p>
             </div>
 
             {/* Fav Button Grid */}
             <button
                 onClick={(e) => { e.stopPropagation(); onToggleFavorite(); }}
-                className={`absolute bottom-3 right-3 w-10 h-10 rounded-full flex items-center justify-center border transition-all z-10 ${isFavorite ? "bg-rose-500 border-rose-500 text-white animate-heart-pop shadow-lg" : "bg-black/40 border-white/20 text-white backdrop-blur-md opacity-0 group-hover:opacity-100"
+                className={`absolute bottom-4 right-4 w-10 h-10 rounded-full flex items-center justify-center border transition-all z-10 ${isFavorite ? "bg-rose-500 border-rose-500 text-white animate-heart-pop shadow-lg shadow-rose-500/20" : "bg-black/40 border-white/20 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 hover:bg-white hover:text-black"
                     }`}
             >
                 <Heart className={`w-5.5 h-5.5 ${isFavorite ? "fill-white" : ""}`} />

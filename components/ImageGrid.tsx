@@ -3,9 +3,9 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Heart, Download } from "lucide-react";
+import { Heart, Download, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { getDisplaySrc } from "../lib/imageUtils";
-import { useFavorites } from "../hooks/useFavorites";
+import { useFavorites } from "@/context/FavoritesContext";
 import assets from "../data/assets.json";
 
 interface ImageGridProps {
@@ -92,17 +92,18 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                 ))}
             </div>
 
-            {/* Modal */}
+            {/* Pro Modal */}
             {selectedImage && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-xl transition-all duration-300">
+                <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 backdrop-blur-xl duration-300 animate-in fade-in">
+                    {/* Backdrop */}
                     <div className="absolute inset-0 z-0 bg-transparent" onClick={() => { setSelectedImage(null); setModalImgSrc(""); setIsZoomed(false); }} />
 
-                    <div className="relative z-10 w-full h-[100dvh] md:h-[90vh] max-w-[100vw] md:max-w-[95vw] flex flex-col md:flex-row bg-slate-950 md:rounded-3xl overflow-hidden shadow-2xl border-white/5 md:border" onClick={e => e.stopPropagation()}>
+                    <div className="relative z-10 w-full h-[100dvh] md:h-[90vh] max-w-[100vw] md:max-w-[95vw] flex flex-col md:flex-row bg-slate-950 md:rounded-3xl overflow-hidden shadow-2xl border-white/10 md:border" onClick={e => e.stopPropagation()}>
 
-                        {/* 1. Image View Area */}
-                        <div className="relative flex-1 bg-black/40 flex items-center justify-center overflow-hidden min-h-[40vh] md:min-h-0">
+                        {/* LEFT: Image Viewport */}
+                        <div className="relative flex-1 bg-black/40 flex items-center justify-center min-h-[40vh] md:min-h-0 overflow-hidden">
                             <div
-                                className={`relative w-full h-full p-4 transition-transform duration-300 ${isZoomed ? "scale-150 cursor-zoom-out" : "scale-100 cursor-zoom-in"}`}
+                                className={`relative w-full h-full p-4 transition-transform duration-500 ease-out will-change-transform ${isZoomed ? "scale-150 cursor-zoom-out" : "scale-100 cursor-zoom-in"}`}
                                 onClick={handleModalImageClick}
                             >
                                 <Image
@@ -110,11 +111,12 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                                     alt={selectedImage.title}
                                     fill
                                     className="object-contain pointer-events-none select-none"
+                                    priority
                                     onError={() => setModalImgSrc(selectedImage.src)}
                                 />
                             </div>
 
-                            {/* Fav Button (Image Corner) */}
+                            {/* Floating Heart */}
                             <button
                                 onClick={(e) => { e.stopPropagation(); toggleFavorite(selectedImage.id); }}
                                 className={`absolute bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all shadow-2xl z-30 active:scale-90 bg-black/40 backdrop-blur-xl ${isFavorite(selectedImage.id) ? "bg-rose-500 border-rose-500 text-white animate-heart-pop" : "border-white/30 text-white"
@@ -123,30 +125,35 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                                 <Heart className={`w-7 h-7 ${isFavorite(selectedImage.id) ? "fill-white" : ""}`} />
                             </button>
 
-                            {/* Nav Arrows */}
-                            <button onClick={(e) => {
-                                e.stopPropagation();
-                                const idx = filteredItems.findIndex(i => i.id === selectedImage.id);
-                                setSelectedImage(filteredItems[(idx - 1 + filteredItems.length) % filteredItems.length]);
-                                setModalImgSrc("");
-                            }} className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md z-20 hover:bg-white hover:text-black">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+                            {/* Mobile Close Icon */}
+                            <button onClick={() => setSelectedImage(null)} className="md:hidden absolute top-4 left-4 p-2 bg-black/40 rounded-full text-white backdrop-blur-md z-30">
+                                <X className="w-6 h-6" />
                             </button>
-                            <button onClick={(e) => {
-                                e.stopPropagation();
-                                const idx = filteredItems.findIndex(i => i.id === selectedImage.id);
-                                setSelectedImage(filteredItems[(idx + 1) % filteredItems.length]);
-                                setModalImgSrc("");
-                            }} className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md z-20 hover:bg-white hover:text-black">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-                            </button>
+
+                            {/* Desktop Nav */}
+                            <div className="hidden md:flex absolute inset-x-4 top-1/2 -translate-y-1/2 justify-between pointer-events-none z-20">
+                                <button onClick={() => {
+                                    const idx = filteredItems.findIndex(i => i.id === selectedImage.id);
+                                    setSelectedImage(filteredItems[(idx - 1 + filteredItems.length) % filteredItems.length]);
+                                    setModalImgSrc("");
+                                }} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl">
+                                    <ChevronLeft className="w-8 h-8" />
+                                </button>
+                                <button onClick={() => {
+                                    const idx = filteredItems.findIndex(i => i.id === selectedImage.id);
+                                    setSelectedImage(filteredItems[(idx + 1) % filteredItems.length]);
+                                    setModalImgSrc("");
+                                }} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl">
+                                    <ChevronRight className="w-8 h-8" />
+                                </button>
+                            </div>
                         </div>
 
-                        {/* 2. Side Panel (Scrollable) */}
-                        <div className="w-full md:w-[400px] flex flex-col bg-slate-900/90 border-t md:border-t-0 md:border-l border-white/10 overflow-hidden h-[60vh] md:h-full">
+                        {/* RIGHT: Content Panel (SCROLLABLE) */}
+                        <div className="w-full md:w-[420px] flex flex-col bg-slate-900 overflow-hidden h-[60vh] md:h-full border-t md:border-t-0 md:border-l border-white/10">
 
-                            {/* Primary Action Zone (Optimized position) */}
-                            <div className="p-6 bg-slate-950/50 border-b border-white/10">
+                            {/* TOP ACTION BAR - STICKY */}
+                            <div className="p-6 bg-slate-950/80 backdrop-blur-md border-b border-white/10 shrink-0 z-10">
                                 <a
                                     href={selectedImage.src}
                                     download
@@ -156,42 +163,44 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                                     <Download className="w-6 h-6 group-hover:animate-bounce" />
                                     FREE DOWNLOAD HD
                                 </a>
-                                <p className="text-[10px] text-slate-500 italic mt-3 text-center">No Attribution Required / Commercial OK</p>
+                                <p className="text-[10px] text-slate-500 italic mt-3 text-center tracking-tight">Commercial Use OK / No Attribution Required</p>
                             </div>
 
-                            {/* Scrollable Info Area */}
-                            <div className="flex-1 overflow-y-auto p-6 md:p-8 space-y-8 scrollbar-thin scrollbar-thumb-white/10">
-                                <div className="flex justify-between items-start">
-                                    <h2 className="text-2xl font-bold text-white leading-tight tracking-tight">{selectedImage.title}</h2>
-                                    <button onClick={() => setSelectedImage(null)} className="p-2 bg-white/10 rounded-full text-white hover:bg-white/20">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
-                                    </button>
-                                </div>
-
-                                <p className="text-slate-400 text-sm leading-relaxed">{selectedImage.description}</p>
-
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="bg-white/5 p-4 rounded-xl border border-white/5">
-                                        <span className="block text-[10px] text-slate-500 uppercase font-black mb-1">Resolution</span>
-                                        <span className="text-white text-sm font-mono font-bold">{selectedImage.width} × {selectedImage.height}</span>
-                                    </div>
-                                    <div className="bg-white/5 p-4 rounded-xl border border-white/5">
-                                        <span className="block text-[10px] text-slate-500 uppercase font-black mb-1">Category</span>
-                                        <span className="text-gx-cyan text-sm font-black uppercase">{selectedImage.category}</span>
-                                    </div>
-                                </div>
-
+                            {/* MAIN INFO - SCROLLABLE */}
+                            <div className="flex-1 overflow-y-auto overflow-x-hidden p-6 md:p-8 space-y-10 scrollbar-thin scrollbar-thumb-white/10 overscroll-contain">
                                 <div>
-                                    <h3 className="text-[11px] font-black text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
-                                        <span className="w-1.5 h-1.5 bg-gx-cyan rounded-full" />
-                                        Relevant Tags
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <span className="h-0.5 w-6 bg-gx-cyan rounded-full" />
+                                        <span className="text-[10px] font-black text-gx-cyan uppercase tracking-[0.2em]">Asset Details</span>
+                                    </div>
+                                    <h2 className="text-2xl font-bold text-white leading-tight tracking-tight mb-4">{selectedImage.title}</h2>
+                                    <p className="text-slate-400 text-sm leading-relaxed">{selectedImage.description}</p>
+                                </div>
+
+                                {/* Metadata Grid */}
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5 group hover:border-white/10 transition-colors">
+                                        <span className="block text-[9px] text-slate-500 uppercase font-black mb-1.5 opacity-60">Resolution</span>
+                                        <span className="text-white text-sm font-bold font-mono">{selectedImage.width} × {selectedImage.height}</span>
+                                    </div>
+                                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5 group hover:border-white/10 transition-colors">
+                                        <span className="block text-[9px] text-slate-500 uppercase font-black mb-1.5 opacity-60">Format</span>
+                                        <span className="text-gx-cyan text-sm font-black uppercase">WebP / HD</span>
+                                    </div>
+                                </div>
+
+                                {/* Tags Section */}
+                                <div>
+                                    <h3 className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                        <span className="w-1.5 h-1.5 bg-gx-cyan rounded-full shadow-[0_0_8px_#00d1ff]" />
+                                        Tags
                                     </h3>
                                     <div className="flex flex-wrap gap-2.5">
                                         {selectedImage.tags.map(tag => (
                                             <button
                                                 key={tag}
                                                 onClick={() => handleInternalTagClick(tag)}
-                                                className="px-4 py-2 bg-white/5 hover:bg-gx-cyan border border-white/10 hover:border-black text-slate-300 hover:text-black rounded-full text-xs font-bold transition-all active:scale-95"
+                                                className="px-4 py-2 bg-white/5 hover:bg-gx-cyan border border-white/10 hover:border-transparent text-slate-300 hover:text-slate-950 rounded-full text-xs font-bold transition-all active:scale-90"
                                             >
                                                 {tag}
                                             </button>
@@ -199,16 +208,17 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                                     </div>
                                 </div>
 
-                                <div className="p-4 bg-black/40 rounded-xl flex items-center justify-between text-[11px] font-mono text-slate-500 border border-white/5">
-                                    <span className="uppercase tracking-tighter">Asset Hash</span>
+                                {/* Footer Trace */}
+                                <div className="p-4 bg-black/40 rounded-2xl flex items-center justify-between text-[10px] font-mono text-slate-600 border border-white/5">
+                                    <span className="uppercase tracking-widest opacity-50 text-[8px]">Index ID</span>
                                     <span className="truncate max-w-[150px]">{selectedImage.src.split('/').pop()}</span>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Desktop Close Button */}
-                        <button onClick={() => setSelectedImage(null)} className="hidden md:flex absolute top-8 right-8 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full z-[100] backdrop-blur-md border border-white/10">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                        {/* Large Desktop Close */}
+                        <button onClick={() => setSelectedImage(null)} className="hidden md:flex absolute top-8 right-8 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full z-[100] backdrop-blur-md border border-white/10 transition-all active:scale-95 shadow-2xl">
+                            <X className="w-8 h-8" />
                         </button>
                     </div>
                 </div>
@@ -246,7 +256,7 @@ function ImageCard({ img, isFavorite, onToggleFavorite, onTagClick, onClick }: {
             {/* Fav Button Grid */}
             <button
                 onClick={(e) => { e.stopPropagation(); onToggleFavorite(); }}
-                className={`absolute bottom-3 right-3 w-10 h-10 rounded-full flex items-center justify-center border transition-all z-10 ${isFavorite ? "bg-rose-500 border-rose-500 text-white animate-heart-pop shadow-lg" : "bg-black/40 border-white/20 text-white backdrop-blur-md opacity-0 group-hover:opacity-100"
+                className={`absolute bottom-3 right-3 w-10 h-10 rounded-full flex items-center justify-center border transition-all z-10 ${isFavorite ? "bg-rose-500 border-rose-500 text-white animate-heart-pop shadow-lg shadow-rose-500/20" : "bg-black/40 border-white/20 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 hover:bg-white hover:text-black"
                     }`}
             >
                 <Heart className={`w-5.5 h-5.5 ${isFavorite ? "fill-white" : ""}`} />
