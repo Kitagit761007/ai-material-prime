@@ -252,6 +252,20 @@ export default function CategorySection({ title, description, images }: Category
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
                                 </button>
                             </div>
+
+                            {/* Floating Favorite Button (Mobile Optimized) */}
+                            <div className="absolute bottom-6 right-6 z-30">
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); toggleFavorite(selectedImage.id); }}
+                                    className={`w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all shadow-2xl backdrop-blur-xl active:scale-90 ${isFavorite(selectedImage.id)
+                                        ? "bg-rose-500 border-rose-500 text-white"
+                                        : "bg-black/40 border-white/30 text-white hover:bg-white hover:text-slate-900"
+                                        }`}
+                                    aria-label="Toggle favorite"
+                                >
+                                    <Heart className={`w-7 h-7 ${isFavorite(selectedImage.id) ? "fill-white" : ""}`} />
+                                </button>
+                            </div>
                         </div>
 
                         {/* 2. Side Panel - Metadata & Actions */}
@@ -322,21 +336,10 @@ export default function CategorySection({ title, description, images }: Category
                                     <span className="truncate max-w-[150px]">{selectedImage.src.split('/').pop()}</span>
                                 </div>
 
-                                {/* Favorite Toggle Button in Modal */}
-                                <button
-                                    onClick={(e) => { e.stopPropagation(); toggleFavorite(selectedImage.id); }}
-                                    className={`w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-3 transition-all border ${isFavorite(selectedImage.id)
-                                        ? "bg-rose-500/10 border-rose-500/20 text-rose-500"
-                                        : "bg-white/5 border-white/10 text-slate-400 hover:bg-white/10"
-                                        }`}
-                                >
-                                    <Heart className={`w-5 h-5 ${isFavorite(selectedImage.id) ? "fill-rose-500" : ""}`} />
-                                    {isFavorite(selectedImage.id) ? "保存済み" : "お気に入りに追加"}
-                                </button>
                             </div>
 
                             {/* Sticky Download Action */}
-                            <div className="p-6 bg-slate-950/80 border-t border-white/10">
+                            <div className="p-6 bg-slate-950/80 border-t border-white/10 shrink-0">
                                 <a
                                     href={selectedImage.src}
                                     download
@@ -363,6 +366,6 @@ export default function CategorySection({ title, description, images }: Category
                     </div>
                 </div>
             )}
-        </section >
+        </section>
     );
 }

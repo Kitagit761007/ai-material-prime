@@ -238,6 +238,20 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
                                 </button>
                             </div>
+
+                            {/* Floating Favorite Button (Mobile Optimized) */}
+                            <div className="absolute bottom-6 right-6 z-30">
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); toggleFavorite(selectedImage.id); }}
+                                    className={`w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all shadow-2xl backdrop-blur-xl active:scale-90 ${isFavorite(selectedImage.id)
+                                        ? "bg-rose-500 border-rose-500 text-white"
+                                        : "bg-black/40 border-white/30 text-white hover:bg-white hover:text-slate-900"
+                                        }`}
+                                    aria-label="Toggle favorite"
+                                >
+                                    <Heart className={`w-7 h-7 ${isFavorite(selectedImage.id) ? "fill-white" : ""}`} />
+                                </button>
+                            </div>
                         </div>
 
                         {/* 2. Side Panel - Metadata & Actions */}
@@ -303,17 +317,6 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                                     <span className="truncate max-w-[150px]">{selectedImage.src.split('/').pop()}</span>
                                 </div>
 
-                                {/* Favorite Toggle Modal UI */}
-                                <button
-                                    onClick={(e) => { e.stopPropagation(); toggleFavorite(selectedImage.id); }}
-                                    className={`w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-3 transition-all border ${isFavorite(selectedImage.id)
-                                        ? "bg-rose-500/10 border-rose-500/20 text-rose-500"
-                                        : "bg-white/5 border-white/10 text-slate-400 hover:bg-white/10"
-                                        }`}
-                                >
-                                    <Heart className={`w-5 h-5 ${isFavorite(selectedImage.id) ? "fill-rose-500" : ""}`} />
-                                    {isFavorite(selectedImage.id) ? "保存済み" : "お気に入りに追加"}
-                                </button>
                             </div>
 
                             {/* Sticky Bottom Actions */}
@@ -348,20 +351,22 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                             </div>
                         </div>
                     </div>
+                </div>
 
                     {/* Desktop Close Button (Floating) */}
-                    <div className="absolute top-6 right-6 hidden md:block z-50">
-                        <button
-                            onClick={() => { setSelectedImage(null); setModalImgSrc(""); setIsZoomed(false); }}
-                            className="p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-md border border-white/10"
-                            aria-label="Close"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
-                        </button>
-                    </div>
-                </div>
-            )}
-        </section>
+            <div className="absolute top-6 right-6 hidden md:block z-50">
+                <button
+                    onClick={() => { setSelectedImage(null); setModalImgSrc(""); setIsZoomed(false); }}
+                    className="p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-md border border-white/10"
+                    aria-label="Close"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                </button>
+            </div>
+        </div>
+    )
+}
+        </section >
     );
 }
 
