@@ -15,6 +15,7 @@ interface ImageGridProps {
 
 export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGridProps) {
     const [selectedImage, setSelectedImage] = useState<typeof assets[0] | null>(null);
+    const [modalImgSrc, setModalImgSrc] = useState<string>("");
     const [displayCount, setDisplayCount] = useState(20);
     const [isZoomed, setIsZoomed] = useState(false);
     const router = useRouter();
@@ -131,10 +132,10 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
             {/* Enhanced Modal */}
             {selectedImage && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-2xl animate-in fade-in duration-300">
-                    <div className="absolute inset-0 cursor-zoom-out" onClick={() => setSelectedImage(null)} />
+                    <div className="absolute inset-0 cursor-zoom-out" onClick={() => { setSelectedImage(null); setModalImgSrc(""); }} />
                     <div className="relative bg-slate-950 rounded-2xl overflow-hidden max-w-7xl w-full h-[90vh] flex flex-col md:flex-row shadow-2xl border border-white/10 z-10" onClick={e => e.stopPropagation()}>
                         <button
-                            onClick={() => setSelectedImage(null)}
+                            onClick={() => { setSelectedImage(null); setModalImgSrc(""); }}
                             className="absolute top-4 right-4 z-20 p-2 bg-white text-slate-900 rounded-full hover:bg-gx-cyan hover:text-white transition-all shadow-xl z-50 flex items-center justify-center border border-white"
                             aria-label="Close modal"
                         >
@@ -143,19 +144,24 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
 
                         {/* Image Section - Interactive Zoom */}
                         <div
-                            className={`md:w-3/4 h-[50vh] md:h-full bg-black/40 flex items-center justify-center relative border-b md:border-b-0 md:border-r border-white/5 overflow-hidden transition-all ${isZoomed ? "cursor-zoom-out" : "cursor-zoom-in"}`}
+                            className={`md:w-3/4 h-[50vh] md:h-full bg-black/40 flex flex-col items-center justify-center relative border-b md:border-b-0 md:border-r border-white/5 overflow-hidden transition-all ${isZoomed ? "cursor-zoom-out" : "cursor-zoom-in"}`}
                             onClick={() => setIsZoomed(!isZoomed)}
                         >
-                            <div className={`relative w-full h-full p-2 transition-transform duration-500 ease-out will-change-transform ${isZoomed ? "scale-150" : "scale-100"}`}>
+                            <div className={`flex-1 relative w-full h-full p-2 transition-transform duration-500 ease-out will-change-transform ${isZoomed ? "scale-150" : "scale-100"}`}>
                                 <Image
-                                    src={getDisplaySrc(selectedImage.src)}
+                                    src={modalImgSrc || getDisplaySrc(selectedImage.src)}
                                     alt={selectedImage.title}
                                     fill
                                     quality={100}
                                     priority
                                     sizes="75vw"
                                     className="object-contain drop-shadow-2xl"
+                                    onError={() => setModalImgSrc(selectedImage.src)}
                                 />
+                            </div>
+                            {/* Accessible title below image */}
+                            <div className="w-full py-4 px-6 bg-gradient-to-t from-black/60 to-transparent text-center z-20">
+                                <p className="text-white/80 font-medium text-sm tracking-wide">{selectedImage.title}</p>
                             </div>
                         </div>
 

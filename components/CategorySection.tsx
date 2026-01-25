@@ -26,6 +26,7 @@ interface CategorySectionProps {
 
 export default function CategorySection({ title, description, images }: CategorySectionProps) {
     const [selectedImage, setSelectedImage] = useState<CategoryImage | null>(null);
+    const [modalImgSrc, setModalImgSrc] = useState<string>("");
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
     const [swipeOffset, setSwipeOffset] = useState<number>(0);
@@ -112,7 +113,7 @@ export default function CategorySection({ title, description, images }: Category
                         opacity: swipeOffset > 0 ? Math.max(0, 1 - swipeOffset / 300) : 1
                     }}
                 >
-                    <div className="absolute inset-0 cursor-zoom-out" onClick={() => setSelectedImage(null)} />
+                    <div className="absolute inset-0 cursor-zoom-out" onClick={() => { setSelectedImage(null); setModalImgSrc(""); }} />
 
                     <div
                         className="relative bg-slate-900 rounded-2xl overflow-hidden max-w-6xl w-full h-auto max-h-[90vh] flex flex-col md:flex-row shadow-2xl border border-white/10 z-10 transition-transform"
@@ -128,7 +129,7 @@ export default function CategorySection({ title, description, images }: Category
                         {/* Swipe Indicator */}
                         <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-white/30 rounded-full z-30" />
                         <button
-                            onClick={() => setSelectedImage(null)}
+                            onClick={() => { setSelectedImage(null); setModalImgSrc(""); }}
                             className="absolute top-4 right-4 z-50 p-2 bg-white text-slate-900 rounded-full hover:bg-gx-cyan hover:text-white transition-all duration-200 shadow-xl flex items-center justify-center group border border-white"
                             aria-label="Close modal"
                         >
@@ -136,13 +137,20 @@ export default function CategorySection({ title, description, images }: Category
                         </button>
 
                         {/* Image Side */}
-                        <div className="md:w-2/3 bg-black/50 flex items-center justify-center relative min-h-[300px] md:h-auto">
-                            <Image
-                                src={getDisplaySrc(selectedImage.src)}
-                                alt={selectedImage.title}
-                                fill
-                                className="object-contain"
-                            />
+                        <div className="md:w-2/3 bg-black/50 flex flex-col items-center justify-center relative min-h-[300px] md:h-auto">
+                            <div className="flex-1 relative w-full h-full">
+                                <Image
+                                    src={modalImgSrc || (selectedImage ? getDisplaySrc(selectedImage.src) : "")}
+                                    alt={selectedImage.title}
+                                    fill
+                                    className="object-contain"
+                                    onError={() => setModalImgSrc(selectedImage.src)}
+                                />
+                            </div>
+                            {/* Accessible title below image */}
+                            <div className="w-full py-4 px-6 bg-gradient-to-t from-black/60 to-transparent text-center z-20">
+                                <p className="text-white/80 font-medium text-sm tracking-wide">{selectedImage.title}</p>
+                            </div>
                         </div>
 
                         {/* Details Side */}
