@@ -102,7 +102,7 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
 
     return (
         <section className="px-6 pb-20 max-w-7xl mx-auto">
-            <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+            <ul className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6 list-none p-0">
                 {visibleItems.map((img) => (
                     <ImageCard
                         key={img.id}
@@ -111,7 +111,7 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
                         onClick={() => setSelectedImage(img)}
                     />
                 ))}
-            </div>
+            </ul>
 
             {displayCount >= filteredItems.length && filteredItems.length > 0 && (
                 <div className="py-12 text-center">
@@ -259,7 +259,7 @@ function ImageCard({ img, onTagClick, onClick }: { img: typeof assets[0], onTagC
     const [loaded, setLoaded] = useState(false);
 
     return (
-        <div className="relative group rounded-2xl overflow-hidden break-inside-avoid shadow-2xl bg-slate-900/50 border border-white/5 cursor-zoom-in" onClick={onClick}>
+        <li className="relative group rounded-2xl overflow-hidden break-inside-avoid shadow-2xl bg-slate-900/50 border border-white/5 cursor-zoom-in list-none" onClick={onClick}>
             <div className={`absolute inset-0 bg-slate-800 animate-pulse transition-opacity duration-500 ${loaded ? "opacity-0 pointer-events-none" : "opacity-100"}`} />
             <Image
                 src={getDisplaySrc(img.src)}
@@ -281,6 +281,6 @@ function ImageCard({ img, onTagClick, onClick }: { img: typeof assets[0], onTagC
                     ))}
                 </div>
             </div>
-        </div>
+        </li>
     );
 }

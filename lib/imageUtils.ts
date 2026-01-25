@@ -7,7 +7,8 @@ export function getDisplaySrc(src: string): string {
     if (!src) return src;
 
     // For local images, we've pre-converted them to WebP
-    if (src.startsWith('/images/')) {
+    // Support both old /images/ and new ./assets/images/ paths
+    if (src.includes('/images/')) {
         // Remove version query if exists for extension replacement
         const baseSrc = src.split('?')[0];
         const ext = baseSrc.split('.').pop();

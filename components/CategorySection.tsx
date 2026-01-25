@@ -73,11 +73,11 @@ export default function CategorySection({ title, description, images }: Category
                 <p className="text-slate-400 max-w-2xl">{description}</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 list-none p-0">
                 {images.map((img) => (
-                    <div
+                    <li
                         key={img.id}
-                        className="group relative rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 cursor-zoom-in"
+                        className="group relative rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 cursor-zoom-in list-none"
                         onClick={() => setSelectedImage(img)}
                     >
                         <div className="aspect-[4/5] relative">
@@ -96,9 +96,9 @@ export default function CategorySection({ title, description, images }: Category
                                 </span>
                             </div>
                         </div>
-                    </div>
+                    </li>
                 ))}
-            </div>
+            </ul>
 
             {/* Lightbox Modal (Mirrored from ImageGrid for consistency) */}
             {selectedImage && (

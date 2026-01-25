@@ -9,7 +9,7 @@ const { calculateFileHash, getExistingImageHashes, checkDuplicate } = require('.
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const REPO_OWNER = 'Kitagit761007';
 const REPO_NAME = 'ai-material-prime';
-const IMAGES_DIR = path.join(__dirname, '..', 'public', 'images');
+const IMAGES_DIR = path.join(__dirname, '..', 'public', 'assets', 'images');
 const ASSETS_JSON_PATH = path.join(__dirname, '..', 'data', 'assets.json');
 
 if (!GITHUB_TOKEN) {
@@ -168,11 +168,11 @@ async function main() {
     // Step 4: Prepare metadata
     const fileName = path.basename(options.imagePath);
     const category = options.category || 'General';
-    const remotePath = `public/images/${category.toLowerCase()}/${fileName}`;
+    const remotePath = `public/assets/images/${category.toLowerCase()}/${fileName}`;
 
     const newEntry = {
         id: `img-${Date.now()}`,
-        src: `/images/${category.toLowerCase()}/${fileName}`,
+        src: `./assets/images/${category.toLowerCase()}/${fileName}`,
         title: options.title || fileName,
         description: options.description || '',
         category: category,
