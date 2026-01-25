@@ -1,82 +1,82 @@
-# 画像アップロードガイド
+# 画像アチE�EロードガイチE
 
-このガイドでは、重複検知フィルタを備えたスマートアップローダーの使用方法を説明します。
+こ�Eガイドでは、E��褁E��知フィルタを備えたスマ�EトアチE�Eローダーの使用方法を説明します、E
 
-## 概要
+## 概要E
 
-このアップローダーは、SHA-256ハッシュ値を使用して画像の重複を自動検知し、無駄なアップロードを防ぎます。
+こ�EアチE�Eローダーは、SHA-256ハッシュ値を使用して画像�E重褁E��自動検知し、無駁E��アチE�Eロードを防ぎます、E
 
-## 機能
+## 機�E
 
-✅ **SHA-256ハッシュ計算**: アップロード前に画像のハッシュ値を計算  
-✅ **重複検知**: 既存画像と比較し、重複を自動検出  
-✅ **スキップ通知**: 重複時は明確なメッセージで通知  
-✅ **自動更新**: `assets.json`を自動的に更新  
-✅ **GitHub統合**: PAT認証でGitHub APIに直接アップロード
+✁E**SHA-256ハッシュ計箁E*: アチE�Eロード前に画像�Eハッシュ値を計箁E 
+✁E**重褁E��知**: 既存画像と比輁E��、E��褁E��自動検�E  
+✁E**スキチE�E通知**: 重褁E��は明確なメチE��ージで通知  
+✁E**自動更新**: `assets.json`を�E動的に更新  
+✁E**GitHub統吁E*: PAT認証でGitHub APIに直接アチE�EローチE
 
-## 使用方法
+## 使用方況E
 
-### 基本的な使い方
+### 基本皁E��使ぁE��
 
 ```bash
-node scripts/upload-image.js <画像パス> --title "タイトル" --category "カテゴリ"
+node scripts/upload-image.js <画像パス> --title "タイトル" --category "カチE��リ"
 ```
 
 ### オプション
 
-| オプション | 説明 | 必須 |
+| オプション | 説昁E| 忁E��E|
 |-----------|------|------|
-| `<画像パス>` | アップロードする画像ファイルのパス | ✅ |
-| `--title` | 画像のタイトル | ⭕ |
-| `--description` | 画像の説明文 | ❌ |
-| `--category` | カテゴリ (Energy, Mobility, Smart City等) | ⭕ |
-| `--tags` | タグ（カンマ区切り） | ❌ |
+| `<画像パス>` | アチE�Eロードする画像ファイルのパス | ✁E|
+| `--title` | 画像�Eタイトル | ⭁E|
+| `--description` | 画像�E説明文 | ❁E|
+| `--category` | カチE��リ (Energy, Mobility, Smart City筁E | ⭁E|
+| `--tags` | タグ�E�カンマ区刁E���E�E| ❁E|
 
-### 使用例
+### 使用侁E
 
-#### 例1: 基本的なアップロード
+#### 侁E: 基本皁E��アチE�EローチE
 
 ```bash
-node scripts/upload-image.js ./new-image.jpg --title "水素燃料電池" --category "Energy"
+node scripts/upload-image.js ./new-image.jpg --title "水素燁E��電池" --category "Energy"
 ```
 
-#### 例2: 詳細情報を含むアップロード
+#### 侁E: 詳細惁E��を含むアチE�EローチE
 
 ```bash
 node scripts/upload-image.js ./smart-city.png \
-  --title "次世代スマートシティ" \
+  --title "次世代スマ�EトシチE��" \
   --description "AI制御による最適化された都市インフラ" \
   --category "Smart City" \
-  --tags "#AI,#IoT,#スマートシティ,#商用利用可"
+  --tags "#AI,#IoT,#スマ�EトシチE��,#啁E��利用可"
 ```
 
 ## 動作フロー
 
 ```
 1. 📁 画像ファイルを読み込み
-   ↓
-2. 🔐 SHA-256ハッシュを計算
-   ↓
-3. 🔍 既存画像のハッシュと比較
-   ↓
-4. ❓ 重複チェック
-   ├─ 重複あり → ⚠️  スキップ通知
-   └─ 重複なし → 📤 GitHub APIへアップロード
-                  ↓
+   ↁE
+2. 🔐 SHA-256ハッシュを計箁E
+   ↁE
+3. 🔍 既存画像�Eハッシュと比輁E
+   ↁE
+4. ❁E重褁E��ェチE��
+   ├─ 重褁E��めEↁE⚠�E�E スキチE�E通知
+   └─ 重褁E��ぁEↁE📤 GitHub APIへアチE�EローチE
+                  ↁE
                  📝 assets.json更新
-                  ↓
-                 🎉 完了
+                  ↁE
+                 🎉 完亁E
 ```
 
-## 出力例
+## 出力侁E
 
-### 重複が検知された場合
+### 重褁E��検知された場吁E
 
 ```
 🚀 Smart Image Uploader with Duplicate Detection
 
 📁 Image: ./duplicate-image.jpg
-📝 Title: テスト画像
+📝 Title: チE��ト画僁E
 📂 Category: Energy
 
 🔐 Calculating SHA-256 hash...
@@ -85,24 +85,24 @@ node scripts/upload-image.js ./smart-city.png \
 🔍 Checking for duplicates...
 📊 Scanning 33 existing images...
 
-⚠️  ═══════════════════════════════════════════════════════
-⚠️  重複を検知したためスキップしました
-⚠️  ═══════════════════════════════════════════════════════
+⚠�E�E ══════════════════════════════════════════════════════╁E
+⚠�E�E 重褁E��検知したためスキチE�Eしました
+⚠�E�E ══════════════════════════════════════════════════════╁E
 
-   既存ファイル: public/images/energy/existing-image.jpg
+   既存ファイル: public/assets/images/energy/existing-image.jpg
    ハッシュ値: a1b2c3d4e5f6...
 
-💡 この画像は既にリポジトリに存在します。
-   アップロードを中止しました。
+💡 こ�E画像�E既にリポジトリに存在します、E
+   アチE�Eロードを中止しました、E
 ```
 
-### 正常にアップロードされた場合
+### 正常にアチE�Eロードされた場吁E
 
 ```
 🚀 Smart Image Uploader with Duplicate Detection
 
 📁 Image: ./new-image.jpg
-📝 Title: 新しい画像
+📝 Title: 新しい画僁E
 📂 Category: Energy
 
 🔐 Calculating SHA-256 hash...
@@ -110,26 +110,26 @@ node scripts/upload-image.js ./smart-city.png \
 
 🔍 Checking for duplicates...
 📊 Scanning 33 existing images...
-✅ No duplicates found - proceeding with upload
+✁ENo duplicates found - proceeding with upload
 
 📤 Uploading to GitHub...
-✅ Uploaded to: public/images/energy/new-image.jpg
+✁EUploaded to: public/assets/images/energy/new-image.jpg
 
 📝 Updating assets.json...
-✅ assets.json updated successfully
+✁Eassets.json updated successfully
 
-🎉 ═══════════════════════════════════════════════════════
+🎉 ══════════════════════════════════════════════════════╁E
 🎉 Upload completed successfully!
-🎉 ═══════════════════════════════════════════════════════
+🎉 ══════════════════════════════════════════════════════╁E
 
    Image: new-image.jpg
    Hash: x9y8z7w6v5u4...
-   Path: public/images/energy/new-image.jpg
+   Path: public/assets/images/energy/new-image.jpg
 ```
 
-## 環境変数
+## 環墁E��数
 
-スクリプトを実行する前に、GitHub Personal Access Token (PAT) を環境変数として設定してください：
+スクリプトを実行する前に、GitHub Personal Access Token (PAT) を環墁E��数として設定してください�E�E
 
 ### Windows (PowerShell)
 ```powershell
@@ -146,25 +146,25 @@ set GITHUB_TOKEN=your_github_pat_here
 export GITHUB_TOKEN=your_github_pat_here
 ```
 
-> **重要**: PATは `repo` 権限が必要です。[GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens) で作成できます。
+> **重要E*: PATは `repo` 権限が忁E��です、EGitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens) で作�Eできます、E
 
-## トラブルシューティング
+## トラブルシューチE��ング
 
 ### エラー: File not found
 
 ```bash
-❌ Error: File not found: ./image.jpg
+❁EError: File not found: ./image.jpg
 ```
 
-**解決策**: 画像ファイルのパスが正しいか確認してください。
+**解決筁E*: 画像ファイルのパスが正しいか確認してください、E
 
 ### エラー: GitHub API error
 
 ```bash
-❌ GitHub API error: 401 - Unauthorized
+❁EGitHub API error: 401 - Unauthorized
 ```
 
-**解決策**: PATが正しいか、権限が適切か確認してください。
+**解決筁E*: PATが正しいか、権限が適刁E��確認してください、E
 
 ### エラー: Cannot find module
 
@@ -172,41 +172,41 @@ export GITHUB_TOKEN=your_github_pat_here
 Error: Cannot find module './hash-utils'
 ```
 
-**解決策**: `scripts/`ディレクトリから実行しているか確認してください。
+**解決筁E*: `scripts/`チE��レクトリから実行してぁE��か確認してください、E
 
-## セキュリティ
+## セキュリチE��
 
-- ✅ SHA-256ハッシュによる確実な重複検知
-- ✅ GitHub PAT認証による安全なアップロード
-- ✅ ローカルでのハッシュ計算（プライバシー保護）
+- ✁ESHA-256ハッシュによる確実な重褁E��知
+- ✁EGitHub PAT認証による安�EなアチE�EローチE
+- ✁Eローカルでのハッシュ計算（�Eライバシー保護�E�E
 
-## 制限事項
+## 制限事頁E
 
-- 画像ファイルのみサポート (jpg, jpeg, png, webp, gif)
-- ファイルサイズ制限: GitHub APIの制限に準拠（通常100MB）
-- 同時アップロード: 1ファイルずつ処理
+- 画像ファイルのみサポ�EチE(jpg, jpeg, png, webp, gif)
+- ファイルサイズ制陁E GitHub APIの制限に準拠�E�通常100MB�E�E
+- 同時アチE�EローチE 1ファイルずつ処琁E
 
-## 画像配信フォーマットについて
+## 画像�E信フォーマットにつぁE��
 
-当サイトでは、表示速度の最適化のため、ユーザーのブラウザには自動的に **WebP** フォーマットで画像が配信されるように設定されています。
+当サイトでは、表示速度の最適化�Eため、ユーザーのブラウザには自動的に **WebP** フォーマットで画像が配信されるよぁE��設定されてぁE��す、E
 
-- **プレビュー表示**: WebP（軽量・高速）
-- **ダウンロード**: 元のアップロード形式 (PNG/JPG)
+- **プレビュー表示**: WebP�E�軽量�E高速！E
+- **ダウンローチE*: 允E�EアチE�Eロード形弁E(PNG/JPG)
 
-### アップロード後の処理
-現在は手動または一括スクリプトでWebP生成を行っています。新規に大量の画像を追加した場合は、以下の変換コマンド（ffmpeg推奨）を実行してください。
+### アチE�Eロード後�E処琁E
+現在は手動また�E一括スクリプトでWebP生�Eを行ってぁE��す。新規に大量�E画像を追加した場合�E、以下�E変換コマンド！Efmpeg推奨�E�を実行してください、E
 
 ```powershell
-# PowerShellでの一括変換例
+# PowerShellでの一括変換侁E
 Get-ChildItem -Path public/images -Recurse -Include *.png, *.jpg | ForEach-Object {
     $webp = $_.FullName -replace '\.(png|jpg)$', '.webp'
     if (-not (Test-Path $webp)) { ffmpeg -i $_.FullName -c:v libwebp -q:v 80 $webp }
 }
 ```
 
-## 今後の拡張予定
+## 今後�E拡張予宁E
 
-- [ ] バッチアップロード機能
-- [ ] 画像リサイズ機能
-- [x] WebP自動変換 (実装済み)
-- [ ] メタデータ自動抽出（EXIF情報）
+- [ ] バッチアチE�Eロード機�E
+- [ ] 画像リサイズ機�E
+- [x] WebP自動変換 (実裁E��み)
+- [ ] メタチE�Eタ自動抽出�E�EXIF惁E���E�E

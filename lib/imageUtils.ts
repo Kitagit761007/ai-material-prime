@@ -6,16 +6,25 @@
 export function getDisplaySrc(src: string): string {
     if (!src) return src;
 
+    // Normalize path to rooted for proper resolution in subpages
+    // Converts ./assets/images/... to /assets/images/...
+    let normalized = src;
+    if (normalized.startsWith('./')) {
+        normalized = normalized.substring(1);
+    }
+    if (!normalized.startsWith('/')) {
+        normalized = '/' + normalized;
+    }
+
     // For local images, we've pre-converted them to WebP
-    // Support both old /images/ and new ./assets/images/ paths
-    if (src.includes('/images/')) {
+    if (normalized.includes('/images/')) {
         // Remove version query if exists for extension replacement
-        const baseSrc = src.split('?')[0];
+        const baseSrc = normalized.split('?')[0];
         const ext = baseSrc.split('.').pop();
         if (ext && ['png', 'jpg', 'jpeg'].includes(ext.toLowerCase())) {
             return baseSrc.replace(`.${ext}`, '.webp');
         }
     }
 
-    return src;
+    return normalized;
 }
