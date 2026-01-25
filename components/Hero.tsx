@@ -98,25 +98,39 @@ export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
                 </button>
             </form>
 
-            {/* Floating Chips */}
-            <div className="mt-6 flex flex-wrap justify-center gap-4">
-                {["#水素エネルギー", "#スマートシティ", "#風力発電", "#環境技術"].map((tag, i) => {
-                    const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
-                    const isActive = searchQuery === cleanTag;
-                    return (
-                        <button
-                            key={tag}
-                            onClick={() => handleTagClick(tag)}
-                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all animate-float border ${isActive
-                                ? "bg-gx-cyan border-gx-cyan text-white shadow-lg shadow-gx-cyan/20"
-                                : "bg-white/5 border-white/10 text-gx-cyan hover:bg-white/10"
-                                }`}
-                            style={{ animationDelay: `${i * 0.5}s` }}
-                        >
-                            {tag}
-                        </button>
-                    );
-                })}
+            {/* Horizontal Scrollable Chips - Pro Mobile UI */}
+            <div className="mt-8 w-full max-w-2xl relative">
+                <div className="flex flex-nowrap overflow-x-auto pb-4 gap-3 no-scrollbar scroll-smooth px-4 mask-fade-edges">
+                    {["#水素エネルギー", "#スマートシティ", "#風力発電", "#脱炭素", "#環境技術", "#クリーン電力", "#EV", "#モビリティ"].map((tag, i) => {
+                        const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
+                        const isActive = searchQuery === cleanTag;
+                        return (
+                            <button
+                                key={tag}
+                                onClick={() => handleTagClick(tag)}
+                                className={`shrink-0 px-5 py-2.5 rounded-full text-xs md:text-sm font-bold transition-all border ${isActive
+                                    ? "bg-gx-cyan border-gx-cyan text-slate-950 shadow-lg shadow-gx-cyan/20 scale-105"
+                                    : "bg-white/5 border-white/10 text-slate-300 hover:border-gx-cyan/50 hover:text-white"
+                                    }`}
+                            >
+                                {tag}
+                            </button>
+                        );
+                    })}
+                </div>
+                {/* Visual fading for horizontal scroll indication */}
+                <style jsx>{`
+                    .mask-fade-edges {
+                        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+                    }
+                    .no-scrollbar::-webkit-scrollbar {
+                        display: none;
+                    }
+                    .no-scrollbar {
+                        -ms-overflow-style: none;
+                        scrollbar-width: none;
+                    }
+                `}</style>
             </div>
         </section>
     );

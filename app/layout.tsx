@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import MobileNav from '@/components/MobileNav'
 import PwaHandler from '@/components/PwaHandler'
 import InstallBanner from '@/components/InstallBanner'
 
@@ -90,6 +91,7 @@ export default function RootLayout({
                 </main>
                 <InstallBanner />
                 <Footer />
+                <MobileNav />
             </body>
         </html >
     )

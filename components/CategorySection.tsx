@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { getDisplaySrc } from "../lib/imageUtils";
 
@@ -33,6 +34,7 @@ export default function CategorySection({ title, description, images }: Category
     const [touchEndY, setTouchEndY] = useState<number | null>(null);
     const [swipeOffset, setSwipeOffset] = useState<number>(0);
     const [isZoomed, setIsZoomed] = useState(false);
+    const router = useRouter();
 
     const minSwipeDistance = 50;
 
@@ -271,12 +273,18 @@ export default function CategorySection({ title, description, images }: Category
                                         </h3>
                                         <div className="flex flex-wrap gap-2">
                                             {selectedImage.tags.map(tag => (
-                                                <span
+                                                <button
                                                     key={tag}
-                                                    className="px-3 py-1.5 bg-white/5 text-slate-400 rounded-lg border border-white/5 text-xs font-medium"
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
+                                                        router.push(`/tags/${encodeURIComponent(cleanTag)}`);
+                                                        setSelectedImage(null);
+                                                    }}
+                                                    className="px-3 py-1.5 bg-white/5 hover:bg-gx-cyan/20 text-slate-400 hover:text-white rounded-lg border border-white/5 text-xs font-medium transition-all"
                                                 >
                                                     {tag}
-                                                </span>
+                                                </button>
                                             ))}
                                         </div>
                                     </div>
