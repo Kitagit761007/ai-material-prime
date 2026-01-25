@@ -23,6 +23,7 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
     const pathname = usePathname();
     const { isFavorite, toggleFavorite } = useFavorites();
     const lastTapRef = useRef<number>(0);
+    const touchStartX = useRef<number>(0);
 
     // Filter Logic
     const baseItems = initialItems || assets;
@@ -47,8 +48,41 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
         setIsZoomed(false);
     }, [selectedImage]);
 
-    // --- Modal Management (Back Gesture & Scroll Lock) ---
+    // Navigation logic
+    const handleNextImage = useCallback(() => {
+        if (!selectedImage) return;
+        const idx = filteredItems.findIndex(i => i.id === selectedImage.id);
+        setSelectedImage(filteredItems[(idx + 1) % filteredItems.length]);
+        setModalImgSrc("");
+        setIsZoomed(false);
+    }, [selectedImage, filteredItems]);
 
+    const handlePrevImage = useCallback(() => {
+        if (!selectedImage) return;
+        const idx = filteredItems.findIndex(i => i.id === selectedImage.id);
+        setSelectedImage(filteredItems[(idx - 1 + filteredItems.length) % filteredItems.length]);
+        setModalImgSrc("");
+        setIsZoomed(false);
+    }, [selectedImage, filteredItems]);
+
+    // Swipe handlers
+    const handleTouchStart = (e: React.TouchEvent) => {
+        touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = (e: React.TouchEvent) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const deltaX = touchEndX - touchStartX.current;
+        const threshold = 50;
+
+        if (deltaX > threshold) {
+            handlePrevImage();
+        } else if (deltaX < -threshold) {
+            handleNextImage();
+        }
+    };
+
+    // --- Modal Management (Back Gesture & Scroll Lock) ---
     const closeModal = useCallback(() => {
         if (selectedImage) {
             setSelectedImage(null);
@@ -148,7 +182,11 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                     <div className="relative z-10 w-full h-[100dvh] md:h-[90vh] max-w-[100vw] md:max-w-[95vw] flex flex-col md:flex-row bg-slate-950 md:rounded-3xl overflow-hidden shadow-2xl border-white/10 md:border" onClick={e => e.stopPropagation()}>
 
                         {/* LEFT: Image Viewport */}
-                        <div className="relative flex-1 bg-black/40 flex items-center justify-center min-h-[40vh] md:min-h-0 overflow-hidden">
+                        <div
+                            className="relative flex-1 bg-black/40 flex items-center justify-center min-h-[40vh] md:min-h-0 overflow-hidden"
+                            onTouchStart={handleTouchStart}
+                            onTouchEnd={handleTouchEnd}
+                        >
                             <div
                                 className={`relative w-full h-full p-4 transition-transform duration-500 ease-out will-change-transform ${isZoomed ? "scale-150 cursor-zoom-out" : "scale-100 cursor-zoom-in"}`}
                                 onClick={handleModalImageClick}
@@ -177,20 +215,12 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                                 <X className="w-6 h-6" />
                             </button>
 
-                            {/* Desktop Nav */}
-                            <div className="hidden md:flex absolute inset-x-4 top-1/2 -translate-y-1/2 justify-between pointer-events-none z-20">
-                                <button onClick={() => {
-                                    const idx = filteredItems.findIndex(i => i.id === selectedImage.id);
-                                    setSelectedImage(filteredItems[(idx - 1 + filteredItems.length) % filteredItems.length]);
-                                    setModalImgSrc("");
-                                }} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl">
+                            {/* Navigation Arrows */}
+                            <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none z-20">
+                                <button onClick={handlePrevImage} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl active:scale-90">
                                     <ChevronLeft className="w-8 h-8" />
                                 </button>
-                                <button onClick={() => {
-                                    const idx = filteredItems.findIndex(i => i.id === selectedImage.id);
-                                    setSelectedImage(filteredItems[(idx + 1) % filteredItems.length]);
-                                    setModalImgSrc("");
-                                }} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl">
+                                <button onClick={handleNextImage} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl active:scale-90">
                                     <ChevronRight className="w-8 h-8" />
                                 </button>
                             </div>
