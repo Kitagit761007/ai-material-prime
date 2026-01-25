@@ -153,10 +153,54 @@ export default function CategorySection({ title, description, images }: Category
                         opacity: swipeOffset > 0 ? Math.max(0, 1 - swipeOffset / 300) : 1
                     }}
                 >
-                    <div className="absolute inset-0 cursor-zoom-out" onClick={() => { setSelectedImage(null); setModalImgSrc(""); }} />
+                    {/* Tap-to-close Backdrop */}
+                    <div className="absolute inset-0 bg-transparent cursor-zoom-out z-0" onClick={() => { setSelectedImage(null); setModalImgSrc(""); }} />
+
+                    {/* Immersive Navigation Arrows - Higher Z-Index */}
+                    <div className="absolute inset-y-0 left-0 md:left-4 flex items-center z-40 pointer-events-none">
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                const currentIndex = images.findIndex(item => item.id === selectedImage.id);
+                                const prevIndex = (currentIndex - 1 + images.length) % images.length;
+                                setSelectedImage(images[prevIndex]);
+                                setModalImgSrc("");
+                            }}
+                            className="p-4 md:p-6 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all pointer-events-auto backdrop-blur-md active:scale-95"
+                            aria-label="Previous image"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10"><path d="m15 18-6-6 6-6" /></svg>
+                        </button>
+                    </div>
+                    <div className="absolute inset-y-0 right-0 md:right-4 flex items-center z-40 pointer-events-none">
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                const currentIndex = images.findIndex(item => item.id === selectedImage.id);
+                                const nextIndex = (currentIndex + 1) % images.length;
+                                setSelectedImage(images[nextIndex]);
+                                setModalImgSrc("");
+                            }}
+                            className="p-4 md:p-6 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all pointer-events-auto backdrop-blur-md active:scale-95"
+                            aria-label="Next image"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10"><path d="m9 18 6-6-6-6" /></svg>
+                        </button>
+                    </div>
+
+                    {/* Top Controls Overlay */}
+                    <div className="absolute top-0 left-0 right-0 p-6 flex justify-end items-center z-50 pointer-events-none">
+                        <button
+                            onClick={() => { setSelectedImage(null); setModalImgSrc(""); }}
+                            className="p-3 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-all pointer-events-auto backdrop-blur-md"
+                            aria-label="Close modal"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                        </button>
+                    </div>
 
                     <div
-                        className="relative bg-slate-900 rounded-2xl overflow-hidden max-w-6xl w-full h-auto max-h-[90vh] flex flex-col md:flex-row shadow-2xl border border-white/10 z-10 transition-transform"
+                        className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-12 z-20 cursor-zoom-out transition-transform"
                         style={{
                             transform: `translateY(${swipeOffset}px)`,
                             transition: swipeOffset === 0 ? 'transform 0.3s ease-out' : 'none'
@@ -164,152 +208,44 @@ export default function CategorySection({ title, description, images }: Category
                         onTouchStart={onTouchStart}
                         onTouchMove={onTouchMove}
                         onTouchEnd={onTouchEnd}
-                        onClick={e => e.stopPropagation()}
+                        onClick={() => { setSelectedImage(null); setModalImgSrc(""); }}
                     >
-                        {/* Swipe Indicator */}
-                        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-white/30 rounded-full z-30" />
-                        <button
-                            onClick={() => { setSelectedImage(null); setModalImgSrc(""); }}
-                            className="absolute top-4 right-4 z-50 p-2 bg-white text-slate-900 rounded-full hover:bg-gx-cyan hover:text-white transition-all duration-200 shadow-xl flex items-center justify-center group border border-white"
-                            aria-label="Close modal"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 transition-transform group-hover:rotate-90"><path d="M18 6L6 18M6 6l12 12" /></svg>
-                        </button>
+                        <div className="relative w-full h-full max-w-5xl max-h-[75vh] pointer-events-none">
+                            <Image
+                                src={modalImgSrc || (selectedImage ? getDisplaySrc(selectedImage.src) : "")}
+                                alt={selectedImage.title}
+                                fill
+                                className="object-contain"
+                                onError={() => setModalImgSrc(selectedImage.src)}
+                                loading="lazy"
+                            />
+                        </div>
 
-                        {/* Navigation Controls */}
-                        <div className="absolute inset-y-0 left-0 flex items-center z-30 pointer-events-none">
-                            <button
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    const currentIndex = images.findIndex(item => item.id === selectedImage.id);
-                                    const prevIndex = (currentIndex - 1 + images.length) % images.length;
-                                    setSelectedImage(images[prevIndex]);
-                                    setModalImgSrc("");
-                                }}
-                                className="ml-4 p-3 bg-black/40 hover:bg-white text-white hover:text-slate-950 rounded-full transition-all border border-white/10 shadow-2xl pointer-events-auto backdrop-blur-sm"
-                                aria-label="Previous image"
+                        {/* Bottom Bar Overlay */}
+                        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col items-center gap-4 pointer-events-none">
+                            <div className="text-center">
+                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 tracking-tight select-none">
+                                    {selectedImage.title}
+                                </h2>
+                                <div className="flex items-center justify-center gap-4 text-slate-400 font-mono text-xs md:text-sm tracking-widest uppercase opacity-80 select-none">
+                                    <span>FILE: {selectedImage.src.split('/').pop()}</span>
+                                    <span className="hidden md:inline w-1 h-1 bg-white/20 rounded-full" />
+                                    <span className="hidden md:inline">FREE HD ASSET</span>
+                                </div>
+                            </div>
+
+                            <a
+                                href={selectedImage.src}
+                                download
+                                onClick={(e: React.MouseEvent) => e.stopPropagation()}
+                                className="mt-4 px-10 py-3.5 bg-white text-slate-900 font-extrabold rounded-full hover:bg-gx-cyan hover:text-white transition-all shadow-2xl pointer-events-auto active:scale-95"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="m15 18-6-6 6-6" /></svg>
-                            </button>
-                        </div>
-                        <div className="absolute inset-y-0 right-0 flex items-center z-30 pointer-events-none">
-                            <button
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    const currentIndex = images.findIndex(item => item.id === selectedImage.id);
-                                    const nextIndex = (currentIndex + 1) % images.length;
-                                    setSelectedImage(images[nextIndex]);
-                                    setModalImgSrc("");
-                                }}
-                                className="mr-4 p-3 bg-black/40 hover:bg-white text-white hover:text-slate-950 rounded-full transition-all border border-white/10 shadow-2xl pointer-events-auto backdrop-blur-sm"
-                                aria-label="Next image"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="m9 18 6-6-6-6" /></svg>
-                            </button>
-                        </div>
-
-                        {/* Image Side */}
-                        <div className="md:w-2/3 bg-black/50 flex flex-col items-center justify-center relative min-h-[300px] md:h-auto">
-                            <div className="flex-1 relative w-full h-full">
-                                <Image
-                                    src={modalImgSrc || (selectedImage ? getDisplaySrc(selectedImage.src) : "")}
-                                    alt={selectedImage.title}
-                                    fill
-                                    className="object-contain"
-                                    onError={() => setModalImgSrc(selectedImage.src)}
-                                    loading="lazy"
-                                />
-                            </div>
-                            {/* Accessible title below image */}
-                            <div className="w-full py-4 px-6 bg-gradient-to-t from-black/60 to-transparent text-center z-20">
-                                <p className="text-white/80 font-medium text-sm tracking-wide">{selectedImage.title}</p>
-                            </div>
-                        </div>
-
-                        {/* Details Side */}
-                        <div className="md:w-1/3 p-6 flex flex-col bg-slate-900 overflow-y-auto min-h-0 gap-6">
-                            {/* Header */}
-                            <div className="shrink-0">
-                                <h2 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight line-clamp-2">{selectedImage.title}</h2>
-                                <div className="flex items-center gap-2 mb-3">
-                                    <span className="px-2 py-0.5 bg-gx-cyan/20 text-gx-cyan text-xs font-bold rounded border border-gx-cyan/30">
-                                        GX Score: {selectedImage.score}
-                                    </span>
-                                </div>
-                                <p className="text-slate-300 leading-snug text-sm line-clamp-3">
-                                    {selectedImage.description}
-                                </p>
-                            </div>
-
-                            {/* DOWNLOAD UI (Prioritized) */}
-                            <div className="shrink-0 p-4 bg-white/5 rounded-xl border border-white/10">
-                                <a
-                                    href={selectedImage.src}
-                                    download
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center justify-center gap-2 w-full py-3.5 bg-gx-cyan text-white font-bold rounded-xl hover:bg-gx-cyan/90 transition-all shadow-lg shadow-gx-cyan/20 hover:scale-[1.02] active:scale-[0.98]"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
-                                    無料ダウンロード / Download
-                                </a>
-                                <div className="text-center mt-2">
-                                    <span className="text-[10px] font-bold text-gx-cyan tracking-widest uppercase block mb-1">Free Assets for All Creators</span>
-                                    <p className="text-center text-[10px] font-bold text-gx-emerald flex items-center justify-center gap-1 opacity-90">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                                        商用利用可能・クレジット不要<br />
-                                        Commercial Use OK / No Attribution Required
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* SPECIFICATIONS */}
-                            <div className="p-3 bg-white/5 rounded-lg border border-white/10 shrink-0">
-                                <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">SPECIFICATIONS</h3>
-                                <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-slate-300">
-                                    <div className="flex justify-between border-b border-white/5 pb-1">
-                                        <span className="text-slate-500 text-[10px] uppercase">Resolution</span>
-                                        <span className="font-mono text-white text-[11px]">{selectedImage.width} x {selectedImage.height}</span>
-                                    </div>
-                                    <div className="flex justify-between border-b border-white/5 pb-1">
-                                        <span className="text-slate-500 text-[10px] uppercase">Size</span>
-                                        <span className="font-mono text-white text-[11px]">{selectedImage.size}</span>
-                                    </div>
-                                    <div className="flex justify-between pt-1">
-                                        <span className="text-slate-500 text-[10px] uppercase">Ratio</span>
-                                        <span className="font-mono text-white text-[11px]">{selectedImage.aspectRatio}</span>
-                                    </div>
-                                    <div className="flex justify-between pt-1">
-                                        <span className="text-slate-500 text-[10px] uppercase">Category</span>
-                                        <span className="font-mono text-white text-[11px] capitalize">{selectedImage.category}</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* TAGS */}
-                            <div className="shrink-0 pb-2">
-                                <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Tags</h3>
-                                <div className="flex flex-wrap gap-1.5 text-center">
-                                    {selectedImage.tags.map((tag: string) => (
-                                        <span
-                                            key={tag}
-                                            className="px-2 py-0.5 bg-white/5 text-slate-400 text-[11px] rounded border border-white/10"
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Explicit Caption Footer for CategorySection */}
-                            <div className="mt-auto pt-6 border-t border-white/5 text-center">
-                                <p className="text-[10px] font-bold text-gx-cyan uppercase tracking-widest">{selectedImage.title}</p>
-                                <p className="text-[8px] text-slate-500 font-mono mt-1 opacity-60">FILE: {selectedImage.src.split('/').pop()}</p>
-                            </div>
+                                DOWNLOAD ASSET
+                            </a>
                         </div>
                     </div>
                 </div>
             )}
-        </section>
+        </section >
     );
 }

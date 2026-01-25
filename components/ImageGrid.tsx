@@ -175,155 +175,105 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
                     onTouchMove={handleTouchMove}
                     onTouchEnd={handleTouchEnd}
                 >
-                    <div className="absolute inset-0 cursor-zoom-out" onClick={() => { setSelectedImage(null); setModalImgSrc(""); }} />
-                    <div className="relative bg-slate-950 rounded-2xl overflow-hidden max-w-7xl w-full h-[90vh] flex flex-col md:flex-row shadow-2xl border border-white/10 z-10" onClick={e => e.stopPropagation()}>
+                    {/* Tap-to-close Backdrop */}
+                    <div className="absolute inset-0 bg-transparent cursor-zoom-out z-0" onClick={() => { setSelectedImage(null); setModalImgSrc(""); }} />
+
+                    {/* Immersive Navigation Arrows - Higher Z-Index */}
+                    <div className="absolute inset-y-0 left-0 md:left-4 flex items-center z-40 pointer-events-none">
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                const currentIndex = filteredItems.findIndex(item => item.id === selectedImage.id);
+                                const prevIndex = (currentIndex - 1 + filteredItems.length) % filteredItems.length;
+                                setSelectedImage(filteredItems[prevIndex]);
+                                setModalImgSrc("");
+                            }}
+                            className="p-4 md:p-6 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all pointer-events-auto backdrop-blur-md active:scale-95"
+                            aria-label="Previous image"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10"><path d="m15 18-6-6 6-6" /></svg>
+                        </button>
+                    </div>
+                    <div className="absolute inset-y-0 right-0 md:right-4 flex items-center z-40 pointer-events-none">
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                const currentIndex = filteredItems.findIndex(item => item.id === selectedImage.id);
+                                const nextIndex = (currentIndex + 1) % filteredItems.length;
+                                setSelectedImage(filteredItems[nextIndex]);
+                                setModalImgSrc("");
+                            }}
+                            className="p-4 md:p-6 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all pointer-events-auto backdrop-blur-md active:scale-95"
+                            aria-label="Next image"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10"><path d="m9 18 6-6-6-6" /></svg>
+                        </button>
+                    </div>
+
+                    {/* Top Controls Overlay */}
+                    <div className="absolute top-0 left-0 right-0 p-6 flex justify-end items-center z-50 pointer-events-none">
                         <button
                             onClick={() => { setSelectedImage(null); setModalImgSrc(""); }}
-                            className="absolute top-4 right-4 z-20 p-2 bg-white text-slate-900 rounded-full hover:bg-gx-cyan hover:text-white transition-all shadow-xl z-50 flex items-center justify-center border border-white"
+                            className="p-3 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-all pointer-events-auto backdrop-blur-md"
                             aria-label="Close modal"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8"><path d="M18 6L6 18M6 6l12 12" /></svg>
                         </button>
+                    </div>
 
-                        {/* Navigation Controls */}
-                        <div className="absolute inset-y-0 left-0 flex items-center z-30 pointer-events-none">
-                            <button
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    const currentIndex = filteredItems.findIndex(item => item.id === selectedImage.id);
-                                    const prevIndex = (currentIndex - 1 + filteredItems.length) % filteredItems.length;
-                                    setSelectedImage(filteredItems[prevIndex]);
-                                    setModalImgSrc("");
-                                }}
-                                className="ml-4 p-3 bg-black/40 hover:bg-white text-white hover:text-slate-950 rounded-full transition-all border border-white/10 shadow-2xl pointer-events-auto backdrop-blur-sm"
-                                aria-label="Previous image"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="m15 18-6-6 6-6" /></svg>
-                            </button>
-                        </div>
-                        <div className="absolute inset-y-0 right-0 flex items-center z-30 pointer-events-none">
-                            <button
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    const currentIndex = filteredItems.findIndex(item => item.id === selectedImage.id);
-                                    const nextIndex = (currentIndex + 1) % filteredItems.length;
-                                    setSelectedImage(filteredItems[nextIndex]);
-                                    setModalImgSrc("");
-                                }}
-                                className="mr-4 p-3 bg-black/40 hover:bg-white text-white hover:text-slate-950 rounded-full transition-all border border-white/10 shadow-2xl pointer-events-auto backdrop-blur-sm"
-                                aria-label="Next image"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="m9 18 6-6-6-6" /></svg>
-                            </button>
+                    {/* Main Content Area - Full Width/Height */}
+                    <div
+                        className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-12 z-20 cursor-zoom-out"
+                        onClick={() => { setSelectedImage(null); setModalImgSrc(""); }}
+                    >
+                        <div className="relative w-full h-full max-w-6xl max-h-[80vh] transition-transform duration-500 will-change-transform pointer-events-none">
+                            <Image
+                                src={modalImgSrc || getDisplaySrc(selectedImage.src)}
+                                alt={selectedImage.title}
+                                fill
+                                quality={100}
+                                loading="lazy"
+                                sizes="95vw"
+                                className="object-contain"
+                                onError={() => setModalImgSrc(selectedImage.src)}
+                            />
                         </div>
 
-                        {/* Image Section - Interactive Zoom */}
+                        {/* Bottom Info Bar Overlay */}
                         <div
-                            className={`md:w-3/4 h-[50vh] md:h-full bg-black/40 flex flex-col items-center justify-center relative border-b md:border-b-0 md:border-r border-white/5 overflow-hidden transition-all ${isZoomed ? "cursor-zoom-out" : "cursor-zoom-in"}`}
-                            onClick={() => setIsZoomed(!isZoomed)}
+                            className="absolute bottom-0 left-0 right-0 p-8 md:p-12 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col items-center gap-4 pointer-events-none"
                         >
-                            <div className={`flex-1 relative w-full h-full p-2 transition-transform duration-500 ease-out will-change-transform ${isZoomed ? "scale-150" : "scale-100"}`}>
-                                <Image
-                                    src={modalImgSrc || getDisplaySrc(selectedImage.src)}
-                                    alt={selectedImage.title}
-                                    fill
-                                    quality={100}
-                                    loading="lazy"
-                                    sizes="75vw"
-                                    className="object-contain drop-shadow-2xl"
-                                    onError={() => setModalImgSrc(selectedImage.src)}
-                                />
-                            </div>
-                            {/* Accessible title below image */}
-                            <div className="w-full py-4 px-6 bg-gradient-to-t from-black/60 to-transparent text-center z-20">
-                                <p className="text-white/80 font-medium text-sm tracking-wide">{selectedImage.title}</p>
-                            </div>
-                        </div>
-
-                        {/* Info Section - Refined Layout */}
-                        <div className="md:w-1/4 h-[50vh] md:h-full bg-slate-950 flex flex-col border-l border-white/5 relative">
-                            {/* Scrollable Content */}
-                            <div className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
-                                <div>
-                                    <h2 className="text-xl font-bold text-white mb-3 leading-tight tracking-tight">{selectedImage.title}</h2>
-
-                                    {/* Compact Metadata Row (Above Fold) */}
-                                    <div className="flex flex-wrap gap-2 mb-4">
-                                        <span className="text-[10px] font-mono font-bold bg-gx-cyan/10 text-gx-cyan px-2 py-0.5 rounded border border-gx-cyan/20">
-                                            {getAspectRatio(selectedImage.width, selectedImage.height)}
-                                        </span>
-                                        <span className="text-[10px] font-mono bg-white/5 text-slate-400 px-2 py-0.5 rounded border border-white/5">
-                                            {selectedImage.width} x {selectedImage.height}
-                                        </span>
-                                        <span className="text-[10px] font-bold bg-gx-emerald/10 text-gx-emerald px-2 py-0.5 rounded border border-gx-emerald/20 flex items-center gap-1">
-                                            商用利用可 / Royalty Free
-                                        </span>
-                                    </div>
-                                    <p className="text-[10px] text-slate-500 font-medium">Commercial Use OK / No Attribution Required</p>
-                                </div>
-
-                                {/* Tags - High Priority (Above Fold) */}
-                                <div>
-                                    <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Tags</h3>
-                                    <div className="flex flex-wrap gap-1.5">
-                                        {selectedImage.tags.map(tag => (
-                                            <button
-                                                key={tag}
-                                                onClick={(e) => { e.stopPropagation(); handleInternalTagClick(tag); }}
-                                                className="text-[11px] px-2 py-1 bg-white/5 text-slate-300 hover:bg-gx-cyan hover:text-white rounded border border-white/5 transition-all"
-                                            >
-                                                {tag}
-                                            </button>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* Description - Secondary Priority */}
-                                <div className="pt-4 border-t border-white/5">
-                                    <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Description</h3>
-                                    <p className="text-xs text-slate-400 leading-relaxed font-medium">
-                                        {selectedImage.description}
-                                    </p>
-                                </div>
-
-                                {/* File Name - Low Priority */}
-                                <div className="pt-2 pb-2">
-                                    <div className="flex justify-between items-center text-[10px] text-slate-600 font-mono">
-                                        <span>FILENAME</span>
-                                        <span className="truncate max-w-[150px]" title={selectedImage.src.split('/').pop()}>
-                                            {selectedImage.src.split('/').pop()}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Sticky Footer for Actions */}
-                            <div className="p-6 bg-slate-950/90 backdrop-blur-md border-t border-white/10 space-y-3 z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] flex-shrink-0">
-                                <div className="text-center mb-1">
-                                    <span className="text-[10px] font-bold text-gx-cyan tracking-widest uppercase">{selectedImage.title}</span>
-                                </div>
-                                <div className="flex items-center gap-2 text-[8px] text-slate-500 justify-center font-mono opacity-60">
+                            <div className="text-center">
+                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-lg tracking-tight select-none">
+                                    {selectedImage.title}
+                                </h2>
+                                <p className="text-slate-400 font-mono text-xs md:text-sm tracking-widest uppercase flex items-center justify-center gap-4 opacity-80 select-none">
                                     <span>FILE: {selectedImage.src.split('/').pop()}</span>
-                                </div>
+                                    <span className="hidden md:inline w-1 h-1 bg-white/20 rounded-full" />
+                                    <span className="hidden md:inline">{selectedImage.width} x {selectedImage.height}</span>
+                                </p>
+                            </div>
+
+                            {/* Minimal Action Row */}
+                            <div className="flex items-center gap-4 pointer-events-auto mt-4">
                                 <a
                                     href={selectedImage.src}
                                     download
-                                    className="block w-full py-3.5 bg-gx-cyan text-white text-center font-bold text-sm rounded-xl hover:bg-gx-cyan/90 transition-all shadow-lg shadow-gx-cyan/20 flex items-center justify-center gap-2 group"
+                                    onClick={e => e.stopPropagation()}
+                                    className="flex items-center gap-3 px-8 py-3 bg-white text-slate-950 font-extrabold rounded-full hover:bg-gx-cyan hover:text-white transition-all shadow-2xl active:scale-95"
                                 >
-                                    <svg className="w-4 h-4 group-hover:animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-                                    無料ダウンロード / Download
+                                    <svg className="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                                    <span className="tracking-wide">DOWNLOAD HD</span>
                                 </a>
-                                <div className="text-center">
-                                    <p className="text-[9px] text-slate-500 italic">Commercial Use OK / No Attribution Required</p>
-                                </div>
-                                <div className="flex justify-between items-center gap-2">
+                                <div className="hidden md:flex gap-2">
                                     {getShareLinks(selectedImage).map((sns) => (
                                         <a
                                             key={sns.name}
                                             href={sns.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className={`flex-1 py-2.5 bg-transparent border border-white/10 rounded-lg flex items-center justify-center text-slate-400 transition-all duration-300 ${sns.hoverClass}`}
+                                            onClick={e => e.stopPropagation()}
+                                            className={`w-12 h-12 bg-black/40 border border-white/10 rounded-full flex items-center justify-center text-slate-400 hover:text-white transition-all ${sns.hoverClass}`}
                                             title={`Share on ${sns.name}`}
                                         >
                                             {sns.icon}
