@@ -27,42 +27,81 @@ interface CategorySectionProps {
 export default function CategorySection({ title, description, images }: CategorySectionProps) {
     const [selectedImage, setSelectedImage] = useState<CategoryImage | null>(null);
     const [modalImgSrc, setModalImgSrc] = useState<string>("");
-    const [touchStart, setTouchStart] = useState<number | null>(null);
-    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+    const [touchStartX, setTouchStartX] = useState<number | null>(null);
+    const [touchEndX, setTouchEndX] = useState<number | null>(null);
+    const [touchStartY, setTouchStartY] = useState<number | null>(null);
+    const [touchEndY, setTouchEndY] = useState<number | null>(null);
     const [swipeOffset, setSwipeOffset] = useState<number>(0);
 
-    const minSwipeDistance = 70;
+    const minSwipeDistance = 50;
 
     const onTouchStart = (e: React.TouchEvent) => {
-        setTouchEnd(null);
-        setTouchStart(e.targetTouches[0].clientY);
+        setTouchEndX(null);
+        setTouchEndY(null);
+        setTouchStartX(e.targetTouches[0].clientX);
+        setTouchStartY(e.targetTouches[0].clientY);
         setSwipeOffset(0);
     };
 
     const onTouchMove = (e: React.TouchEvent) => {
-        if (!touchStart) return;
-        const currentTouch = e.targetTouches[0].clientY;
-        setTouchEnd(currentTouch);
-        const distance = currentTouch - touchStart;
-        // Only allow downward swipes
-        if (distance > 0) {
-            setSwipeOffset(distance);
+        if (!touchStartY) return;
+        const currentTouchX = e.targetTouches[0].clientX;
+        const currentTouchY = e.targetTouches[0].clientY;
+        setTouchEndX(currentTouchX);
+        setTouchEndY(currentTouchY);
+
+        const distanceY = currentTouchY - touchStartY;
+        // Only allow downward swipes for offset visual
+        if (distanceY > 0) {
+            setSwipeOffset(distanceY);
         }
     };
 
     const onTouchEnd = () => {
-        if (!touchStart || !touchEnd) {
+        if (!touchStartX || !touchStartY || (!touchEndX && !touchEndY)) {
             setSwipeOffset(0);
             return;
         }
-        const distance = touchEnd - touchStart;
-        const isDownSwipe = distance > minSwipeDistance;
-        if (isDownSwipe) {
-            setSelectedImage(null);
+
+        const distanceX = touchEndX ? touchEndX - touchStartX : 0;
+        const distanceY = touchEndY ? touchEndY - touchStartY : 0;
+
+        const isHorizontalSwipe = Math.abs(distanceX) > Math.abs(distanceY);
+
+        if (isHorizontalSwipe) {
+            if (Math.abs(distanceX) > minSwipeDistance) {
+                if (distanceX < 0) {
+                    // Left swipe -> Next
+                    const currentIndex = images.findIndex(item => item.id === selectedImage?.id);
+                    if (currentIndex !== -1) {
+                        const nextIndex = (currentIndex + 1) % images.length;
+                        setSelectedImage(images[nextIndex]);
+                        setModalImgSrc("");
+                    }
+                } else {
+                    // Right swipe -> Prev
+                    const currentIndex = images.findIndex(item => item.id === selectedImage?.id);
+                    if (currentIndex !== -1) {
+                        const prevIndex = (currentIndex - 1 + images.length) % images.length;
+                        setSelectedImage(images[prevIndex]);
+                        setModalImgSrc("");
+                    }
+                }
+            }
+        } else {
+            // Vertical swipe
+            if (distanceY > minSwipeDistance) {
+                // Down swipe -> Close
+                setSelectedImage(null);
+                setModalImgSrc("");
+            }
         }
+
         setSwipeOffset(0);
-        setTouchStart(null);
-        setTouchEnd(null);
+        setTouchStartX(null);
+        setTouchEndX(null);
+        setTouchStartY(null);
+        setTouchEndY(null);
     };
 
     return (
@@ -178,6 +217,7 @@ export default function CategorySection({ title, description, images }: Category
                                     fill
                                     className="object-contain"
                                     onError={() => setModalImgSrc(selectedImage.src)}
+                                    loading="lazy"
                                 />
                             </div>
                             {/* Accessible title below image */}

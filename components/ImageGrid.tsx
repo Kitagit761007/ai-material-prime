@@ -18,7 +18,45 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
     const [modalImgSrc, setModalImgSrc] = useState<string>("");
     const [displayCount, setDisplayCount] = useState(20);
     const [isZoomed, setIsZoomed] = useState(false);
+    const [touchStartX, setTouchStartX] = useState<number | null>(null);
+    const [touchEndX, setTouchEndX] = useState<number | null>(null);
     const router = useRouter();
+
+    const minSwipeDistance = 50;
+
+    const handleTouchStart = (e: React.TouchEvent) => {
+        setTouchEndX(null);
+        setTouchStartX(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+        setTouchEndX(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+        if (!touchStartX || !touchEndX) return;
+        const distance = touchStartX - touchEndX;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe) {
+            // Next image
+            const currentIndex = filteredItems.findIndex(item => item.id === selectedImage?.id);
+            if (currentIndex !== -1) {
+                const nextIndex = (currentIndex + 1) % filteredItems.length;
+                setSelectedImage(filteredItems[nextIndex]);
+                setModalImgSrc("");
+            }
+        } else if (isRightSwipe) {
+            // Previous image
+            const currentIndex = filteredItems.findIndex(item => item.id === selectedImage?.id);
+            if (currentIndex !== -1) {
+                const prevIndex = (currentIndex - 1 + filteredItems.length) % filteredItems.length;
+                setSelectedImage(filteredItems[prevIndex]);
+                setModalImgSrc("");
+            }
+        }
+    };
 
     // 検索・フィルタリングロジック
     const filteredItems = assets.filter(item => {
@@ -131,7 +169,12 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
 
             {/* Enhanced Modal */}
             {selectedImage && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-2xl animate-in fade-in duration-300">
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-2xl animate-in fade-in duration-300"
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
+                >
                     <div className="absolute inset-0 cursor-zoom-out" onClick={() => { setSelectedImage(null); setModalImgSrc(""); }} />
                     <div className="relative bg-slate-950 rounded-2xl overflow-hidden max-w-7xl w-full h-[90vh] flex flex-col md:flex-row shadow-2xl border border-white/10 z-10" onClick={e => e.stopPropagation()}>
                         <button
@@ -185,7 +228,7 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
                                     alt={selectedImage.title}
                                     fill
                                     quality={100}
-                                    priority
+                                    loading="lazy"
                                     sizes="75vw"
                                     className="object-contain drop-shadow-2xl"
                                     onError={() => setModalImgSrc(selectedImage.src)}
