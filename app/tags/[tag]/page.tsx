@@ -3,6 +3,24 @@ import assets from "@/data/assets.json";
 import { ChevronLeft, Hash } from "lucide-react";
 import Link from "next/link";
 import TagSlider from "@/components/TagSlider";
+import { Metadata } from "next";
+
+type Props = {
+    params: Promise<{ tag: string }>
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const resolvedParams = await params;
+    const tag = resolvedParams.tag ? decodeURIComponent(resolvedParams.tag) : "";
+
+    return {
+        title: `「${tag}」のAI画像素材 | 未来を描くビジュアル`,
+        description: `${tag}に関連する高品質なAI生成画像素材。スマートシティや水素エネルギーなど、未来領域のビジュアルを無料でダウンロード可能。`,
+        alternates: {
+            canonical: `/tags/${resolvedParams.tag}`,
+        },
+    };
+}
 
 // Static params generation for GitHub Pages compatibility
 export async function generateStaticParams() {

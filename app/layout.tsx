@@ -13,8 +13,13 @@ import { FavoritesProvider } from '@/context/FavoritesContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-    title: 'GX Prime Visuals',
-    description: 'AI生成の高品質なGXビジュアル素材。',
+    metadataBase: new URL('https://ai-material-prime.com'),
+    title: {
+        default: 'AI Material Prime | 未来を描くAI生成画像素材サイト',
+        template: '%s | AI Material Prime'
+    },
+    description: '水素エネルギーやスマートシティなど、次世代のテクノロジーをテーマにした高品質なAI生成画像素材を無料で提供しています。商用利用可・クレジット表記不要。',
+    keywords: ['AI生成画像', '水素エネルギー', 'スマートシティ', 'GX', '未来都市', 'フリー素材'],
     manifest: '/manifest.json',
     themeColor: '#00f2fe',
     viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
@@ -27,6 +32,31 @@ export const metadata: Metadata = {
         apple: [
             { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
         ],
+    },
+    openGraph: {
+        type: 'website',
+        locale: 'ja_JP',
+        url: 'https://ai-material-prime.com',
+        siteName: 'AI Material Prime',
+        title: 'AI Material Prime | 未来を描くAI生成画像素材サイト',
+        description: '次世代テクノロジーをテーマにした高品質なAI生成画像素材サイト。',
+        images: [
+            {
+                url: '/assets/images/hydrogen_bus_future_city.png',
+                width: 1200,
+                height: 630,
+                alt: 'AI Material Prime featured visual',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'AI Material Prime | 未来を描くAI生成画像素材サイト',
+        description: '次世代テクノロジーをテーマにした高品質なAI生成画像素材サイト。',
+        images: ['/assets/images/hydrogen_bus_future_city.png'],
+    },
+    alternates: {
+        canonical: '/',
     },
 }
 

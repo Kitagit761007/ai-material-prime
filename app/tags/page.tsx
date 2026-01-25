@@ -2,6 +2,11 @@ import assets from "@/data/assets.json";
 import { ChevronLeft, Hash, Tag } from "lucide-react";
 import Link from "next/link";
 
+export const metadata = {
+    title: 'タグ一覧 | 未来領域のビジュアルキーワード',
+    description: '水素、都市、宇宙、テクノロジーなど、AI Material Primeで提供している全ての画像素材のタグを一覧で。気になるキーワードから素材を探せます。',
+};
+
 export default function TagsPage() {
     // Get all unique tags and counts
     const tagMap: Record<string, number> = {};

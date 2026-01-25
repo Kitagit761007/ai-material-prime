@@ -2,8 +2,8 @@ import ImageGrid from "@/components/ImageGrid";
 import assets from "@/data/assets.json";
 
 export const metadata = {
-    title: 'GX Asset Library | GX Prime Visuals',
-    description: 'AI生成の高品質なGXビジュアル素材一覧。',
+    title: 'ギャラリー | 未来を描くAI生成画像素材素材集',
+    description: '水素エネルギー、スマートシティ、次世代モビリティなど、未来を象徴する高品質なAI生成画像素材を一覧で。商用利用可能なフリー素材が豊富。',
 };
 
 export default function GalleryPage() {

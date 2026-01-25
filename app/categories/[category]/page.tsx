@@ -22,17 +22,14 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { category } = await params;
-    const japaneseTitle = categoryMap[category];
-
-    if (!japaneseTitle) {
-        return {
-            title: "Category Not Found | AI MATERIAL PRIME",
-        };
-    }
+    const japaneseTitle = categoryMap[category] || category;
 
     return {
-        title: `${japaneseTitle} | AI MATERIAL PRIME`,
-        description: `Download high-quality, royalty-free AI generated assets for ${japaneseTitle}.`,
+        title: `${japaneseTitle} | 画像素材集`,
+        description: `${japaneseTitle}をテーマにした高品質なAI生成画像素材を無料で提供しています。商用利用可・クレジット表示不要。`,
+        alternates: {
+            canonical: `/categories/${category}`,
+        },
     };
 }
 
