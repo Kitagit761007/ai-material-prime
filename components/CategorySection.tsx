@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { Heart } from "lucide-react";
 import { getDisplaySrc } from "../lib/imageUtils";
+import { useFavorites } from "../hooks/useFavorites";
 
 interface CategoryImage {
     id: string;
@@ -25,6 +27,48 @@ interface CategorySectionProps {
     images: CategoryImage[];
 }
 
+function CatCard({ img, isFavorite, onToggleFavorite, onClick }: {
+    img: CategoryImage,
+    isFavorite: boolean,
+    onToggleFavorite: () => void,
+    onClick: () => void
+}) {
+    const [loaded, setLoaded] = useState(false);
+    const [imgSrc, setImgSrc] = useState(getDisplaySrc(img.src));
+
+    return (
+        <div
+            className="group relative rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 cursor-zoom-in"
+            onClick={onClick}
+        >
+            <div className={`absolute inset-0 bg-slate-800 animate-pulse transition-opacity duration-500 ${loaded ? "opacity-0 pointer-events-none" : "opacity-100"}`} />
+            <Image
+                src={imgSrc}
+                alt={img.title}
+                width={600}
+                height={400}
+                className={`w-full h-full object-cover transition-all duration-700 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"} group-hover:scale-105`}
+                onLoad={() => setLoaded(true)}
+                onError={() => setImgSrc(img.src)}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                <p className="text-white text-xs font-bold truncate">{img.title}</p>
+            </div>
+
+            {/* Favorite Button on Card */}
+            <button
+                onClick={(e) => { e.stopPropagation(); onToggleFavorite(); }}
+                className={`absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center border transition-all z-10 ${isFavorite
+                    ? "bg-rose-500 border-rose-500 text-white shadow-lg"
+                    : "bg-black/40 border-white/20 text-white opacity-0 group-hover:opacity-100 backdrop-blur-md"
+                    }`}
+            >
+                <Heart className={`w-4 h-4 ${isFavorite ? "fill-white" : ""}`} />
+            </button>
+        </div>
+    );
+}
+
 export default function CategorySection({ title, description, images }: CategorySectionProps) {
     const [selectedImage, setSelectedImage] = useState<CategoryImage | null>(null);
     const [modalImgSrc, setModalImgSrc] = useState<string>("");
@@ -35,6 +79,7 @@ export default function CategorySection({ title, description, images }: Category
     const [swipeOffset, setSwipeOffset] = useState<number>(0);
     const [isZoomed, setIsZoomed] = useState(false);
     const router = useRouter();
+    const { isFavorite, toggleFavorite } = useFavorites();
 
     const minSwipeDistance = 50;
 
@@ -118,32 +163,14 @@ export default function CategorySection({ title, description, images }: Category
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {images.map((img) => {
-                    const [currentSrc, setCurrentSrc] = useState(getDisplaySrc(img.src));
                     return (
-                        <div
+                        <CatCard
                             key={img.id}
-                            className="group relative rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 cursor-zoom-in"
+                            img={img}
+                            isFavorite={isFavorite(img.id)}
+                            onToggleFavorite={() => toggleFavorite(img.id)}
                             onClick={() => setSelectedImage(img)}
-                        >
-                            <div className="aspect-[4/5] relative">
-                                <Image
-                                    src={currentSrc}
-                                    alt={img.title}
-                                    fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                    onError={() => setCurrentSrc(img.src)}
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-6">
-                                <h3 className="text-white font-bold text-lg mb-1">{img.title}</h3>
-                                <div className="flex items-center gap-2">
-                                    <span className="px-2 py-1 bg-gx-cyan/20 text-gx-cyan text-xs font-bold rounded">
-                                        Score: {img.score}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                        />
                     );
                 })}
             </div>
@@ -294,6 +321,18 @@ export default function CategorySection({ title, description, images }: Category
                                     <span className="uppercase tracking-tighter">SOURCE ID</span>
                                     <span className="truncate max-w-[150px]">{selectedImage.src.split('/').pop()}</span>
                                 </div>
+
+                                {/* Favorite Toggle Button in Modal */}
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); toggleFavorite(selectedImage.id); }}
+                                    className={`w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-3 transition-all border ${isFavorite(selectedImage.id)
+                                        ? "bg-rose-500/10 border-rose-500/20 text-rose-500"
+                                        : "bg-white/5 border-white/10 text-slate-400 hover:bg-white/10"
+                                        }`}
+                                >
+                                    <Heart className={`w-5 h-5 ${isFavorite(selectedImage.id) ? "fill-rose-500" : ""}`} />
+                                    {isFavorite(selectedImage.id) ? "保存済み" : "お気に入りに追加"}
+                                </button>
                             </div>
 
                             {/* Sticky Download Action */}

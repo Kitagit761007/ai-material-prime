@@ -3,7 +3,9 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { Heart, Share2 } from "lucide-react";
 import { getDisplaySrc } from "../lib/imageUtils";
+import { useFavorites } from "../hooks/useFavorites";
 // 🚨 インポートパスを物理相対パスで確定（ビルドエラー回避）
 import assets from "../data/assets.json";
 
@@ -13,7 +15,7 @@ interface ImageGridProps {
     onResultCount?: (count: number) => void;
 }
 
-export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGridProps) {
+export default function ImageGrid({ initialItems, searchQuery = "", onResultCount }: ImageGridProps) {
     const [selectedImage, setSelectedImage] = useState<typeof assets[0] | null>(null);
     const [modalImgSrc, setModalImgSrc] = useState<string>("");
     const [displayCount, setDisplayCount] = useState(20);
@@ -21,6 +23,7 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
     const [touchStartX, setTouchStartX] = useState<number | null>(null);
     const [touchEndX, setTouchEndX] = useState<number | null>(null);
     const router = useRouter();
+    const { isFavorite, toggleFavorite } = useFavorites();
 
     const minSwipeDistance = 50;
 
@@ -59,7 +62,8 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
     };
 
     // 検索・フィルタリングロジック
-    const filteredItems = assets.filter(item => {
+    const baseItems = initialItems || assets;
+    const filteredItems = baseItems.filter(item => {
         if (!searchQuery) return true;
         const query = searchQuery.toLowerCase().replace("#", "");
         return (
@@ -146,6 +150,8 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
                     <ImageCard
                         key={img.id}
                         img={img}
+                        isFavorite={isFavorite(img.id)}
+                        onToggleFavorite={() => toggleFavorite(img.id)}
                         onTagClick={handleInternalTagClick}
                         onClick={() => setSelectedImage(img)}
                     />
@@ -296,6 +302,18 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
                                     <span className="uppercase tracking-tighter">SOURCE ID</span>
                                     <span className="truncate max-w-[150px]">{selectedImage.src.split('/').pop()}</span>
                                 </div>
+
+                                {/* Favorite Toggle Modal UI */}
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); toggleFavorite(selectedImage.id); }}
+                                    className={`w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-3 transition-all border ${isFavorite(selectedImage.id)
+                                        ? "bg-rose-500/10 border-rose-500/20 text-rose-500"
+                                        : "bg-white/5 border-white/10 text-slate-400 hover:bg-white/10"
+                                        }`}
+                                >
+                                    <Heart className={`w-5 h-5 ${isFavorite(selectedImage.id) ? "fill-rose-500" : ""}`} />
+                                    {isFavorite(selectedImage.id) ? "保存済み" : "お気に入りに追加"}
+                                </button>
                             </div>
 
                             {/* Sticky Bottom Actions */}
@@ -347,7 +365,13 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
     );
 }
 
-function ImageCard({ img, onTagClick, onClick }: { img: typeof assets[0], onTagClick: (tag: string) => void, onClick: () => void }) {
+function ImageCard({ img, isFavorite, onToggleFavorite, onTagClick, onClick }: {
+    img: typeof assets[0],
+    isFavorite: boolean,
+    onToggleFavorite: () => void,
+    onTagClick: (tag: string) => void,
+    onClick: () => void
+}) {
     const [loaded, setLoaded] = useState(false);
     const [imgSrc, setImgSrc] = useState(getDisplaySrc(img.src));
 
@@ -368,14 +392,27 @@ function ImageCard({ img, onTagClick, onClick }: { img: typeof assets[0], onTagC
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                 <h3 className="text-white font-bold text-lg">{img.title}</h3>
-                <div className="flex flex-wrap gap-2 mt-3">
-                    {img.tags && img.tags.slice(0, 3).map((tag: string) => (
-                        <button key={tag} onClick={(e: React.MouseEvent) => { e.stopPropagation(); onTagClick(tag); }} className="px-2 py-1 bg-white/10 text-gx-cyan text-xs font-bold rounded border border-white/5 hover:bg-gx-cyan hover:text-white transition-colors">
-                            {tag}
-                        </button>
-                    ))}
+                <div className="flex items-center justify-between mt-3">
+                    <div className="flex flex-wrap gap-2">
+                        {img.tags && img.tags.slice(0, 2).map((tag: string) => (
+                            <button key={tag} onClick={(e: React.MouseEvent) => { e.stopPropagation(); onTagClick(tag); }} className="px-2 py-1 bg-white/10 text-gx-cyan text-[10px] font-bold rounded border border-white/5 hover:bg-gx-cyan hover:text-white transition-colors">
+                                {tag}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
+
+            {/* Favorite Indicator on Card */}
+            <button
+                onClick={(e) => { e.stopPropagation(); onToggleFavorite(); }}
+                className={`absolute bottom-6 right-6 w-10 h-10 rounded-full flex items-center justify-center border transition-all z-10 ${isFavorite
+                    ? "bg-rose-500 border-rose-500 text-white shadow-lg shadow-rose-500/40"
+                    : "bg-black/40 border-white/20 text-white opacity-0 group-hover:opacity-100 backdrop-blur-md hover:bg-white hover:text-slate-900"
+                    }`}
+            >
+                <Heart className={`w-5 h-5 ${isFavorite ? "fill-white" : ""}`} />
+            </button>
         </div>
     );
 }

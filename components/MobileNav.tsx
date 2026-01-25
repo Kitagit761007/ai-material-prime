@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, LayoutGrid, Search, Tag } from "lucide-react";
+import { Home, LayoutGrid, Search, Tag, Heart } from "lucide-react";
 
 export default function MobileNav() {
     const pathname = usePathname();
@@ -12,6 +12,7 @@ export default function MobileNav() {
         { name: "カテゴリー", href: "/gallery", icon: LayoutGrid },
         { name: "検索", href: "/search", icon: Search },
         { name: "タグ", href: "/tags", icon: Tag },
+        { name: "保存済み", href: "/favorites", icon: Heart },
     ];
 
     return (
