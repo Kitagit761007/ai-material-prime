@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Heart, Download, X, ChevronLeft, ChevronRight } from "lucide-react";
-import { getDisplaySrc } from "../lib/imageUtils";
+import { getDisplaySrc, downloadImage } from "../lib/imageUtils";
 import { useFavorites } from "@/context/FavoritesContext";
 
 interface CategoryImage {
@@ -39,6 +39,14 @@ export default function CategorySection({ title, description, images }: Category
         const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
         router.push(`/tags/${encodeURIComponent(cleanTag)}`);
         handleManualClose();
+    };
+
+    const handleDownload = async (e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (selectedImage) {
+            const filename = selectedImage.src.split('/').pop() || 'download.webp';
+            await downloadImage(selectedImage.src, filename);
+        }
     };
 
     const handleModalImageClick = (e: React.MouseEvent) => {
@@ -153,15 +161,13 @@ export default function CategorySection({ title, description, images }: Category
 
                             {/* Sticky Top Action */}
                             <div className="p-6 bg-slate-950/80 backdrop-blur-md border-b border-white/10 shrink-0 z-10">
-                                <a
-                                    href={selectedImage.src}
-                                    download
-                                    onClick={e => e.stopPropagation()}
+                                <button
+                                    onClick={handleDownload}
                                     className="flex items-center justify-center gap-3 w-full py-5 bg-white text-slate-950 font-black rounded-2xl hover:bg-gx-cyan hover:text-white transition-all shadow-xl active:scale-95 group"
                                 >
                                     <Download className="w-6 h-6 group-hover:animate-bounce" />
                                     FREE DOWNLOAD HD
-                                </a>
+                                </button>
                                 <p className="text-[10px] text-slate-500 italic mt-3 text-center">Standard License: Commercial OK</p>
                             </div>
 
