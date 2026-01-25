@@ -128,7 +128,7 @@ export default function CategorySection({ title, description, images }: Category
                     <div className="relative z-10 w-full h-[100dvh] md:h-[90vh] max-w-[100vw] md:max-w-[95vw] flex flex-col md:flex-row bg-slate-950 md:rounded-3xl overflow-hidden shadow-2xl border-white/10 md:border" onClick={e => e.stopPropagation()}>
 
                         {/* Image Area */}
-                        <div className="relative flex-1 bg-black/40 flex items-center justify-center min-h-[40vh] md:min-h-0 overflow-hidden">
+                        <div className="relative flex-1 bg-black/40 flex items-center justify-center overflow-hidden min-h-[40vh] md:min-h-0">
                             <div
                                 className={`relative w-full h-full p-4 transition-transform duration-500 ease-out will-change-transform ${isZoomed ? "scale-150 cursor-zoom-out" : "scale-100 cursor-zoom-in"}`}
                                 onClick={handleModalImageClick}
@@ -242,13 +242,18 @@ function CatCard({ img, isFavorite, onToggleFavorite, onClick }: {
                 <p className="text-white text-sm font-bold truncate">{img.title}</p>
             </div>
 
-            {/* Fav Button Grid */}
+            {/* Fav Button Grid - Fixed Right Bottom with stopPropagation and translucent background */}
             <button
-                onClick={(e) => { e.stopPropagation(); onToggleFavorite(); }}
-                className={`absolute bottom-4 right-4 w-10 h-10 rounded-full flex items-center justify-center border transition-all z-10 ${isFavorite ? "bg-rose-500 border-rose-500 text-white animate-heart-pop shadow-lg shadow-rose-500/20" : "bg-black/40 border-white/20 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 hover:bg-white hover:text-black"
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onToggleFavorite();
+                }}
+                className={`absolute bottom-[10px] right-[10px] w-10 h-10 rounded-full flex items-center justify-center transition-all z-10 backdrop-blur-sm ${isFavorite
+                        ? "bg-rose-500 text-white shadow-lg shadow-rose-500/40 animate-heart-pop"
+                        : "bg-black/40 border-2 border-white/30 text-white group-hover:border-white hover:bg-white hover:text-black"
                     }`}
             >
-                <Heart className={`w-5.5 h-5.5 ${isFavorite ? "fill-white" : ""}`} />
+                <Heart className={`w-5.5 h-5.5 ${isFavorite ? "fill-white" : "stroke-white"}`} />
             </button>
         </div>
     );

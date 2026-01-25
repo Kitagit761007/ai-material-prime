@@ -49,36 +49,26 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
 
     // --- Modal Management (Back Gesture & Scroll Lock) ---
 
-    // Close modal reliably
     const closeModal = useCallback(() => {
         if (selectedImage) {
             setSelectedImage(null);
             setModalImgSrc("");
             setIsZoomed(false);
-            // If the hash was added by us, we might want to clean history but 
-            // the popstate listener handles the state change.
         }
     }, [selectedImage]);
 
-    // Handle Browser Back Button / Gesture
     useEffect(() => {
         if (!selectedImage) return;
 
-        // Push a state to history so "Back" closes the modal instead of navigating away
-        // We use a small hash or just state.
-        const currentPath = window.location.href;
         window.history.pushState({ modalOpen: true }, "");
 
         const handlePopState = () => {
-            // This triggers when user hits "Back"
             setSelectedImage(null);
             setModalImgSrc("");
             setIsZoomed(false);
         };
 
         window.addEventListener("popstate", handlePopState);
-
-        // Prevent background scrolling
         document.body.style.overflow = "hidden";
 
         return () => {
@@ -87,18 +77,25 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
         };
     }, [selectedImage]);
 
-    // Close logic for UI buttons (X, Backdrop)
     const handleManualClose = () => {
         if (window.history.state?.modalOpen) {
-            window.history.back(); // This will trigger popstate and close the modal
+            window.history.back();
         } else {
             closeModal();
         }
     };
 
+    const handleDownload = async (e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (selectedImage) {
+            const filename = selectedImage.src.split('/').pop() || 'download.webp';
+            await downloadImage(selectedImage.src, filename);
+        }
+    };
+
     // Infinite Scroll
     const handleScroll = useCallback(() => {
-        if (typeof window === "undefined" || selectedImage) return; // Don't trigger while modal open
+        if (typeof window === "undefined" || selectedImage) return;
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 800) {
             if (displayCount < filteredItems.length) {
                 setDisplayCount(prev => Math.min(prev + 20, filteredItems.length));
@@ -115,14 +112,6 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
         const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
         router.push(`/tags/${encodeURIComponent(cleanTag)}`);
         if (selectedImage) handleManualClose();
-    };
-
-    const handleDownload = async (e: React.MouseEvent) => {
-        e.stopPropagation();
-        if (selectedImage) {
-            const filename = selectedImage.src.split('/').pop() || 'download.webp';
-            await downloadImage(selectedImage.src, filename);
-        }
     };
 
     const handleModalImageClick = (e: React.MouseEvent) => {
@@ -309,13 +298,19 @@ function ImageCard({ img, isFavorite, onToggleFavorite, onTagClick, onClick }: {
                 <p className="text-white text-sm font-bold truncate">{img.title}</p>
             </div>
 
-            {/* Fav Button Grid */}
+            {/* Fav Button Grid - Fixed Right Bottom with stopPropagation and translucent background */}
             <button
-                onClick={(e) => { e.stopPropagation(); onToggleFavorite(); }}
-                className={`absolute bottom-3 right-3 w-10 h-10 rounded-full flex items-center justify-center border transition-all z-10 ${isFavorite ? "bg-rose-500 border-rose-500 text-white animate-heart-pop shadow-lg shadow-rose-500/20" : "bg-black/40 border-white/20 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 hover:bg-white hover:text-black"
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onToggleFavorite();
+                }}
+                className={`absolute bottom-[10px] right-[10px] w-10 h-10 rounded-full flex items-center justify-center transition-all z-10 backdrop-blur-sm ${isFavorite
+                        ? "bg-rose-500 text-white shadow-lg shadow-rose-500/40 animate-heart-pop"
+                        : "bg-black/40 border-2 border-white/30 text-white group-hover:border-white hover:bg-white hover:text-black"
                     }`}
+                aria-label="お気に入り"
             >
-                <Heart className={`w-5.5 h-5.5 ${isFavorite ? "fill-white" : ""}`} />
+                <Heart className={`w-5.5 h-5.5 ${isFavorite ? "fill-white" : "stroke-white"}`} />
             </button>
         </div>
     );
