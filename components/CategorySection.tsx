@@ -32,6 +32,7 @@ export default function CategorySection({ title, description, images }: Category
     const [touchStartY, setTouchStartY] = useState<number | null>(null);
     const [touchEndY, setTouchEndY] = useState<number | null>(null);
     const [swipeOffset, setSwipeOffset] = useState<number>(0);
+    const [isZoomed, setIsZoomed] = useState(false);
 
     const minSwipeDistance = 50;
 
@@ -145,104 +146,173 @@ export default function CategorySection({ title, description, images }: Category
                 })}
             </div>
 
-            {/* Lightbox Modal (Mirrored from ImageGrid for consistency) */}
+            {/* Refined Pro Modal (Sync with ImageGrid) */}
             {selectedImage && (
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm animate-in fade-in duration-300"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-xl animate-in fade-in duration-300 overflow-hidden"
                     style={{
                         opacity: swipeOffset > 0 ? Math.max(0, 1 - swipeOffset / 300) : 1
                     }}
                 >
-                    {/* Tap-to-close Backdrop */}
-                    <div className="absolute inset-0 bg-transparent cursor-zoom-out z-0" onClick={() => { setSelectedImage(null); setModalImgSrc(""); }} />
+                    {/* Backdrop - Click to Close */}
+                    <div className="absolute inset-0 z-0 bg-transparent" onClick={() => { setSelectedImage(null); setModalImgSrc(""); setIsZoomed(false); }} />
 
-                    {/* Immersive Navigation Arrows - Higher Z-Index */}
-                    <div className="absolute inset-y-0 left-0 md:left-4 flex items-center z-40 pointer-events-none">
-                        <button
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                const currentIndex = images.findIndex(item => item.id === selectedImage.id);
-                                const prevIndex = (currentIndex - 1 + images.length) % images.length;
-                                setSelectedImage(images[prevIndex]);
-                                setModalImgSrc("");
-                            }}
-                            className="p-4 md:p-6 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all pointer-events-auto backdrop-blur-md active:scale-95"
-                            aria-label="Previous image"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10"><path d="m15 18-6-6 6-6" /></svg>
-                        </button>
-                    </div>
-                    <div className="absolute inset-y-0 right-0 md:right-4 flex items-center z-40 pointer-events-none">
-                        <button
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                const currentIndex = images.findIndex(item => item.id === selectedImage.id);
-                                const nextIndex = (currentIndex + 1) % images.length;
-                                setSelectedImage(images[nextIndex]);
-                                setModalImgSrc("");
-                            }}
-                            className="p-4 md:p-6 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all pointer-events-auto backdrop-blur-md active:scale-95"
-                            aria-label="Next image"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10"><path d="m9 18 6-6-6-6" /></svg>
-                        </button>
-                    </div>
-
-                    {/* Top Controls Overlay */}
-                    <div className="absolute top-0 left-0 right-0 p-6 flex justify-end items-center z-50 pointer-events-none">
-                        <button
-                            onClick={() => { setSelectedImage(null); setModalImgSrc(""); }}
-                            className="p-3 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-all pointer-events-auto backdrop-blur-md"
-                            aria-label="Close modal"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8"><path d="M18 6L6 18M6 6l12 12" /></svg>
-                        </button>
-                    </div>
-
+                    {/* Pro Layout Container */}
                     <div
-                        className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-12 z-20 cursor-zoom-out transition-transform"
+                        className="relative z-10 w-full h-full max-w-[100vw] max-h-[100vh] md:max-w-[95vw] md:max-h-[90vh] flex flex-col md:flex-row bg-slate-950 md:rounded-3xl overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.8)] border-white/5 md:border transition-transform"
                         style={{
                             transform: `translateY(${swipeOffset}px)`,
                             transition: swipeOffset === 0 ? 'transform 0.3s ease-out' : 'none'
                         }}
-                        onTouchStart={onTouchStart}
-                        onTouchMove={onTouchMove}
-                        onTouchEnd={onTouchEnd}
-                        onClick={() => { setSelectedImage(null); setModalImgSrc(""); }}
+                        onClick={(e: React.MouseEvent) => e.stopPropagation()}
                     >
-                        <div className="relative w-full h-full max-w-5xl max-h-[75vh] pointer-events-none">
-                            <Image
-                                src={modalImgSrc || (selectedImage ? getDisplaySrc(selectedImage.src) : "")}
-                                alt={selectedImage.title}
-                                fill
-                                className="object-contain"
-                                onError={() => setModalImgSrc(selectedImage.src)}
-                                loading="lazy"
-                            />
+
+                        {/* 1. Image Section - Interactive Zoom */}
+                        <div
+                            className={`relative flex-1 bg-black/40 flex items-center justify-center overflow-hidden transition-all duration-300 ${isZoomed ? "cursor-zoom-out" : "cursor-zoom-in"}`}
+                            onClick={() => setIsZoomed(!isZoomed)}
+                        >
+                            <div
+                                className={`relative w-full h-full flex items-center justify-center p-4 md:p-12 transition-transform duration-500 ease-out will-change-transform ${isZoomed ? "scale-150" : "scale-100"}`}
+                                onTouchStart={onTouchStart}
+                                onTouchMove={onTouchMove}
+                                onTouchEnd={onTouchEnd}
+                            >
+                                <Image
+                                    src={modalImgSrc || (selectedImage ? getDisplaySrc(selectedImage.src) : "")}
+                                    alt={selectedImage.title}
+                                    fill
+                                    quality={100}
+                                    loading="lazy"
+                                    sizes="(max-width: 768px) 100vw, 75vw"
+                                    className="object-contain"
+                                    onError={() => setModalImgSrc(selectedImage.src)}
+                                />
+                            </div>
+
+                            {/* Navigation Arrows Overlay */}
+                            <div className="absolute inset-y-0 left-0 flex items-center z-20 pointer-events-none px-4">
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        const currentIndex = images.findIndex(item => item.id === selectedImage.id);
+                                        const prevIndex = (currentIndex - 1 + images.length) % images.length;
+                                        setSelectedImage(images[prevIndex]);
+                                        setModalImgSrc("");
+                                        setIsZoomed(false);
+                                    }}
+                                    className="p-3 bg-black/20 hover:bg-white text-white hover:text-slate-900 rounded-full transition-all border border-white/10 pointer-events-auto backdrop-blur-md"
+                                    aria-label="Previous"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+                                </button>
+                            </div>
+                            <div className="absolute inset-y-0 right-0 flex items-center z-20 pointer-events-none px-4">
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        const currentIndex = images.findIndex(item => item.id === selectedImage.id);
+                                        const nextIndex = (currentIndex + 1) % images.length;
+                                        setSelectedImage(images[nextIndex]);
+                                        setModalImgSrc("");
+                                        setIsZoomed(false);
+                                    }}
+                                    className="p-3 bg-black/20 hover:bg-white text-white hover:text-slate-900 rounded-full transition-all border border-white/10 pointer-events-auto backdrop-blur-md"
+                                    aria-label="Next"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+                                </button>
+                            </div>
                         </div>
 
-                        {/* Bottom Bar Overlay */}
-                        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col items-center gap-4 pointer-events-none">
-                            <div className="text-center">
-                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 tracking-tight select-none">
-                                    {selectedImage.title}
-                                </h2>
-                                <div className="flex items-center justify-center gap-4 text-slate-400 font-mono text-xs md:text-sm tracking-widest uppercase opacity-80 select-none">
-                                    <span>FILE: {selectedImage.src.split('/').pop()}</span>
-                                    <span className="hidden md:inline w-1 h-1 bg-white/20 rounded-full" />
-                                    <span className="hidden md:inline">FREE HD ASSET</span>
+                        {/* 2. Side Panel - Metadata & Actions */}
+                        <div className="w-full md:w-[380px] bg-slate-900/90 backdrop-blur-3xl border-t md:border-t-0 md:border-l border-white/10 flex flex-col h-[45vh] md:h-full shrink-0">
+                            <div className="flex-1 overflow-y-auto p-6 md:p-8 space-y-8 scrollbar-thin scrollbar-thumb-white/10">
+                                {/* Close Button (Mobile internal) */}
+                                <div className="absolute top-4 right-4 md:hidden z-10">
+                                    <button
+                                        onClick={() => { setSelectedImage(null); setModalImgSrc(""); setIsZoomed(false); }}
+                                        className="p-2 bg-white/10 rounded-full text-white"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                                    </button>
+                                </div>
+
+                                <div>
+                                    <h2 className="text-2xl font-bold text-white mb-2 leading-tight tracking-tight">{selectedImage.title}</h2>
+                                    <p className="text-slate-400 text-sm leading-relaxed line-clamp-3">{selectedImage.description}</p>
+                                </div>
+
+                                {/* Metadata Grid */}
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="bg-white/5 p-3 rounded-xl border border-white/5 text-center">
+                                        <span className="block text-[10px] text-slate-500 uppercase tracking-widest mb-1 font-bold">Resolution</span>
+                                        <span className="text-white font-mono font-bold text-sm">{selectedImage.width} × {selectedImage.height}</span>
+                                    </div>
+                                    <div className="bg-white/5 p-3 rounded-xl border border-white/5 text-center">
+                                        <span className="block text-[10px] text-slate-500 uppercase tracking-widest mb-1 font-bold">Size</span>
+                                        <span className="text-white font-mono font-bold text-sm">{selectedImage.size}</span>
+                                    </div>
+                                    <div className="bg-white/5 p-3 rounded-xl border border-white/5 text-center">
+                                        <span className="block text-[10px] text-slate-500 uppercase tracking-widest mb-1 font-bold">Ratio</span>
+                                        <span className="text-gx-cyan font-mono font-bold text-sm">{selectedImage.aspectRatio}</span>
+                                    </div>
+                                    <div className="bg-white/5 p-3 rounded-xl border border-white/5 text-center">
+                                        <span className="block text-[10px] text-slate-500 uppercase tracking-widest mb-1 font-bold">Category</span>
+                                        <span className="text-gx-emerald font-bold text-xs uppercase">{selectedImage.category}</span>
+                                    </div>
+                                </div>
+
+                                {/* Tags Section */}
+                                {selectedImage.tags && selectedImage.tags.length > 0 && (
+                                    <div>
+                                        <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3 flex items-center gap-2">
+                                            <span className="w-1 h-1 bg-gx-cyan rounded-full"></span> Tags
+                                        </h3>
+                                        <div className="flex flex-wrap gap-2">
+                                            {selectedImage.tags.map(tag => (
+                                                <span
+                                                    key={tag}
+                                                    className="px-3 py-1.5 bg-white/5 text-slate-400 rounded-lg border border-white/5 text-xs font-medium"
+                                                >
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                <div className="text-[10px] font-mono text-slate-600 bg-black/20 p-3 rounded-lg flex items-center justify-between">
+                                    <span className="uppercase tracking-tighter">SOURCE ID</span>
+                                    <span className="truncate max-w-[150px]">{selectedImage.src.split('/').pop()}</span>
                                 </div>
                             </div>
 
-                            <a
-                                href={selectedImage.src}
-                                download
-                                onClick={(e: React.MouseEvent) => e.stopPropagation()}
-                                className="mt-4 px-10 py-3.5 bg-white text-slate-900 font-extrabold rounded-full hover:bg-gx-cyan hover:text-white transition-all shadow-2xl pointer-events-auto active:scale-95"
-                            >
-                                DOWNLOAD ASSET
-                            </a>
+                            {/* Sticky Download Action */}
+                            <div className="p-6 bg-slate-950/80 border-t border-white/10">
+                                <a
+                                    href={selectedImage.src}
+                                    download
+                                    onClick={(e: React.MouseEvent) => e.stopPropagation()}
+                                    className="flex items-center justify-center gap-3 w-full py-4 bg-white text-slate-950 font-extrabold rounded-2xl hover:bg-gx-cyan hover:text-white transition-all shadow-xl active:scale-95"
+                                >
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                                    DOWNLOAD HD
+                                </a>
+                                <p className="text-[9px] text-slate-500 italic mt-3 text-center">Commercial Use OK / No Attribution Required</p>
+                            </div>
                         </div>
+                    </div>
+
+                    {/* Desktop Close Button (Floating) */}
+                    <div className="absolute top-6 right-6 hidden md:block z-50">
+                        <button
+                            onClick={() => { setSelectedImage(null); setModalImgSrc(""); setIsZoomed(false); }}
+                            className="p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-md border border-white/10"
+                            aria-label="Close"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                        </button>
                     </div>
                 </div>
             )}
