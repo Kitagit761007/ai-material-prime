@@ -17,6 +17,18 @@ export default function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Scroll lock when menu is open
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isMenuOpen]);
+
     const closeMenu = () => setIsMenuOpen(false);
 
     const getCategoryCount = (id: string) => {
@@ -40,9 +52,9 @@ export default function Header() {
     ];
 
     return (
-        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-slate-950/80 backdrop-blur-md border-b border-white/10 shadow-lg" : "bg-transparent border-b border-transparent"}`}>
+        <header className={`fixed top-0 left-0 right-0 transition-all duration-300 ${isMenuOpen ? "z-[9999] bg-slate-950" : "z-50"} ${!isMenuOpen && scrolled ? "bg-slate-950/80 backdrop-blur-md border-b border-white/10 shadow-lg" : !isMenuOpen ? "bg-transparent border-b border-transparent" : "border-b border-white/10"}`}>
             <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-                <Link href="/" className="text-xl font-bold font-mono tracking-tighter text-gx-cyan z-50" onClick={closeMenu}>GX Prime Visuals</Link>
+                <Link href="/" className={`text-xl font-bold font-mono tracking-tighter text-gx-cyan transition-all ${isMenuOpen ? "z-[101]" : "z-50"}`} onClick={closeMenu}>GX Prime Visuals</Link>
                 <nav className="hidden md:flex gap-8 items-center">
                     <Link href="/gallery" className="text-sm font-medium hover:text-gx-cyan transition-colors">ギャラリー</Link>
                     <div className="relative group">
@@ -62,8 +74,8 @@ export default function Header() {
                     <Link href="/tags" className="text-sm font-medium hover:text-gx-cyan transition-colors">タグ一覧</Link>
                     <Link href="/contact" className="text-sm font-medium hover:text-gx-cyan transition-colors">お問い合わせ</Link>
                 </nav>
-                <button className="md:hidden z-50 p-2 text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}</button>
-                <div className={`fixed inset-0 bg-slate-950 transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-4 ${isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none translate-y-[-20px]"}`}>
+                <button className={`md:hidden p-2 text-white transition-all ${isMenuOpen ? "z-[101]" : "z-50"}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}</button>
+                <div className={`fixed inset-0 bg-[#020617] transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-4 ${isMenuOpen ? "opacity-100 pointer-events-auto z-[100]" : "opacity-0 pointer-events-none translate-y-[-20px]"}`}>
                     <Link href="/gallery" className="w-[calc(100%-3rem)] bg-white/5 p-4 rounded-xl flex items-center justify-between group active:bg-white/10 transition-colors border border-white/5" onClick={closeMenu}>
                         <span className="text-xl font-bold text-white">ギャラリー (Gallery)</span>
                         <ChevronRight className="w-5 h-5 text-gx-cyan" />
