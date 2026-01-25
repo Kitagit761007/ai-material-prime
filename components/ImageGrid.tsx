@@ -142,6 +142,38 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M18 6L6 18M6 6l12 12" /></svg>
                         </button>
 
+                        {/* Navigation Controls */}
+                        <div className="absolute inset-y-0 left-0 flex items-center z-30 pointer-events-none">
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    const currentIndex = filteredItems.findIndex(item => item.id === selectedImage.id);
+                                    const prevIndex = (currentIndex - 1 + filteredItems.length) % filteredItems.length;
+                                    setSelectedImage(filteredItems[prevIndex]);
+                                    setModalImgSrc("");
+                                }}
+                                className="ml-4 p-3 bg-black/40 hover:bg-white text-white hover:text-slate-950 rounded-full transition-all border border-white/10 shadow-2xl pointer-events-auto backdrop-blur-sm"
+                                aria-label="Previous image"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="m15 18-6-6 6-6" /></svg>
+                            </button>
+                        </div>
+                        <div className="absolute inset-y-0 right-0 flex items-center z-30 pointer-events-none">
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    const currentIndex = filteredItems.findIndex(item => item.id === selectedImage.id);
+                                    const nextIndex = (currentIndex + 1) % filteredItems.length;
+                                    setSelectedImage(filteredItems[nextIndex]);
+                                    setModalImgSrc("");
+                                }}
+                                className="mr-4 p-3 bg-black/40 hover:bg-white text-white hover:text-slate-950 rounded-full transition-all border border-white/10 shadow-2xl pointer-events-auto backdrop-blur-sm"
+                                aria-label="Next image"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="m9 18 6-6-6-6" /></svg>
+                            </button>
+                        </div>
+
                         {/* Image Section - Interactive Zoom */}
                         <div
                             className={`md:w-3/4 h-[50vh] md:h-full bg-black/40 flex flex-col items-center justify-center relative border-b md:border-b-0 md:border-r border-white/5 overflow-hidden transition-all ${isZoomed ? "cursor-zoom-out" : "cursor-zoom-in"}`}
@@ -212,7 +244,7 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
                                 </div>
 
                                 {/* File Name - Low Priority */}
-                                <div className="pt-2">
+                                <div className="pt-2 pb-2">
                                     <div className="flex justify-between items-center text-[10px] text-slate-600 font-mono">
                                         <span>FILENAME</span>
                                         <span className="truncate max-w-[150px]" title={selectedImage.src.split('/').pop()}>
@@ -223,9 +255,12 @@ export default function ImageGrid({ searchQuery = "", onResultCount }: ImageGrid
                             </div>
 
                             {/* Sticky Footer for Actions */}
-                            <div className="p-6 bg-slate-950/90 backdrop-blur-md border-t border-white/10 space-y-3 z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
-                                <div className="text-center mb-2">
-                                    <span className="text-[10px] font-bold text-gx-cyan tracking-widest uppercase">Free Assets for All Creators</span>
+                            <div className="p-6 bg-slate-950/90 backdrop-blur-md border-t border-white/10 space-y-3 z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] flex-shrink-0">
+                                <div className="text-center mb-1">
+                                    <span className="text-[10px] font-bold text-gx-cyan tracking-widest uppercase">{selectedImage.title}</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-[8px] text-slate-500 justify-center font-mono opacity-60">
+                                    <span>FILE: {selectedImage.src.split('/').pop()}</span>
                                 </div>
                                 <a
                                     href={selectedImage.src}
@@ -274,6 +309,7 @@ function ImageCard({ img, onTagClick, onClick }: { img: typeof assets[0], onTagC
                 width={600}
                 height={800}
                 quality={80}
+                loading="lazy"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className={`w-full h-auto object-cover transition-all duration-700 ease-in-out ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"} group-hover:scale-105`}
                 onLoad={() => setLoaded(true)}

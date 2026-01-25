@@ -90,6 +90,7 @@ export default function CategorySection({ title, description, images }: Category
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                                     onError={() => setCurrentSrc(img.src)}
+                                    loading="lazy"
                                 />
                             </div>
                             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-6">
@@ -135,6 +136,38 @@ export default function CategorySection({ title, description, images }: Category
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 transition-transform group-hover:rotate-90"><path d="M18 6L6 18M6 6l12 12" /></svg>
                         </button>
+
+                        {/* Navigation Controls */}
+                        <div className="absolute inset-y-0 left-0 flex items-center z-30 pointer-events-none">
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    const currentIndex = images.findIndex(item => item.id === selectedImage.id);
+                                    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+                                    setSelectedImage(images[prevIndex]);
+                                    setModalImgSrc("");
+                                }}
+                                className="ml-4 p-3 bg-black/40 hover:bg-white text-white hover:text-slate-950 rounded-full transition-all border border-white/10 shadow-2xl pointer-events-auto backdrop-blur-sm"
+                                aria-label="Previous image"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="m15 18-6-6 6-6" /></svg>
+                            </button>
+                        </div>
+                        <div className="absolute inset-y-0 right-0 flex items-center z-30 pointer-events-none">
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    const currentIndex = images.findIndex(item => item.id === selectedImage.id);
+                                    const nextIndex = (currentIndex + 1) % images.length;
+                                    setSelectedImage(images[nextIndex]);
+                                    setModalImgSrc("");
+                                }}
+                                className="mr-4 p-3 bg-black/40 hover:bg-white text-white hover:text-slate-950 rounded-full transition-all border border-white/10 shadow-2xl pointer-events-auto backdrop-blur-sm"
+                                aria-label="Next image"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="m9 18 6-6-6-6" /></svg>
+                            </button>
+                        </div>
 
                         {/* Image Side */}
                         <div className="md:w-2/3 bg-black/50 flex flex-col items-center justify-center relative min-h-[300px] md:h-auto">
@@ -216,7 +249,7 @@ export default function CategorySection({ title, description, images }: Category
                             {/* TAGS */}
                             <div className="shrink-0 pb-2">
                                 <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Tags</h3>
-                                <div className="flex flex-wrap gap-1.5">
+                                <div className="flex flex-wrap gap-1.5 text-center">
                                     {selectedImage.tags.map((tag: string) => (
                                         <span
                                             key={tag}
@@ -226,6 +259,12 @@ export default function CategorySection({ title, description, images }: Category
                                         </span>
                                     ))}
                                 </div>
+                            </div>
+
+                            {/* Explicit Caption Footer for CategorySection */}
+                            <div className="mt-auto pt-6 border-t border-white/5 text-center">
+                                <p className="text-[10px] font-bold text-gx-cyan uppercase tracking-widest">{selectedImage.title}</p>
+                                <p className="text-[8px] text-slate-500 font-mono mt-1 opacity-60">FILE: {selectedImage.src.split('/').pop()}</p>
                             </div>
                         </div>
                     </div>
