@@ -2,6 +2,7 @@ import ImageGrid from "@/components/ImageGrid";
 import assets from "@/data/assets.json";
 import { ChevronLeft, Hash } from "lucide-react";
 import Link from "next/link";
+import TagSlider from "@/components/TagSlider";
 
 // Static params generation for GitHub Pages compatibility
 export async function generateStaticParams() {
@@ -55,7 +56,8 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
                         </p>
                     </div>
                 </div>
-                <div className="h-px w-full bg-gradient-to-r from-gx-cyan/50 via-white/5 to-transparent mt-10" />
+                <div className="h-px w-full bg-gradient-to-r from-gx-cyan/50 via-white/5 to-transparent mt-10 mb-2" />
+                <TagSlider currentTag={decodedTag} />
             </div>
 
             <ImageGrid searchQuery={decodedTag} />

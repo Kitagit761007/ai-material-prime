@@ -5,6 +5,7 @@ import ImageGrid from "@/components/ImageGrid";
 import { ChevronLeft, Search } from "lucide-react";
 import Link from "next/link";
 import { Suspense, useState } from "react";
+import TagSlider from "@/components/TagSlider";
 
 function SearchResults() {
     const searchParams = useSearchParams();
@@ -38,7 +39,8 @@ function SearchResults() {
                         )}
                     </div>
                 </div>
-                <div className="h-px w-full bg-gradient-to-r from-gx-cyan/50 via-white/5 to-transparent mt-10" />
+                <div className="h-px w-full bg-gradient-to-r from-gx-cyan/50 via-white/5 to-transparent mt-10 mb-2" />
+                <TagSlider currentTag={query} />
             </div>
 
             <ImageGrid searchQuery={query} onResultCount={setResultCount} />

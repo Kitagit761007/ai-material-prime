@@ -271,7 +271,7 @@ export default function CategorySection({ title, description, images }: Category
                                         <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3 flex items-center gap-2">
                                             <span className="w-1 h-1 bg-gx-cyan rounded-full"></span> Tags
                                         </h3>
-                                        <div className="flex flex-wrap gap-2">
+                                        <div className="flex flex-wrap gap-2.5">
                                             {selectedImage.tags.map(tag => (
                                                 <button
                                                     key={tag}
@@ -281,7 +281,7 @@ export default function CategorySection({ title, description, images }: Category
                                                         router.push(`/tags/${encodeURIComponent(cleanTag)}`);
                                                         setSelectedImage(null);
                                                     }}
-                                                    className="px-3 py-1.5 bg-white/5 hover:bg-gx-cyan/20 text-slate-400 hover:text-white rounded-lg border border-white/5 text-xs font-medium transition-all"
+                                                    className="h-9 px-4 bg-white/5 hover:bg-gx-cyan border border-white/10 hover:border-gx-cyan text-slate-300 hover:text-slate-950 rounded-full transition-all text-xs font-bold flex items-center justify-center shadow-lg active:scale-95"
                                                 >
                                                     {tag}
                                                 </button>

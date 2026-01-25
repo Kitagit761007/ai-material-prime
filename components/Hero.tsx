@@ -9,6 +9,8 @@ const knownTags = new Set(
     ])
 );
 
+import TagSlider from "./TagSlider";
+
 interface HeroProps {
     searchQuery: string;
     setSearchQuery: (query: string) => void;
@@ -98,40 +100,7 @@ export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
                 </button>
             </form>
 
-            {/* Horizontal Scrollable Chips - Pro Mobile UI */}
-            <div className="mt-8 w-full max-w-2xl relative">
-                <div className="flex flex-nowrap overflow-x-auto pb-4 gap-3 no-scrollbar scroll-smooth px-4 mask-fade-edges">
-                    {["#水素エネルギー", "#スマートシティ", "#風力発電", "#脱炭素", "#環境技術", "#クリーン電力", "#EV", "#モビリティ"].map((tag, i) => {
-                        const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
-                        const isActive = searchQuery === cleanTag;
-                        return (
-                            <button
-                                key={tag}
-                                onClick={() => handleTagClick(tag)}
-                                className={`shrink-0 px-5 py-2.5 rounded-full text-xs md:text-sm font-bold transition-all border ${isActive
-                                    ? "bg-gx-cyan border-gx-cyan text-slate-950 shadow-lg shadow-gx-cyan/20 scale-105"
-                                    : "bg-white/5 border-white/10 text-slate-300 hover:border-gx-cyan/50 hover:text-white"
-                                    }`}
-                            >
-                                {tag}
-                            </button>
-                        );
-                    })}
-                </div>
-                {/* Visual fading for horizontal scroll indication */}
-                <style jsx>{`
-                    .mask-fade-edges {
-                        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-                    }
-                    .no-scrollbar::-webkit-scrollbar {
-                        display: none;
-                    }
-                    .no-scrollbar {
-                        -ms-overflow-style: none;
-                        scrollbar-width: none;
-                    }
-                `}</style>
-            </div>
+            <TagSlider currentTag={searchQuery} />
         </section>
     );
 }
