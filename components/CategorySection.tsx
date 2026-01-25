@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Heart } from "lucide-react";
+import { Heart, Download } from "lucide-react";
 import { getDisplaySrc } from "../lib/imageUtils";
 import { useFavorites } from "../hooks/useFavorites";
 
@@ -43,12 +43,8 @@ export default function CategorySection({ title, description, images }: Category
 
     const handleModalImageClick = (e: React.MouseEvent) => {
         const now = Date.now();
-        const DOUBLE_TAP_DELAY = 300;
-
-        if (now - lastTapRef.current < DOUBLE_TAP_DELAY) {
-            if (selectedImage) {
-                toggleFavorite(selectedImage.id);
-            }
+        if (now - lastTapRef.current < 300) {
+            if (selectedImage) toggleFavorite(selectedImage.id);
         } else {
             setIsZoomed(!isZoomed);
         }
@@ -79,12 +75,12 @@ export default function CategorySection({ title, description, images }: Category
             {/* Modal */}
             {selectedImage && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-xl transition-all duration-300">
-                    <div className="absolute inset-0 z-0" onClick={() => { setSelectedImage(null); setModalImgSrc(""); setIsZoomed(false); }} />
+                    <div className="absolute inset-0 z-0 bg-transparent" onClick={() => { setSelectedImage(null); setModalImgSrc(""); setIsZoomed(false); }} />
 
-                    <div className="relative z-10 w-full h-full max-w-[100vw] max-h-[100vh] md:max-w-[95vw] md:max-h-[90vh] flex flex-col md:flex-row bg-slate-950 md:rounded-3xl overflow-hidden border-white/5 md:border shadow-2xl" onClick={e => e.stopPropagation()}>
+                    <div className="relative z-10 w-full h-[100dvh] md:h-[90vh] max-w-[100vw] md:max-w-[95vw] flex flex-col md:flex-row bg-slate-950 md:rounded-3xl overflow-hidden shadow-2xl border-white/5 md:border" onClick={e => e.stopPropagation()}>
 
                         {/* Image Area */}
-                        <div className="relative flex-1 bg-black/40 flex items-center justify-center overflow-hidden">
+                        <div className="relative flex-1 bg-black/40 flex items-center justify-center overflow-hidden min-h-[40vh] md:min-h-0">
                             <div
                                 className={`relative w-full h-full p-4 transition-transform duration-300 ${isZoomed ? "scale-150 cursor-zoom-out" : "scale-100 cursor-zoom-in"}`}
                                 onClick={handleModalImageClick}
@@ -98,7 +94,6 @@ export default function CategorySection({ title, description, images }: Category
                                 />
                             </div>
 
-                            {/* Floating Heart Button in Modal */}
                             <button
                                 onClick={(e) => { e.stopPropagation(); toggleFavorite(selectedImage.id); }}
                                 className={`absolute bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all shadow-2xl z-30 active:scale-90 bg-black/40 backdrop-blur-xl ${isFavorite(selectedImage.id) ? "bg-rose-500 border-rose-500 text-white animate-heart-pop" : "border-white/30 text-white"
@@ -108,47 +103,55 @@ export default function CategorySection({ title, description, images }: Category
                             </button>
                         </div>
 
-                        {/* Info Area */}
-                        <div className="w-full md:w-[380px] bg-slate-900/90 flex flex-col h-[45vh] md:h-full shrink-0 border-l border-white/10">
-                            <div className="flex-1 overflow-y-auto p-6 space-y-6">
+                        {/* Side Panel */}
+                        <div className="w-full md:w-[400px] flex flex-col bg-slate-900/90 border-t md:border-t-0 md:border-l border-white/10 overflow-hidden h-[60vh] md:h-full">
+
+                            {/* Primary Action Zone */}
+                            <div className="p-6 bg-slate-950/50 border-b border-white/10">
+                                <a
+                                    href={selectedImage.src}
+                                    download
+                                    onClick={e => e.stopPropagation()}
+                                    className="flex items-center justify-center gap-3 w-full py-5 bg-white text-slate-950 font-black rounded-2xl hover:bg-gx-cyan hover:text-white transition-all shadow-xl active:scale-95 group"
+                                >
+                                    <Download className="w-6 h-6 group-hover:animate-bounce" />
+                                    FREE DOWNLOAD HD
+                                </a>
+                            </div>
+
+                            {/* Info Area (Scrollable) */}
+                            <div className="flex-1 overflow-y-auto p-6 md:p-8 space-y-8 scrollbar-thin scrollbar-thumb-white/10">
                                 <div className="flex justify-between items-start">
-                                    <h2 className="text-xl font-bold text-white leading-tight">{selectedImage.title}</h2>
-                                    <button onClick={() => setSelectedImage(null)} className="md:hidden p-2 bg-white/10 rounded-full text-white">
+                                    <h2 className="text-2xl font-bold text-white leading-tight tracking-tight">{selectedImage.title}</h2>
+                                    <button onClick={() => setSelectedImage(null)} className="p-2 bg-white/10 rounded-full text-white">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
                                     </button>
                                 </div>
                                 <p className="text-slate-400 text-sm leading-relaxed">{selectedImage.description}</p>
 
-                                <div className="grid grid-cols-2 gap-3">
-                                    <div className="bg-white/5 p-3 rounded-xl border border-white/5">
-                                        <span className="block text-[9px] text-slate-500 uppercase font-bold">Resolution</span>
-                                        <span className="text-white text-xs font-mono">{selectedImage.width} × {selectedImage.height}</span>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="bg-white/5 p-4 rounded-xl border border-white/5">
+                                        <span className="block text-[10px] text-slate-500 uppercase font-black mb-1">Resolution</span>
+                                        <span className="text-white text-sm font-mono font-bold">{selectedImage.width} × {selectedImage.height}</span>
                                     </div>
-                                    <div className="bg-white/5 p-3 rounded-xl border border-white/5">
-                                        <span className="block text-[9px] text-slate-500 uppercase font-bold">Category</span>
-                                        <span className="text-gx-cyan text-xs font-bold uppercase">{selectedImage.category}</span>
+                                    <div className="bg-white/5 p-4 rounded-xl border border-white/5">
+                                        <span className="block text-[10px] text-slate-500 uppercase font-black mb-1">Category</span>
+                                        <span className="text-gx-cyan text-sm font-black uppercase">{selectedImage.category}</span>
                                     </div>
                                 </div>
 
                                 <div className="flex flex-wrap gap-2">
                                     {selectedImage.tags.map(tag => (
-                                        <button key={tag} onClick={() => handleTagClick(tag)} className="px-3 py-1.5 bg-white/5 hover:bg-gx-cyan text-slate-300 hover:text-black rounded-full text-[10px] font-bold transition-all border border-white/10">
+                                        <button key={tag} onClick={() => handleTagClick(tag)} className="px-4 py-2 bg-white/5 hover:bg-gx-cyan text-slate-300 hover:text-black rounded-full text-xs font-bold transition-all border border-white/10">
                                             {tag}
                                         </button>
                                     ))}
                                 </div>
                             </div>
-
-                            <div className="p-6 bg-slate-950 border-t border-white/10">
-                                <a href={selectedImage.src} download onClick={e => e.stopPropagation()} className="flex items-center justify-center gap-3 w-full py-4 bg-white text-black font-extrabold rounded-2xl hover:bg-gx-cyan hover:text-white transition-all shadow-xl active:scale-95">
-                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-                                    DOWNLOAD HD
-                                </a>
-                            </div>
                         </div>
 
                         {/* Desktop Close */}
-                        <button onClick={() => setSelectedImage(null)} className="hidden md:flex absolute top-6 right-6 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full z-50 backdrop-blur-md">
+                        <button onClick={() => setSelectedImage(null)} className="hidden md:flex absolute top-8 right-8 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full z-50 backdrop-blur-md border border-white/10">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
                         </button>
                     </div>
@@ -182,13 +185,13 @@ function CatCard({ img, isFavorite, onToggleFavorite, onClick }: {
                 <p className="text-white text-xs font-bold truncate">{img.title}</p>
             </div>
 
-            {/* Favorite Button on Card Grid */}
+            {/* Fav Button Grid */}
             <button
                 onClick={(e) => { e.stopPropagation(); onToggleFavorite(); }}
-                className={`absolute bottom-3 right-3 w-9 h-9 rounded-full flex items-center justify-center border transition-all z-10 ${isFavorite ? "bg-rose-500 border-rose-500 text-white animate-heart-pop" : "bg-black/40 border-white/20 text-white backdrop-blur-md opacity-0 group-hover:opacity-100"
+                className={`absolute bottom-3 right-3 w-10 h-10 rounded-full flex items-center justify-center border transition-all z-10 ${isFavorite ? "bg-rose-500 border-rose-500 text-white animate-heart-pop shadow-lg" : "bg-black/40 border-white/20 text-white backdrop-blur-md opacity-0 group-hover:opacity-100"
                     }`}
             >
-                <Heart className={`w-5 h-5 ${isFavorite ? "fill-white" : ""}`} />
+                <Heart className={`w-5.5 h-5.5 ${isFavorite ? "fill-white" : ""}`} />
             </button>
         </div>
     );

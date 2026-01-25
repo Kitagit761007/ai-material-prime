@@ -7,7 +7,13 @@ import { Heart, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 
 export default function FavoritesPage() {
-    const { favorites } = useFavorites();
+    const { favorites, isLoaded } = useFavorites();
+
+    if (!isLoaded) {
+        return <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+            <div className="w-8 h-8 border-2 border-gx-cyan border-t-transparent rounded-full animate-spin" />
+        </div>;
+    }
 
     // Filter assets whose IDs are in favorites
     const favoriteAssets = assets.filter(asset => favorites.includes(asset.id));

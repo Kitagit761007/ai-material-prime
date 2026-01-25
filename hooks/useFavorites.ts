@@ -6,23 +6,29 @@ const STORAGE_KEY = 'gx_favorites';
 
 export function useFavorites() {
     const [favorites, setFavorites] = useState<string[]>([]);
+    const [isLoaded, setIsLoaded] = useState(false);
 
-    // Load initial state
+    // Initial Load
     useEffect(() => {
         const stored = localStorage.getItem(STORAGE_KEY);
         if (stored) {
             try {
-                setFavorites(JSON.parse(stored));
+                const parsed = JSON.parse(stored);
+                if (Array.isArray(parsed)) {
+                    setFavorites(parsed);
+                }
             } catch (e) {
                 console.error("Failed to parse favorites", e);
             }
         }
+        setIsLoaded(true);
     }, []);
 
     // Persist changes
     useEffect(() => {
+        if (!isLoaded) return;
         localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
-    }, [favorites]);
+    }, [favorites, isLoaded]);
 
     const toggleFavorite = (id: string) => {
         setFavorites(prev =>
@@ -34,5 +40,5 @@ export function useFavorites() {
 
     const isFavorite = (id: string) => favorites.includes(id);
 
-    return { favorites, toggleFavorite, isFavorite };
+    return { favorites, toggleFavorite, isFavorite, isLoaded };
 }
