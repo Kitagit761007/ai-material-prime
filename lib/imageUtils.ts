@@ -17,6 +17,7 @@ export function getDisplaySrc(src: string): string {
     }
 
     // For local images, we've pre-converted them to WebP
+    // Support both legacy /images/ and new /assets/images/
     if (normalized.includes('/images/')) {
         // Remove version query if exists for extension replacement
         const baseSrc = normalized.split('?')[0];
