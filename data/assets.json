@@ -1,4 +1,4 @@
-[
+﻿[
     {
         "id":  "hydrogen-bus-future-01",
         "src":  "/assets/images/grok/hydrogen_bus_future_city.png",
@@ -5127,7 +5127,7 @@
     },
     {
         "id":  "g-70",
-        "url":  "assets/images/grok/g-70.jpg",
+        "url":  "/assets/images/grok/g-70.jpg",
         "title":  "都市型マイクログリッドの自律制御システム",
         "description":  "ブロックチェーン技術を活用した電力取引とAIによる需給調整を実現する次世代都市インフラ。エネルギーの地産地消を象徴するビジュアルです。",
         "score":  99,
@@ -5146,7 +5146,7 @@
     },
     {
         "id":  "g-71",
-        "url":  "assets/images/grok/g-71.jpg",
+        "url":  "/assets/images/grok/g-71.jpg",
         "title":  "次世代アンモニア燃料製造プラント",
         "description":  "燃焼時にCO2を排出しないゼロエミッション燃料としてのアンモニア製造工程。高度な触媒技術と再生可能エネルギーの融合を描いています。",
         "score":  99,
@@ -5165,7 +5165,7 @@
     },
     {
         "id":  "g-72",
-        "url":  "assets/images/grok/g-72.jpg",
+        "url":  "/assets/images/grok/g-72.jpg",
         "title":  "洋上風力発電と海洋生態系の共生",
         "description":  "浮体式洋上風力発電の基礎部分が魚礁として機能する様子。エネルギー生産と生物多様性保全を両立させるネイチャーポジティブな視点。",
         "score":  99,
@@ -5184,7 +5184,7 @@
     },
     {
         "id":  "g-73",
-        "url":  "assets/images/grok/g-73.jpg",
+        "url":  "/assets/images/grok/g-73.jpg",
         "title":  "透明太陽電池を活用した都市型農園",
         "description":  "ビルの窓ガラスで発電しつつ、屋内で高効率な食料生産を行うバーティカルファーミング。都市の自給自足を支える基盤技術です。",
         "score":  99,
@@ -5203,7 +5203,7 @@
     },
     {
         "id":  "g-74",
-        "url":  "assets/images/grok/g-74.jpg",
+        "url":  "/assets/images/grok/g-74.jpg",
         "title":  "次世代リチウム硫黄蓄電池の内部構造",
         "description":  "従来のリチウムイオン電池を凌駕するエネルギー密度を持つ次世代蓄電池。EVの航続距離を飛躍的に伸ばすコアテクノロジーを視覚化。",
         "score":  99,
@@ -5222,7 +5222,7 @@
     },
     {
         "id":  "g-75",
-        "url":  "assets/images/grok/g-75.jpg",
+        "url":  "/assets/images/grok/g-75.jpg",
         "title":  "バイオ炭（Biochar）による土壌炭素貯留",
         "description":  "農業廃棄物を炭化させ土壌に埋めることで、炭素を数百年単位で固定する炭素除去技術（CDR）。農地の再生と温暖化対策の融合。",
         "score":  99,
@@ -5241,7 +5241,7 @@
     },
     {
         "id":  "g-76",
-        "url":  "assets/images/grok/g-76.jpg",
+        "url":  "/assets/images/grok/g-76.jpg",
         "title":  "超電導送電ケーブルの冷却インフラ",
         "description":  "送電ロスを極限まで減らす超電導技術のメンテナンス設備。極低温冷却システムと未来的なインフラストラクチャーの対話。",
         "score":  99,
@@ -5260,7 +5260,7 @@
     },
     {
         "id":  "g-77",
-        "url":  "assets/images/grok/g-77.jpg",
+        "url":  "/assets/images/grok/g-77.jpg",
         "title":  "二酸化炭素回収・再利用（CCU）ユニット",
         "description":  "大気中から直接CO2を回収し、合成燃料の原料として再利用するDAC設備。空気から資源を生み出す錬金術的アプローチ。",
         "score":  99,
@@ -5279,7 +5279,7 @@
     },
     {
         "id":  "g-78",
-        "url":  "assets/images/grok/g-78.jpg",
+        "url":  "/assets/images/grok/g-78.jpg",
         "title":  "波力発電デバイスの海中設置風景",
         "description":  "海の絶え間ない動きを電力に変える波力発電ユニット。海洋環境を乱さず、静かにエネルギーを紡ぎ出すメカニズム。",
         "score":  99,
@@ -5298,7 +5298,7 @@
     },
     {
         "id":  "g-79",
-        "url":  "assets/images/grok/g-79.jpg",
+        "url":  "/assets/images/grok/g-79.jpg",
         "title":  "スマート物流・自動搬送ドローンポート",
         "description":  "都市の配送を完全電動化するドローン専用ポート。渋滞を緩和し、ラストワンマイルの炭素排出をゼロにする物流革命。",
         "score":  99,
@@ -5317,7 +5317,7 @@
     },
     {
         "id":  "g-80",
-        "url":  "assets/images/grok/g-80.jpg",
+        "url":  "/assets/images/grok/g-80.jpg",
         "title":  "廃プラスチックのケミカルリサイクル設備",
         "description":  "選別が困難な混合プラスチックを分子レベルで分解し、新品同様の素材へと戻す高度なリサイクル技術の心臓部。",
         "score":  99,
@@ -5336,7 +5336,7 @@
     },
     {
         "id":  "g-81",
-        "url":  "assets/images/grok/g-81.jpg",
+        "url":  "/assets/images/grok/g-81.jpg",
         "title":  "ペロブスカイト太陽電池の多層構造",
         "description":  "薄くて軽く、どこにでも設置可能な次世代太陽電池。発電効率の限界を超えるためのナノスケールの積層プロセス。",
         "score":  99,
@@ -5355,7 +5355,7 @@
     },
     {
         "id":  "g-82",
-        "url":  "assets/images/grok/g-82.jpg",
+        "url":  "/assets/images/grok/g-82.jpg",
         "title":  "藻類バイオ燃料の培養タンク群",
         "description":  "光合成能力を極限まで高めた微細藻類によるバイオ燃料生産。食料と競合しない第3世代バイオエナジーの拠点。",
         "score":  99,
@@ -5374,7 +5374,7 @@
     },
     {
         "id":  "g-83",
-        "url":  "assets/images/grok/g-83.jpg",
+        "url":  "/assets/images/grok/g-83.jpg",
         "title":  "地熱発電所のバイナリーサイクルシステム",
         "description":  "低温の地熱水でも発電を可能にするバイナリーサイクル技術。日本の眠れる資源を最大限に活用するベースロード電源。",
         "score":  99,
@@ -5393,7 +5393,7 @@
     },
     {
         "id":  "g-84",
-        "url":  "assets/images/grok/g-84.jpg",
+        "url":  "/assets/images/grok/g-84.jpg",
         "title":  "都市鉱山からのレアメタル抽出装置",
         "description":  "廃棄電子機器からリチウムやコバルトを回収する都市鉱山リサイクル。資源の安全保障と環境負荷低減を同時に実現。",
         "score":  99,
@@ -5412,7 +5412,7 @@
     },
     {
         "id":  "g-85",
-        "url":  "assets/images/grok/g-85.jpg",
+        "url":  "/assets/images/grok/g-85.jpg",
         "title":  "水素吸蔵合金を搭載した定置用蓄電システム",
         "description":  "水素をコンパクトかつ安全に貯蔵する合金技術。火災リスクが低く、長期保存に適したエネルギー貯蔵の新しい形。",
         "score":  99,
@@ -5431,7 +5431,7 @@
     },
     {
         "id":  "g-86",
-        "url":  "assets/images/grok/g-86.jpg",
+        "url":  "/assets/images/grok/g-86.jpg",
         "title":  "スマート農業用環境制御センサーネットワーク",
         "description":  "気温、湿度、日射量をリアルタイムで監視し、肥料や水の投入を最小化するスマートアグリ。精密農業による環境負荷軽減。",
         "score":  99,
@@ -5450,7 +5450,7 @@
     },
     {
         "id":  "g-87",
-        "url":  "assets/images/grok/g-87.jpg",
+        "url":  "/assets/images/grok/g-87.jpg",
         "title":  "森林管理ドローンによるレーザー計測（LiDAR）",
         "description":  "森林の炭素吸収量を正確に算出する高精度レーザー計測。透明性の高いJ-クレジット創出を支えるデジタル・フォレスト技術。",
         "score":  99,
@@ -5469,7 +5469,7 @@
     },
     {
         "id":  "g-88",
-        "url":  "assets/images/grok/g-88.jpg",
+        "url":  "/assets/images/grok/g-88.jpg",
         "title":  "廃熱回収熱交換器の高度シミュレーション",
         "description":  "工場の未利用廃熱を回収し、再利用するための熱交換デザイン。エネルギーのロスを徹底的に排除する省エネ技術の極致。",
         "score":  99,
@@ -5488,7 +5488,7 @@
     },
     {
         "id":  "g-89",
-        "url":  "assets/images/grok/g-89.jpg",
+        "url":  "/assets/images/grok/g-89.jpg",
         "title":  "全固体電池搭載の次世代コンセプトEV",
         "description":  "電解質に固体を用いた安全かつ超急速充電が可能な次世代EV。モビリティの常識を覆すバッテリーイノベーション。",
         "score":  99,
@@ -5507,7 +5507,7 @@
     },
     {
         "id":  "g-90",
-        "url":  "assets/images/grok/g-90.jpg",
+        "url":  "/assets/images/grok/g-90.jpg",
         "title":  "都市のデジタルツイン・エネルギー可視化モデル",
         "description":  "仮想空間上に都市を再現し、エネルギーの流れをリアルタイムでシミュレーション。最適化された未来都市の設計図。",
         "score":  99,
@@ -5526,7 +5526,7 @@
     },
     {
         "id":  "g-91",
-        "url":  "assets/images/grok/g-91.jpg",
+        "url":  "/assets/images/grok/g-91.jpg",
         "title":  "CO2排出ゼロの電炉鋼（グリーン・スチール）",
         "description":  "再生可能エネルギー由来の電力を用いた電炉での製鉄プロセス。産業部門の脱炭素化を牽引するグリーンスチールの輝き。",
         "score":  99,
@@ -5545,7 +5545,7 @@
     },
     {
         "id":  "g-92",
-        "url":  "assets/images/grok/g-92.jpg",
+        "url":  "/assets/images/grok/g-92.jpg",
         "title":  "海洋深層水を利用した温度差発電（OTEC）",
         "description":  "表層水と深層水の温度差を利用して発電するOTEC。24時間安定して発電可能な、島嶼部の未来を支えるクリーン電源。",
         "score":  99,
@@ -5564,7 +5564,7 @@
     },
     {
         "id":  "g-93",
-        "url":  "assets/images/grok/g-93.jpg",
+        "url":  "/assets/images/grok/g-93.jpg",
         "title":  "次世代バイオプラスチック（ポリ乳酸）の抽出",
         "description":  "植物由来の原料から作られ、土に還る生分解性プラスチックの製造工程。化石資源への依存を断つマテリアル変革。",
         "score":  99,
@@ -5583,7 +5583,7 @@
     },
     {
         "id":  "g-94",
-        "url":  "assets/images/grok/g-94.jpg",
+        "url":  "/assets/images/grok/g-94.jpg",
         "title":  "建物一体型太陽電池（BIPV）のファサード",
         "description":  "外壁そのものが発電する未来のビル。美観を損なわずにエネルギーを生み出す、建築と環境の高度なインテグレーション。",
         "score":  99,
@@ -5602,7 +5602,7 @@
     },
     {
         "id":  "g-95",
-        "url":  "assets/images/grok/g-95.jpg",
+        "url":  "/assets/images/grok/g-95.jpg",
         "title":  "炭素繊維強化プラスチック（CFRP）の軽量化部材",
         "description":  "航空機や自動車の燃費を飛躍的に向上させる軽量・高強度の炭素繊維。輸送部門の排出削減を支える基盤素材。",
         "score":  99,
@@ -5621,7 +5621,7 @@
     },
     {
         "id":  "g-96",
-        "url":  "assets/images/grok/g-96.jpg",
+        "url":  "/assets/images/grok/g-96.jpg",
         "title":  "水電解装置（PEM型）の心臓部：電極触媒",
         "description":  "高効率に水を水素と酸素に分解するプロトン交換膜（PEM）技術。グリーン水素製造コスト低減の鍵を握るナノテクノロジー。",
         "score":  99,
@@ -5640,7 +5640,7 @@
     },
     {
         "id":  "g-97",
-        "url":  "assets/images/grok/g-97.jpg",
+        "url":  "/assets/images/grok/g-97.jpg",
         "title":  "再生可能エネルギー由来の合成メタン（e-methane）",
         "description":  "水素とCO2を合成して作るe-メタン。既存の都市ガスインフラをそのまま活用できる、合理的かつ現実的な脱炭素ソリューション。",
         "score":  99,
@@ -5659,7 +5659,7 @@
     },
     {
         "id":  "g-98",
-        "url":  "assets/images/grok/g-98.jpg",
+        "url":  "/assets/images/grok/g-98.jpg",
         "title":  "スマートウォーターマネジメントの制御室",
         "description":  "AIが漏水を検知し、ポンプの稼働を最適化する次世代の水道インフラ。水資源の浪費とエネルギー消費を同時に最小化。",
         "score":  99,
@@ -5678,7 +5678,7 @@
     },
     {
         "id":  "g-99",
-        "url":  "assets/images/grok/g-99.jpg",
+        "url":  "/assets/images/grok/g-99.jpg",
         "title":  "バイオミメティクスを活用した風力発電翼",
         "description":  "フクロウの羽やクジラのヒレの構造を応用した、静音かつ高効率な風力発電ブレード。自然の知恵に学ぶ工学的進化。",
         "score":  99,
@@ -5697,7 +5697,7 @@
     },
     {
         "id":  "g-100",
-        "url":  "assets/images/grok/g-100.jpg",
+        "url":  "/assets/images/grok/g-100.jpg",
         "title":  "都市の屋上緑化と雨水再利用システム",
         "description":  "断熱効果で空調負荷を減らし、雨水を貯めて再利用する都市のオアシス。熱島現象（ヒートアイランド）への合理的回答。",
         "score":  99,
@@ -5716,7 +5716,7 @@
     },
     {
         "id":  "g-101",
-        "url":  "assets/images/grok/g-101.jpg",
+        "url":  "/assets/images/grok/g-101.jpg",
         "title":  "人工光合成による基礎化学品の製造",
         "description":  "太陽光、水、CO2からプラスチック原料等の化学品を直接合成する人工光合成技術。化石燃料に頼らない化学産業の夜明け。",
         "score":  99,
@@ -5735,7 +5735,7 @@
     },
     {
         "id":  "g-102",
-        "url":  "assets/images/grok/g-102.jpg",
+        "url":  "/assets/images/grok/g-102.jpg",
         "title":  "菌糸体（マッシュルーム・レザー）の新素材",
         "description":  "キノコの菌糸から作られる代替レザー。動物愛護と環境負荷低減を両立する、ファッション業界のサーキュラー・マテリアル。",
         "score":  99,
@@ -5754,7 +5754,7 @@
     },
     {
         "id":  "g-103",
-        "url":  "assets/images/grok/g-103.jpg",
+        "url":  "/assets/images/grok/g-103.jpg",
         "title":  "ペロブスカイト太陽電池の曲面設置",
         "description":  "柔軟性を活かし、曲面の壁や屋根にフィットする太陽電池。建築物のあらゆる面を「発電所」に変えるポテンシャル。",
         "score":  99,
@@ -5773,7 +5773,7 @@
     },
     {
         "id":  "g-104",
-        "url":  "assets/images/grok/g-104.jpg",
+        "url":  "/assets/images/grok/g-104.jpg",
         "title":  "海藻由来の代替プラスチック包装材",
         "description":  "海藻から抽出した成分で作られた100%生分解性のパッケージ。プラスチック汚染から海を守る、ブルーエコノミーの回答。",
         "score":  99,
@@ -5792,7 +5792,7 @@
     },
     {
         "id":  "g-105",
-        "url":  "assets/images/grok/g-105.jpg",
+        "url":  "/assets/images/grok/g-105.jpg",
         "title":  "超小型モジュール炉（SMR）の冷却システム",
         "description":  "安全性と柔軟性に優れた次世代の小型原子炉。脱炭素電源としての安定供給と、水素製造への熱利用が期待される。",
         "score":  99,
@@ -5811,7 +5811,7 @@
     },
     {
         "id":  "g-106",
-        "url":  "assets/images/grok/g-106.jpg",
+        "url":  "/assets/images/grok/g-106.jpg",
         "title":  "ドローンを用いたサンゴ礁再生プログラム",
         "description":  "サンゴの幼生をドローンで効率的に散布し、白化したサンゴ礁を復活させる。テクノロジーで守る海洋生物多様性。",
         "score":  99,
@@ -5830,7 +5830,7 @@
     },
     {
         "id":  "g-107",
-        "url":  "assets/images/grok/g-107.jpg",
+        "url":  "/assets/images/grok/g-107.jpg",
         "title":  "廃食油から作る持続可能な航空燃料（SAF）",
         "description":  "使用済みの食用油をリサイクルして空を飛ぶ。航空部門のCO2排出を大幅に削減する「空のGX」の最前線。",
         "score":  99,
@@ -5849,7 +5849,7 @@
     },
     {
         "id":  "g-108",
-        "url":  "assets/images/grok/g-108.jpg",
+        "url":  "/assets/images/grok/g-108.jpg",
         "title":  "スマートガラスの遮熱シミュレーション",
         "description":  "日射量に応じて透過率を自動調整する窓。空調負荷を劇的に下げ、ZEB（ゼロ・エネルギー・ビル）を実現する。",
         "score":  99,
@@ -5868,7 +5868,7 @@
     },
     {
         "id":  "g-109",
-        "url":  "assets/images/grok/g-109.jpg",
+        "url":  "/assets/images/grok/g-109.jpg",
         "title":  "炭素吸収型コンクリートの打設",
         "description":  "製造過程でCO2を吸い込み、内部に固定する新しいコンクリート。建設業界の「負の遺産」を「炭素の貯蔵庫」へ変える。",
         "score":  99,
@@ -5887,7 +5887,7 @@
     },
     {
         "id":  "g-110",
-        "url":  "assets/images/grok/g-110.jpg",
+        "url":  "/assets/images/grok/g-110.jpg",
         "title":  "V2H（Vehicle to Home）の家庭用電力制御",
         "description":  "電気自動車のバッテリーを「動く蓄電池」として家で使う。災害時のバックアップと電力需要の平準化を同時に実現。",
         "score":  99,
@@ -5906,7 +5906,7 @@
     },
     {
         "id":  "g-111",
-        "url":  "assets/images/grok/g-111.jpg",
+        "url":  "/assets/images/grok/g-111.jpg",
         "title":  "廃タイヤからの熱分解カーボンブラック回収",
         "description":  "役目を終えたタイヤを分子レベルで解体し、再びゴム原料（カーボンブラック）へと戻す。終わりのないマテリアルループ。",
         "score":  99,
@@ -5925,7 +5925,7 @@
     },
     {
         "id":  "g-112",
-        "url":  "assets/images/grok/g-112.jpg",
+        "url":  "/assets/images/grok/g-112.jpg",
         "title":  "都市の雨水浸透ポテンシャルマップ",
         "description":  "アスファルトだらけの街を「スポンジ」のように変え、水害を防ぎつつ地下水を涵養する。気候変動適応策の視覚化。",
         "score":  99,
@@ -5944,7 +5944,7 @@
     },
     {
         "id":  "g-113",
-        "url":  "assets/images/grok/g-113.jpg",
+        "url":  "/assets/images/grok/g-113.jpg",
         "title":  "次世代ナトリウムイオン電池のセル製造",
         "description":  "リチウムの代わりに安価で豊富なナトリウムを使用。資源の偏在問題を解決し、持続可能な蓄電デバイスの普及を支える。",
         "score":  99,
@@ -5963,7 +5963,7 @@
     },
     {
         "id":  "g-114",
-        "url":  "assets/images/grok/g-114.jpg",
+        "url":  "/assets/images/grok/g-114.jpg",
         "title":  "廃電子基板からの金・銀回収（バイオリーチング）",
         "description":  "バクテリアの力を借りて金属を溶かし出す。環境負荷の極めて低い「生命の錬金術」による都市鉱山開発。",
         "score":  99,
@@ -5982,7 +5982,7 @@
     },
     {
         "id":  "g-115",
-        "url":  "assets/images/grok/g-115.jpg",
+        "url":  "/assets/images/grok/g-115.jpg",
         "title":  "浮体式太陽光パネルの水面冷却効果",
         "description":  "ダムやため池に設置された太陽光パネル。水面の冷却効果で発電効率が上がり、水の蒸発も防ぐ一石二鳥のソリューション。",
         "score":  99,
@@ -6001,7 +6001,7 @@
     },
     {
         "id":  "g-116",
-        "url":  "assets/images/grok/g-116.jpg",
+        "url":  "/assets/images/grok/g-116.jpg",
         "title":  "3Dプリンター建築と環境負荷の低減",
         "description":  "必要な分だけの材料で家を建てる。廃棄物を極限まで減らし、複雑な断熱構造も一体成型する建設プロセスの変革。",
         "score":  99,
@@ -6020,7 +6020,7 @@
     },
     {
         "id":  "g-117",
-        "url":  "assets/images/grok/g-117.jpg",
+        "url":  "/assets/images/grok/g-117.jpg",
         "title":  "培養肉生産ラボのバイオリアクター",
         "description":  "細胞から直接肉を育てる。家畜飼育による膨大な土地・水消費とGHG排出を過去のものにする、フードテックの核心。",
         "score":  99,
@@ -6039,7 +6039,7 @@
     },
     {
         "id":  "g-118",
-        "url":  "assets/images/grok/g-118.jpg",
+        "url":  "/assets/images/grok/g-118.jpg",
         "title":  "スマート街灯のメッシュネットワーク",
         "description":  "人の通りを検知し必要な時だけ点灯。環境センサーを搭載し、都市の健康状態を24時間見守るインフラの神経系。",
         "score":  99,
@@ -6058,7 +6058,7 @@
     },
     {
         "id":  "g-119",
-        "url":  "assets/images/grok/g-119.jpg",
+        "url":  "/assets/images/grok/g-119.jpg",
         "title":  "二酸化炭素の地中貯留（CCS）圧入試験",
         "description":  "回収したCO2を地下深くの安定した地層に封じ込める。ネットゼロ実現に不可欠な「ゴミ箱」としての地層活用。",
         "score":  99,
@@ -6077,7 +6077,7 @@
     },
     {
         "id":  "g-120",
-        "url":  "assets/images/grok/g-120.jpg",
+        "url":  "/assets/images/grok/g-120.jpg",
         "title":  "マイクロバイオームによる土壌再生",
         "description":  "化学肥料で痩せた土地を、微生物の力で再び豊かな農地へ。炭素吸収力を高め、持続可能な農業を実現する土壌の奇跡。",
         "score":  99,
@@ -6096,7 +6096,7 @@
     },
     {
         "id":  "g-121",
-        "url":  "assets/images/grok/g-121.jpg",
+        "url":  "/assets/images/grok/g-121.jpg",
         "title":  "使用済みEVバッテリーのセカンドライフ",
         "description":  "車用としては寿命を迎えた電池を、家庭や工場の定置用蓄電池として再利用。性能を限界まで使い切る合理的サイクル。",
         "score":  99,
@@ -6115,7 +6115,7 @@
     },
     {
         "id":  "g-122",
-        "url":  "assets/images/grok/g-122.jpg",
+        "url":  "/assets/images/grok/g-122.jpg",
         "title":  "透明断熱材「エアロゲル」の多孔質構造",
         "description":  "空気のような軽さと驚異的な断熱性を誇る「凍った煙」。ビルの断熱性能を飛躍的に高める、未来の宇宙素材。",
         "score":  99,
@@ -6134,7 +6134,7 @@
     },
     {
         "id":  "g-123",
-        "url":  "assets/images/grok/g-123.jpg",
+        "url":  "/assets/images/grok/g-123.jpg",
         "title":  "都市の排熱を活用した温水プールインフラ",
         "description":  "データセンターなどの冷房排熱を回収し、周辺施設に熱を供給。エネルギーの「お裾分け」で無駄のないコミュニティを作る。",
         "score":  99,
@@ -6153,7 +6153,7 @@
     },
     {
         "id":  "g-124",
-        "url":  "assets/images/grok/g-124.jpg",
+        "url":  "/assets/images/grok/g-124.jpg",
         "title":  "デジタル・プロダクト・パスポート（DPP）のスキャン",
         "description":  "QRコード一つで製品の「出生からリサイクルまで」を追跡。透明性の高いサプライチェーンが消費者の正しい選択を促す。",
         "score":  99,
@@ -6172,7 +6172,7 @@
     },
     {
         "id":  "g-125",
-        "url":  "assets/images/grok/g-125.jpg",
+        "url":  "/assets/images/grok/g-125.jpg",
         "title":  "太陽光追尾型（トラッキング）パネルの整列",
         "description":  "ひまわりのように太陽を追い、発電量を最大化する架台。一分一秒の光も逃さない、効率追求の結実。",
         "score":  99,
@@ -6191,7 +6191,7 @@
     },
     {
         "id":  "g-126",
-        "url":  "assets/images/grok/g-126.jpg",
+        "url":  "/assets/images/grok/g-126.jpg",
         "title":  "建築物の「材料バンク」としての解体管理",
         "description":  "建物を壊すのではなく「分解」し、部材を再び資源として市場に戻す。都市を巨大な資源のストックと捉える新視点。",
         "score":  99,
@@ -6210,7 +6210,7 @@
     },
     {
         "id":  "g-127",
-        "url":  "assets/images/grok/g-127.jpg",
+        "url":  "/assets/images/grok/g-127.jpg",
         "title":  "スマートグリッドのサイバーセキュリティ監視室",
         "description":  "デジタル化された電力をハッカーから守る。エネルギーの安定供給を支える、目に見えない守護神。",
         "score":  99,
@@ -6229,7 +6229,7 @@
     },
     {
         "id":  "g-128",
-        "url":  "assets/images/grok/g-128.jpg",
+        "url":  "/assets/images/grok/g-128.jpg",
         "title":  "廃木材から作るセルロースナノファイバー（CNF）",
         "description":  "鋼鉄の5倍の強度を持ち、重さは5分の1。プラスチックの代替や自動車部品の軽量化に貢献する、日本発のバイオ素材。",
         "score":  99,
@@ -6248,7 +6248,7 @@
     },
     {
         "id":  "g-129",
-        "url":  "assets/images/grok/g-129.jpg",
+        "url":  "/assets/images/grok/g-129.jpg",
         "title":  "都市の風通し（風の道）を設計するシミュレーション",
         "description":  "建物の配置を最適化し、街に涼しい風を取り込む。エアコンに頼りすぎない、物理法則に従った合理的なクールダウン。",
         "score":  99,
@@ -6267,7 +6267,7 @@
     },
     {
         "id":  "g-130",
-        "url":  "assets/images/grok/g-130.jpg",
+        "url":  "/assets/images/grok/g-130.jpg",
         "title":  "使用済み紙おむつの再生パルプ化プロセス",
         "description":  "難リサイクルの代表格を、建材や再びおむつの原料へ。自治体のゴミ焼却コストとCO2を削減する、切実な社会課題への回答。",
         "score":  99,
@@ -6286,7 +6286,7 @@
     },
     {
         "id":  "g-131",
-        "url":  "assets/images/grok/g-131.jpg",
+        "url":  "/assets/images/grok/g-131.jpg",
         "title":  "液体水素運搬船の極低温貯蔵タンク",
         "description":  "マイナス253度で水素を液体化し、大量輸送を実現する大型船舶。大陸を越えてクリーンエネルギーを運ぶ「エネルギーの架け橋」。",
         "score":  99,
@@ -6305,7 +6305,7 @@
     },
     {
         "id":  "g-132",
-        "url":  "assets/images/grok/g-132.jpg",
+        "url":  "/assets/images/grok/g-132.jpg",
         "title":  "データセンターの液浸冷却システム",
         "description":  "サーバーを特殊な絶縁液体に浸して効率的に冷却。従来の空調に比べ電力を大幅に削減し、AI時代の膨大な熱問題を解決する。",
         "score":  99,
@@ -6324,7 +6324,7 @@
     },
     {
         "id":  "g-133",
-        "url":  "assets/images/grok/g-133.jpg",
+        "url":  "/assets/images/grok/g-133.jpg",
         "title":  "超電導フライホイール電力貯蔵装置",
         "description":  "巨大な円盤を高速回転させ、エネルギーを運動エネルギーとして貯蔵。摩擦ゼロの超電導軸受により、長寿命かつ高効率な電力安定化を実現。",
         "score":  99,
@@ -6343,7 +6343,7 @@
     },
     {
         "id":  "g-134",
-        "url":  "assets/images/grok/g-134.jpg",
+        "url":  "/assets/images/grok/g-134.jpg",
         "title":  "都市型高効率ヒートポンプチラーユニット",
         "description":  "大気中の熱を効率よく集めて冷暖房に利用。化石燃料を使わず、電気のみで高効率な熱供給を行う都市脱炭素の主役。",
         "score":  99,
@@ -6362,7 +6362,7 @@
     },
     {
         "id":  "g-135",
-        "url":  "assets/images/grok/g-135.jpg",
+        "url":  "/assets/images/grok/g-135.jpg",
         "title":  "廃棄物発電（Waste-to-Energy）の高度燃焼制御",
         "description":  "ゴミ焼却時の熱を回収して発電。AIによる燃焼最適化で、排出ガスを最小化しつつエネルギー回収率を最大化する。",
         "score":  99,
@@ -6381,7 +6381,7 @@
     },
     {
         "id":  "g-136",
-        "url":  "assets/images/grok/g-136.jpg",
+        "url":  "/assets/images/grok/g-136.jpg",
         "title":  "EV用超急速ワイヤレス充電レーン",
         "description":  "道路に埋め込まれたコイルから、走行中のEVに直接給電。充電のための停車を不要にする、未来のモビリティインフラ。",
         "score":  99,
@@ -6400,7 +6400,7 @@
     },
     {
         "id":  "g-137",
-        "url":  "assets/images/grok/g-137.jpg",
+        "url":  "/assets/images/grok/g-137.jpg",
         "title":  "カーボンニュートラル・メタン（合成ガス）試験プラント",
         "description":  "工場から出たCO2と再生可能水素を反応させ、燃料を作るメタネーション技術。既存のガス管を活用できる現実的解。",
         "score":  99,
@@ -6419,7 +6419,7 @@
     },
     {
         "id":  "g-138",
-        "url":  "assets/images/grok/g-138.jpg",
+        "url":  "/assets/images/grok/g-138.jpg",
         "title":  "高層建築向け木質パネル（CLT）の構造試験",
         "description":  "木材を層状に重ね、鉄筋コンクリートに匹敵する強度を持たせた素材。都市を「第2の森林」に変え、炭素を長期間固定する。",
         "score":  99,
@@ -6438,7 +6438,7 @@
     },
     {
         "id":  "g-139",
-        "url":  "assets/images/grok/g-139.jpg",
+        "url":  "/assets/images/grok/g-139.jpg",
         "title":  "バイオマス発電用ペレットの自動品質検査",
         "description":  "持続可能な管理下にある森林から得られた廃材を燃料化。AIカメラで燃焼効率の高いペレットを厳選する。 ",
         "score":  99,
@@ -6457,7 +6457,7 @@
     },
     {
         "id":  "g-140",
-        "url":  "assets/images/grok/g-140.jpg",
+        "url":  "/assets/images/grok/g-140.jpg",
         "title":  "都市型洪水対策の地下調節池監視システム",
         "description":  "異常気象によるゲリラ豪雨を一時的に貯留する巨大な地下空間。気候変動による災害リスクを軽減する「適応」の要。",
         "score":  99,
@@ -6476,7 +6476,7 @@
     },
     {
         "id":  "g-141",
-        "url":  "assets/images/grok/g-141.jpg",
+        "url":  "/assets/images/grok/g-141.jpg",
         "title":  "マイクロ波を用いた廃プラスチック熱分解装置",
         "description":  "電子レンジと同じ原理で廃プラを効率よく加熱・分解。短時間で高品質な油や原料に戻す、省エネ型リサイクルプロセス。",
         "score":  99,
@@ -6495,7 +6495,7 @@
     },
     {
         "id":  "g-142",
-        "url":  "assets/images/grok/g-142.jpg",
+        "url":  "/assets/images/grok/g-142.jpg",
         "title":  "グリーン水素製造用アルカリ水電解セルの積層",
         "description":  "大規模化に適したアルカリ水電解方式。数百のセルを重ね、産業用需要に応える大量の水素を安定的に生成する。",
         "score":  99,
@@ -6514,7 +6514,7 @@
     },
     {
         "id":  "g-143",
-        "url":  "assets/images/grok/g-143.jpg",
+        "url":  "/assets/images/grok/g-143.jpg",
         "title":  "スマートコミュニティのVPP（仮想発電所）制御センター",
         "description":  "各家庭の蓄電池や太陽光をネットワークで繋ぎ、一つの発電所のように機能させる。地域のエネルギー需給をミリ秒単位で最適化。",
         "score":  99,
@@ -6533,7 +6533,7 @@
     },
     {
         "id":  "g-144",
-        "url":  "assets/images/grok/g-144.jpg",
+        "url":  "/assets/images/grok/g-144.jpg",
         "title":  "廃コンクリートからの炭酸カルシウム再生",
         "description":  "解体された建物から得られたコンクリート粉にCO2を反応させ、新たな建材として再生。建設由来の排出を資源に変える技術。",
         "score":  99,
@@ -6552,7 +6552,7 @@
     },
     {
         "id":  "g-145",
-        "url":  "assets/images/grok/g-145.jpg",
+        "url":  "/assets/images/grok/g-145.jpg",
         "title":  "ペロブスカイト太陽電池を搭載したスマート窓",
         "description":  "遮熱・断熱を行いながら発電する窓。デザイン性を損なわず、既存のビルの「発電化」を容易にするソリューション。",
         "score":  99,
@@ -6571,7 +6571,7 @@
     },
     {
         "id":  "g-146",
-        "url":  "assets/images/grok/g-146.jpg",
+        "url":  "/assets/images/grok/g-146.jpg",
         "title":  "AIによる海洋プラスチックゴミの自動識別・回収船",
         "description":  "ドローンで発見した漂流ゴミを、AI搭載の自律航行船が回収。海洋汚染の解決を加速させる、自律型環境保護テクノロジー。",
         "score":  99,
@@ -6590,7 +6590,7 @@
     },
     {
         "id":  "g-147",
-        "url":  "assets/images/grok/g-147.jpg",
+        "url":  "/assets/images/grok/g-147.jpg",
         "title":  "水素燃料電池フォークリフトのクイック充填",
         "description":  "3分で満タン。稼働率を下げずに物流の脱炭素化を実現。排ガスゼロ、騒音ゼロのクリーンな倉庫内環境を実現する。",
         "score":  99,
@@ -6609,7 +6609,7 @@
     },
     {
         "id":  "g-148",
-        "url":  "assets/images/grok/g-148.jpg",
+        "url":  "/assets/images/grok/g-148.jpg",
         "title":  "使用済み漁網のアップサイクル・ナイロン繊維",
         "description":  "海に捨てられた網を高品質なファッション素材へ。プラスチック資源を海から回収し、新たな価値を吹き込む循環の形。",
         "score":  99,
@@ -6628,7 +6628,7 @@
     },
     {
         "id":  "g-149",
-        "url":  "assets/images/grok/g-149.jpg",
+        "url":  "/assets/images/grok/g-149.jpg",
         "title":  "次世代バナジウム・レドックスフロー電池",
         "description":  "電解液を循環させて充放電を行う大型蓄電池。劣化が極めて少なく、再生可能エネルギーの変動を吸収する長寿命な電力インフラ。",
         "score":  99,
@@ -6647,7 +6647,7 @@
     },
     {
         "id":  "g-150",
-        "url":  "assets/images/grok/g-150.jpg",
+        "url":  "/assets/images/grok/g-150.jpg",
         "title":  "都市の生物多様性を守る「グリーンのコリドー」",
         "description":  "分断された公園や緑地を緑の道で繋ぎ、小動物や昆虫の移動を助ける。ネイチャーポジティブな都市設計の基礎。",
         "score":  99,
@@ -6666,7 +6666,7 @@
     },
     {
         "id":  "g-151",
-        "url":  "assets/images/grok/g-151.jpg",
+        "url":  "/assets/images/grok/g-151.jpg",
         "title":  "バイオジェット燃料製造用の微細藻類スクリーニング",
         "description":  "数万種の藻類から、油脂生産能力の高い個体をAIが自動選別。燃料コストを下げ、持続可能な空の旅を支える。 ",
         "score":  99,
@@ -6685,7 +6685,7 @@
     },
     {
         "id":  "g-152",
-        "url":  "assets/images/grok/g-152.jpg",
+        "url":  "/assets/images/grok/g-152.jpg",
         "title":  "建材一体型風力発電（Building Integrated Wind）",
         "description":  "ビルの隙間の風（ビル風）を利用して発電する小型風力タービン。都市特有の気流をエネルギーに変える革新的な発想。",
         "score":  99,
@@ -6704,7 +6704,7 @@
     },
     {
         "id":  "g-153",
-        "url":  "assets/images/grok/g-153.jpg",
+        "url":  "/assets/images/grok/g-153.jpg",
         "title":  "リサイクルアルミニウムの低炭素精錬プロセス",
         "description":  "新地金を作るのに比べ95%のエネルギーを削減。電解プロセスをクリーン化し、アルミの無限の循環を支える。 ",
         "score":  99,
@@ -6723,7 +6723,7 @@
     },
     {
         "id":  "g-154",
-        "url":  "assets/images/grok/g-154.jpg",
+        "url":  "/assets/images/grok/g-154.jpg",
         "title":  "農業用ソーラーシェアリングの下での作物管理",
         "description":  "太陽光をパネルと作物で分け合う。農業と発電を両立し、農家の収入安定と地域の脱炭素化を同時に達成する。 ",
         "score":  99,
@@ -6742,7 +6742,7 @@
     },
     {
         "id":  "g-155",
-        "url":  "assets/images/grok/g-155.jpg",
+        "url":  "/assets/images/grok/g-155.jpg",
         "title":  "スマートグリッド用需要応答（デマンドレスポンス）端末",
         "description":  "電力逼迫時に家庭のエアコン出力を自動で微調整。我慢せず、スマートに停電を防ぐためのインタラクティブなインフラ。 ",
         "score":  99,
@@ -6761,7 +6761,7 @@
     },
     {
         "id":  "g-156",
-        "url":  "assets/images/grok/g-156.jpg",
+        "url":  "/assets/images/grok/g-156.jpg",
         "title":  "都市の下水熱を利用した地域冷暖房",
         "description":  "一年中温度が安定している下水の熱をヒートポンプで活用。足元に眠る未利用エネルギーを活用する賢い都市デザイン。 ",
         "score":  99,
@@ -6780,7 +6780,7 @@
     },
     {
         "id":  "g-157",
-        "url":  "assets/images/grok/g-157.jpg",
+        "url":  "/assets/images/grok/g-157.jpg",
         "title":  "人工大理石へのアップサイクルプラスチック活用",
         "description":  "廃プラスチックを高品位な建材へ。美しさと機能性を兼ね備え、プラスチックを燃やさず長く使い続けるためのアプローチ。",
         "score":  99,
@@ -6799,7 +6799,7 @@
     },
     {
         "id":  "g-158",
-        "url":  "assets/images/grok/g-158.jpg",
+        "url":  "/assets/images/grok/g-158.jpg",
         "title":  "自律型森林消防・監視システム（ドローン＆AI）",
         "description":  "気候変動で増える山火事を初期段階で検知し、自律的に消火。森林資源とそこに貯蔵された炭素を守る防衛線。",
         "score":  99,
@@ -6818,7 +6818,7 @@
     },
     {
         "id":  "g-159",
-        "url":  "assets/images/grok/g-159.jpg",
+        "url":  "/assets/images/grok/g-159.jpg",
         "title":  "次世代リサイクル鋼板を用いた自動車ボディ",
         "description":  "徹底的な分別で品質を維持した再生鋼材。鉄のスクラップを再び高品質な板材へ。製造プロセスの炭素排出を極限まで削減。",
         "score":  99,
@@ -6837,7 +6837,7 @@
     },
     {
         "id":  "g-160",
-        "url":  "assets/images/grok/g-160.jpg",
+        "url":  "/assets/images/grok/g-160.jpg",
         "title":  "デジタル・エコシステム・モニタリングの司令塔",
         "description":  "衛星、ドローン、センサーからのデータを統合し、地球の健康状態を可視化。データに基づいた合理的な環境保護活動を可能にする。 ",
         "score":  99,
@@ -6856,7 +6856,7 @@
     },
     {
         "id":  "g-161",
-        "url":  "assets/images/grok/g-161.jpg",
+        "url":  "/assets/images/grok/g-161.jpg",
         "title":  "大気中水収穫（AWH）デバイスの展開",
         "description":  "乾燥地帯でも空気中の水分を吸着・回収する高度な多孔質材料。気候変動による水不足を解消する、命をつなぐテクノロジー。",
         "score":  99,
@@ -6875,7 +6875,7 @@
     },
     {
         "id":  "g-162",
-        "url":  "assets/images/grok/g-162.jpg",
+        "url":  "/assets/images/grok/g-162.jpg",
         "title":  "次世代バイオセメントによるサンゴ基盤の形成",
         "description":  "微生物の代謝を利用して水中でも硬化する環境配慮型セメント。海洋生態系の修復を加速させる、生きた建築素材。",
         "score":  99,
@@ -6894,7 +6894,7 @@
     },
     {
         "id":  "g-163",
-        "url":  "assets/images/grok/g-163.jpg",
+        "url":  "/assets/images/grok/g-163.jpg",
         "title":  "宇宙太陽光発電（SSPS）の送電ビーム受光部",
         "description":  "宇宙空間で発電した電力をマイクロ波で地球に届ける。天候に左右されない究極のクリーンエネルギー源への挑戦。",
         "score":  99,
@@ -6913,7 +6913,7 @@
     },
     {
         "id":  "g-164",
-        "url":  "assets/images/grok/g-164.jpg",
+        "url":  "/assets/images/grok/g-164.jpg",
         "title":  "カーボンフットプリント・スキャナー搭載の店舗",
         "description":  "製品の製造から輸送までのCO2排出量をリアルタイムで表示。消費者の「選ぶ力」が脱炭素社会を動かす。 ",
         "score":  99,
@@ -6932,7 +6932,7 @@
     },
     {
         "id":  "g-165",
-        "url":  "assets/images/grok/g-165.jpg",
+        "url":  "/assets/images/grok/g-165.jpg",
         "title":  "スマートグリッドと同期する電気バスのワイヤレス充電駅",
         "description":  "街の電力が余っている時に自動で急速充電。公共交通機関を街全体の蓄電池として機能させるスマートなシステムデザイン。",
         "score":  99,
@@ -6951,7 +6951,7 @@
     },
     {
         "id":  "g-166",
-        "url":  "assets/images/grok/g-166.jpg",
+        "url":  "/assets/images/grok/g-166.jpg",
         "title":  "海洋温度差発電（OTEC）の深海取水パイプライン",
         "description":  "深海数千メートルから冷たい水を組み上げる巨大な技術。持続可能な深海資源の活用とエネルギー生産の最前線。",
         "score":  99,
@@ -6970,7 +6970,7 @@
     },
     {
         "id":  "g-167",
-        "url":  "assets/images/grok/g-167.jpg",
+        "url":  "/assets/images/grok/g-167.jpg",
         "title":  "AIが管理するバーティカル・フォレスト（垂直の森）",
         "description":  "ビル全体が巨大な空気清浄機。植物の健康状態をセンサーが監視し、都市に潤いと酸素を供給する生命維持システム。",
         "score":  99,
@@ -6989,7 +6989,7 @@
     },
     {
         "id":  "g-168",
-        "url":  "assets/images/grok/g-168.jpg",
+        "url":  "/assets/images/grok/g-168.jpg",
         "title":  "循環型建築に使用される菌糸体ブリックの強度テスト",
         "description":  "キノコがレンガの代わりになる。役目を終えれば土に還り、肥料となる、究極のサーキュラー・コンストラクション。 ",
         "score":  99,
@@ -7008,7 +7008,7 @@
     },
     {
         "id":  "g-169",
-        "url":  "assets/images/grok/g-169.jpg",
+        "url":  "/assets/images/grok/g-169.jpg",
         "title":  "スマート農業における受粉ドローンの群制御",
         "description":  "ハチの減少という危機に対し、超小型ドローンが受粉をサポート。生態系を補完するテクノロジーのあり方を提示。",
         "score":  99,
@@ -7027,7 +7027,7 @@
     },
     {
         "id":  "g-170",
-        "url":  "assets/images/grok/g-170.jpg",
+        "url":  "/assets/images/grok/g-170.jpg",
         "title":  "廃プラスチックの超臨界水による油化分解",
         "description":  "特殊な状態の水でプラスチックを瞬時に分解。不純物の多いゴミも高品質な原油へ戻す、環境負荷の低い高度リサイクル。 ",
         "score":  99,
@@ -7046,7 +7046,7 @@
     },
     {
         "id":  "g-171",
-        "url":  "assets/images/grok/g-171.jpg",
+        "url":  "/assets/images/grok/g-171.jpg",
         "title":  "スマートグリッドと連携した都市型地熱ヒートポンプ",
         "description":  "ビルの地下の一定温度を冷暖房にフル活用。季節を問わず安定した効率を発揮する、都市の目立たない主役。",
         "score":  99,
@@ -7065,7 +7065,7 @@
     },
     {
         "id":  "g-172",
-        "url":  "assets/images/grok/g-172.jpg",
+        "url":  "/assets/images/grok/g-172.jpg",
         "title":  "海水の電気分解による直接炭素回収（DOC）",
         "description":  "海洋に溶け込んだCO2を直接取り出す。空気に比べて密度が高く、効率的な炭素除去を可能にするブルーカーボンの新機軸。 ",
         "score":  99,
@@ -7084,7 +7084,7 @@
     },
     {
         "id":  "g-173",
-        "url":  "assets/images/grok/g-173.jpg",
+        "url":  "/assets/images/grok/g-173.jpg",
         "title":  "ブロックチェーンを活用したP2P電力取引の可視化",
         "description":  "隣の家から余った電力を直接買う。中央集権を排した、透明で民主的なエネルギー流通プラットフォーム。 ",
         "score":  99,
@@ -7103,7 +7103,7 @@
     },
     {
         "id":  "g-174",
-        "url":  "assets/images/grok/g-174.jpg",
+        "url":  "/assets/images/grok/g-174.jpg",
         "title":  "水素燃料電池を搭載した自律型農耕トラクター",
         "description":  "土壌を汚さず、騒音も出さないクリーンな農業。長時間の重作業も水素の力で難なくこなす、未来の農村風景。 ",
         "score":  99,
@@ -7122,7 +7122,7 @@
     },
     {
         "id":  "g-175",
-        "url":  "assets/images/grok/g-175.jpg",
+        "url":  "/assets/images/grok/g-175.jpg",
         "title":  "スマートグリッド向けデジタルツイン・シミュレーション",
         "description":  "都市全体の電力網を仮想空間で再現。災害時の停電を最小限に抑え、復旧を迅速化するデジタルディフェンスの要。 ",
         "score":  99,
@@ -7141,7 +7141,7 @@
     },
     {
         "id":  "g-176",
-        "url":  "assets/images/grok/g-176.jpg",
+        "url":  "/assets/images/grok/g-176.jpg",
         "title":  "藻類から抽出された高純度バイオオイルの精製",
         "description":  "食料と競合しない資源から、プラスチックや燃料の原料を抽出。緑の液体が黒い黄金（石油）に代わる日を描く。 ",
         "score":  99,
@@ -7160,7 +7160,7 @@
     },
     {
         "id":  "g-177",
-        "url":  "assets/images/grok/g-177.jpg",
+        "url":  "/assets/images/grok/g-177.jpg",
         "title":  "建物のライフサイクル評価（LCA）を自動化するAI",
         "description":  "設計段階で、解体までの全環境負荷を計算。最もエコな材料と設計を選択する、建設業界のコンパス。",
         "score":  99,
@@ -7179,7 +7179,7 @@
     },
     {
         "id":  "g-178",
-        "url":  "assets/images/grok/g-178.jpg",
+        "url":  "/assets/images/grok/g-178.jpg",
         "title":  "ペロブスカイト太陽電池を用いたウェアラブルデバイス",
         "description":  "衣服そのものが発電機になる。モバイル機器の充電を不要にする、人体とエネルギーの融合。 ",
         "score":  99,
@@ -7198,7 +7198,7 @@
     },
     {
         "id":  "g-179",
-        "url":  "assets/images/grok/g-179.jpg",
+        "url":  "/assets/images/grok/g-179.jpg",
         "title":  "都市の生物多様性インデックス（LPI）の可視化",
         "description":  "データに基づいて「どの程度自然が戻ってきたか」を数値化。感情ではなく数字で環境保護を語るためのツール。 ",
         "score":  99,
@@ -7217,7 +7217,7 @@
     },
     {
         "id":  "g-180",
-        "url":  "assets/images/grok/g-180.jpg",
+        "url":  "/assets/images/grok/g-180.jpg",
         "title":  "スマートグリッド用全固体電池のセルスタック",
         "description":  "火災リスクを排除し、極めて高い安全性を誇る大型蓄電設備。都市のエネルギー安定を支える、揺るぎない土台。 ",
         "score":  99,
@@ -7236,7 +7236,7 @@
     },
     {
         "id":  "g-181",
-        "url":  "assets/images/grok/g-181.jpg",
+        "url":  "/assets/images/grok/g-181.jpg",
         "title":  "海洋のマイクロプラスチックを分解する人工酵素の研究",
         "description":  "自然界には存在しない強力な分解力を持つ酵素。過去の負の遺産をテクノロジーで浄化する、人類の責任ある挑戦。 ",
         "score":  99,
@@ -7255,7 +7255,7 @@
     },
     {
         "id":  "g-182",
-        "url":  "assets/images/grok/g-182.jpg",
+        "url":  "/assets/images/grok/g-182.jpg",
         "title":  "廃校を活用した屋内型スマート野菜工場の全自動ライン",
         "description":  "過疎地の資源を再生し、地産地消を実現。輸送コストをゼロにする、最も合理的な食糧供給の形。 ",
         "score":  99,
@@ -7274,7 +7274,7 @@
     },
     {
         "id":  "g-183",
-        "url":  "assets/images/grok/g-183.jpg",
+        "url":  "/assets/images/grok/g-183.jpg",
         "title":  "次世代リサイクル鋼板を用いたグリーンビルディングの骨組み",
         "description":  "100%再生材。強度はそのままに、建設時の炭素排出を最小限に抑えた、真にサステナブルな都市の骨格。 ",
         "score":  99,
@@ -7293,7 +7293,7 @@
     },
     {
         "id":  "g-184",
-        "url":  "assets/images/grok/g-184.jpg",
+        "url":  "/assets/images/grok/g-184.jpg",
         "title":  "スマートグリッドと同期する蓄電池搭載型EV急速充電ステーション",
         "description":  "再生可能エネルギーの供給過剰時に電気を貯め、ピーク時に供給。充電スタンドが電力網のクッションになる。 ",
         "score":  99,
@@ -7312,7 +7312,7 @@
     },
     {
         "id":  "g-185",
-        "url":  "assets/images/grok/g-185.jpg",
+        "url":  "/assets/images/grok/g-185.jpg",
         "title":  "使用済みコーヒー豆から作られたバイオ炭の顕微鏡写真",
         "description":  "多孔質な構造が炭素を捉え、土を豊かにする。身近な廃棄物が、地球を冷やす鍵に変わるマイクロワールド。 ",
         "score":  99,
@@ -7331,7 +7331,7 @@
     },
     {
         "id":  "g-186",
-        "url":  "assets/images/grok/g-186.jpg",
+        "url":  "/assets/images/grok/g-186.jpg",
         "title":  "AIが設計した自然の物理法則に従う超効率風力発電ブレード",
         "description":  "人間の想像力を超えた複雑な形状。翼の端で発生する渦を最小化し、微風でも効率よく回る進化の形。 ",
         "score":  99,
@@ -7350,7 +7350,7 @@
     },
     {
         "id":  "g-187",
-        "url":  "assets/images/grok/g-187.jpg",
+        "url":  "/assets/images/grok/g-187.jpg",
         "title":  "脱炭素社会の祝祭：バイオ・ルミネッセンスに包まれた未来の広場",
         "description":  "照明すら生き物（発光微生物）が担う、電力を消費しない光。自然とテクノロジーが完璧に溶け合った、一つの完成形。 ",
         "score":  99,
