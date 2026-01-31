@@ -287,7 +287,13 @@ function CatCard({ img, isFavorite, onToggleFavorite, onClick }: {
                 fill
                 className={`object-cover transition-all duration-700 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"} group-hover:scale-110`}
                 onLoad={() => setLoaded(true)}
-                onError={() => setImgSrc(img.src)}
+                onError={() => {
+                    if (imgSrc !== img.src) {
+                        setImgSrc(img.src);
+                    } else {
+                        console.error(`Failed to load category image: ${img.src}`);
+                    }
+                }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5">
                 <p className="text-white text-sm font-bold truncate">{img.title}</p>

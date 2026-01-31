@@ -322,7 +322,16 @@ function ImageCard({ img, isFavorite, onToggleFavorite, onTagClick, onClick }: {
                 height={800}
                 className={`w-full h-auto object-cover transition-all duration-700 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"} group-hover:scale-105`}
                 onLoad={() => setLoaded(true)}
-                onError={() => setImgSrc(img.src)}
+                onError={() => {
+                    if (imgSrc !== img.src) {
+                        setImgSrc(img.src);
+                    } else {
+                        // If fallback to original src also fails (or was already original), handle as permanent error if needed, 
+                        // though Next.js Image component handles empty src gracefully, we can just log it.
+                        // For now, let's keep the image visible (browser will show broken icon) or we could set a placeholder.
+                        console.error(`Failed to load image: ${img.src}`);
+                    }
+                }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
                 <p className="text-white text-sm font-bold truncate">{img.title}</p>
