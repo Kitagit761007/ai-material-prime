@@ -14,7 +14,7 @@
                      "#次世代モビリティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/hydrogen-bus-future-01.jpg"
+        "url":  "/assets/images/grok/g-1.jpg"
     },
     {
         "id":  "h2-plant-01",
@@ -31,7 +31,7 @@
                      "#GXインフラ",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/h2-plant-01.jpg"
+        "url":  "/assets/images/grok/g-2.jpg"
     },
     {
         "id":  "smart-city-01",
@@ -48,7 +48,7 @@
                      "#自然共生",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/smart-city-01.jpg"
+        "url":  "/assets/images/grok/g-3.jpg"
     },
     {
         "id":  "wind-farm-01",
@@ -65,7 +65,7 @@
                      "#海洋開発",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/wind-farm-01.jpg"
+        "url":  "/assets/images/grok/g-4.jpg"
     },
     {
         "id":  "ev-station-01",
@@ -82,7 +82,7 @@
                      "#スマートシティ",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/ev-station-01.jpg"
+        "url":  "/assets/images/grok/g-5.jpg"
     },
     {
         "id":  "iot-center-01",
@@ -99,7 +99,7 @@
                      "#スマートシティ",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/iot-center-01.jpg"
+        "url":  "/assets/images/grok/g-6.jpg"
     },
     {
         "id":  "img_mobility_01",
@@ -116,7 +116,7 @@
                      "#次世代モビリティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/img_mobility_01.jpg"
+        "url":  "/assets/images/grok/g-7.jpg"
     },
     {
         "id":  "img_mobility_02",
@@ -133,7 +133,7 @@
                      "#次世代モビリティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/img_mobility_02.jpg"
+        "url":  "/assets/images/grok/g-8.jpg"
     },
     {
         "id":  "gx_grid_01",
@@ -150,7 +150,7 @@
                      "#スマートシティ",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/grok/gx_grid_01.jpg"
+        "url":  "/assets/images/grok/g-9.jpg"
     },
     {
         "id":  "gx_grid_02",
@@ -167,7 +167,7 @@
                      "#スマートシティ",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/grok/gx_grid_02.jpg"
+        "url":  "/assets/images/grok/g-10.jpg"
     },
     {
         "id":  "gx_plant_01",
@@ -184,7 +184,7 @@
                      "#クリーンエネルギー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/gx_plant_01.jpg"
+        "url":  "/assets/images/grok/g-11.jpg"
     },
     {
         "id":  "gx_plant_02",
@@ -201,7 +201,7 @@
                      "#クリーンエネルギー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/gx_plant_02.jpg"
+        "url":  "/assets/images/grok/g-12.jpg"
     },
     {
         "id":  "gx_bio_01",
@@ -218,7 +218,7 @@
                      "#先端テクノロジー",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/grok/gx_bio_01.jpg"
+        "url":  "/assets/images/grok/g-13.jpg"
     },
     {
         "id":  "underground-mobility-node-01",
@@ -235,7 +235,7 @@
                      "#スマートシティ",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/underground-mobility-node-01.jpg"
+        "url":  "/assets/images/grok/g-14.jpg"
     },
     {
         "id":  "solar-mountain-array-01",
@@ -251,7 +251,7 @@
                      "#クリーンエネルギー",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/solar-mountain-array-01.jpg"
+        "url":  "/assets/images/grok/g-15.jpg"
     },
     {
         "id":  "arctic-h2-hub-01",
@@ -268,7 +268,7 @@
                      "#GXインフラ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/arctic-h2-hub-01.jpg"
+        "url":  "/assets/images/grok/g-16.jpg"
     },
     {
         "id":  "gx-logistics-terminal-01",
@@ -285,7 +285,7 @@
                      "#先端テクノロジー",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/grok/gx-logistics-terminal-01.jpg"
+        "url":  "/assets/images/grok/g-17.jpg"
     },
     {
         "id":  "vertical-forest-city-01",
@@ -302,7 +302,7 @@
                      "#スマートシティ",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/vertical-forest-city-01.jpg"
+        "url":  "/assets/images/grok/g-18.jpg"
     },
     {
         "id":  "offshore-drone-hub-01",
@@ -319,7 +319,7 @@
                      "#次世代モビリティ",
                      "#海洋開発"
                  ],
-        "url":  "/assets/images/grok/offshore-drone-hub-01.jpg"
+        "url":  "/assets/images/grok/g-19.jpg"
     },
     {
         "id":  "automated-recycling-arm-01",
@@ -336,7 +336,7 @@
                      "#先端テクノロジー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/automated-recycling-arm-01.jpg"
+        "url":  "/assets/images/grok/g-20.jpg"
     },
     {
         "id":  "precision-recycle-bot-01",
@@ -353,7 +353,7 @@
                      "#先端テクノロジー",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/precision-recycle-bot-01.jpg"
+        "url":  "/assets/images/grok/g-21.jpg"
     },
     {
         "id":  "ocean-h2-platform-01",
@@ -370,7 +370,7 @@
                      "#海洋開発",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/grok/ocean-h2-platform-01.jpg"
+        "url":  "/assets/images/grok/g-22.jpg"
     },
     {
         "id":  "cascade-forest-towers-01",
@@ -387,7 +387,7 @@
                      "#自然共生",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/cascade-forest-towers-01.jpg"
+        "url":  "/assets/images/grok/g-23.jpg"
     },
     {
         "id":  "desert-dome-01",
@@ -404,7 +404,7 @@
                      "#次世代ライフスタイル",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/grok/desert-dome-01.jpg"
+        "url":  "/assets/images/grok/g-24.jpg"
     },
     {
         "id":  "aurora-ship-01",
@@ -421,7 +421,7 @@
                      "#水素エネルギー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/aurora-ship-01.jpg"
+        "url":  "/assets/images/grok/g-25.jpg"
     },
     {
         "id":  "desert-dome-02",
@@ -438,7 +438,7 @@
                      "#スマートシティ",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/desert-dome-02.jpg"
+        "url":  "/assets/images/grok/g-26.jpg"
     },
     {
         "id":  "jungle-waterfall-01",
@@ -455,7 +455,7 @@
                      "#クリーンエネルギー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/jungle-waterfall-01.jpg"
+        "url":  "/assets/images/grok/g-27.jpg"
     },
     {
         "id":  "jungle-waterfall-02",
@@ -472,7 +472,7 @@
                      "#GXインフラ",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/grok/jungle-waterfall-02.jpg"
+        "url":  "/assets/images/grok/g-28.jpg"
     },
     {
         "id":  "robo-factory-01",
@@ -489,7 +489,7 @@
                      "#スマートシティ",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/robo-factory-01.jpg"
+        "url":  "/assets/images/grok/g-29.jpg"
     },
     {
         "id":  "undersea-tunnel-01",
@@ -506,7 +506,7 @@
                      "#次世代モビリティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/undersea-tunnel-01.jpg"
+        "url":  "/assets/images/grok/g-30.jpg"
     },
     {
         "id":  "undersea-cockpit-01",
@@ -523,7 +523,7 @@
                      "#先端テクノロジー",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/undersea-cockpit-01.jpg"
+        "url":  "/assets/images/grok/g-31.jpg"
     },
     {
         "id":  "robo-factory-02",
@@ -540,7 +540,7 @@
                      "#スマートシティ",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/robo-factory-02.jpg"
+        "url":  "/assets/images/grok/g-32.jpg"
     },
     {
         "id":  "aurora-cruise-01",
@@ -557,7 +557,7 @@
                      "#水素エネルギー",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/grok/aurora-cruise-01.jpg"
+        "url":  "/assets/images/grok/g-33.jpg"
     },
     {
         "id":  "quantum-tower-01",
@@ -574,7 +574,7 @@
                      "#スマートシティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/quantum-tower-01.jpg"
+        "url":  "/assets/images/grok/g-34.jpg"
     },
     {
         "id":  "central-tower-01",
@@ -591,7 +591,7 @@
                      "#次世代モビリティ",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/central-tower-01.jpg"
+        "url":  "/assets/images/grok/g-35.jpg"
     },
     {
         "id":  "biophilic-residence-01",
@@ -608,7 +608,7 @@
                      "#自然共生",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/biophilic-residence-01.jpg"
+        "url":  "/assets/images/grok/g-36.jpg"
     },
     {
         "id":  "organic-residence-01",
@@ -625,7 +625,7 @@
                      "#自然共生",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/grok/organic-residence-01.jpg"
+        "url":  "/assets/images/grok/g-37.jpg"
     },
     {
         "id":  "aerial-network-01",
@@ -642,7 +642,7 @@
                      "#次世代モビリティ",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/aerial-network-01.jpg"
+        "url":  "/assets/images/grok/g-1.jpg"
     },
     {
         "id":  "img-20260119-01",
@@ -659,7 +659,7 @@
                      "#スマートシティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/img-20260119-01.jpg"
+        "url":  "/assets/images/grok/g-2.jpg"
     },
     {
         "id":  "img-20260119-02",
@@ -676,7 +676,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/img-20260119-02.jpg"
+        "url":  "/assets/images/grok/g-3.jpg"
     },
     {
         "id":  "img-20260119-03",
@@ -692,7 +692,7 @@
                      "#スマートシティ",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/img-20260119-03.jpg"
+        "url":  "/assets/images/grok/g-4.jpg"
     },
     {
         "id":  "img-20260119-04",
@@ -708,7 +708,7 @@
                      "#スマートシティ",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/img-20260119-04.jpg"
+        "url":  "/assets/images/grok/g-5.jpg"
     },
     {
         "id":  "img-20260119-05",
@@ -724,7 +724,7 @@
                      "#海洋開発",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/img-20260119-05.jpg"
+        "url":  "/assets/images/grok/g-6.jpg"
     },
     {
         "id":  "img-20260119-06",
@@ -741,7 +741,7 @@
                      "#自然共生",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/grok/img-20260119-06.jpg"
+        "url":  "/assets/images/grok/g-7.jpg"
     },
     {
         "id":  "img-20260119-07",
@@ -758,7 +758,7 @@
                      "#スマートシティ",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/img-20260119-07.jpg"
+        "url":  "/assets/images/grok/g-8.jpg"
     },
     {
         "id":  "img-20260119-08",
@@ -774,7 +774,7 @@
                      "#海洋開発",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/img-20260119-08.jpg"
+        "url":  "/assets/images/grok/g-9.jpg"
     },
     {
         "id":  "img-20260119-09",
@@ -791,7 +791,7 @@
                      "#先端テクノロジー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260119-09.jpg"
+        "url":  "/assets/images/grok/g-10.jpg"
     },
     {
         "id":  "img-20260119-10",
@@ -808,7 +808,7 @@
                      "#次世代ライフスタイル",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260119-10.jpg"
+        "url":  "/assets/images/grok/g-11.jpg"
     },
     {
         "id":  "img-20260119-11",
@@ -825,7 +825,7 @@
                      "#先端テクノロジー",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/img-20260119-11.jpg"
+        "url":  "/assets/images/grok/g-12.jpg"
     },
     {
         "id":  "img-20260119-12",
@@ -842,7 +842,7 @@
                      "#自然共生",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/img-20260119-12.jpg"
+        "url":  "/assets/images/grok/g-13.jpg"
     },
     {
         "id":  "img-20260119-13",
@@ -859,7 +859,7 @@
                      "#次世代モビリティ",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260119-13.jpg"
+        "url":  "/assets/images/grok/g-14.jpg"
     },
     {
         "id":  "img-20260119-14",
@@ -876,7 +876,7 @@
                      "#先端テクノロジー",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/img-20260119-14.jpg"
+        "url":  "/assets/images/grok/g-15.jpg"
     },
     {
         "id":  "img-20260119-15",
@@ -893,7 +893,7 @@
                      "#スマートシティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/img-20260119-15.jpg"
+        "url":  "/assets/images/grok/g-16.jpg"
     },
     {
         "id":  "img-20260119-16",
@@ -910,7 +910,7 @@
                      "#海洋開発",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/img-20260119-16.jpg"
+        "url":  "/assets/images/grok/g-17.jpg"
     },
     {
         "id":  "img-20260119-17",
@@ -927,7 +927,7 @@
                      "#GXインフラ",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/grok/img-20260119-17.jpg"
+        "url":  "/assets/images/grok/g-18.jpg"
     },
     {
         "id":  "img-20260119-18",
@@ -944,7 +944,7 @@
                      "#海洋開発",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/img-20260119-18.jpg"
+        "url":  "/assets/images/grok/g-19.jpg"
     },
     {
         "id":  "img-20260119-19",
@@ -961,7 +961,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/img-20260119-19.jpg"
+        "url":  "/assets/images/grok/g-20.jpg"
     },
     {
         "id":  "img-20260119-20",
@@ -978,7 +978,7 @@
                      "#次世代モビリティ",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/grok/img-20260119-20.jpg"
+        "url":  "/assets/images/grok/g-21.jpg"
     },
     {
         "id":  "img-20260119-21",
@@ -995,7 +995,7 @@
                      "#先端テクノロジー",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/img-20260119-21.jpg"
+        "url":  "/assets/images/grok/g-22.jpg"
     },
     {
         "id":  "img-20260119-22",
@@ -1012,7 +1012,7 @@
                      "#次世代ライフスタイル",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260119-22.jpg"
+        "url":  "/assets/images/grok/g-23.jpg"
     },
     {
         "id":  "img-20260119-23",
@@ -1029,7 +1029,7 @@
                      "#スマートシティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/img-20260119-23.jpg"
+        "url":  "/assets/images/grok/g-24.jpg"
     },
     {
         "id":  "img-20260119-24",
@@ -1046,7 +1046,7 @@
                      "#自然共生",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260119-24.jpg"
+        "url":  "/assets/images/grok/g-25.jpg"
     },
     {
         "id":  "img-20260119-25",
@@ -1063,7 +1063,7 @@
                      "#循環型社会",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260119-25.jpg"
+        "url":  "/assets/images/grok/g-26.jpg"
     },
     {
         "id":  "img-20260120-64",
@@ -1080,7 +1080,7 @@
                      "#自然共生",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/grok/img-20260120-64.jpg"
+        "url":  "/assets/images/grok/g-27.jpg"
     },
     {
         "id":  "img-20260120-65",
@@ -1096,7 +1096,7 @@
                      "#次世代モビリティ",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260120-65.jpg"
+        "url":  "/assets/images/grok/g-28.jpg"
     },
     {
         "id":  "img-20260120-66",
@@ -1112,7 +1112,7 @@
                      "#先端テクノロジー",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/img-20260120-66.jpg"
+        "url":  "/assets/images/grok/g-29.jpg"
     },
     {
         "id":  "img-20260120-67",
@@ -1129,7 +1129,7 @@
                      "#自然共生",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260120-67.jpg"
+        "url":  "/assets/images/grok/g-30.jpg"
     },
     {
         "id":  "img-20260120-68",
@@ -1146,7 +1146,7 @@
                      "#海洋開発",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/grok/img-20260120-68.jpg"
+        "url":  "/assets/images/grok/g-31.jpg"
     },
     {
         "id":  "img-20260120-69",
@@ -1163,7 +1163,7 @@
                      "#次世代ライフスタイル",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/img-20260120-69.jpg"
+        "url":  "/assets/images/grok/g-32.jpg"
     },
     {
         "id":  "img-20260120-70",
@@ -1180,7 +1180,7 @@
                      "#自然共生",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260120-70.jpg"
+        "url":  "/assets/images/grok/g-33.jpg"
     },
     {
         "id":  "img-20260120-71",
@@ -1197,7 +1197,7 @@
                      "#海洋開発",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/grok/img-20260120-71.jpg"
+        "url":  "/assets/images/grok/g-34.jpg"
     },
     {
         "id":  "img-20260120-72",
@@ -1214,7 +1214,7 @@
                      "#GXインフラ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/img-20260120-72.jpg"
+        "url":  "/assets/images/grok/g-35.jpg"
     },
     {
         "id":  "img-20260120-73",
@@ -1231,7 +1231,7 @@
                      "#先端テクノロジー",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/grok/img-20260120-73.jpg"
+        "url":  "/assets/images/grok/g-36.jpg"
     },
     {
         "id":  "img-20260121-01",
@@ -1248,7 +1248,7 @@
                      "#スマートシティ",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/grok/img-20260121-01.jpg"
+        "url":  "/assets/images/grok/g-37.jpg"
     },
     {
         "id":  "img-20260121-02",
@@ -1265,7 +1265,7 @@
                      "#自然共生",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/grok/img-20260121-02.jpg"
+        "url":  "/assets/images/grok/g-1.jpg"
     },
     {
         "id":  "img-20260121-03",
@@ -1282,7 +1282,7 @@
                      "#次世代モビリティ",
                      "#水素エネルギー"
                  ],
-        "url":  "/assets/images/grok/img-20260121-03.jpg"
+        "url":  "/assets/images/grok/g-2.jpg"
     },
     {
         "id":  "img-20260121-04",
@@ -1299,7 +1299,7 @@
                      "#海洋開発",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/grok/img-20260121-04.jpg"
+        "url":  "/assets/images/grok/g-3.jpg"
     },
     {
         "id":  "img-20260121-05",
@@ -1316,7 +1316,7 @@
                      "#海洋開発",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/img-20260121-05.jpg"
+        "url":  "/assets/images/grok/g-4.jpg"
     },
     {
         "id":  "img-20260121-10",
@@ -1333,7 +1333,7 @@
                      "#スマートシティ",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/grok/img-20260121-10.jpg"
+        "url":  "/assets/images/grok/g-5.jpg"
     },
     {
         "id":  "img-20260121-11",
@@ -1350,7 +1350,7 @@
                      "#自然共生",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260121-11.jpg"
+        "url":  "/assets/images/grok/g-6.jpg"
     },
     {
         "id":  "img-20260121-12",
@@ -1367,7 +1367,7 @@
                      "#次世代ライフスタイル",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/img-20260121-12.jpg"
+        "url":  "/assets/images/grok/g-7.jpg"
     },
     {
         "id":  "img-20260121-13",
@@ -1384,7 +1384,7 @@
                      "#次世代モビリティ",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/img-20260121-13.jpg"
+        "url":  "/assets/images/grok/g-8.jpg"
     },
     {
         "id":  "img-20260121-14",
@@ -1401,7 +1401,7 @@
                      "#次世代モビリティ",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/img-20260121-14.jpg"
+        "url":  "/assets/images/grok/g-9.jpg"
     },
     {
         "id":  "img-20260121-15",
@@ -1418,7 +1418,7 @@
                      "#クリーンエネルギー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260121-15.jpg"
+        "url":  "/assets/images/grok/g-10.jpg"
     },
     {
         "id":  "img-20260121-16",
@@ -1434,7 +1434,7 @@
                      "#クリーンエネルギー",
                      "#水素エネルギー"
                  ],
-        "url":  "/assets/images/grok/img-20260121-16.jpg"
+        "url":  "/assets/images/grok/g-11.jpg"
     },
     {
         "id":  "img-20260121-17",
@@ -1451,7 +1451,7 @@
                      "#循環型社会",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260121-17.jpg"
+        "url":  "/assets/images/grok/g-12.jpg"
     },
     {
         "id":  "img-20260121-18",
@@ -1468,7 +1468,7 @@
                      "#先端テクノロジー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260121-18.jpg"
+        "url":  "/assets/images/grok/g-13.jpg"
     },
     {
         "id":  "img-20260121-19",
@@ -1485,7 +1485,7 @@
                      "#次世代ライフスタイル",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/img-20260121-19.jpg"
+        "url":  "/assets/images/grok/g-14.jpg"
     },
     {
         "id":  "img-20260121-20",
@@ -1502,7 +1502,7 @@
                      "#次世代ライフスタイル",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/img-20260121-20.jpg"
+        "url":  "/assets/images/grok/g-15.jpg"
     },
     {
         "id":  "img-20260121-21",
@@ -1519,7 +1519,7 @@
                      "#先端テクノロジー",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/grok/img-20260121-21.jpg"
+        "url":  "/assets/images/grok/g-16.jpg"
     },
     {
         "id":  "img-20260121-22",
@@ -1536,7 +1536,7 @@
                      "#先端テクノロジー",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/grok/img-20260121-22.jpg"
+        "url":  "/assets/images/grok/g-17.jpg"
     },
     {
         "id":  "img-20260121-23",
@@ -1553,7 +1553,7 @@
                      "#次世代モビリティ",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260121-23.jpg"
+        "url":  "/assets/images/grok/g-18.jpg"
     },
     {
         "id":  "img-20260121-24",
@@ -1570,7 +1570,7 @@
                      "#クリーンエネルギー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260121-24.jpg"
+        "url":  "/assets/images/grok/g-19.jpg"
     },
     {
         "id":  "img-20260121-25",
@@ -1587,7 +1587,7 @@
                      "#クリーンエネルギー",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/img-20260121-25.jpg"
+        "url":  "/assets/images/grok/g-20.jpg"
     },
     {
         "id":  "img-20260121-26",
@@ -1604,7 +1604,7 @@
                      "#GXインフラ",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260121-26.jpg"
+        "url":  "/assets/images/grok/g-21.jpg"
     },
     {
         "id":  "img-20260121-27",
@@ -1621,7 +1621,7 @@
                      "#海洋開発",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/img-20260121-27.jpg"
+        "url":  "/assets/images/grok/g-22.jpg"
     },
     {
         "id":  "img-20260121-28",
@@ -1638,7 +1638,7 @@
                      "#自然共生",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/grok/img-20260121-28.jpg"
+        "url":  "/assets/images/grok/g-23.jpg"
     },
     {
         "id":  "img-20260121-29",
@@ -1655,7 +1655,7 @@
                      "#クリーンエネルギー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260121-29.jpg"
+        "url":  "/assets/images/grok/g-24.jpg"
     },
     {
         "id":  "img-20260121-30",
@@ -1672,7 +1672,7 @@
                      "#クリーンエネルギー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260121-30.jpg"
+        "url":  "/assets/images/grok/g-25.jpg"
     },
     {
         "id":  "img-20260121-31",
@@ -1689,7 +1689,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/img-20260121-31.jpg"
+        "url":  "/assets/images/grok/g-26.jpg"
     },
     {
         "id":  "img-20260121-32",
@@ -1706,7 +1706,7 @@
                      "#GXインフラ",
                      "#宇宙開発"
                  ],
-        "url":  "/assets/images/grok/img-20260121-32.jpg"
+        "url":  "/assets/images/grok/g-27.jpg"
     },
     {
         "id":  "img-20260121-33",
@@ -1723,7 +1723,7 @@
                      "#次世代モビリティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/img-20260121-33.jpg"
+        "url":  "/assets/images/grok/g-28.jpg"
     },
     {
         "id":  "img-20260121-34",
@@ -1740,7 +1740,7 @@
                      "#次世代モビリティ",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/img-20260121-34.jpg"
+        "url":  "/assets/images/grok/g-29.jpg"
     },
     {
         "id":  "img-20260121-35",
@@ -1757,7 +1757,7 @@
                      "#スマートシティ",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/img-20260121-35.jpg"
+        "url":  "/assets/images/grok/g-30.jpg"
     },
     {
         "id":  "img-20260121-36",
@@ -1774,7 +1774,7 @@
                      "#クリーンエネルギー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260121-36.jpg"
+        "url":  "/assets/images/grok/g-31.jpg"
     },
     {
         "id":  "img-20260121-37",
@@ -1791,7 +1791,7 @@
                      "#先端テクノロジー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/img-20260121-37.jpg"
+        "url":  "/assets/images/grok/g-32.jpg"
     },
     {
         "id":  "mid-20260121-01",
@@ -1807,7 +1807,7 @@
                      "#クリーンエネルギー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-01.jpg"
+        "url":  "/assets/images/grok/g-33.jpg"
     },
     {
         "id":  "mid-20260121-02",
@@ -1823,7 +1823,7 @@
                      "#クリーンエネルギー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-02.jpg"
+        "url":  "/assets/images/grok/g-34.jpg"
     },
     {
         "id":  "mid-20260121-03",
@@ -1840,7 +1840,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-03.jpg"
+        "url":  "/assets/images/grok/g-35.jpg"
     },
     {
         "id":  "mid-20260121-04",
@@ -1857,7 +1857,7 @@
                      "#自然共生",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-04.jpg"
+        "url":  "/assets/images/grok/g-36.jpg"
     },
     {
         "id":  "mid-20260121-05",
@@ -1874,7 +1874,7 @@
                      "#クリーンエネルギー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-05.jpg"
+        "url":  "/assets/images/grok/g-37.jpg"
     },
     {
         "id":  "mid-20260121-06",
@@ -1890,7 +1890,7 @@
                      "#スマートシティ",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-06.jpg"
+        "url":  "/assets/images/grok/g-1.jpg"
     },
     {
         "id":  "mid-20260121-07",
@@ -1906,7 +1906,7 @@
                      "#次世代モビリティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-07.jpg"
+        "url":  "/assets/images/grok/g-2.jpg"
     },
     {
         "id":  "mid-20260121-08",
@@ -1923,7 +1923,7 @@
                      "#次世代モビリティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-08.jpg"
+        "url":  "/assets/images/grok/g-3.jpg"
     },
     {
         "id":  "mid-20260121-09",
@@ -1939,7 +1939,7 @@
                      "#クリーンエネルギー",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-09.jpg"
+        "url":  "/assets/images/grok/g-4.jpg"
     },
     {
         "id":  "mid-20260121-10",
@@ -1955,7 +1955,7 @@
                      "#海洋開発",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-10.jpg"
+        "url":  "/assets/images/grok/g-5.jpg"
     },
     {
         "id":  "mid-20260121-11",
@@ -1972,7 +1972,7 @@
                      "#自然共生",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-11.jpg"
+        "url":  "/assets/images/grok/g-6.jpg"
     },
     {
         "id":  "mid-20260121-12",
@@ -1988,7 +1988,7 @@
                      "#先端テクノロジー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-12.jpg"
+        "url":  "/assets/images/grok/g-7.jpg"
     },
     {
         "id":  "mid-20260121-13",
@@ -2004,7 +2004,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-13.jpg"
+        "url":  "/assets/images/grok/g-8.jpg"
     },
     {
         "id":  "mid-20260121-14",
@@ -2020,7 +2020,7 @@
                      "#自然共生",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-14.jpg"
+        "url":  "/assets/images/grok/g-9.jpg"
     },
     {
         "id":  "mid-20260121-15",
@@ -2036,7 +2036,7 @@
                      "#循環型社会",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-15.jpg"
+        "url":  "/assets/images/grok/g-10.jpg"
     },
     {
         "id":  "mid-20260121-16",
@@ -2052,7 +2052,7 @@
                      "#循環型社会",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-16.jpg"
+        "url":  "/assets/images/grok/g-11.jpg"
     },
     {
         "id":  "mid-20260121-17",
@@ -2068,7 +2068,7 @@
                      "#スマートシティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-17.jpg"
+        "url":  "/assets/images/grok/g-12.jpg"
     },
     {
         "id":  "mid-20260121-18",
@@ -2084,7 +2084,7 @@
                      "#スマートシティ",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-18.jpg"
+        "url":  "/assets/images/grok/g-13.jpg"
     },
     {
         "id":  "mid-20260121-19",
@@ -2100,7 +2100,7 @@
                      "#クリーンエネルギー",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-19.jpg"
+        "url":  "/assets/images/grok/g-14.jpg"
     },
     {
         "id":  "mid-20260121-20",
@@ -2116,7 +2116,7 @@
                      "#GXインフラ",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-20.jpg"
+        "url":  "/assets/images/grok/g-15.jpg"
     },
     {
         "id":  "mid-20260121-21",
@@ -2132,7 +2132,7 @@
                      "#海洋開発",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-21.jpg"
+        "url":  "/assets/images/grok/g-16.jpg"
     },
     {
         "id":  "mid-20260121-22",
@@ -2148,7 +2148,7 @@
                      "#海洋開発",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-22.jpg"
+        "url":  "/assets/images/grok/g-17.jpg"
     },
     {
         "id":  "mid-20260121-23",
@@ -2164,7 +2164,7 @@
                      "#宇宙開発",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-23.jpg"
+        "url":  "/assets/images/grok/g-18.jpg"
     },
     {
         "id":  "mid-20260121-24",
@@ -2180,7 +2180,7 @@
                      "#宇宙開発",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-24.jpg"
+        "url":  "/assets/images/grok/g-19.jpg"
     },
     {
         "id":  "mid-20260121-25",
@@ -2196,7 +2196,7 @@
                      "#クリーンエネルギー",
                      "#宇宙開発"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-25.jpg"
+        "url":  "/assets/images/grok/g-20.jpg"
     },
     {
         "id":  "mid-20260121-26",
@@ -2212,7 +2212,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-26.jpg"
+        "url":  "/assets/images/grok/g-21.jpg"
     },
     {
         "id":  "niji-20260121-01",
@@ -2228,7 +2228,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-01.jpg"
+        "url":  "/assets/images/grok/g-22.jpg"
     },
     {
         "id":  "niji-20260121-02",
@@ -2244,7 +2244,7 @@
                      "#スマートシティ",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-02.jpg"
+        "url":  "/assets/images/grok/g-23.jpg"
     },
     {
         "id":  "niji-20260121-03",
@@ -2260,7 +2260,7 @@
                      "#先端テクノロジー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-03.jpg"
+        "url":  "/assets/images/grok/g-24.jpg"
     },
     {
         "id":  "niji-20260121-04",
@@ -2276,7 +2276,7 @@
                      "#自然共生",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-04.jpg"
+        "url":  "/assets/images/grok/g-25.jpg"
     },
     {
         "id":  "niji-20260121-05",
@@ -2292,7 +2292,7 @@
                      "#先端テクノロジー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-05.jpg"
+        "url":  "/assets/images/grok/g-26.jpg"
     },
     {
         "id":  "niji-20260121-06",
@@ -2308,7 +2308,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-06.jpg"
+        "url":  "/assets/images/grok/g-27.jpg"
     },
     {
         "id":  "niji-20260121-07",
@@ -2324,7 +2324,7 @@
                      "#循環型社会",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-07.jpg"
+        "url":  "/assets/images/grok/g-28.jpg"
     },
     {
         "id":  "niji-20260121-08",
@@ -2340,7 +2340,7 @@
                      "#水素エネルギー",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-08.jpg"
+        "url":  "/assets/images/grok/g-29.jpg"
     },
     {
         "id":  "niji-20260121-09",
@@ -2356,7 +2356,7 @@
                      "#クリーンエネルギー",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-09.jpg"
+        "url":  "/assets/images/grok/g-30.jpg"
     },
     {
         "id":  "niji-20260121-10",
@@ -2372,7 +2372,7 @@
                      "#次世代モビリティ",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-10.jpg"
+        "url":  "/assets/images/grok/g-31.jpg"
     },
     {
         "id":  "niji-20260121-11",
@@ -2388,7 +2388,7 @@
                      "#先端テクノロジー",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-11.jpg"
+        "url":  "/assets/images/grok/g-32.jpg"
     },
     {
         "id":  "niji-20260121-12",
@@ -2404,7 +2404,7 @@
                      "#自然共生",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-12.jpg"
+        "url":  "/assets/images/grok/g-33.jpg"
     },
     {
         "id":  "niji-20260121-13",
@@ -2420,7 +2420,7 @@
                      "#先端テクノロジー",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-13.jpg"
+        "url":  "/assets/images/grok/g-34.jpg"
     },
     {
         "id":  "niji-20260121-14",
@@ -2436,7 +2436,7 @@
                      "#先端テクノロジー",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-14.jpg"
+        "url":  "/assets/images/grok/g-35.jpg"
     },
     {
         "id":  "niji-20260121-15",
@@ -2452,7 +2452,7 @@
                      "#スマートシティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-15.jpg"
+        "url":  "/assets/images/grok/g-36.jpg"
     },
     {
         "id":  "niji-20260121-16",
@@ -2468,7 +2468,7 @@
                      "#クリーンエネルギー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-16.jpg"
+        "url":  "/assets/images/grok/g-37.jpg"
     },
     {
         "id":  "niji-20260121-17",
@@ -2484,7 +2484,7 @@
                      "#クリーンエネルギー",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-17.jpg"
+        "url":  "/assets/images/grok/g-1.jpg"
     },
     {
         "id":  "niji-20260121-18",
@@ -2500,7 +2500,7 @@
                      "#次世代モビリティ",
                      "#水素エネルギー"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-18.jpg"
+        "url":  "/assets/images/grok/g-2.jpg"
     },
     {
         "id":  "niji-20260121-19",
@@ -2516,7 +2516,7 @@
                      "#海洋開発",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-19.jpg"
+        "url":  "/assets/images/grok/g-3.jpg"
     },
     {
         "id":  "niji-20260121-20",
@@ -2532,7 +2532,7 @@
                      "#海洋開発",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-20.jpg"
+        "url":  "/assets/images/grok/g-4.jpg"
     },
     {
         "id":  "niji-20260121-21",
@@ -2548,7 +2548,7 @@
                      "#クリーンエネルギー",
                      "#宇宙開発"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-21.jpg"
+        "url":  "/assets/images/grok/g-5.jpg"
     },
     {
         "id":  "niji-20260121-22",
@@ -2564,7 +2564,7 @@
                      "#宇宙開発",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-22.jpg"
+        "url":  "/assets/images/grok/g-6.jpg"
     },
     {
         "id":  "niji-20260121-23",
@@ -2580,7 +2580,7 @@
                      "#クリーンエネルギー",
                      "#宇宙開発"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-23.jpg"
+        "url":  "/assets/images/grok/g-7.jpg"
     },
     {
         "id":  "niji-20260121-24",
@@ -2596,7 +2596,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-24.jpg"
+        "url":  "/assets/images/grok/g-8.jpg"
     },
     {
         "id":  "niji-20260121-25",
@@ -2612,7 +2612,7 @@
                      "#スマートシティ",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-25.jpg"
+        "url":  "/assets/images/grok/g-9.jpg"
     },
     {
         "id":  "niji-20260121-26",
@@ -2628,7 +2628,7 @@
                      "#自然共生",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-26.jpg"
+        "url":  "/assets/images/grok/g-10.jpg"
     },
     {
         "id":  "niji-20260121-27",
@@ -2644,7 +2644,7 @@
                      "#スマートシティ",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-27.jpg"
+        "url":  "/assets/images/grok/g-11.jpg"
     },
     {
         "id":  "niji-20260121-28",
@@ -2660,7 +2660,7 @@
                      "#次世代モビリティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-28.jpg"
+        "url":  "/assets/images/grok/g-12.jpg"
     },
     {
         "id":  "niji-20260121-29",
@@ -2676,7 +2676,7 @@
                      "#スマートシティ",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-29.jpg"
+        "url":  "/assets/images/grok/g-13.jpg"
     },
     {
         "id":  "niji-20260121-30",
@@ -2692,7 +2692,7 @@
                      "#スマートシティ",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/niji-20260121-30.jpg"
+        "url":  "/assets/images/grok/g-14.jpg"
     },
     {
         "id":  "nano-20260121-01",
@@ -2708,7 +2708,7 @@
                      "#クリーンエネルギー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/nano-20260121-01.jpg"
+        "url":  "/assets/images/grok/g-15.jpg"
     },
     {
         "id":  "nano-20260121-02",
@@ -2724,7 +2724,7 @@
                      "#クリーンエネルギー",
                      "#海洋開発"
                  ],
-        "url":  "/assets/images/grok/nano-20260121-02.jpg"
+        "url":  "/assets/images/grok/g-16.jpg"
     },
     {
         "id":  "nano-20260121-03",
@@ -2740,7 +2740,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/nano-20260121-03.jpg"
+        "url":  "/assets/images/grok/g-17.jpg"
     },
     {
         "id":  "nano-20260121-04",
@@ -2756,7 +2756,7 @@
                      "#自然共生",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/nano-20260121-04.jpg"
+        "url":  "/assets/images/grok/g-18.jpg"
     },
     {
         "id":  "nano-20260121-05",
@@ -2772,7 +2772,7 @@
                      "#自然共生",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/nano-20260121-05.jpg"
+        "url":  "/assets/images/grok/g-19.jpg"
     },
     {
         "id":  "nano-20260121-06",
@@ -2788,7 +2788,7 @@
                      "#先端テクノロジー",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/grok/nano-20260121-06.jpg"
+        "url":  "/assets/images/grok/g-20.jpg"
     },
     {
         "id":  "nano-20260121-07",
@@ -2804,7 +2804,7 @@
                      "#スマートシティ",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/nano-20260121-07.jpg"
+        "url":  "/assets/images/grok/g-21.jpg"
     },
     {
         "id":  "nano-20260121-08",
@@ -2820,7 +2820,7 @@
                      "#クリーンエネルギー",
                      "#宇宙開発"
                  ],
-        "url":  "/assets/images/grok/nano-20260121-08.jpg"
+        "url":  "/assets/images/grok/g-22.jpg"
     },
     {
         "id":  "nano-20260121-09",
@@ -2836,7 +2836,7 @@
                      "#自然共生",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/grok/nano-20260121-09.jpg"
+        "url":  "/assets/images/grok/g-23.jpg"
     },
     {
         "id":  "nano-20260121-10",
@@ -2852,7 +2852,7 @@
                      "#海洋開発",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/nano-20260121-10.jpg"
+        "url":  "/assets/images/grok/g-24.jpg"
     },
     {
         "id":  "nano-20260121-11",
@@ -2868,7 +2868,7 @@
                      "#スマートシティ",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/nano-20260121-11.jpg"
+        "url":  "/assets/images/grok/g-25.jpg"
     },
     {
         "id":  "nano-20260121-12",
@@ -2884,7 +2884,7 @@
                      "#先端テクノロジー",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/grok/nano-20260121-12.jpg"
+        "url":  "/assets/images/grok/g-26.jpg"
     },
     {
         "id":  "nano-20260121-13",
@@ -2900,7 +2900,7 @@
                      "#クリーンエネルギー",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/nano-20260121-13.jpg"
+        "url":  "/assets/images/grok/g-27.jpg"
     },
     {
         "id":  "nano-20260121-14",
@@ -2916,7 +2916,7 @@
                      "#次世代モビリティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/nano-20260121-14.jpg"
+        "url":  "/assets/images/grok/g-28.jpg"
     },
     {
         "id":  "gpt-20260121-01",
@@ -2932,7 +2932,7 @@
                      "#次世代モビリティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-01.jpg"
+        "url":  "/assets/images/grok/g-29.jpg"
     },
     {
         "id":  "gpt-20260121-02",
@@ -2948,7 +2948,7 @@
                      "#先端テクノロジー",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-02.jpg"
+        "url":  "/assets/images/grok/g-30.jpg"
     },
     {
         "id":  "gpt-20260121-03",
@@ -2964,7 +2964,7 @@
                      "#自然共生",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-03.jpg"
+        "url":  "/assets/images/grok/g-31.jpg"
     },
     {
         "id":  "gpt-20260121-04",
@@ -2980,7 +2980,7 @@
                      "#クリーンエネルギー",
                      "#宇宙開発"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-04.jpg"
+        "url":  "/assets/images/grok/g-32.jpg"
     },
     {
         "id":  "gpt-20260121-05",
@@ -2996,7 +2996,7 @@
                      "#クリーンエネルギー",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-05.jpg"
+        "url":  "/assets/images/grok/g-33.jpg"
     },
     {
         "id":  "gpt-20260121-06",
@@ -3012,7 +3012,7 @@
                      "#水素エネルギー",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-06.jpg"
+        "url":  "/assets/images/grok/g-34.jpg"
     },
     {
         "id":  "gpt-20260121-07",
@@ -3028,7 +3028,7 @@
                      "#次世代モビリティ",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-07.jpg"
+        "url":  "/assets/images/grok/g-35.jpg"
     },
     {
         "id":  "gpt-20260121-08",
@@ -3044,7 +3044,7 @@
                      "#自然共生",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-08.jpg"
+        "url":  "/assets/images/grok/g-36.jpg"
     },
     {
         "id":  "gpt-20260121-09",
@@ -3060,7 +3060,7 @@
                      "#水素エネルギー",
                      "#海洋開発"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-09.jpg"
+        "url":  "/assets/images/grok/g-37.jpg"
     },
     {
         "id":  "gpt-20260121-10",
@@ -3076,7 +3076,7 @@
                      "#自然共生",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-10.jpg"
+        "url":  "/assets/images/grok/g-1.jpg"
     },
     {
         "id":  "gpt-20260121-11",
@@ -3092,7 +3092,7 @@
                      "#自然共生",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-11.jpg"
+        "url":  "/assets/images/grok/g-2.jpg"
     },
     {
         "id":  "gpt-20260121-12",
@@ -3108,7 +3108,7 @@
                      "#先端テクノロジー",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-12.jpg"
+        "url":  "/assets/images/grok/g-3.jpg"
     },
     {
         "id":  "gpt-20260121-13",
@@ -3124,7 +3124,7 @@
                      "#次世代モビリティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-13.jpg"
+        "url":  "/assets/images/grok/g-4.jpg"
     },
     {
         "id":  "gpt-20260121-14",
@@ -3140,7 +3140,7 @@
                      "#海洋開発",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-14.jpg"
+        "url":  "/assets/images/grok/g-5.jpg"
     },
     {
         "id":  "gpt-20260121-15",
@@ -3156,7 +3156,7 @@
                      "#自然共生",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-15.jpg"
+        "url":  "/assets/images/grok/g-6.jpg"
     },
     {
         "id":  "gpt-20260121-16",
@@ -3172,7 +3172,7 @@
                      "#クリーンエネルギー",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-16.jpg"
+        "url":  "/assets/images/grok/g-7.jpg"
     },
     {
         "id":  "gpt-20260121-17",
@@ -3188,7 +3188,7 @@
                      "#水素エネルギー",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-17.jpg"
+        "url":  "/assets/images/grok/g-8.jpg"
     },
     {
         "id":  "mid-20260121-32",
@@ -3204,7 +3204,7 @@
                      "#クリーンエネルギー",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-32.jpg"
+        "url":  "/assets/images/grok/g-9.jpg"
     },
     {
         "id":  "mid-20260121-33",
@@ -3220,7 +3220,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-33.jpg"
+        "url":  "/assets/images/grok/g-10.jpg"
     },
     {
         "id":  "mid-20260121-34",
@@ -3236,7 +3236,7 @@
                      "#自然共生",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-34.jpg"
+        "url":  "/assets/images/grok/g-11.jpg"
     },
     {
         "id":  "mid-20260121-35",
@@ -3252,7 +3252,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-35.jpg"
+        "url":  "/assets/images/grok/g-12.jpg"
     },
     {
         "id":  "mid-20260121-36",
@@ -3268,7 +3268,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-36.jpg"
+        "url":  "/assets/images/grok/g-13.jpg"
     },
     {
         "id":  "mid-20260121-37",
@@ -3284,7 +3284,7 @@
                      "#自然共生",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-37.jpg"
+        "url":  "/assets/images/grok/g-14.jpg"
     },
     {
         "id":  "gpt-20260121-38",
@@ -3300,7 +3300,7 @@
                      "#海洋開発",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/gpt-20260121-38.jpg"
+        "url":  "/assets/images/grok/g-15.jpg"
     },
     {
         "id":  "mid-20260121-39",
@@ -3316,7 +3316,7 @@
                      "#海洋開発",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-39.jpg"
+        "url":  "/assets/images/grok/g-16.jpg"
     },
     {
         "id":  "mid-20260121-40",
@@ -3332,7 +3332,7 @@
                      "#スマートシティ",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-40.jpg"
+        "url":  "/assets/images/grok/g-17.jpg"
     },
     {
         "id":  "mid-20260121-41",
@@ -3348,7 +3348,7 @@
                      "#自然共生",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-41.jpg"
+        "url":  "/assets/images/grok/g-18.jpg"
     },
     {
         "id":  "mid-20260121-32-jpg",
@@ -3364,7 +3364,7 @@
                      "#スマートシティ",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-32-jpg.jpg"
+        "url":  "/assets/images/grok/g-19.jpg"
     },
     {
         "id":  "mid-20260121-33-jpg",
@@ -3380,7 +3380,7 @@
                      "#クリーンエネルギー",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-33-jpg.jpg"
+        "url":  "/assets/images/grok/g-20.jpg"
     },
     {
         "id":  "mid-20260121-34-jpg",
@@ -3396,7 +3396,7 @@
                      "#次世代モビリティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-34-jpg.jpg"
+        "url":  "/assets/images/grok/g-21.jpg"
     },
     {
         "id":  "mid-20260121-35-jpg",
@@ -3412,7 +3412,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-35-jpg.jpg"
+        "url":  "/assets/images/grok/g-22.jpg"
     },
     {
         "id":  "mid-20260121-36-jpg",
@@ -3428,7 +3428,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-36-jpg.jpg"
+        "url":  "/assets/images/grok/g-23.jpg"
     },
     {
         "id":  "mid-20260121-37-jpg",
@@ -3444,7 +3444,7 @@
                      "#自然共生",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-37-jpg.jpg"
+        "url":  "/assets/images/grok/g-24.jpg"
     },
     {
         "id":  "mid-38-jpg",
@@ -3460,7 +3460,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-38-jpg.jpg"
+        "url":  "/assets/images/grok/g-25.jpg"
     },
     {
         "id":  "mid-20260121-39-jpg",
@@ -3476,7 +3476,7 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-39-jpg.jpg"
+        "url":  "/assets/images/grok/g-26.jpg"
     },
     {
         "id":  "mid-20260121-40-jpg",
@@ -3492,7 +3492,7 @@
                      "#海洋開発",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-40-jpg.jpg"
+        "url":  "/assets/images/grok/g-27.jpg"
     },
     {
         "id":  "mid-20260121-41-jpg",
@@ -3508,7 +3508,7 @@
                      "#海洋開発",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/grok/mid-20260121-41-jpg.jpg"
+        "url":  "/assets/images/grok/g-28.jpg"
     },
     {
         "id":  "mid-52",
@@ -3525,7 +3525,7 @@
                      "#海洋開発",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/mid-52.jpg"
+        "url":  "/assets/images/grok/g-29.jpg"
     },
     {
         "id":  "mid-53",
@@ -3542,7 +3542,7 @@
                      "#先端テクノロジー",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/grok/mid-53.jpg"
+        "url":  "/assets/images/grok/g-30.jpg"
     },
     {
         "id":  "mid-54",
@@ -3559,7 +3559,7 @@
                      "#スマートシティ",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/mid-54.jpg"
+        "url":  "/assets/images/grok/g-31.jpg"
     },
     {
         "id":  "mid-55",
@@ -3576,7 +3576,7 @@
                      "#クリーンエネルギー",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/mid-55.jpg"
+        "url":  "/assets/images/grok/g-32.jpg"
     },
     {
         "id":  "mid-56",
@@ -3593,7 +3593,7 @@
                      "#次世代ライフスタイル",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/grok/mid-56.jpg"
+        "url":  "/assets/images/grok/g-33.jpg"
     },
     {
         "id":  "mid-57",
@@ -3610,7 +3610,7 @@
                      "#自然共生",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/mid-57.jpg"
+        "url":  "/assets/images/grok/g-34.jpg"
     },
     {
         "id":  "mid-58",
@@ -3627,7 +3627,7 @@
                      "#水素エネルギー",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/grok/mid-58.jpg"
+        "url":  "/assets/images/grok/g-35.jpg"
     },
     {
         "id":  "mid-59",
@@ -3644,7 +3644,7 @@
                      "#北極圏開発",
                      "#水素インフラ"
                  ],
-        "url":  "/assets/images/grok/mid-59.jpg"
+        "url":  "/assets/images/grok/g-36.jpg"
     },
     {
         "id":  "mid-60",
@@ -3661,7 +3661,7 @@
                      "#自然共生",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/mid-60.jpg"
+        "url":  "/assets/images/grok/g-37.jpg"
     },
     {
         "id":  "mid-61",
@@ -3678,7 +3678,7 @@
                      "#クリーンエネルギー",
                      "#次世代建築"
                  ],
-        "url":  "/assets/images/grok/mid-61.jpg"
+        "url":  "/assets/images/grok/g-1.jpg"
     },
     {
         "id":  "mid-62",
@@ -3695,7 +3695,7 @@
                      "#先端テクノロジー",
                      "#GX"
                  ],
-        "url":  "/assets/images/grok/mid-62.jpg"
+        "url":  "/assets/images/grok/g-2.jpg"
     },
     {
         "id":  "mid-63",
@@ -3712,7 +3712,7 @@
                      "#スマートシティ",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/mid-63.jpg"
+        "url":  "/assets/images/grok/g-3.jpg"
     },
     {
         "id":  "mid-64",
@@ -3729,7 +3729,7 @@
                      "#GXインフラ",
                      "#ロボティクス"
                  ],
-        "url":  "/assets/images/grok/mid-64.jpg"
+        "url":  "/assets/images/grok/g-4.jpg"
     },
     {
         "id":  "mid-65",
@@ -3746,7 +3746,7 @@
                      "#自然共生",
                      "#次世代建築"
                  ],
-        "url":  "/assets/images/grok/mid-65.jpg"
+        "url":  "/assets/images/grok/g-5.jpg"
     },
     {
         "id":  "mid-66",
@@ -3763,7 +3763,7 @@
                      "#自然共生",
                      "#海洋開発"
                  ],
-        "url":  "/assets/images/grok/mid-66.jpg"
+        "url":  "/assets/images/grok/g-6.jpg"
     },
     {
         "id":  "mid-67",
@@ -3780,7 +3780,7 @@
                      "#スマートシティ",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/mid-67.jpg"
+        "url":  "/assets/images/grok/g-7.jpg"
     },
     {
         "id":  "mid-68",
@@ -3797,7 +3797,7 @@
                      "#スマートシティ",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/grok/mid-68.jpg"
+        "url":  "/assets/images/grok/g-8.jpg"
     },
     {
         "id":  "mid-69",
@@ -3814,7 +3814,7 @@
                      "#クリーンエネルギー",
                      "#次世代インフラ"
                  ],
-        "url":  "/assets/images/grok/mid-69.jpg"
+        "url":  "/assets/images/grok/g-9.jpg"
     },
     {
         "id":  "mid-70",
@@ -3831,7 +3831,7 @@
                      "#次世代モビリティ",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/grok/mid-70.jpg"
+        "url":  "/assets/images/grok/g-10.jpg"
     },
     {
         "id":  "mid-71",
@@ -3848,7 +3848,7 @@
                      "#次世代インフラ",
                      "#GX"
                  ],
-        "url":  "/assets/images/grok/mid-71.jpg"
+        "url":  "/assets/images/grok/g-11.jpg"
     },
     {
         "id":  "mid-72",
@@ -3865,7 +3865,7 @@
                      "#宇宙開発",
                      "#環境技術"
                  ],
-        "url":  "/assets/images/grok/mid-72.jpg"
+        "url":  "/assets/images/grok/g-12.jpg"
     },
     {
         "id":  "mid-73",
@@ -3882,7 +3882,7 @@
                      "#先端テクノロジー",
                      "#次世代建築"
                  ],
-        "url":  "/assets/images/grok/mid-73.jpg"
+        "url":  "/assets/images/grok/g-13.jpg"
     },
     {
         "id":  "mid-74",
@@ -3899,7 +3899,7 @@
                      "#先端テクノロジー",
                      "#DX"
                  ],
-        "url":  "/assets/images/grok/mid-74.jpg"
+        "url":  "/assets/images/grok/g-14.jpg"
     },
     {
         "id":  "mid-75",
@@ -3916,7 +3916,7 @@
                      "#スマートシティ",
                      "#DX"
                  ],
-        "url":  "/assets/images/grok/mid-75.jpg"
+        "url":  "/assets/images/grok/g-15.jpg"
     },
     {
         "id":  "mid-76",
@@ -3933,7 +3933,7 @@
                      "#自然共生",
                      "#海洋開発"
                  ],
-        "url":  "/assets/images/grok/mid-76.jpg"
+        "url":  "/assets/images/grok/g-16.jpg"
     },
     {
         "id":  "mid-77",
@@ -3950,7 +3950,7 @@
                      "#GXインフラ",
                      "#環境技術"
                  ],
-        "url":  "/assets/images/grok/mid-77.jpg"
+        "url":  "/assets/images/grok/g-17.jpg"
     },
     {
         "id":  "mid-78",
@@ -3967,7 +3967,7 @@
                      "#GXインフラ",
                      "#海洋開発"
                  ],
-        "url":  "/assets/images/grok/mid-78.jpg"
+        "url":  "/assets/images/grok/g-18.jpg"
     },
     {
         "id":  "mid-79",
@@ -3984,7 +3984,7 @@
                      "#クリーンエネルギー",
                      "#次世代インフラ"
                  ],
-        "url":  "/assets/images/grok/mid-79.jpg"
+        "url":  "/assets/images/grok/g-19.jpg"
     },
     {
         "id":  "mid-80",
@@ -4001,7 +4001,7 @@
                      "#先端テクノロジー",
                      "#次世代建築"
                  ],
-        "url":  "/assets/images/grok/mid-80.jpg"
+        "url":  "/assets/images/grok/g-20.jpg"
     },
     {
         "id":  "g-38",
