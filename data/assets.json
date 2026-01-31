@@ -6310,7 +6310,7 @@
         "url":  "/assets/images/grok/g-187.jpg"
     },
     {
-        "id":  "niji-20260121-01",
+        "id":  "niji-1",
         "title":  "エデン・フォール・ドーム",
         "description":  "巨大なガラスドーム内に広がる垂直の森と滝。自然エネルギー循環を体現した未来のバイオ建築。",
         "category":  "SmartCity",
@@ -6323,10 +6323,10 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-01.jpg"
+        "url":  "/assets/images/niji/niji-1.jpg"
     },
     {
-        "id":  "niji-20260121-02",
+        "id":  "niji-2",
         "title":  "スカイ・リバー・メトロポリス",
         "description":  "都市の中央を流れる運河と風力発電タービン。高度な水管理システムとグリーンインフラが融合したスマートシティ。",
         "category":  "SmartCity",
@@ -6339,10 +6339,10 @@
                      "#スマートシティ",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-02.jpg"
+        "url":  "/assets/images/niji/niji-2.jpg"
     },
     {
-        "id":  "niji-20260121-03",
+        "id":  "niji-3",
         "title":  "精密製造オートメーション・ラボ",
         "description":  "対称的に配置された最新の産業用ロボットアーム。GX製品を製造するための、カーボンニュートラルなスマートファクトリー。",
         "category":  "Tech",
@@ -6355,10 +6355,10 @@
                      "#先端テクノロジー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-03.jpg"
+        "url":  "/assets/images/niji/niji-3.jpg"
     },
     {
-        "id":  "niji-20260121-04",
+        "id":  "niji-4",
         "title":  "バーティカル・ガーデン・コリドー",
         "description":  "高層ビル内に配置された垂直庭園。都市の気温上昇を抑え、人々に安らぎを与えるサステナブルな建築構造。",
         "category":  "SmartCity",
@@ -6371,10 +6371,10 @@
                      "#自然共生",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-04.jpg"
+        "url":  "/assets/images/niji/niji-4.jpg"
     },
     {
-        "id":  "niji-20260121-05",
+        "id":  "niji-5",
         "title":  "次世代スマートファクトリー・アセット",
         "description":  "効率を極限まで高めた自動製造ライン。クリーンエネルギーで稼働し、廃棄物を最小限に抑える最新の技術拠点。",
         "category":  "Tech",
@@ -6387,10 +6387,10 @@
                      "#先端テクノロジー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-05.jpg"
+        "url":  "/assets/images/niji/niji-5.jpg"
     },
     {
-        "id":  "niji-20260121-06",
+        "id":  "niji-6",
         "title":  "バイオ・ルミネッセンス・パーク",
         "description":  "夜間に自ら発光する植物を配置した未来の公園。照明エネルギーをゼロにする持続可能な都市景観。",
         "category":  "SmartCity",
@@ -6403,10 +6403,10 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-06.jpg"
+        "url":  "/assets/images/niji/niji-6.jpg"
     },
     {
-        "id":  "niji-20260121-07",
+        "id":  "niji-7",
         "title":  "アクア・ポニックス・タワー",
         "description":  "魚の養殖と植物の栽培を同時に行う循環型農業施設。都市部での食料自給を支えるGXソリューション。",
         "category":  "Tech",
@@ -6419,10 +6419,10 @@
                      "#循環型社会",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-07.jpg"
+        "url":  "/assets/images/niji/niji-7.jpg"
     },
     {
-        "id":  "niji-20260121-08",
+        "id":  "niji-8",
         "title":  "水素燃料セル・ステーション",
         "description":  "クリーンな水素エネルギーを供給する未来のスタンド。排気が水のみのクリーンな輸送インフラを支える。",
         "category":  "Energy",
@@ -6435,10 +6435,10 @@
                      "#水素エネルギー",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-08.jpg"
+        "url":  "/assets/images/niji/niji-8.jpg"
     },
     {
-        "id":  "niji-20260121-09",
+        "id":  "niji-9",
         "title":  "ソーラー・ガラス・パビリオン",
         "description":  "透明な太陽光発電パネルを建築素材に使用した多目的ホール。デザインと発電機能を両立させた建築。",
         "category":  "SmartCity",
@@ -6451,10 +6451,10 @@
                      "#クリーンエネルギー",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-09.jpg"
+        "url":  "/assets/images/niji/niji-9.jpg"
     },
     {
-        "id":  "niji-20260121-10",
+        "id":  "niji-10",
         "title":  "ゼロ・エミッション・ロジスティクス",
         "description":  "完全電動化された自動配送ドローンのハブ施設。都市物流の二酸化炭素排出量をゼロにする試み。",
         "category":  "Mobility",
@@ -6467,10 +6467,10 @@
                      "#次世代モビリティ",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-10.jpg"
+        "url":  "/assets/images/niji/niji-10.jpg"
     },
     {
-        "id":  "niji-20260121-11",
+        "id":  "niji-11",
         "title":  "バイオ・デジタル・アトリウム",
         "description":  "ホログラムディスプレイと垂直の滝が融合した未来の公共空間。情報と自然がシームレスに交差するGX拠点。",
         "category":  "SmartCity",
@@ -6483,10 +6483,10 @@
                      "#先端テクノロジー",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-11.jpg"
+        "url":  "/assets/images/niji/niji-11.jpg"
     },
     {
-        "id":  "niji-20260121-12",
+        "id":  "niji-12",
         "title":  "スマート・フォレスト・オフィス",
         "description":  "豊かな森と水辺を室内に取り込んだ次世代のワークスペース。自然光が降り注ぐ環境で創造性を最大化する。",
         "category":  "SmartCity",
@@ -6499,10 +6499,10 @@
                      "#自然共生",
                      "#次世代ライフスタイル"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-12.jpg"
+        "url":  "/assets/images/niji/niji-12.jpg"
     },
     {
-        "id":  "niji-20260121-13",
+        "id":  "niji-13",
         "title":  "クリーン・バイオ・ナーサリー",
         "description":  "完全制御された環境で食料を育むバイオ研究施設。最先端のモニタリング技術で持続可能な食農を実現。",
         "category":  "Tech",
@@ -6515,10 +6515,10 @@
                      "#先端テクノロジー",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-13.jpg"
+        "url":  "/assets/images/niji/niji-13.jpg"
     },
     {
-        "id":  "niji-20260121-14",
+        "id":  "niji-14",
         "title":  "アドバンスド・ハイドロ・ファーム",
         "description":  "LED照明と水耕栽培を組み合わせた高密度の食料生産ライン。都市のエネルギー効率を追求したGXインフラ。",
         "category":  "Tech",
@@ -6531,10 +6531,10 @@
                      "#先端テクノロジー",
                      "#循環型社会"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-14.jpg"
+        "url":  "/assets/images/niji/niji-14.jpg"
     },
     {
-        "id":  "niji-20260121-15",
+        "id":  "niji-15",
         "title":  "ルミナス・スマート・シティ",
         "description":  "エネルギーの光が網目状に広がる未来都市の夜景。都市OSが電力を最適化し、低消費電力を実現する。",
         "category":  "SmartCity",
@@ -6547,10 +6547,10 @@
                      "#スマートシティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-15.jpg"
+        "url":  "/assets/images/niji/niji-15.jpg"
     },
     {
-        "id":  "niji-20260121-16",
+        "id":  "niji-16",
         "title":  "サイバー・エコ・グリッド",
         "description":  "情報インフラとエネルギー網が高度に融合した大都市圏。データとエネルギーの共生を象徴するビジュアル。",
         "category":  "SmartCity",
@@ -6563,10 +6563,10 @@
                      "#クリーンエネルギー",
                      "#先端テクノロジー"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-16.jpg"
+        "url":  "/assets/images/niji/niji-16.jpg"
     },
     {
-        "id":  "niji-20260121-17",
+        "id":  "niji-17",
         "title":  "オーロラ・エネルギー・ドーム",
         "description":  "極地に並ぶ自律型エネルギー貯蔵施設。オーロラの光の下で、100%再生可能エネルギーを蓄電する。",
         "category":  "Energy",
@@ -6579,10 +6579,10 @@
                      "#クリーンエネルギー",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-17.jpg"
+        "url":  "/assets/images/niji/niji-17.jpg"
     },
     {
-        "id":  "niji-20260121-18",
+        "id":  "niji-18",
         "title":  "ポーラー・トランスポート・ハブ",
         "description":  "氷海を進むゼロエミッション船舶と、それを迎える最新鋭の港湾施設。過酷な環境を切り拓く技術。",
         "category":  "Energy",
@@ -6595,10 +6595,10 @@
                      "#次世代モビリティ",
                      "#水素エネルギー"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-18.jpg"
+        "url":  "/assets/images/niji/niji-18.jpg"
     },
     {
-        "id":  "niji-20260121-19",
+        "id":  "niji-19",
         "title":  "アクア・エコ・チューブ",
         "description":  "サンゴ礁の海を駆け抜ける水中リニア。海洋生態系を保護しながら、高速な移動を実現する未来のインフラ。",
         "category":  "Mobility",
@@ -6611,10 +6611,10 @@
                      "#海洋開発",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-19.jpg"
+        "url":  "/assets/images/niji/niji-19.jpg"
     },
     {
-        "id":  "niji-20260121-20",
+        "id":  "niji-20",
         "title":  "シー・メトロ・フューチャー",
         "description":  "深海に築かれた透明な交通ネットワーク。最新の素材工学が、人間と海洋環境の新しい関係性を構築する。",
         "category":  "Mobility",
@@ -6627,10 +6627,10 @@
                      "#海洋開発",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-20.jpg"
+        "url":  "/assets/images/niji/niji-20.jpg"
     },
     {
-        "id":  "niji-20260121-21",
+        "id":  "niji-21",
         "title":  "オービタル・ソーラー・コレクター",
         "description":  "地球軌道上で太陽光を捕捉し、地上へクリーンなエネルギーを伝送する巨大な発電衛星ユニット。",
         "category":  "Energy",
@@ -6643,10 +6643,10 @@
                      "#クリーンエネルギー",
                      "#宇宙開発"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-21.jpg"
+        "url":  "/assets/images/niji/niji-21.jpg"
     },
     {
-        "id":  "niji-20260121-22",
+        "id":  "niji-22",
         "title":  "次世代宇宙送電プラットフォーム",
         "description":  "24時間365日、天候に左右されずに電力を供給する宇宙インフラ。持続可能なグローバル・グリッドの基石。",
         "category":  "Energy",
@@ -6659,10 +6659,10 @@
                      "#宇宙開発",
                      "#クリーンエネルギー"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-22.jpg"
+        "url":  "/assets/images/niji/niji-22.jpg"
     },
     {
-        "id":  "niji-20260121-23",
+        "id":  "niji-23",
         "title":  "高効率ソーラー・アレイ・サテライト",
         "description":  "最新の光電変換効率を誇るパネルを搭載した発電衛星。宇宙から地球全域へ無線送電を行う。",
         "category":  "Energy",
@@ -6675,10 +6675,10 @@
                      "#クリーンエネルギー",
                      "#宇宙開発"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-23.jpg"
+        "url":  "/assets/images/niji/niji-23.jpg"
     },
     {
-        "id":  "niji-20260121-24",
+        "id":  "niji-24",
         "title":  "デザート・エコ・ドーム・シティ",
         "description":  "砂漠地帯に築かれた自律型都市。ドーム内の気候を制御し、不毛の地を豊かな緑地へと変貌させる。",
         "category":  "SmartCity",
@@ -6691,10 +6691,10 @@
                      "#自然共生",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-24.jpg"
+        "url":  "/assets/images/niji/niji-24.jpg"
     },
     {
-        "id":  "niji-20260121-25",
+        "id":  "niji-25",
         "title":  "オアシス・インフラストラクチャ",
         "description":  "太陽光と地下水循環を利用した持続可能な居住区。極限環境下での生存を可能にする最新の建築技術。",
         "category":  "SmartCity",
@@ -6707,10 +6707,10 @@
                      "#スマートシティ",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-25.jpg"
+        "url":  "/assets/images/niji/niji-25.jpg"
     },
     {
-        "id":  "niji-20260121-26",
+        "id":  "niji-26",
         "title":  "テラフォーミング・ドーム・ハブ",
         "description":  "乾燥地帯における生態系再生の拠点。複数のドームがネットワーク化され、巨大な生命維持圏を形成する。",
         "category":  "SmartCity",
@@ -6723,10 +6723,10 @@
                      "#自然共生",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-26.jpg"
+        "url":  "/assets/images/niji/niji-26.jpg"
     },
     {
-        "id":  "niji-20260121-27",
+        "id":  "niji-27",
         "title":  "クリスタル・スカイ・メトロポリス",
         "description":  "空中に浮遊するような透明感のある建築群。高効率な空中交通路が都市を縦横に結ぶ。",
         "category":  "SmartCity",
@@ -6739,10 +6739,10 @@
                      "#スマートシティ",
                      "#次世代モビリティ"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-27.jpg"
+        "url":  "/assets/images/niji/niji-27.jpg"
     },
     {
-        "id":  "niji-20260121-28",
+        "id":  "niji-28",
         "title":  "ハイパー・モビリティ・グリッド",
         "description":  "自律走行ドローンと高速移動体がシームレスに連携する都市交通インフラ. 渋滞ゼロ、排出ゼロを実現。",
         "category":  "Mobility",
@@ -6755,10 +6755,10 @@
                      "#次世代モビリティ",
                      "#スマートシティ"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-28.jpg"
+        "url":  "/assets/images/niji/niji-28.jpg"
     },
     {
-        "id":  "niji-20260121-29",
+        "id":  "niji-29",
         "title":  "バーティカル・アーバン・スカイライン",
         "description":  "空高く伸びる垂直都市。エネルギー、食料、水がビル内部で循環する完全自律型の未来構造。",
         "category":  "SmartCity",
@@ -6771,10 +6771,10 @@
                      "#スマートシティ",
                      "#GXインフラ"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-29.jpg"
+        "url":  "/assets/images/niji/niji-29.jpg"
     },
     {
-        "id":  "niji-20260121-30",
+        "id":  "niji-30",
         "title":  "クラウド_フューチャー_シティ",
         "description":  "雲の上まで届く超高層建築と空中庭園。高度な環境エンジニアリングがもたらす、地上とは異なる清浄な居住空間。",
         "category":  "SmartCity",
@@ -6787,7 +6787,7 @@
                      "#スマートシティ",
                      "#自然共生"
                  ],
-        "url":  "/assets/images/niji/niji-20260121-30.jpg"
+        "url":  "/assets/images/niji/niji-30.jpg"
     },
     {
         "id":  "niji-31",
