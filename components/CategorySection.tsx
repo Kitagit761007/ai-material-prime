@@ -288,8 +288,9 @@ function CatCard({ img, isFavorite, onToggleFavorite, onClick }: {
                 className={`object-cover transition-all duration-700 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"} group-hover:scale-110`}
                 onLoad={() => setLoaded(true)}
                 onError={() => {
-                    if (imgSrc !== img.src) {
-                        setImgSrc(img.src);
+                    const fallbackSrc = img.src.startsWith('/') ? img.src : "/" + img.src;
+                    if (imgSrc !== fallbackSrc) {
+                        setImgSrc(fallbackSrc);
                     } else {
                         console.error(`Failed to load category image: ${img.src}`);
                     }
