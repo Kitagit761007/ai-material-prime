@@ -122,8 +122,8 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
     const handleDownload = async (e: React.MouseEvent) => {
         e.stopPropagation();
         if (selectedImage) {
-            const filename = selectedImage.src.split('/').pop() || 'download.webp';
-            await downloadImage(selectedImage.src, filename);
+            const filename = selectedImage.url.split('/').pop() || 'download.webp';
+            await downloadImage(selectedImage.url, filename);
         }
     };
 
@@ -192,12 +192,12 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                                 onClick={handleModalImageClick}
                             >
                                 <Image
-                                    src={modalImgSrc || getDisplaySrc(selectedImage.src)}
+                                    src={modalImgSrc || getDisplaySrc(selectedImage.url)}
                                     alt={selectedImage.title}
                                     fill
                                     className="object-contain pointer-events-none select-none"
                                     priority
-                                    onError={() => setModalImgSrc(selectedImage.src)}
+                                    onError={() => setModalImgSrc(selectedImage.url)}
                                 />
                             </div>
 
@@ -286,7 +286,7 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
                                 {/* Footer Trace */}
                                 <div className="p-4 bg-black/40 rounded-2xl flex items-center justify-between text-[10px] font-mono text-slate-600 border border-white/5">
                                     <span className="uppercase tracking-widest opacity-50 text-[8px]">Index ID</span>
-                                    <span className="truncate max-w-[150px]">{selectedImage.src.split('/').pop()}</span>
+                                    <span className="truncate max-w-[150px]">{selectedImage.url.split('/').pop()}</span>
                                 </div>
                             </div>
                         </div>
@@ -310,7 +310,7 @@ function ImageCard({ img, isFavorite, onToggleFavorite, onTagClick, onClick }: {
     onClick: () => void
 }) {
     const [loaded, setLoaded] = useState(false);
-    const [imgSrc, setImgSrc] = useState(getDisplaySrc(img.src));
+    const [imgSrc, setImgSrc] = useState(getDisplaySrc(img.url));
 
     return (
         <div className="relative group rounded-2xl overflow-hidden break-inside-avoid shadow-2xl bg-slate-900/50 border border-white/5 cursor-zoom-in" onClick={onClick}>
@@ -323,11 +323,11 @@ function ImageCard({ img, isFavorite, onToggleFavorite, onTagClick, onClick }: {
                 className={`w-full h-auto object-cover transition-all duration-700 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"} group-hover:scale-105`}
                 onLoad={() => setLoaded(true)}
                 onError={() => {
-                    const fallbackSrc = img.src.startsWith('/') ? img.src : "/" + img.src;
+                    const fallbackSrc = img.url.startsWith('/') ? img.url : "/" + img.url;
                     if (imgSrc !== fallbackSrc) {
                         setImgSrc(fallbackSrc);
                     } else {
-                        console.error(`Failed to load image: ${img.src}`);
+                        console.error(`Failed to load image: ${img.url}`);
                     }
                 }}
             />

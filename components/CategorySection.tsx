@@ -9,7 +9,7 @@ import { useFavorites } from "@/context/FavoritesContext";
 
 interface CategoryImage {
     id: string;
-    src: string;
+    url: string;
     title: string;
     description: string;
     score: number;
@@ -45,8 +45,8 @@ export default function CategorySection({ title, description, images }: Category
     const handleDownload = async (e: React.MouseEvent) => {
         e.stopPropagation();
         if (selectedImage) {
-            const filename = selectedImage.src.split('/').pop() || 'download.webp';
-            await downloadImage(selectedImage.src, filename);
+            const filename = selectedImage.url.split('/').pop() || 'download.webp';
+            await downloadImage(selectedImage.url, filename);
         }
     };
 
@@ -173,12 +173,12 @@ export default function CategorySection({ title, description, images }: Category
                                 onClick={handleModalImageClick}
                             >
                                 <Image
-                                    src={modalImgSrc || getDisplaySrc(selectedImage.src)}
+                                    src={modalImgSrc || getDisplaySrc(selectedImage.url)}
                                     alt={selectedImage.title}
                                     fill
                                     priority
                                     className="object-contain pointer-events-none select-none"
-                                    onError={() => setModalImgSrc(selectedImage.src)}
+                                    onError={() => setModalImgSrc(selectedImage.url)}
                                 />
                             </div>
 
@@ -276,7 +276,7 @@ function CatCard({ img, isFavorite, onToggleFavorite, onClick }: {
     onClick: () => void
 }) {
     const [loaded, setLoaded] = useState(false);
-    const [imgSrc, setImgSrc] = useState(getDisplaySrc(img.src));
+    const [imgSrc, setImgSrc] = useState(getDisplaySrc(img.url));
 
     return (
         <div className="group relative rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 cursor-zoom-in aspect-[4/3] shadow-xl" onClick={onClick}>
@@ -288,11 +288,11 @@ function CatCard({ img, isFavorite, onToggleFavorite, onClick }: {
                 className={`object-cover transition-all duration-700 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"} group-hover:scale-110`}
                 onLoad={() => setLoaded(true)}
                 onError={() => {
-                    const fallbackSrc = img.src.startsWith('/') ? img.src : "/" + img.src;
+                    const fallbackSrc = img.url.startsWith('/') ? img.url : "/" + img.url;
                     if (imgSrc !== fallbackSrc) {
                         setImgSrc(fallbackSrc);
                     } else {
-                        console.error(`Failed to load category image: ${img.src}`);
+                        console.error(`Failed to load category image: ${img.url}`);
                     }
                 }}
             />
