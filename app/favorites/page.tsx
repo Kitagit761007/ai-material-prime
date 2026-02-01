@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import MaterialGallery from "@/components/MaterialGallery";
 import { useFavorites } from "@/hooks/useFavorites";
