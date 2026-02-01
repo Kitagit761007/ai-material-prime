@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Heart, Download, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { getDisplaySrc, downloadImage } from "../lib/imageUtils";
 import { useFavorites } from "@/context/FavoritesContext";
+import { useSearch } from "@/context/SearchContext";
 
 interface CategoryImage {
     id: string;
@@ -33,13 +34,22 @@ export default function CategorySection({ title, description, images }: Category
     const [isZoomed, setIsZoomed] = useState(false);
     const router = useRouter();
     const { isFavorite, toggleFavorite } = useFavorites();
+    const { setSearchQuery } = useSearch();
     const lastTapRef = useRef<number>(0);
     const touchStartX = useRef<number>(0);
 
     const handleTagClick = (tag: string) => {
-        const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
-        router.push(`/tags/${encodeURIComponent(cleanTag)}`);
+        setSearchQuery(tag);
         handleManualClose();
+        if (window.location.pathname !== "/") {
+            router.push("/");
+        }
+        setTimeout(() => {
+            const gallery = document.getElementById("gallery-section");
+            if (gallery) {
+                gallery.scrollIntoView({ behavior: "smooth" });
+            }
+        }, 100);
     };
 
     const handleDownload = async (e: React.MouseEvent) => {
@@ -173,12 +183,14 @@ export default function CategorySection({ title, description, images }: Category
                                 onClick={handleModalImageClick}
                             >
                                 <Image
-                                    src={modalImgSrc || getDisplaySrc(selectedImage.url)}
+                                    src={getDisplaySrc(selectedImage.url)}
                                     alt={selectedImage.title}
                                     fill
                                     priority
                                     className="object-contain pointer-events-none select-none"
-                                    onError={() => setModalImgSrc(selectedImage.url)}
+                                    onError={(e: any) => {
+                                        e.target.src = selectedImage.url;
+                                    }}
                                 />
                             </div>
 
@@ -198,10 +210,10 @@ export default function CategorySection({ title, description, images }: Category
 
                             {/* Navigation Arrows */}
                             <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none z-20">
-                                <button onClick={handlePrevImage} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl active:scale-90">
+                                <button onClick={(e: React.MouseEvent) => { e.stopPropagation(); handlePrevImage(); }} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl active:scale-90">
                                     <ChevronLeft className="w-8 h-8" />
                                 </button>
-                                <button onClick={handleNextImage} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl active:scale-90">
+                                <button onClick={(e: React.MouseEvent) => { e.stopPropagation(); handleNextImage(); }} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl active:scale-90">
                                     <ChevronRight className="w-8 h-8" />
                                 </button>
                             </div>
@@ -291,8 +303,6 @@ function CatCard({ img, isFavorite, onToggleFavorite, onClick }: {
                     const fallbackSrc = img.url.startsWith('/') ? img.url : "/" + img.url;
                     if (imgSrc !== fallbackSrc) {
                         setImgSrc(fallbackSrc);
-                    } else {
-                        console.error(`Failed to load category image: ${img.url}`);
                     }
                 }}
             />

@@ -8,13 +8,18 @@ import { getDisplaySrc, downloadImage } from "../lib/imageUtils";
 import { useFavorites } from "@/context/FavoritesContext";
 import assets from "@/public/data/assets.json";
 
+import { useSearch } from "@/context/SearchContext";
+
 interface ImageGridProps {
     initialItems?: typeof assets;
-    searchQuery?: string;
+    searchQuery?: string; // Optional override prop
     onResultCount?: (count: number) => void;
 }
 
-export default function ImageGrid({ initialItems, searchQuery = "", onResultCount }: ImageGridProps) {
+export default function ImageGrid({ initialItems, searchQuery: searchQueryProp, onResultCount }: ImageGridProps) {
+    const { searchQuery: globalSearchQuery, selectedCategory } = useSearch();
+    const searchQuery = searchQueryProp !== undefined ? searchQueryProp : globalSearchQuery;
+
     const [selectedImage, setSelectedImage] = useState<typeof assets[0] | null>(null);
     const [modalImgSrc, setModalImgSrc] = useState<string>("");
     const [displayCount, setDisplayCount] = useState(20);
@@ -28,14 +33,25 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
     // Filter Logic
     const baseItems = initialItems || assets;
     const filteredItems = baseItems.filter(item => {
+        // Category filter (exact match with normalized Japanese names)
+        if (selectedCategory && item.category !== selectedCategory) {
+            return false;
+        }
+
         if (!searchQuery) return true;
-        const query = searchQuery.toLowerCase().replace("#", "");
-        return (
-            item.title.toLowerCase().includes(query) ||
-            item.description.toLowerCase().includes(query) ||
-            item.tags.some(tag => tag.toLowerCase().replace("#", "").includes(query)) ||
-            item.category.toLowerCase().includes(query)
-        );
+
+        // Advanced query normalization
+        const query = searchQuery.toLowerCase().trim().replace("#", "").normalize("NFKC");
+
+        const titleMatch = item.title.toLowerCase().normalize("NFKC").includes(query);
+        const descMatch = item.description.toLowerCase().normalize("NFKC").includes(query);
+        const categoryMatch = item.category.toLowerCase().normalize("NFKC").includes(query);
+        const tagMatch = item.tags.some(tag => {
+            const cleanTag = tag.toLowerCase().replace("#", "").trim().normalize("NFKC");
+            return cleanTag.includes(query);
+        });
+
+        return titleMatch || descMatch || categoryMatch || tagMatch;
     });
 
     const visibleItems = filteredItems.slice(0, displayCount);
@@ -159,7 +175,7 @@ export default function ImageGrid({ initialItems, searchQuery = "", onResultCoun
     };
 
     return (
-        <section className="px-6 pb-20 max-w-7xl mx-auto">
+        <section id="gallery-section" className="px-6 pb-20 max-w-7xl mx-auto">
             <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
                 {visibleItems.map((img) => (
                     <ImageCard

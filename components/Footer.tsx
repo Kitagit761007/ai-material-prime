@@ -1,18 +1,43 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
+import { useSearch } from "@/context/SearchContext";
 import assetsDataRaw from "@/public/data/assets.json";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
-    const assets = Array.isArray(assetsDataRaw) ? (assetsDataRaw as any[]) : [];
+    const router = useRouter();
+    const pathname = usePathname();
+    const { setSelectedCategory, clearFilters } = useSearch();
+
+    const handleCategoryClick = (id: string, e: React.MouseEvent) => {
+        e.preventDefault();
+        setSelectedCategory(id);
+        if (pathname !== "/") {
+            router.push("/");
+        }
+        setTimeout(() => {
+            const gallery = document.getElementById("gallery-section");
+            if (gallery) {
+                gallery.scrollIntoView({ behavior: "smooth" });
+            }
+        }, 100);
+    };
+
+    const handleLogoClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        clearFilters();
+        if (pathname !== "/") {
+            router.push("/");
+        } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
 
     const getCategoryCount = (id: string) => {
-        return assets.filter((item: any) => {
-            const cat = String(item.category || "").toLowerCase();
-            const target = id.toLowerCase();
-            return cat === target || cat.replace(/\s+/g, '') === target.replace(/\s+/g, '');
-        }).length;
+        const assets = Array.isArray(assetsDataRaw) ? (assetsDataRaw as any[]) : [];
+        return assets.filter((item: any) => item.category === id).length;
     };
 
     const categories = [
@@ -32,7 +57,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Column 1: Brand */}
                     <div className="space-y-6">
-                        <Link href="/" className="text-xl font-bold font-mono tracking-tighter text-gx-cyan">
+                        <Link href="/" className="text-xl font-bold font-mono tracking-tighter text-gx-cyan" onClick={handleLogoClick}>
                             GX Prime Visuals
                         </Link>
                         <p className="text-slate-400 text-xs leading-relaxed max-w-xs">
@@ -59,16 +84,16 @@ export default function Footer() {
                         <ul className="grid grid-cols-1 gap-3">
                             {categories.map((cat) => (
                                 <li key={cat.id}>
-                                    <Link
-                                        href={`/categories/${cat.id}`}
-                                        className="text-slate-400 hover:text-white transition-colors text-sm flex items-center justify-between group"
+                                    <button
+                                        onClick={(e) => handleCategoryClick(cat.id, e)}
+                                        className="w-full text-slate-400 hover:text-white transition-colors text-sm flex items-center justify-between group text-left"
                                     >
                                         <div className="flex flex-col">
                                             <span>{cat.name}</span>
                                             <span className="text-[10px] text-slate-600 group-hover:text-slate-400 transition-colors">{cat.en}</span>
                                         </div>
                                         <span className="text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-slate-600 group-hover:text-gx-cyan transition-colors">{getCategoryCount(cat.id)}</span>
-                                    </Link>
+                                    </button>
                                 </li>
                             ))}
                         </ul>

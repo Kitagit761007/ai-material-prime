@@ -9,6 +9,7 @@ import PwaHandler from '@/components/PwaHandler'
 import InstallBanner from '@/components/InstallBanner'
 
 import { FavoritesProvider } from '@/context/FavoritesContext'
+import { SearchProvider } from '@/context/SearchContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -106,26 +107,28 @@ export default function RootLayout({
                 <link rel="manifest" href="/manifest.json" />
             </head>
             <body className={inter.className}>
-                <FavoritesProvider>
-                    {process.env.NEXT_PUBLIC_GTM_ID && (
-                        <noscript>
-                            <iframe
-                                src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
-                                height="0"
-                                width="0"
-                                style={{ display: 'none', visibility: 'hidden' }}
-                            />
-                        </noscript>
-                    )}
-                    <PwaHandler />
-                    <Header />
-                    <main className="min-h-screen pt-20">
-                        {children}
-                    </main>
-                    <InstallBanner />
-                    <Footer />
-                    <MobileNav />
-                </FavoritesProvider>
+                <SearchProvider>
+                    <FavoritesProvider>
+                        {process.env.NEXT_PUBLIC_GTM_ID && (
+                            <noscript>
+                                <iframe
+                                    src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
+                                    height="0"
+                                    width="0"
+                                    style={{ display: 'none', visibility: 'hidden' }}
+                                />
+                            </noscript>
+                        )}
+                        <PwaHandler />
+                        <Header />
+                        <main className="min-h-screen pt-20">
+                            {children}
+                        </main>
+                        <InstallBanner />
+                        <Footer />
+                        <MobileNav />
+                    </FavoritesProvider>
+                </SearchProvider>
             </body>
         </html >
     )

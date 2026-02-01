@@ -5,18 +5,19 @@ import Hero from "@/components/Hero";
 import ImageGrid from "@/components/ImageGrid";
 import JsonLd from "@/components/JsonLd";
 import CategorySection from "@/components/CategorySection";
+import { useSearch } from "@/context/SearchContext";
 import assets from "@/public/data/assets.json";
 
 export default function Home() {
-    const [searchQuery, setSearchQuery] = useState("");
+    const { searchQuery, setSearchQuery } = useSearch();
 
-    const energyImages = assets.filter(item => item.category === 'Energy').slice(0, 3);
-    const smartCityImages = assets.filter(item => item.category === 'SmartCity').slice(0, 3);
-    const mobilityImages = assets.filter(item => item.category === 'Mobility').slice(0, 3);
+    const energyImages = assets.filter(item => item.category === 'GX').slice(0, 3);
+    const smartCityImages = assets.filter(item => item.category === '未来都市').slice(0, 3);
+    const mobilityImages = assets.filter(item => item.category === 'モビリティ').slice(0, 3);
 
     return (
         <div className="flex flex-col min-h-screen">
-            <JsonLd images={assets.map(a => ({ src: a.src }))} />
+            <JsonLd images={assets.map(a => ({ src: a.url }))} />
             <Hero searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 
             {/* Category Sections */}
