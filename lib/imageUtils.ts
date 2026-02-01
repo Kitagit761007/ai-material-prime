@@ -1,26 +1,8 @@
 /**
- * Resolves the optimized WebP source for an image.
+ * Resolves the image source. Fixed to return the path directly for consistency.
  */
 export function getDisplaySrc(src: string): string {
-    if (!src) return src;
-
-    let normalized = src;
-    if (normalized.startsWith('./')) {
-        normalized = normalized.substring(1);
-    }
-    if (!normalized.startsWith('/')) {
-        normalized = '/' + normalized;
-    }
-
-    if (normalized.includes('/images/') && !normalized.includes('gx_')) {
-        const baseSrc = normalized.split('?')[0];
-        const ext = baseSrc.split('.').pop();
-        if (ext && ['png', 'jpg', 'jpeg'].includes(ext.toLowerCase())) {
-            return baseSrc.replace(`.${ext}`, '.webp');
-        }
-    }
-
-    return normalized;
+    return src;
 }
 
 /**

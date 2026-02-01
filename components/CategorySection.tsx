@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Heart, Download, X, ChevronLeft, ChevronRight } from "lucide-react";
-import { getDisplaySrc, downloadImage } from "../lib/imageUtils";
+import { downloadImage } from "../lib/imageUtils";
 import { useFavorites } from "@/context/FavoritesContext";
 import { useSearch } from "@/context/SearchContext";
 
@@ -183,7 +183,7 @@ export default function CategorySection({ title, description, images }: Category
                                 onClick={handleModalImageClick}
                             >
                                 <Image
-                                    src={getDisplaySrc(selectedImage.url)}
+                                    src={selectedImage.url}
                                     alt={selectedImage.title}
                                     fill
                                     priority
@@ -288,7 +288,7 @@ function CatCard({ img, isFavorite, onToggleFavorite, onClick }: {
     onClick: () => void
 }) {
     const [loaded, setLoaded] = useState(false);
-    const [imgSrc, setImgSrc] = useState(getDisplaySrc(img.url));
+    const [imgSrc, setImgSrc] = useState(img.url);
 
     return (
         <div className="group relative rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 cursor-zoom-in aspect-[4/3] shadow-xl" onClick={onClick}>

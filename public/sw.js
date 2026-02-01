@@ -14,7 +14,18 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
-    event.waitUntil(clients.claim());
+    event.waitUntil(
+        Promise.all([
+            clients.claim(),
+            caches.keys().then((cacheNames) => {
+                return Promise.all(
+                    cacheNames.map((cacheName) => {
+                        return caches.delete(cacheName);
+                    })
+                );
+            })
+        ])
+    );
 });
 
 self.addEventListener('fetch', (event) => {
