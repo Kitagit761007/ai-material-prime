@@ -288,23 +288,16 @@ function CatCard({ img, isFavorite, onToggleFavorite, onClick }: {
     onClick: () => void
 }) {
     const [loaded, setLoaded] = useState(false);
-    const [imgSrc, setImgSrc] = useState(img.url);
 
     return (
         <div className="group relative rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 cursor-zoom-in aspect-[4/3] shadow-xl" onClick={onClick}>
             <div className={`absolute inset-0 bg-slate-800 animate-pulse transition-opacity duration-500 ${loaded ? "opacity-0" : "opacity-100"}`} />
             <Image
-                src={imgSrc}
+                src={img.url}
                 alt={img.title}
                 fill
                 className={`object-cover transition-all duration-700 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"} group-hover:scale-110`}
                 onLoad={() => setLoaded(true)}
-                onError={() => {
-                    const fallbackSrc = img.url.startsWith('/') ? img.url : "/" + img.url;
-                    if (imgSrc !== fallbackSrc) {
-                        setImgSrc(fallbackSrc);
-                    }
-                }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5">
                 <p className="text-white text-sm font-bold truncate">{img.title}</p>
