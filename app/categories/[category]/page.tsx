@@ -78,7 +78,7 @@ export default async function CategoryPage({ params }: Props) {
                 <div className="h-px w-full bg-gradient-to-r from-gx-cyan/50 via-white/5 to-transparent mt-10" />
             </div>
 
-            <ImageGrid searchQuery={category} />
+            <MaterialGallery searchQuery={category} />
         </div>
     );
 }

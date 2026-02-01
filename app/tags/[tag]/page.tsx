@@ -78,7 +78,7 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
                 <TagSlider currentTag={decodedTag} />
             </div>
 
-            <ImageGrid searchQuery={decodedTag} />
+            <MaterialGallery searchQuery={decodedTag} />
         </div>
     );
 }
