@@ -22,8 +22,6 @@ export const metadata: Metadata = {
     description: '水素エネルギーやスマートシティなど、次世代のテクノロジーをテーマにした高品質なAI生成画像素材を無料で提供しています。商用利用可・クレジット表記不要。',
     keywords: ['AI生成画像', '水素エネルギー', 'スマートシティ', 'GX', '未来都市', 'フリー素材'],
     manifest: '/manifest.json',
-    themeColor: '#00f2fe',
-    viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
     icons: {
         icon: [
             { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -60,6 +58,12 @@ export const metadata: Metadata = {
         canonical: '/',
     },
 }
+
+export const viewport = {
+    themeColor: "#000000",
+    width: "device-width",
+    initialScale: 1,
+};
 
 export default function RootLayout({
     children,

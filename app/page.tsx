@@ -7,6 +7,8 @@ import JsonLd from "@/components/JsonLd";
 import CategorySection from "@/components/CategorySection";
 import { useSearch } from "@/context/SearchContext";
 
+const POPULAR_TAGS = ["GX", "未来都市", "脱炭素", "テクノロジー", "モビリティ", "水中", "宇宙"];
+
 interface Asset {
     id: string;
     url: string;

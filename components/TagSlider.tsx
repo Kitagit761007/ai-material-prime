@@ -3,7 +3,11 @@
 import { useSearch } from "@/context/SearchContext";
 import { useRouter } from "next/navigation";
 
-// ... (existing code POPULAR_TAGS)
+const POPULAR_TAGS = ["GX", "未来都市", "脱炭素", "テクノロジー", "モビリティ", "水中", "宇宙"];
+
+interface TagSliderProps {
+    currentTag?: string;
+}
 
 export default function TagSlider({ currentTag = "" }: TagSliderProps) {
     const { setSearchQuery } = useSearch();
