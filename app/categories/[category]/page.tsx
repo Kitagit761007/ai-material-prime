@@ -1,9 +1,19 @@
+"use client";
+
+import React, { useEffect, useState } from "react";
 import MaterialGallery from "@/components/MaterialGallery";
-import assets from "@/public/data/assets.json";
 import { ChevronLeft, LayoutGrid } from "lucide-react";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { Metadata } from "next";
+import { useParams } from "next/navigation";
+
+interface Asset {
+    id: string;
+    url: string;
+    title: string;
+    description: string;
+    category: string;
+    tags: string[];
+}
 
 const categoryMap: Record<string, string> = {
     "GX": "GX / Green Transformation (GX)",
@@ -16,39 +26,29 @@ const categoryMap: Record<string, string> = {
     "水中": "水中 / Underwater City"
 };
 
-type Props = {
-    params: Promise<{ category: string }>
-}
+export default function CategoryPage() {
+    const params = useParams();
+    const category = params.category as string;
+    const [assets, setAssets] = useState<Asset[]>([]);
+    const [resultCount, setResultCount] = useState(0);
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { category } = await params;
     const japaneseTitle = categoryMap[category] || category;
 
-    return {
-        title: `${japaneseTitle} | 画像素材集`,
-        description: `${japaneseTitle}をテーマにした高品質なAI生成画像素材を無料で提供しています。商用利用可・クレジット表示不要。`,
-        alternates: {
-            canonical: `/categories/${category}`,
-        },
-    };
-}
+    useEffect(() => {
+        const loadAssets = async () => {
+            try {
+                const response = await fetch('/data/assets.json');
+                const data = await response.json();
+                setAssets(data);
 
-export async function generateStaticParams() {
-    const categories = ["GX", "モビリティ", "テクノロジー", "資源・バイオ", "未来都市", "エコ・ライフ", "宇宙", "水中"];
-    return categories.map((cat) => ({
-        category: cat,
-    }));
-}
-
-export default async function CategoryPage({ params }: Props) {
-    const { category } = await params;
-    const japaneseTitle = categoryMap[category];
-
-    if (!japaneseTitle) {
-        notFound();
-    }
-
-    const resultCount = assets.filter(item => item.category === category).length;
+                const count = data.filter((item: Asset) => item.category === category).length;
+                setResultCount(count);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+        loadAssets();
+    }, [category]);
 
     return (
         <div className="flex flex-col min-h-screen pt-24 pb-12">

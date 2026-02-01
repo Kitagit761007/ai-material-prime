@@ -1,15 +1,27 @@
-"use client";
-
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { useSearch } from "@/context/SearchContext";
-import assetsDataRaw from "@/public/data/assets.json";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
+    const [assets, setAssets] = useState<any[]>([]);
     const router = useRouter();
     const pathname = usePathname();
     const { setSelectedCategory, clearFilters } = useSearch();
+
+    useEffect(() => {
+        const loadAssets = async () => {
+            try {
+                const response = await fetch('/data/assets.json');
+                const data = await response.json();
+                setAssets(data);
+            } catch (e) {
+                console.error("Error loading assets:", e);
+            }
+        };
+        loadAssets();
+    }, []);
 
     const handleCategoryClick = (id: string, e: React.MouseEvent) => {
         e.preventDefault();
@@ -36,7 +48,6 @@ export default function Footer() {
     };
 
     const getCategoryCount = (id: string) => {
-        const assets = Array.isArray(assetsDataRaw) ? (assetsDataRaw as any[]) : [];
         return assets.filter((item: any) => item.category === id).length;
     };
 

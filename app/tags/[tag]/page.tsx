@@ -1,53 +1,48 @@
+"use client";
+
+import React, { useEffect, useState } from "react";
 import MaterialGallery from "@/components/MaterialGallery";
-import assets from "@/public/data/assets.json";
 import { ChevronLeft, Hash } from "lucide-react";
 import Link from "next/link";
 import TagSlider from "@/components/TagSlider";
-import { Metadata } from "next";
+import { useParams } from "next/navigation";
 
-type Props = {
-    params: Promise<{ tag: string }>
+interface Asset {
+    id: string;
+    url: string;
+    title: string;
+    description: string;
+    category: string;
+    tags: string[];
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const resolvedParams = await params;
-    const tag = resolvedParams.tag ? decodeURIComponent(resolvedParams.tag) : "";
+export default function TagPage() {
+    const params = useParams();
+    const tag = params.tag ? decodeURIComponent(params.tag as string) : "";
+    const [assets, setAssets] = useState<Asset[]>([]);
+    const [resultCount, setResultCount] = useState(0);
 
-    return {
-        title: `「${tag}」のAI画像素材 | 未来を描くビジュアル`,
-        description: `${tag}に関連する高品質なAI生成画像素材。スマートシティや水素エネルギーなど、未来領域のビジュアルを無料でダウンロード可能。`,
-        alternates: {
-            canonical: `/tags/${resolvedParams.tag}`,
-        },
-    };
-}
+    useEffect(() => {
+        const loadAssets = async () => {
+            try {
+                const response = await fetch('/data/assets.json');
+                const data = await response.json();
+                setAssets(data);
 
-// Static params generation for GitHub Pages compatibility
-export async function generateStaticParams() {
-    const tags = new Set<string>();
-    assets.forEach(asset => {
-        asset.tags.forEach(tag => tags.add(tag.replace("#", "")));
-        tags.add(asset.category);
-    });
-    // Ensure tags are returned in their raw form; Next.js handles the filesystem encoding for [tag]
-    return Array.from(tags).map((tag) => ({
-        tag: tag,
-    }));
-}
-
-export default async function TagPage({ params }: { params: Promise<{ tag: string }> }) {
-    const resolvedParams = await params;
-    const rawTag = resolvedParams.tag;
-    const decodedTag = rawTag ? decodeURIComponent(rawTag) : "";
-
-    // Server-side calculation of hit count for SSG
-    const query = decodedTag.toLowerCase().replace("#", "");
-    const resultCount = assets.filter(item =>
-        item.title.toLowerCase().includes(query) ||
-        item.description.toLowerCase().includes(query) ||
-        item.tags.some(tag => tag.toLowerCase().replace("#", "").includes(query)) ||
-        item.category.toLowerCase().includes(query)
-    ).length;
+                const query = tag.toLowerCase().replace("#", "");
+                const count = data.filter((item: Asset) =>
+                    item.title.toLowerCase().includes(query) ||
+                    item.description.toLowerCase().includes(query) ||
+                    item.tags.some(t => t.toLowerCase().replace("#", "").includes(query)) ||
+                    item.category.toLowerCase().includes(query)
+                ).length;
+                setResultCount(count);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+        loadAssets();
+    }, [tag]);
 
     return (
         <div className="flex flex-col min-h-screen pt-24 pb-12">
@@ -66,7 +61,7 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
                     </div>
                     <div>
                         <h1 className="text-4xl font-extrabold text-white tracking-tight">
-                            「{decodedTag || "不明なタグ"}」の検索結果
+                            「{tag || "不明なタグ"}」の検索結果
                         </h1>
                         <p className="text-slate-400 text-sm mt-2 flex items-center gap-2">
                             <span className="w-1.5 h-1.5 bg-gx-cyan rounded-full animate-pulse" />
@@ -75,10 +70,10 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
                     </div>
                 </div>
                 <div className="h-px w-full bg-gradient-to-r from-gx-cyan/50 via-white/5 to-transparent mt-10 mb-2" />
-                <TagSlider currentTag={decodedTag} />
+                <TagSlider currentTag={tag} />
             </div>
 
-            <MaterialGallery searchQuery={decodedTag} />
+            <MaterialGallery searchQuery={tag} />
         </div>
     );
 }

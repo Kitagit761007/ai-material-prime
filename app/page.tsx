@@ -1,15 +1,40 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Hero from "@/components/Hero";
 import MaterialGallery from "@/components/MaterialGallery";
 import JsonLd from "@/components/JsonLd";
 import CategorySection from "@/components/CategorySection";
 import { useSearch } from "@/context/SearchContext";
-import assets from "@/public/data/assets.json";
+
+interface Asset {
+    id: string;
+    url: string;
+    title: string;
+    description: string;
+    score: number;
+    width: number;
+    height: number;
+    category: string;
+    tags: string[];
+}
 
 export default function Home() {
     const { searchQuery, setSearchQuery } = useSearch();
+    const [assets, setAssets] = useState<Asset[]>([]);
+
+    useEffect(() => {
+        const loadAssets = async () => {
+            try {
+                const response = await fetch('/data/assets.json');
+                const data = await response.json();
+                setAssets(data);
+            } catch (e) {
+                console.error("Error loading assets:", e);
+            }
+        };
+        loadAssets();
+    }, []);
 
     const energyImages = assets.filter(item => item.category === 'GX').slice(0, 3);
     const smartCityImages = assets.filter(item => item.category === '未来都市').slice(0, 3);

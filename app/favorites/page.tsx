@@ -1,22 +1,46 @@
-"use client";
-
+import React, { useState, useEffect } from "react";
 import MaterialGallery from "@/components/MaterialGallery";
 import { useFavorites } from "@/hooks/useFavorites";
-import assets from "@/public/data/assets.json";
 import { Heart, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 
-export default function FavoritesPage() {
-    const { favorites, isLoaded } = useFavorites();
+interface Asset {
+    id: string;
+    url: string;
+    title: string;
+    description: string;
+    category: string;
+    tags: string[];
+}
 
-    if (!isLoaded) {
+export default function FavoritesPage() {
+    const { favorites, isLoaded: favsLoaded } = useFavorites();
+    const [allAssets, setAllAssets] = useState<Asset[]>([]);
+    const [isAssetsLoading, setIsAssetsLoading] = useState(true);
+
+    useEffect(() => {
+        const loadAssets = async () => {
+            try {
+                const response = await fetch('/data/assets.json');
+                const data = await response.json();
+                setAllAssets(data);
+            } catch (e) {
+                console.error(e);
+            } finally {
+                setIsAssetsLoading(false);
+            }
+        };
+        loadAssets();
+    }, []);
+
+    if (!favsLoaded || isAssetsLoading) {
         return <div className="min-h-screen bg-slate-950 flex items-center justify-center">
             <div className="w-8 h-8 border-2 border-gx-cyan border-t-transparent rounded-full animate-spin" />
         </div>;
     }
 
     // Filter assets whose IDs are in favorites
-    const favoriteAssets = assets.filter(asset => favorites.includes(asset.id));
+    const favoriteAssets = allAssets.filter(asset => favorites.includes(asset.id));
 
     return (
         <div className="min-h-screen pb-20 pt-24">

@@ -1,14 +1,6 @@
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Search, Briefcase, CheckCircle, MonitorCheck } from "lucide-react";
-import assets from "@/public/data/assets.json";
-
-const knownTags = new Set(
-    assets.flatMap(a => [
-        a.category.toLowerCase(),
-        ...a.tags.map(t => t.toLowerCase().replace("#", ""))
-    ])
-);
-
 import TagSlider from "./TagSlider";
 
 interface HeroProps {
@@ -17,6 +9,20 @@ interface HeroProps {
 }
 
 export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
+    const [assetCount, setAssetCount] = useState(0);
+
+    useEffect(() => {
+        const loadAssets = async () => {
+            try {
+                const response = await fetch('/data/assets.json');
+                const data = await response.json();
+                setAssetCount(data.length);
+            } catch (e) {
+                console.error("Error loading assets:", e);
+            }
+        };
+        loadAssets();
+    }, []);
     const router = useRouter();
 
     const handleSearch = (e?: React.FormEvent) => {
@@ -68,7 +74,7 @@ export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
             <div className="flex flex-wrap justify-center gap-3 md:gap-6 mb-8">
                 <div className="flex items-center gap-2 text-slate-300 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 shadow-sm">
                     <span className="flex h-2 w-2 rounded-full bg-gx-cyan animate-pulse"></span>
-                    <span className="text-xs md:text-sm font-bold font-mono">{assets.length}+ Assets</span>
+                    <span className="text-xs md:text-sm font-bold font-mono">{assetCount || 0}+ Assets</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-300 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 shadow-sm">
                     <MonitorCheck className="w-3 h-3 md:w-4 md:h-4 text-blue-400" />

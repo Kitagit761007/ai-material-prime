@@ -5,11 +5,11 @@ import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu, X, ChevronDown, ChevronRight, Heart } from "lucide-react";
 import { useSearch } from "@/context/SearchContext";
-import assetsDataRaw from "@/public/data/assets.json";
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [assets, setAssets] = useState<any[]>([]);
     const router = useRouter();
     const pathname = usePathname();
     const { setSelectedCategory, clearFilters } = useSearch();
@@ -17,6 +17,16 @@ export default function Header() {
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
         window.addEventListener("scroll", handleScroll);
+        const loadAssets = async () => {
+            try {
+                const response = await fetch('/data/assets.json');
+                const data = await response.json();
+                setAssets(data);
+            } catch (e) {
+                console.error("Error loading assets:", e);
+            }
+        };
+        loadAssets();
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -60,7 +70,6 @@ export default function Header() {
     };
 
     const getCategoryCount = (id: string) => {
-        const assets = Array.isArray(assetsDataRaw) ? (assetsDataRaw as any[]) : [];
         return assets.filter((item: any) => item.category === id).length;
     };
 
