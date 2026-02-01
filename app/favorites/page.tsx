@@ -2,7 +2,7 @@
 
 import ImageGrid from "@/components/ImageGrid";
 import { useFavorites } from "@/hooks/useFavorites";
-import assets from "@/data/assets.json";
+import assets from "@/public/data/assets.json";
 import { Heart, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 

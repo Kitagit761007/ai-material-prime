@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import assetsDataRaw from "../data/assets.json";
+import assetsDataRaw from "@/public/data/assets.json";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -16,14 +16,14 @@ export default function Footer() {
     };
 
     const categories = [
-        { name: "GX", id: "Energy", en: "Green Transformation (GX)" },
-        { name: "未来都市", id: "SmartCity", en: "Future City" },
-        { name: "モビリティ", id: "Mobility", en: "Clean Mobility" },
-        { name: "テクノロジー", id: "Tech", en: "Advanced Technology" },
-        { name: "宇宙", id: "Space", en: "Space & Galaxy" },
-        { name: "水中", id: "Underwater", en: "Underwater City" },
-        { name: "資源・バイオ", id: "Resource", en: "Sustainable Resources" },
-        { name: "エコ・ライフ", id: "Eco-Life", en: "Eco Lifestyle" }
+        { name: "GX", id: "GX", en: "Green Transformation (GX)" },
+        { name: "未来都市", id: "未来都市", en: "Future City" },
+        { name: "モビリティ", id: "モビリティ", en: "Clean Mobility" },
+        { name: "テクノロジー", id: "テクノロジー", en: "Advanced Technology" },
+        { name: "宇宙", id: "宇宙", en: "Space & Galaxy" },
+        { name: "水中", id: "水中", en: "Underwater City" },
+        { name: "資源・バイオ", id: "資源・バイオ", en: "Sustainable Resources" },
+        { name: "エコ・ライフ", id: "エコ・ライフ", en: "Eco Lifestyle" }
     ];
 
     return (

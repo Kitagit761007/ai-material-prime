@@ -1,19 +1,19 @@
 import ImageGrid from "@/components/ImageGrid";
-import assets from "@/data/assets.json";
+import assets from "@/public/data/assets.json";
 import { ChevronLeft, LayoutGrid } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
 const categoryMap: Record<string, string> = {
-    "Energy": "GX / Green Transformation (GX)",
-    "Mobility": "モビリティ / Clean Mobility",
-    "Tech": "テクノロジー / Advanced Tech",
-    "Resource": "資源・バイオ / Sustainable Resource",
-    "SmartCity": "未来都市 / Future City",
-    "Eco-Life": "エコ・ライフ / Eco Lifestyle",
-    "Space": "宇宙 / Space & Galaxy",
-    "Underwater": "水中 / Underwater City"
+    "GX": "GX / Green Transformation (GX)",
+    "モビリティ": "モビリティ / Clean Mobility",
+    "テクノロジー": "テクノロジー / Advanced Tech",
+    "資源・バイオ": "資源・バイオ / Sustainable Resource",
+    "未来都市": "未来都市 / Future City",
+    "エコ・ライフ": "エコ・ライフ / Eco Lifestyle",
+    "宇宙": "宇宙 / Space & Galaxy",
+    "水中": "水中 / Underwater City"
 };
 
 type Props = {
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-    const categories = ["Energy", "Mobility", "Tech", "Resource", "SmartCity", "Eco-Life", "Space", "Underwater"];
+    const categories = ["GX", "モビリティ", "テクノロジー", "資源・バイオ", "未来都市", "エコ・ライフ", "宇宙", "水中"];
     return categories.map((cat) => ({
         category: cat,
     }));

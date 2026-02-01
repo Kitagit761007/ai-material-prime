@@ -1,6 +1,6 @@
 import { useRouter } from "next/navigation";
 import { Search, Briefcase, CheckCircle, MonitorCheck } from "lucide-react";
-import assets from "@/data/assets.json";
+import assets from "@/public/data/assets.json";
 
 const knownTags = new Set(
     assets.flatMap(a => [
