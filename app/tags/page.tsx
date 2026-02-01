@@ -1,13 +1,41 @@
-import assets from "@/public/data/assets.json";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { ChevronLeft, Hash, Tag } from "lucide-react";
 import Link from "next/link";
+import { useSearch } from "@/context/SearchContext";
+import { useRouter } from "next/navigation";
 
-export const metadata = {
-    title: 'タグ一覧 | 未来領域のビジュアルキーワード',
-    description: '水素、都市、宇宙、テクノロジーなど、AI Material Primeで提供している全ての画像素材のタグを一覧で。気になるキーワードから素材を探せます。',
-};
+interface Asset {
+    id: string;
+    url: string;
+    title: string;
+    description: string;
+    score: number;
+    width: number;
+    height: number;
+    category: string;
+    tags: string[];
+}
 
 export default function TagsPage() {
+    const [assets, setAssets] = useState<Asset[]>([]);
+    const { setSearchQuery } = useSearch();
+    const router = useRouter();
+
+    useEffect(() => {
+        const loadAssets = async () => {
+            try {
+                const response = await fetch('/data/assets.json');
+                const data = await response.json();
+                setAssets(data);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+        loadAssets();
+    }, []);
+
     // Get all unique tags and counts
     const tagMap: Record<string, number> = {};
     assets.forEach(asset => {
@@ -18,6 +46,11 @@ export default function TagsPage() {
     });
 
     const sortedTags = Object.entries(tagMap).sort((a, b) => b[1] - a[1]);
+
+    const handleTagClick = (tag: string) => {
+        setSearchQuery(tag);
+        router.push("/#gallery-section");
+    };
 
     return (
         <div className="flex flex-col min-h-screen pt-24 pb-12">
@@ -51,12 +84,11 @@ export default function TagsPage() {
                 <div className="bg-slate-900/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/5 shadow-2xl">
                     <div className="flex flex-wrap gap-3 md:gap-4 justify-center">
                         {sortedTags.map(([tag, count]) => {
-                            // Calculate font size based on weight (1 to 2rem)
                             const size = 0.8 + Math.min(count * 0.1, 1.2);
                             return (
-                                <Link
+                                <button
                                     key={tag}
-                                    href={`/tags/${encodeURIComponent(tag)}`}
+                                    onClick={() => handleTagClick(tag)}
                                     className="px-4 py-2 bg-white/5 hover:bg-gx-cyan/10 text-slate-400 hover:text-gx-cyan rounded-xl border border-white/10 hover:border-gx-cyan/50 transition-all duration-300 flex items-center gap-2 group hover:scale-105"
                                     style={{ fontSize: `${size}rem` }}
                                 >
@@ -65,7 +97,7 @@ export default function TagsPage() {
                                     <span className="text-xs bg-white/5 px-2 py-0.5 rounded-full text-slate-500 group-hover:text-gx-cyan/70 font-mono">
                                         {count}
                                     </span>
-                                </Link>
+                                </button>
                             );
                         })}
                     </div>

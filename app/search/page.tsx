@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
-import ImageGrid from "@/components/ImageGrid";
+import MaterialGallery from "@/components/MaterialGallery";
 import { ChevronLeft, Search, X } from "lucide-react";
 import Link from "next/link";
 import { Suspense, useState, useEffect, useRef } from "react";
@@ -107,7 +107,7 @@ function SearchResults() {
             </div>
 
             <main className="mt-8">
-                <ImageGrid searchQuery={query} onResultCount={setResultCount} />
+                <MaterialGallery searchQuery={query} onResultCount={setResultCount} />
             </main>
         </div>
     );

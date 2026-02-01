@@ -1,52 +1,73 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import { Heart, Download, X, ChevronLeft, ChevronRight } from "lucide-react";
-import { getDisplaySrc, downloadImage } from "../lib/imageUtils";
+import { downloadImage } from "../lib/imageUtils";
 import { useFavorites } from "@/context/FavoritesContext";
-import assets from "@/public/data/assets.json";
-
 import { useSearch } from "@/context/SearchContext";
 
-interface ImageGridProps {
-    initialItems?: typeof assets;
+interface Asset {
+    id: string;
+    url: string;
+    title: string;
+    description: string;
+    score: number;
+    width: number;
+    height: number;
+    category: string;
+    tags: string[];
+}
+
+interface MaterialGalleryProps {
+    initialAssets?: Asset[];
     searchQuery?: string; // Optional override prop
     onResultCount?: (count: number) => void;
 }
 
-export default function ImageGrid({ initialItems, searchQuery: searchQueryProp, onResultCount }: ImageGridProps) {
-    const { searchQuery: globalSearchQuery, selectedCategory } = useSearch();
+export default function MaterialGallery({ initialAssets, searchQuery: searchQueryProp, onResultCount }: MaterialGalleryProps) {
+    const { searchQuery: globalSearchQuery, setSearchQuery, selectedCategory } = useSearch();
     const searchQuery = searchQueryProp !== undefined ? searchQueryProp : globalSearchQuery;
 
-    const [selectedImage, setSelectedImage] = useState<typeof assets[0] | null>(null);
-    const [modalImgSrc, setModalImgSrc] = useState<string>("");
+    const [assets, setAssets] = useState<Asset[]>([]);
+    const [selectedImage, setSelectedImage] = useState<Asset | null>(null);
     const [displayCount, setDisplayCount] = useState(20);
     const [isZoomed, setIsZoomed] = useState(false);
-    const router = useRouter();
-    const pathname = usePathname();
     const { isFavorite, toggleFavorite } = useFavorites();
     const lastTapRef = useRef<number>(0);
     const touchStartX = useRef<number>(0);
 
+    // Fetch assets from local JSON
+    useEffect(() => {
+        const loadAssets = async () => {
+            try {
+                const response = await fetch('/data/assets.json');
+                if (!response.ok) throw new Error('Failed to fetch assets');
+                const data = await response.json();
+                setAssets(data);
+            } catch (error) {
+                console.error('Error loading assets:', error);
+            }
+        };
+        loadAssets();
+    }, []);
+
     // Filter Logic
-    const baseItems = initialItems || assets;
-    const filteredItems = baseItems.filter(item => {
-        // Category filter (exact match with normalized Japanese names)
+    const baseItems = initialAssets || assets;
+    const filteredItems = baseItems.filter((item: Asset) => {
+        // Category filter
         if (selectedCategory && item.category !== selectedCategory) {
             return false;
         }
 
         if (!searchQuery) return true;
 
-        // Advanced query normalization
         const query = searchQuery.toLowerCase().trim().replace("#", "").normalize("NFKC");
 
         const titleMatch = item.title.toLowerCase().normalize("NFKC").includes(query);
         const descMatch = item.description.toLowerCase().normalize("NFKC").includes(query);
         const categoryMatch = item.category.toLowerCase().normalize("NFKC").includes(query);
-        const tagMatch = item.tags.some(tag => {
+        const tagMatch = item.tags.some((tag: string) => {
             const cleanTag = tag.toLowerCase().replace("#", "").trim().normalize("NFKC");
             return cleanTag.includes(query);
         });
@@ -67,17 +88,15 @@ export default function ImageGrid({ initialItems, searchQuery: searchQueryProp, 
     // Navigation logic
     const handleNextImage = useCallback(() => {
         if (!selectedImage) return;
-        const idx = filteredItems.findIndex(i => i.id === selectedImage.id);
+        const idx = filteredItems.findIndex((i: Asset) => i.id === selectedImage.id);
         setSelectedImage(filteredItems[(idx + 1) % filteredItems.length]);
-        setModalImgSrc("");
         setIsZoomed(false);
     }, [selectedImage, filteredItems]);
 
     const handlePrevImage = useCallback(() => {
         if (!selectedImage) return;
-        const idx = filteredItems.findIndex(i => i.id === selectedImage.id);
+        const idx = filteredItems.findIndex((i: Asset) => i.id === selectedImage.id);
         setSelectedImage(filteredItems[(idx - 1 + filteredItems.length) % filteredItems.length]);
-        setModalImgSrc("");
         setIsZoomed(false);
     }, [selectedImage, filteredItems]);
 
@@ -98,14 +117,10 @@ export default function ImageGrid({ initialItems, searchQuery: searchQueryProp, 
         }
     };
 
-    // --- Modal Management (Back Gesture & Scroll Lock) ---
     const closeModal = useCallback(() => {
-        if (selectedImage) {
-            setSelectedImage(null);
-            setModalImgSrc("");
-            setIsZoomed(false);
-        }
-    }, [selectedImage]);
+        setSelectedImage(null);
+        setIsZoomed(false);
+    }, []);
 
     useEffect(() => {
         if (!selectedImage) return;
@@ -114,7 +129,6 @@ export default function ImageGrid({ initialItems, searchQuery: searchQueryProp, 
 
         const handlePopState = () => {
             setSelectedImage(null);
-            setModalImgSrc("");
             setIsZoomed(false);
         };
 
@@ -138,7 +152,7 @@ export default function ImageGrid({ initialItems, searchQuery: searchQueryProp, 
     const handleDownload = async (e: React.MouseEvent) => {
         e.stopPropagation();
         if (selectedImage) {
-            const filename = selectedImage.url.split('/').pop() || 'download.webp';
+            const filename = selectedImage.url.split('/').pop() || 'download.jpg';
             await downloadImage(selectedImage.url, filename);
         }
     };
@@ -148,7 +162,7 @@ export default function ImageGrid({ initialItems, searchQuery: searchQueryProp, 
         if (typeof window === "undefined" || selectedImage) return;
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 800) {
             if (displayCount < filteredItems.length) {
-                setDisplayCount(prev => Math.min(prev + 20, filteredItems.length));
+                setDisplayCount((prev: number) => Math.min(prev + 20, filteredItems.length));
             }
         }
     }, [displayCount, filteredItems.length, selectedImage]);
@@ -158,13 +172,19 @@ export default function ImageGrid({ initialItems, searchQuery: searchQueryProp, 
         return () => window.removeEventListener("scroll", handleScroll);
     }, [handleScroll]);
 
+    // Tag click behavior: Use state instead of page transition
     const handleInternalTagClick = (tag: string) => {
-        const cleanTag = tag.startsWith("#") ? tag.substring(1) : tag;
-        router.push(`/tags/${encodeURIComponent(cleanTag)}`);
+        setSearchQuery(tag); // Update global search query
         if (selectedImage) handleManualClose();
+
+        // Scroll to gallery section if needed
+        const gallery = document.getElementById("gallery-section");
+        if (gallery) {
+            gallery.scrollIntoView({ behavior: "smooth" });
+        }
     };
 
-    const handleModalImageClick = (e: React.MouseEvent) => {
+    const handleModalImageClick = () => {
         const now = Date.now();
         if (now - lastTapRef.current < 300) {
             if (selectedImage) toggleFavorite(selectedImage.id);
@@ -177,7 +197,7 @@ export default function ImageGrid({ initialItems, searchQuery: searchQueryProp, 
     return (
         <section id="gallery-section" className="px-6 pb-20 max-w-7xl mx-auto">
             <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                {visibleItems.map((img) => (
+                {visibleItems.map((img: Asset) => (
                     <ImageCard
                         key={img.id}
                         img={img}
@@ -191,11 +211,10 @@ export default function ImageGrid({ initialItems, searchQuery: searchQueryProp, 
 
             {/* Pro Modal */}
             {selectedImage && (
-                <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 backdrop-blur-xl duration-300 animate-in fade-in">
-                    {/* Backdrop */}
+                <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 backdrop-blur-xl animate-in fade-in duration-300">
                     <div className="absolute inset-0 z-0 bg-transparent" onClick={handleManualClose} />
 
-                    <div className="relative z-10 w-full h-[100dvh] md:h-[90vh] max-w-[100vw] md:max-w-[95vw] flex flex-col md:flex-row bg-slate-950 md:rounded-3xl overflow-hidden shadow-2xl border-white/10 md:border" onClick={e => e.stopPropagation()}>
+                    <div className="relative z-10 w-full h-[100dvh] md:h-[90vh] max-w-[100vw] md:max-w-[95vw] flex flex-col md:flex-row bg-slate-950 md:rounded-3xl overflow-hidden shadow-2xl border-white/10 md:border" onClick={(e: React.MouseEvent) => e.stopPropagation()}>
 
                         {/* LEFT: Image Viewport */}
                         <div
@@ -208,20 +227,18 @@ export default function ImageGrid({ initialItems, searchQuery: searchQueryProp, 
                                 onClick={handleModalImageClick}
                             >
                                 <Image
-                                    src={modalImgSrc || getDisplaySrc(selectedImage.url)}
+                                    src={selectedImage.url}
                                     alt={selectedImage.title}
                                     fill
                                     className="object-contain pointer-events-none select-none"
                                     priority
-                                    onError={() => setModalImgSrc(selectedImage.url)}
                                 />
                             </div>
 
                             {/* Floating Heart */}
                             <button
-                                onClick={(e) => { e.stopPropagation(); toggleFavorite(selectedImage.id); }}
-                                className={`absolute bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all shadow-2xl z-30 active:scale-90 bg-black/40 backdrop-blur-xl ${isFavorite(selectedImage.id) ? "bg-rose-500 border-rose-500 text-white animate-heart-pop" : "border-white/30 text-white"
-                                    }`}
+                                onClick={(e: React.MouseEvent) => { e.stopPropagation(); toggleFavorite(selectedImage.id); }}
+                                className={`absolute bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all shadow-2xl z-30 active:scale-90 bg-black/40 backdrop-blur-xl ${isFavorite(selectedImage.id) ? "bg-rose-500 border-rose-500 text-white animate-heart-pop" : "border-white/30 text-white"}`}
                             >
                                 <Heart className={`w-7 h-7 ${isFavorite(selectedImage.id) ? "fill-white" : ""}`} />
                             </button>
@@ -233,19 +250,18 @@ export default function ImageGrid({ initialItems, searchQuery: searchQueryProp, 
 
                             {/* Navigation Arrows */}
                             <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none z-20">
-                                <button onClick={handlePrevImage} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl active:scale-90">
+                                <button onClick={(e: React.MouseEvent) => { e.stopPropagation(); handlePrevImage(); }} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl active:scale-90">
                                     <ChevronLeft className="w-8 h-8" />
                                 </button>
-                                <button onClick={handleNextImage} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl active:scale-90">
+                                <button onClick={(e: React.MouseEvent) => { e.stopPropagation(); handleNextImage(); }} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl active:scale-90">
                                     <ChevronRight className="w-8 h-8" />
                                 </button>
                             </div>
                         </div>
 
-                        {/* RIGHT: Content Panel (SCROLLABLE) */}
+                        {/* RIGHT: Content Panel */}
                         <div className="w-full md:w-[420px] flex flex-col bg-slate-900 overflow-hidden h-[60vh] md:h-full border-t md:border-t-0 md:border-l border-white/10">
 
-                            {/* TOP ACTION BAR - STICKY */}
                             <div className="p-6 md:pt-14 bg-slate-950/80 backdrop-blur-md border-b border-white/10 shrink-0 z-10 relative">
                                 <button
                                     onClick={handleDownload}
@@ -254,40 +270,33 @@ export default function ImageGrid({ initialItems, searchQuery: searchQueryProp, 
                                     <Download className="w-6 h-6 group-hover:animate-bounce" />
                                     FREE DOWNLOAD HD
                                 </button>
-                                <p className="text-[10px] text-slate-500 italic mt-3 text-center tracking-tight">Commercial Use OK / No Attribution Required</p>
                             </div>
 
-                            {/* MAIN INFO - SCROLLABLE */}
                             <div className="flex-1 overflow-y-auto overflow-x-hidden p-6 md:p-8 space-y-10 scrollbar-thin scrollbar-thumb-white/10 overscroll-contain">
                                 <div>
                                     <div className="flex items-center gap-2 mb-3">
                                         <span className="h-0.5 w-6 bg-gx-cyan rounded-full" />
                                         <span className="text-[10px] font-black text-gx-cyan uppercase tracking-[0.2em]">Asset Details</span>
                                     </div>
-                                    <h2 className="text-2xl font-bold text-white leading-tight tracking-tight mb-4">{selectedImage.title}</h2>
+                                    <h2 className="text-2xl font-bold text-white leading-tight mb-4">{selectedImage.title}</h2>
                                     <p className="text-slate-400 text-sm leading-relaxed">{selectedImage.description}</p>
                                 </div>
 
-                                {/* Metadata Grid */}
                                 <div className="grid grid-cols-2 gap-4">
-                                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5 group hover:border-white/10 transition-colors">
+                                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
                                         <span className="block text-[9px] text-slate-500 uppercase font-black mb-1.5 opacity-60">Resolution</span>
                                         <span className="text-white text-sm font-bold font-mono">{selectedImage.width} × {selectedImage.height}</span>
                                     </div>
-                                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5 group hover:border-white/10 transition-colors">
-                                        <span className="block text-[9px] text-slate-500 uppercase font-black mb-1.5 opacity-60">Format</span>
-                                        <span className="text-gx-cyan text-sm font-black uppercase">WebP / HD</span>
+                                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
+                                        <span className="block text-[9px] text-slate-500 uppercase font-black mb-1.5 opacity-60">Category</span>
+                                        <span className="text-gx-cyan text-sm font-black uppercase">{selectedImage.category}</span>
                                     </div>
                                 </div>
 
-                                {/* Tags Section */}
                                 <div>
-                                    <h3 className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-                                        <span className="w-1.5 h-1.5 bg-gx-cyan rounded-full shadow-[0_0_8px_#00d1ff]" />
-                                        Tags
-                                    </h3>
+                                    <h3 className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-4">Tags</h3>
                                     <div className="flex flex-wrap gap-2.5">
-                                        {selectedImage.tags.map(tag => (
+                                        {selectedImage.tags.map((tag: string) => (
                                             <button
                                                 key={tag}
                                                 onClick={() => handleInternalTagClick(tag)}
@@ -297,12 +306,6 @@ export default function ImageGrid({ initialItems, searchQuery: searchQueryProp, 
                                             </button>
                                         ))}
                                     </div>
-                                </div>
-
-                                {/* Footer Trace */}
-                                <div className="p-4 bg-black/40 rounded-2xl flex items-center justify-between text-[10px] font-mono text-slate-600 border border-white/5">
-                                    <span className="uppercase tracking-widest opacity-50 text-[8px]">Index ID</span>
-                                    <span className="truncate max-w-[150px]">{selectedImage.url.split('/').pop()}</span>
                                 </div>
                             </div>
                         </div>
@@ -319,41 +322,31 @@ export default function ImageGrid({ initialItems, searchQuery: searchQueryProp, 
 }
 
 function ImageCard({ img, isFavorite, onToggleFavorite, onTagClick, onClick }: {
-    img: typeof assets[0],
+    img: Asset,
     isFavorite: boolean,
     onToggleFavorite: () => void,
     onTagClick: (tag: string) => void,
     onClick: () => void
 }) {
     const [loaded, setLoaded] = useState(false);
-    const [imgSrc, setImgSrc] = useState(getDisplaySrc(img.url));
 
     return (
         <div className="relative group rounded-2xl overflow-hidden break-inside-avoid shadow-2xl bg-slate-900/50 border border-white/5 cursor-zoom-in" onClick={onClick}>
             <div className={`absolute inset-0 bg-slate-800 animate-pulse transition-opacity duration-500 ${loaded ? "opacity-0" : "opacity-100"}`} />
             <Image
-                src={imgSrc}
+                src={img.url}
                 alt={img.title}
                 width={600}
                 height={800}
                 className={`w-full h-auto object-cover transition-all duration-700 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"} group-hover:scale-105`}
                 onLoad={() => setLoaded(true)}
-                onError={() => {
-                    const fallbackSrc = img.url.startsWith('/') ? img.url : "/" + img.url;
-                    if (imgSrc !== fallbackSrc) {
-                        setImgSrc(fallbackSrc);
-                    } else {
-                        console.error(`Failed to load image: ${img.url}`);
-                    }
-                }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
                 <p className="text-white text-sm font-bold truncate">{img.title}</p>
             </div>
 
-            {/* Fav Button Grid - Fixed Right Bottom with stopPropagation and translucent background */}
             <button
-                onClick={(e) => {
+                onClick={(e: React.MouseEvent) => {
                     e.stopPropagation();
                     onToggleFavorite();
                 }}
@@ -361,7 +354,6 @@ function ImageCard({ img, isFavorite, onToggleFavorite, onTagClick, onClick }: {
                     ? "bg-rose-500 text-white shadow-lg shadow-rose-500/40 animate-heart-pop"
                     : "bg-black/40 border-2 border-white/30 text-white group-hover:border-white hover:bg-white hover:text-black"
                     }`}
-                aria-label="お気に入り"
             >
                 <Heart className={`w-5.5 h-5.5 ${isFavorite ? "fill-white" : "stroke-white"}`} />
             </button>

@@ -1,5 +1,4 @@
-import ImageGrid from "@/components/ImageGrid";
-import assets from "@/public/data/assets.json";
+import MaterialGallery from "@/components/MaterialGallery";
 
 export const metadata = {
     title: 'ギャラリー | 未来を描くAI生成画像素材素材集',
@@ -20,8 +19,7 @@ export default function GalleryPage() {
                 </p>
             </div>
 
-            {/* Pass all assets explicitly, though default is all */}
-            <ImageGrid initialItems={assets} />
+            <MaterialGallery />
         </div>
     );
 }

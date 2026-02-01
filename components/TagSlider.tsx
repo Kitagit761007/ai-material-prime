@@ -1,23 +1,25 @@
 "use client";
 
+import { useSearch } from "@/context/SearchContext";
 import { useRouter } from "next/navigation";
 
-const POPULAR_TAGS = [
-    "#水素エネルギー", "#スマートシティ", "#風力発電", "#脱炭素",
-    "#環境技術", "#クリーン電力", "#EV", "#モビリティ",
-    "#太陽光発電", "#資源循環", "#新エネルギー"
-];
-
-interface TagSliderProps {
-    currentTag?: string;
-}
+// ... (existing code POPULAR_TAGS)
 
 export default function TagSlider({ currentTag = "" }: TagSliderProps) {
+    const { setSearchQuery } = useSearch();
     const router = useRouter();
 
     const handleTagClick = (tag: string) => {
         const term = tag.startsWith("#") ? tag.substring(1) : tag;
-        router.push(`/tags/${encodeURIComponent(term)}`);
+        setSearchQuery(term);
+
+        // If not on search page or home page, go to home
+        const gallery = document.getElementById("gallery-section");
+        if (!gallery) {
+            router.push("/#gallery-section");
+        } else {
+            gallery.scrollIntoView({ behavior: "smooth" });
+        }
     };
 
     const cleanCurrent = currentTag.replace("#", "").toLowerCase();

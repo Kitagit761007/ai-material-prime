@@ -23,20 +23,23 @@ export default function Hero({ searchQuery, setSearchQuery }: HeroProps) {
         if (e) e.preventDefault();
         const term = searchQuery.trim().replace("#", "");
         if (!term) return;
+        setSearchQuery(term);
 
-        if (knownTags.has(term.toLowerCase())) {
-            router.push(`/tags/${encodeURIComponent(term)}`);
-        } else {
-            router.push(`/search?q=${encodeURIComponent(term)}`);
+        // Scroll to gallery
+        const gallery = document.getElementById("gallery-section");
+        if (gallery) {
+            gallery.scrollIntoView({ behavior: "smooth" });
         }
     };
 
     const handleTagClick = (tag: string) => {
         const term = tag.startsWith("#") ? tag.substring(1) : tag;
-        if (knownTags.has(term.toLowerCase())) {
-            router.push(`/tags/${encodeURIComponent(term)}`);
-        } else {
-            router.push(`/search?q=${encodeURIComponent(term)}`);
+        setSearchQuery(term);
+
+        // Scroll to gallery
+        const gallery = document.getElementById("gallery-section");
+        if (gallery) {
+            gallery.scrollIntoView({ behavior: "smooth" });
         }
     };
 

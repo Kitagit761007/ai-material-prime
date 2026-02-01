@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Hero from "@/components/Hero";
-import ImageGrid from "@/components/ImageGrid";
+import MaterialGallery from "@/components/MaterialGallery";
 import JsonLd from "@/components/JsonLd";
 import CategorySection from "@/components/CategorySection";
 import { useSearch } from "@/context/SearchContext";
@@ -48,7 +48,7 @@ export default function Home() {
             <div className="py-12 text-center border-t border-white/5 mt-6 bg-slate-900/30">
                 <h2 className="text-2xl font-bold text-slate-300 mb-2">最新アセット</h2>
                 <p className="text-slate-500 text-sm mb-8">New Arrivals</p>
-                <ImageGrid searchQuery={searchQuery} />
+                <MaterialGallery />
             </div>
         </div>
     );

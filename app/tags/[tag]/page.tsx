@@ -1,4 +1,4 @@
-import ImageGrid from "@/components/ImageGrid";
+import MaterialGallery from "@/components/MaterialGallery";
 import assets from "@/public/data/assets.json";
 import { ChevronLeft, Hash } from "lucide-react";
 import Link from "next/link";

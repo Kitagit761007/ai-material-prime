@@ -1,33 +1,32 @@
-import assets from "@/public/data/assets.json";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { ChevronLeft, LayoutGrid, Zap, Cpu, Building2, Recycle, Leaf, Car } from "lucide-react";
 import Link from "next/link";
+import { useSearch } from "@/context/SearchContext";
+import { useRouter } from "next/navigation";
 
-export const metadata = {
-    title: 'カテゴリー一覧 | 未来領域のビジュアルカテゴリー',
-    description: 'モビリティ、エネルギー、テクノロジーなど、AI Material Primeで提供している全ての画像素材のカテゴリーを一覧で。気になる分野から素材を探せます。',
-};
+interface Asset {
+    id: string;
+    url: string;
+    title: string;
+    description: string;
+    score: number;
+    width: number;
+    height: number;
+    category: string;
+    tags: string[];
+}
 
-// Category icon mapping
 const categoryIcons: Record<string, any> = {
-    "Mobility": Car,
-    "Energy": Zap,
-    "Tech": Cpu,
-    "SmartCity": Building2,
-    "Resource": Recycle,
-    "Eco-Life": Leaf,
+    "GX": Zap,
+    "モビリティ": Car,
+    "テクノロジー": Cpu,
+    "未来都市": Building2,
+    "資源・バイオ": Recycle,
+    "エコ・ライフ": Leaf,
 };
 
-// Category Japanese names
-const categoryNames: Record<string, string> = {
-    "Mobility": "モビリティ",
-    "Energy": "エネルギー",
-    "Tech": "テクノロジー",
-    "SmartCity": "スマートシティ",
-    "Resource": "資源循環",
-    "Eco-Life": "エコライフ",
-};
-
-// Category descriptions
 const categoryDescriptions: Record<string, string> = {
     "Mobility": "次世代の移動手段と交通システム",
     "Energy": "クリーンで持続可能なエネルギー",
@@ -38,7 +37,23 @@ const categoryDescriptions: Record<string, string> = {
 };
 
 export default function CategoriesPage() {
-    // Get all unique categories and counts
+    const [assets, setAssets] = useState<Asset[]>([]);
+    const { setSelectedCategory } = useSearch();
+    const router = useRouter();
+
+    useEffect(() => {
+        const loadAssets = async () => {
+            try {
+                const response = await fetch('/data/assets.json');
+                const data = await response.json();
+                setAssets(data);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+        loadAssets();
+    }, []);
+
     const categoryMap: Record<string, number> = {};
     assets.forEach(asset => {
         const category = asset.category;
@@ -46,6 +61,11 @@ export default function CategoriesPage() {
     });
 
     const sortedCategories = Object.entries(categoryMap).sort((a, b) => b[1] - a[1]);
+
+    const handleCategoryClick = (category: string) => {
+        setSelectedCategory(category);
+        router.push("/#gallery-section");
+    };
 
     return (
         <div className="flex flex-col min-h-screen pt-24 pb-12">
@@ -79,16 +99,14 @@ export default function CategoriesPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {sortedCategories.map(([category, count]) => {
                         const Icon = categoryIcons[category] || LayoutGrid;
-                        const japaneseName = categoryNames[category] || category;
                         const description = categoryDescriptions[category] || "";
 
                         return (
-                            <Link
+                            <button
                                 key={category}
-                                href={`/categories/${encodeURIComponent(category)}`}
-                                className="group relative bg-slate-900/50 backdrop-blur-sm rounded-3xl p-8 border border-white/5 hover:border-gx-cyan/50 shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-gx-cyan/20 overflow-hidden"
+                                onClick={() => handleCategoryClick(category)}
+                                className="group text-left relative bg-slate-900/50 backdrop-blur-sm rounded-3xl p-8 border border-white/5 hover:border-gx-cyan/50 shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-gx-cyan/20 overflow-hidden"
                             >
-                                {/* Background gradient effect */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-gx-cyan/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                                 <div className="relative z-10">
@@ -104,16 +122,14 @@ export default function CategoriesPage() {
                                     </div>
 
                                     <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-gx-cyan transition-colors">
-                                        {japaneseName}
+                                        {category}
                                     </h2>
-                                    <p className="text-sm text-slate-500 mb-1">{category}</p>
                                     <p className="text-sm text-slate-400 leading-relaxed">
                                         {description}
                                     </p>
 
-                                    {/* Arrow indicator */}
                                     <div className="mt-6 flex items-center gap-2 text-slate-500 group-hover:text-gx-cyan transition-colors">
-                                        <span className="text-sm font-medium">詳細を見る</span>
+                                        <span className="text-sm font-medium">ギャラリーで見る</span>
                                         <svg
                                             className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                                             fill="none"
@@ -124,7 +140,7 @@ export default function CategoriesPage() {
                                         </svg>
                                     </div>
                                 </div>
-                            </Link>
+                            </button>
                         );
                     })}
                 </div>

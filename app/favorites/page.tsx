@@ -1,6 +1,6 @@
 "use client";
 
-import ImageGrid from "@/components/ImageGrid";
+import MaterialGallery from "@/components/MaterialGallery";
 import { useFavorites } from "@/hooks/useFavorites";
 import assets from "@/public/data/assets.json";
 import { Heart, ChevronLeft } from "lucide-react";
@@ -47,7 +47,7 @@ export default function FavoritesPage() {
             </div>
 
             {favoriteAssets.length > 0 ? (
-                <ImageGrid initialItems={favoriteAssets} />
+                <MaterialGallery initialAssets={favoriteAssets} />
             ) : (
                 <div className="max-w-7xl mx-auto px-6 text-center py-20">
                     <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6 border border-white/10">
