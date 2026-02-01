@@ -1,0 +1,9 @@
+C:\Users\hakut\.gemini\antigravity\scratch\ai-material-prime\app\categories\page.tsx
+C:\Users\hakut\.gemini\antigravity\scratch\ai-material-prime\app\favorites\page.tsx
+C:\Users\hakut\.gemini\antigravity\scratch\ai-material-prime\app\gallery\page.tsx
+C:\Users\hakut\.gemini\antigravity\scratch\ai-material-prime\app\tags\page.tsx
+C:\Users\hakut\.gemini\antigravity\scratch\ai-material-prime\app\page.tsx
+C:\Users\hakut\.gemini\antigravity\scratch\ai-material-prime\components\Footer.tsx
+C:\Users\hakut\.gemini\antigravity\scratch\ai-material-prime\components\Header.tsx
+C:\Users\hakut\.gemini\antigravity\scratch\ai-material-prime\components\Hero.tsx
+C:\Users\hakut\.gemini\antigravity\scratch\ai-material-prime\components\ImageGrid.tsx

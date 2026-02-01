@@ -1,4 +1,4 @@
-import assets from "@/data/assets.json";
+import assets from "@/public/data/assets.json";
 import { ChevronLeft, LayoutGrid, Zap, Cpu, Building2, Recycle, Leaf, Car } from "lucide-react";
 import Link from "next/link";
 

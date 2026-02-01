@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 import ImageGrid from "@/components/ImageGrid";
 import JsonLd from "@/components/JsonLd";
 import CategorySection from "@/components/CategorySection";
-import assets from "@/data/assets.json";
+import assets from "@/public/data/assets.json";
 
 export default function Home() {
     const [searchQuery, setSearchQuery] = useState("");

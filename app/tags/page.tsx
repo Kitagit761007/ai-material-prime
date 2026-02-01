@@ -1,4 +1,4 @@
-import assets from "@/data/assets.json";
+import assets from "@/public/data/assets.json";
 import { ChevronLeft, Hash, Tag } from "lucide-react";
 import Link from "next/link";
 

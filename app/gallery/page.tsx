@@ -1,5 +1,5 @@
 import ImageGrid from "@/components/ImageGrid";
-import assets from "@/data/assets.json";
+import assets from "@/public/data/assets.json";
 
 export const metadata = {
     title: 'ギャラリー | 未来を描くAI生成画像素材素材集',

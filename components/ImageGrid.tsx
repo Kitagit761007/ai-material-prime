@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Heart, Download, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { getDisplaySrc, downloadImage } from "../lib/imageUtils";
 import { useFavorites } from "@/context/FavoritesContext";
-import assets from "../data/assets.json";
+import assets from "@/public/data/assets.json";
 
 interface ImageGridProps {
     initialItems?: typeof assets;
