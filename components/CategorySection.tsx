@@ -69,7 +69,7 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/95 backdrop-blur-xl animate-in fade-in duration-300">
       <div className="absolute inset-0" onClick={onClose} />
 
-      <div className="relative flex flex-col lg:flex-row w-full max-w-6xl max-h-[90vh] md:max-h-[85vh] bg-slate-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl animate-in zoom-in-95 duration-300">
+      <div className="relative flex flex-col lg:flex-row w-full max-w-6xl max-h-[95vh] md:max-h-[85vh] bg-slate-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl animate-in zoom-in-95 duration-300">
         
         {/* 閉じるボタン */}
         <button 
@@ -79,7 +79,7 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
           <X className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
         </button>
 
-        {/* 左側：プレビュー（モバイル時は高さを制限し、重なりを防止） */}
+        {/* 左側：プレビュー（モバイル時は高さを制限） */}
         <div className="relative w-full lg:flex-1 h-[40vh] sm:h-[45vh] lg:h-auto bg-black flex items-center justify-center p-4 overflow-hidden flex-none">
           <img src={url} alt={image.title} className="max-w-full max-h-full object-contain pointer-events-none shadow-2xl" />
         </div>
@@ -91,63 +91,65 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">{image.description}</p>
           </div>
 
-          {/* 🚀 バランスを最適化したアクションエリア */}
+          {/* アクションボタン */}
           <div className="flex gap-2 items-stretch mb-8 h-12 sm:h-14 flex-none">
-            {/* ダウンロード (比率3) */}
             <a 
               href={url} 
               download 
               className="flex-[3] flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-white font-bold rounded-2xl transition-all shadow-lg shadow-cyan-500/20 active:scale-[0.98]"
             >
               <Download className="w-4 h-4 sm:w-5 sm:h-5" /> 
-              <span className="text-xs sm:text-sm font-black uppercase">無料DL</span>
+              <span className="text-xs sm:text-sm font-black">無料DL</span>
             </a>
 
-            {/* SNS (比率2: 3つのボタンを均等配置) */}
             <div className="flex-[2] flex gap-1.5">
-              <button onClick={shareToX} className="flex-1 flex items-center justify-center bg-black rounded-xl text-white hover:bg-slate-900 transition-all border border-white/10" title="X">
+              <button onClick={shareToX} className="flex-1 flex items-center justify-center bg-black rounded-xl text-white hover:bg-slate-900 transition-all border border-white/10">
                 <XLogo className="w-4 h-4" />
               </button>
               <button onClick={shareToLinkedin} className="flex-1 flex items-center justify-center bg-[#0A66C2] rounded-xl text-white hover:bg-[#004182] transition-all">
                 <Linkedin className="w-4 h-4 fill-current" />
               </button>
               <button onClick={shareToLine} className="flex-1 flex items-center justify-center bg-[#06C755] rounded-xl text-white hover:bg-[#05a347] transition-all">
-                <span className="text-[10px] font-black leading-none tracking-tighter">LINE</span>
+                <span className="text-[10px] font-bold leading-none">LINE</span>
               </button>
             </div>
           </div>
 
-          <div className="space-y-6">
-            {/* メタデータ */}
-            <div>
-              <h3 className="flex items-center gap-2 text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-3">
-                画像情報
-              </h3>
-              <div className="grid grid-cols-2 gap-2 text-left">
-                {[
-                  { label: "解像度", value: metadata.width > 0 ? `${metadata.width}×${metadata.height}` : "計測中" },
-                  { label: "比率", value: metadata.ratio },
-                  { label: "サイズ", value: metadata.size },
-                  { label: "形式", value: "JPG" }
-                ].map((item, idx) => (
-                  <div key={idx} className="bg-white/5 p-2 sm:p-3 rounded-xl border border-white/5 flex flex-col">
-                    <span className="text-[8px] sm:text-[9px] text-slate-500 font-bold mb-0.5">{item.label}</span>
-                    <span className="text-xs sm:text-sm text-white font-mono truncate">{item.value}</span>
-                  </div>
-                ))}
+          <div className="space-y-8">
+            {/* 🚀 修正：画像情報を横一列（スペックバー）に配置 */}
+            <div className="bg-white/5 rounded-2xl border border-white/5 p-4 flex justify-between items-center text-center divide-x divide-white/10">
+              <div className="flex-1 flex flex-col px-1">
+                <span className="text-[8px] text-slate-500 font-bold mb-1">解像度</span>
+                <span className="text-[11px] sm:text-xs text-white font-mono truncate">{metadata.width > 0 ? `${metadata.width}×${metadata.height}` : "-"}</span>
+              </div>
+              <div className="flex-1 flex flex-col px-1">
+                <span className="text-[8px] text-slate-500 font-bold mb-1">比率</span>
+                <span className="text-[11px] sm:text-xs text-white font-mono">{metadata.ratio}</span>
+              </div>
+              <div className="flex-1 flex flex-col px-1">
+                <span className="text-[8px] text-slate-500 font-bold mb-1">サイズ</span>
+                <span className="text-[11px] sm:text-xs text-white font-mono">{metadata.size}</span>
+              </div>
+              <div className="flex-1 flex flex-col px-1">
+                <span className="text-[8px] text-slate-500 font-bold mb-1">形式</span>
+                <span className="text-[11px] sm:text-xs text-white font-mono uppercase font-sans">JPG</span>
               </div>
             </div>
 
-            {/* カテゴリー/タグ */}
-            <div className="space-y-4 pt-4 border-t border-white/5">
+            {/* カテゴリー & タグ */}
+            <div className="space-y-5">
               <div>
-                <h3 className="text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-2">カテゴリー</h3>
+                <h3 className="text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-2 flex items-center gap-2">
+                  <Layers className="w-3 h-3" /> カテゴリー
+                </h3>
                 <Link href={`/category/${image.category}`} className="inline-block px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold hover:bg-cyan-500/20 transition-all">
                   {image.category}
                 </Link>
               </div>
               <div>
-                <h3 className="text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-2">タグ</h3>
+                <h3 className="text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-2 flex items-center gap-2">
+                  <TagIcon className="w-3 h-3" /> タグ
+                </h3>
                 <div className="flex flex-wrap gap-2">
                   {image.tags?.map((tag: string) => (
                     <Link key={tag} href={`/tags/${tag}`} className="text-[10px] sm:text-[11px] text-slate-400 hover:text-white transition-colors">
