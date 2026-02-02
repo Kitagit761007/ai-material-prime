@@ -22,7 +22,6 @@ export default function Home() {
 
     return (
         <div className="flex flex-col min-h-screen bg-slate-950 text-slate-50">
-            {/* ヘッダー：メニューを日本語へ */}
             <header className="fixed top-0 left-0 right-0 z-[100] bg-slate-950/80 backdrop-blur-md border-b border-white/5">
                 <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2 group">
