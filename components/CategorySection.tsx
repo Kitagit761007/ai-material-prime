@@ -19,7 +19,7 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
   const [metadata, setMetadata] = useState<{ width: number; height: number; size: string; ratio: string }>({
     width: 0,
     height: 0,
-    size: "Calculating...",
+    size: "...",
     ratio: "---"
   });
 
@@ -67,16 +67,14 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/95 backdrop-blur-xl animate-in fade-in duration-300">
-      {/* 🚀 画面全体を閉じるための背景オーバーレイ */}
       <div className="absolute inset-0" onClick={onClose} />
 
       <div className="relative flex flex-col lg:flex-row w-full max-w-6xl max-h-[90vh] bg-slate-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl animate-in zoom-in-95 duration-300">
         
-        {/* 🚀 修正：閉じるボタンをモーダル枠の右上に配置 */}
+        {/* 閉じるボタン */}
         <button 
           onClick={onClose} 
           className="absolute top-4 right-4 z-[120] p-2 bg-black/50 hover:bg-black/80 text-white rounded-full backdrop-blur-md transition-all border border-white/10 group active:scale-90"
-          aria-label="Close"
         >
           <X className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
         </button>
@@ -88,49 +86,54 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
 
         {/* 右側：情報パネル */}
         <div className="w-full lg:w-[400px] p-8 flex flex-col overflow-y-auto bg-slate-900 border-l border-white/5 text-left">
-          <div className="mb-8">
-            <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter mb-2">{image.title}</h2>
+          <div className="mb-6">
+            <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter mb-2 leading-tight">{image.title}</h2>
             <p className="text-slate-400 text-sm leading-relaxed">{image.description}</p>
           </div>
 
+          {/* 🚀 ダウンロードボタンを説明のすぐ下に配置 */}
+          <div className="mb-8">
+            <a href={url} download className="flex items-center justify-center gap-2 w-full bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 rounded-2xl transition-all shadow-lg shadow-cyan-500/20 active:scale-[0.98]">
+              <Download className="w-5 h-5" /> 無料ダウンロード
+            </a>
+          </div>
+
           <div className="space-y-6 mb-8">
+            {/* 🚀 メタデータをコンパクトに修正 */}
             <div>
               <h3 className="flex items-center gap-2 text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-3">
-                <Info className="w-3 h-3" /> Metadata
+                画像情報
               </h3>
-              <div className="grid grid-cols-2 gap-3">
-                <div className="bg-white/5 p-3 rounded-xl border border-white/5">
-                  <p className="text-[9px] text-slate-500 uppercase font-bold mb-1">Resolution</p>
-                  <p className="text-sm text-white font-mono">{metadata.width > 0 ? `${metadata.width} × ${metadata.height}` : "..."}</p>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-white/5 p-3 rounded-xl border border-white/5 flex flex-col">
+                  <span className="text-[9px] text-slate-500 font-bold mb-0.5">解像度</span>
+                  <span className="text-sm text-white font-mono">{metadata.width > 0 ? `${metadata.width}×${metadata.height}` : "計測中"}</span>
                 </div>
-                <div className="bg-white/5 p-3 rounded-xl border border-white/5">
-                  <p className="text-[9px] text-slate-500 uppercase font-bold mb-1">Ratio</p>
-                  <p className="text-sm text-white font-mono">{metadata.ratio}</p>
+                <div className="bg-white/5 p-3 rounded-xl border border-white/5 flex flex-col">
+                  <span className="text-[9px] text-slate-500 font-bold mb-0.5">比率</span>
+                  <span className="text-sm text-white font-mono">{metadata.ratio}</span>
                 </div>
-                <div className="bg-white/5 p-3 rounded-xl border border-white/5">
-                  <p className="text-[9px] text-slate-500 uppercase font-bold mb-1">Size</p>
-                  <p className="text-sm text-white font-mono">{metadata.size}</p>
+                <div className="bg-white/5 p-3 rounded-xl border border-white/5 flex flex-col">
+                  <span className="text-[9px] text-slate-500 font-bold mb-0.5">サイズ</span>
+                  <span className="text-sm text-white font-mono">{metadata.size}</span>
                 </div>
-                <div className="bg-white/5 p-3 rounded-xl border border-white/5">
-                  <p className="text-[9px] text-slate-500 uppercase font-bold mb-1">Format</p>
-                  <p className="text-sm text-white font-mono uppercase font-sans">JPG</p>
+                <div className="bg-white/5 p-3 rounded-xl border border-white/5 flex flex-col">
+                  <span className="text-[9px] text-slate-500 font-bold mb-0.5">形式</span>
+                  <span className="text-sm text-white font-mono uppercase">JPG</span>
                 </div>
               </div>
             </div>
 
+            {/* カテゴリー & タグ */}
             <div className="space-y-4">
               <div>
-                <h3 className="flex items-center gap-2 text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-2">
-                  <Layers className="w-3 h-3" /> Category
-                </h3>
-                <Link href={`/category/${image.category}`} className="inline-block px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold hover:bg-cyan-500/20">
+                <h3 className="text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-2">カテゴリー</h3>
+                <Link href={`/category/${image.category}`} className="inline-block px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold hover:bg-cyan-500/20 transition-all">
                   {image.category}
                 </Link>
               </div>
               <div>
-                <h3 className="flex items-center gap-2 text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-2">
-                  <TagIcon className="w-3 h-3" /> Tags
-                </h3>
+                <h3 className="text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-2">タグ</h3>
                 <div className="flex flex-wrap gap-2">
                   {image.tags?.map((tag: string) => (
                     <Link key={tag} href={`/tags/${tag}`} className="text-[11px] text-slate-400 hover:text-white transition-colors">
@@ -142,22 +145,17 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
             </div>
           </div>
 
-          <div className="mt-auto pt-6 border-t border-white/5 space-y-3">
-            <a href={url} download className="flex items-center justify-center gap-2 w-full bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 rounded-2xl transition-all shadow-lg shadow-cyan-500/20 active:scale-[0.98]">
-              <Download className="w-5 h-5" /> DOWNLOAD
-            </a>
-            
-            <div className="flex gap-2">
-              <button onClick={shareToX} className="flex-1 flex items-center justify-center p-3 bg-black rounded-xl text-white hover:bg-slate-900 transition-all border border-white/10">
-                <XLogo className="w-5 h-5" />
-              </button>
-              <button onClick={shareToLinkedin} className="flex-1 flex items-center justify-center p-3 bg-[#0A66C2] rounded-xl text-white hover:bg-[#004182] transition-all">
-                <Linkedin className="w-5 h-5 fill-current" />
-              </button>
-              <button onClick={shareToLine} className="flex-[1.5] flex items-center justify-center p-3 bg-[#06C755] rounded-xl text-white hover:bg-[#05a347] transition-all">
-                <span className="text-[13px] font-black tracking-tighter">LINE</span>
-              </button>
-            </div>
+          {/* SNSシェア */}
+          <div className="mt-auto pt-6 border-t border-white/5 flex gap-2">
+            <button onClick={shareToX} className="flex-1 flex items-center justify-center p-3 bg-black rounded-xl text-white hover:bg-slate-900 transition-all border border-white/10">
+              <XLogo className="w-5 h-5" />
+            </button>
+            <button onClick={shareToLinkedin} className="flex-1 flex items-center justify-center p-3 bg-[#0A66C2] rounded-xl text-white hover:bg-[#004182] transition-all">
+              <Linkedin className="w-5 h-5 fill-current" />
+            </button>
+            <button onClick={shareToLine} className="flex-[1.5] flex items-center justify-center p-3 bg-[#06C755] rounded-xl text-white hover:bg-[#05a347] transition-all">
+              <span className="text-[13px] font-black tracking-tighter">LINE</span>
+            </button>
           </div>
         </div>
       </div>
@@ -182,7 +180,7 @@ export default function CategorySection({ title, description, images }: { title:
     <section className="py-20 px-6 max-w-7xl mx-auto">
       <div className="flex items-end justify-between mb-10">
         <div className="text-left">
-          <h2 className="text-4xl font-black text-white italic uppercase tracking-tighter mb-2">{title}</h2>
+          <h2 className="text-4xl font-black text-white italic uppercase tracking-tighter mb-2 leading-tight">{title}</h2>
           <p className="text-slate-400 max-w-xl">{description}</p>
         </div>
         <Link href={`/category/${title}`} className="flex items-center gap-2 text-cyan-400 font-bold hover:text-cyan-300 transition-colors group">
