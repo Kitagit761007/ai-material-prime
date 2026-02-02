@@ -7,7 +7,7 @@ import {
   X, Download, Linkedin, Info, Tag as TagIcon, Layers, ChevronRight 
 } from "lucide-react";
 
-// --- 最新の𝕏ロゴ（SVG） ---
+// --- 最新の𝕏ロゴ ---
 const XLogo = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
@@ -26,7 +26,6 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
   useEffect(() => {
     if (typeof window === "undefined" || !url) return;
 
-    // 1. 解像度とアスペクト比を計測
     const img = new window.Image();
     img.src = url;
     img.onload = () => {
@@ -42,7 +41,6 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
       }));
     };
 
-    // 2. ファイルサイズを計測
     fetch(url, { method: 'HEAD' })
       .then(res => {
         const bytes = parseInt(res.headers.get('content-length') || '0');
@@ -54,7 +52,6 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
       .catch(() => setMetadata(prev => ({ ...prev, size: "不明" })));
   }, [url]);
 
-  // シェア用設定
   const shareUrl = typeof window !== "undefined" ? window.location.origin + `/gallery/${image.id}` : "";
   const shareText = `${image.title} - AI MATERIAL PRIME`;
 
@@ -70,14 +67,23 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/95 backdrop-blur-xl animate-in fade-in duration-300">
-      <button onClick={onClose} className="absolute top-6 right-6 p-2 text-slate-400 hover:text-white transition-colors z-[110]">
-        <X className="w-8 h-8" />
-      </button>
+      {/* 🚀 画面全体を閉じるための背景オーバーレイ */}
+      <div className="absolute inset-0" onClick={onClose} />
 
-      <div className="flex flex-col lg:flex-row w-full max-w-6xl max-h-[90vh] bg-slate-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+      <div className="relative flex flex-col lg:flex-row w-full max-w-6xl max-h-[90vh] bg-slate-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl animate-in zoom-in-95 duration-300">
+        
+        {/* 🚀 修正：閉じるボタンをモーダル枠の右上に配置 */}
+        <button 
+          onClick={onClose} 
+          className="absolute top-4 right-4 z-[120] p-2 bg-black/50 hover:bg-black/80 text-white rounded-full backdrop-blur-md transition-all border border-white/10 group active:scale-90"
+          aria-label="Close"
+        >
+          <X className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
+        </button>
+
         {/* 左側：プレビュー */}
-        <div className="relative flex-1 bg-black flex items-center justify-center p-4">
-          <img src={url} alt={image.title} className="max-w-full max-h-full object-contain" />
+        <div className="relative flex-1 bg-black flex items-center justify-center p-4 min-h-[300px]">
+          <img src={url} alt={image.title} className="max-w-full max-h-full object-contain pointer-events-none shadow-2xl" />
         </div>
 
         {/* 右側：情報パネル */}
@@ -88,7 +94,6 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
           </div>
 
           <div className="space-y-6 mb-8">
-            {/* メタデータ */}
             <div>
               <h3 className="flex items-center gap-2 text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-3">
                 <Info className="w-3 h-3" /> Metadata
@@ -96,7 +101,7 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
               <div className="grid grid-cols-2 gap-3">
                 <div className="bg-white/5 p-3 rounded-xl border border-white/5">
                   <p className="text-[9px] text-slate-500 uppercase font-bold mb-1">Resolution</p>
-                  <p className="text-sm text-white font-mono">{metadata.width > 0 ? `${metadata.width} × ${metadata.height}` : "Loading..."}</p>
+                  <p className="text-sm text-white font-mono">{metadata.width > 0 ? `${metadata.width} × ${metadata.height}` : "..."}</p>
                 </div>
                 <div className="bg-white/5 p-3 rounded-xl border border-white/5">
                   <p className="text-[9px] text-slate-500 uppercase font-bold mb-1">Ratio</p>
@@ -113,13 +118,12 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
               </div>
             </div>
 
-            {/* カテゴリー & タグ */}
             <div className="space-y-4">
               <div>
                 <h3 className="flex items-center gap-2 text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-2">
                   <Layers className="w-3 h-3" /> Category
                 </h3>
-                <Link href={`/category/${image.category}`} className="inline-block px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold hover:bg-cyan-500/20 transition-all">
+                <Link href={`/category/${image.category}`} className="inline-block px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold hover:bg-cyan-500/20">
                   {image.category}
                 </Link>
               </div>
@@ -139,24 +143,18 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
           </div>
 
           <div className="mt-auto pt-6 border-t border-white/5 space-y-3">
-            <a href={url} download className="flex items-center justify-center gap-2 w-full bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 rounded-2xl transition-all shadow-lg shadow-cyan-500/20">
+            <a href={url} download className="flex items-center justify-center gap-2 w-full bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 rounded-2xl transition-all shadow-lg shadow-cyan-500/20 active:scale-[0.98]">
               <Download className="w-5 h-5" /> DOWNLOAD
             </a>
             
-            {/* 🚀 最新SNSボタンセクション */}
             <div className="flex gap-2">
-              {/*𝕏 (最新ロゴ) */}
-              <button onClick={shareToX} className="flex-1 flex items-center justify-center p-3 bg-black rounded-xl text-white hover:bg-slate-900 transition-all border border-white/10" title="Share on 𝕏">
+              <button onClick={shareToX} className="flex-1 flex items-center justify-center p-3 bg-black rounded-xl text-white hover:bg-slate-900 transition-all border border-white/10">
                 <XLogo className="w-5 h-5" />
               </button>
-              
-              {/* LinkedIn (ブランドブルー) */}
-              <button onClick={shareToLinkedin} className="flex-1 flex items-center justify-center p-3 bg-[#0A66C2] rounded-xl text-white hover:bg-[#004182] transition-all shadow-lg shadow-blue-500/10" title="Share on LinkedIn">
+              <button onClick={shareToLinkedin} className="flex-1 flex items-center justify-center p-3 bg-[#0A66C2] rounded-xl text-white hover:bg-[#004182] transition-all">
                 <Linkedin className="w-5 h-5 fill-current" />
               </button>
-              
-              {/* LINE (テキスト表示) */}
-              <button onClick={shareToLine} className="flex-[1.5] flex items-center justify-center p-3 bg-[#06C755] rounded-xl text-white hover:bg-[#05a347] transition-all shadow-lg shadow-green-500/10" title="Share on LINE">
+              <button onClick={shareToLine} className="flex-[1.5] flex items-center justify-center p-3 bg-[#06C755] rounded-xl text-white hover:bg-[#05a347] transition-all">
                 <span className="text-[13px] font-black tracking-tighter">LINE</span>
               </button>
             </div>
