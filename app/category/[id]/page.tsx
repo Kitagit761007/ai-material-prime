@@ -1,10 +1,7 @@
-"use client";
-
-import { useParams } from "next/navigation";
 import Header from "@/components/Header";
 import MaterialGallery from "@/components/MaterialGallery";
 
-// 🚀 印刷予約リスト：GitHubに「このページをあらかじめ作って」と伝えます
+// 🚀 印刷予約：ここで「どのページを作るか」を印刷所に伝えます
 export async function generateStaticParams() {
   return [
     { id: 'GX' },
@@ -17,10 +14,9 @@ export async function generateStaticParams() {
   ];
 }
 
-export default function CategoryPage() {
-  const params = useParams();
-  // URLからカテゴリー名（GXなど）を抜き出します
-  const categoryId = params.id ? decodeURIComponent(params.id as string) : "";
+// 画面の構成（サーバー側で組み立て）
+export default function CategoryPage({ params }: { params: { id: string } }) {
+  const categoryId = decodeURIComponent(params.id);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
@@ -32,7 +28,7 @@ export default function CategoryPage() {
         </h1>
         <div className="h-1 w-20 bg-cyan-500 mt-4 mb-12" />
         
-        {/* そのカテゴリーの画像だけを表示（filterCategoryを渡します） */}
+        {/* 画像の表示処理（クライアント側）にバトンタッチ */}
         <MaterialGallery filterCategory={categoryId} />
       </main>
     </div>
