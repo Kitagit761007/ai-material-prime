@@ -16,7 +16,7 @@ export default function MaterialGallery() {
             {assets.map((item: any) => (
                 <div key={item.id} className="relative rounded-xl overflow-hidden bg-slate-900 border border-white/10">
                     <Image 
-                        src={item.url} // ✅ 正しい住所を使う
+                        src={item.url} // ✅ JSONにある正しい住所を使う
                         alt={item.title} 
                         width={600} 
                         height={400} 
