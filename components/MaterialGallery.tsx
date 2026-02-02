@@ -12,12 +12,13 @@ export default function MaterialGallery({ filterCategory }: { filterCategory?: s
       .then(res => res.json())
       .then(data => {
         if (filterCategory) {
+          // 指定されたカテゴリーの画像だけをフィルタリング
           setAssets(data.filter((item: any) => item.category === filterCategory));
         } else {
           setAssets(data);
         }
       })
-      .catch(err => console.error("Data fetch error:", err));
+      .catch(err => console.error("Assets Load Error:", err));
   }, [filterCategory]);
 
   const getUrl = (item: any) => {
@@ -32,17 +33,15 @@ export default function MaterialGallery({ filterCategory }: { filterCategory?: s
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {assets.map(item => (
-        <div 
-          key={item.id} 
-          className="relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10 cursor-pointer group"
-          onClick={() => setSelectedImage(item)}
-        >
-          <Image src={getUrl(item)} alt={item.title} fill className="object-cover group-hover:scale-110 transition-transform" unoptimized onError={(e) => { (e.target as any).style.display = 'none'; }} />
+        <div key={item.id} className="relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10 cursor-pointer group" onClick={() => setSelectedImage(item)}>
+          <Image src={getUrl(item)} alt={item.title} fill className="object-cover group-hover:scale-110 transition-transform" unoptimized />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent p-6 flex flex-col justify-end text-left">
             <p className="text-white font-bold truncate text-sm">{item.title}</p>
           </div>
         </div>
       ))}
+      
+      {/* 共通のモーダルを表示 */}
       {selectedImage && (
         <DetailModal 
           image={selectedImage} 
