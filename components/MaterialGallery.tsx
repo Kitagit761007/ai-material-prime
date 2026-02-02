@@ -1,13 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-// 🚀 CategorySection から新しくなった DetailModal をインポート
+// 🚀 CategorySection から DetailModal をインポート
 import { DetailModal } from "./CategorySection";
 
+// 🚀 型（Props）にお気に入り用の initialIds を追加
 interface MaterialGalleryProps {
   filterCategory?: string;
   searchQuery?: string;
-  initialIds?: string[]; // 🚀 お気に入りIDリストを受け取る準備
+  initialIds?: string[]; 
 }
 
 export default function MaterialGallery({ 
@@ -26,7 +27,7 @@ export default function MaterialGallery({
       .then(data => {
         let filtered = data;
         
-        // 🚀 お気に入りIDリストがある場合はそれだけで絞り込む
+        // 🚀 お気に入りリストがある場合はそれを最優先
         if (initialIds) {
           filtered = data.filter((item: any) => initialIds.includes(item.id));
         } else if (filterCategory) {
@@ -51,24 +52,23 @@ export default function MaterialGallery({
     return `/assets/images/${f}/${item.id}${f === "GPT" ? ".png" : ".jpg"}`;
   };
 
-  if (loading) return <div className="py-20 text-center text-slate-500 animate-pulse font-bold tracking-widest uppercase">Loading Gallery...</div>;
+  if (loading) return <div className="py-20 text-center text-slate-500 font-bold uppercase tracking-widest">Loading...</div>;
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {assets.map(item => (
         <div 
           key={item.id} 
-          className="relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10 cursor-pointer group shadow-2xl"
+          className="relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10 cursor-pointer group"
           onClick={() => setSelectedImage(item)}
         >
           <Image src={getUrl(item)} alt={item.title} fill className="object-cover group-hover:scale-110 transition-transform duration-500" unoptimized />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent p-6 flex flex-col justify-end text-left opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent p-6 flex flex-col justify-end text-left opacity-0 group-hover:opacity-100 transition-opacity">
             <p className="text-white font-bold truncate text-sm">{item.title}</p>
           </div>
         </div>
       ))}
       
-      {/* 🚀 新しい DetailModal を使用 */}
       {selectedImage && (
         <DetailModal 
           image={selectedImage} 
