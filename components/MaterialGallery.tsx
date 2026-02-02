@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { DetailModal } from "./CategorySection";
 
-// 🚀 initialIds を受け取れるように型を定義
+// 🚀 initialIds（お気に入りリスト）を認識できるように型を拡張
 interface MaterialGalleryProps {
   filterCategory?: string;
   searchQuery?: string;
@@ -26,7 +26,7 @@ export default function MaterialGallery({
       .then(data => {
         let filtered = data;
         
-        // 🚀 お気に入りIDリストが渡された場合の処理
+        // 🚀 お気に入りIDリストが渡された場合の処理（これがビルドの肝）
         if (initialIds) {
           filtered = data.filter((item: any) => initialIds.includes(item.id));
         } 
@@ -46,7 +46,7 @@ export default function MaterialGallery({
         setLoading(false);
       })
       .catch(err => {
-        console.error("Load failed:", err);
+        console.error("Data load failed:", err);
         setLoading(false);
       });
   }, [filterCategory, searchQuery, initialIds]);
@@ -61,14 +61,14 @@ export default function MaterialGallery({
     return `/assets/images/${folder}/${item.id}${ext}`;
   };
 
-  if (loading) return <div className="py-20 text-center text-slate-500 animate-pulse font-bold tracking-widest">LOADING...</div>;
+  if (loading) return <div className="py-20 text-center text-slate-500 animate-pulse font-bold tracking-widest uppercase">Loading Gallery...</div>;
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {assets.map(item => (
         <div 
           key={item.id} 
-          className="relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10 cursor-pointer group"
+          className="relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10 cursor-pointer group shadow-2xl"
           onClick={() => setSelectedImage(item)}
         >
           <Image src={getUrl(item)} alt={item.title} fill className="object-cover group-hover:scale-110 transition-transform duration-500" unoptimized />
