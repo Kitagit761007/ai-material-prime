@@ -55,7 +55,7 @@ export default function CategorySection({ title, description, images }: Category
     const handleDownload = async (e: React.MouseEvent) => {
         e.stopPropagation();
         if (selectedImage) {
-            const filename = selectedImage.url.split('/').pop() || 'download.webp';
+            const filename = selectedImage.url.split('/').pop() || 'download.jpg';
             await downloadImage(selectedImage.url, filename);
         }
     };
@@ -154,13 +154,13 @@ export default function CategorySection({ title, description, images }: Category
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {images.map((img) => (
+                {images.map((item) => (
                     <CatCard
-                        key={img.id}
-                        img={img}
-                        isFavorite={isFavorite(img.id)}
-                        onToggleFavorite={() => toggleFavorite(img.id)}
-                        onClick={() => setSelectedImage(img)}
+                        key={item.id}
+                        item={item}
+                        isFavorite={isFavorite(item.id)}
+                        onToggleFavorite={() => toggleFavorite(item.id)}
+                        onClick={() => setSelectedImage(item)}
                     />
                 ))}
             </div>
@@ -188,9 +188,6 @@ export default function CategorySection({ title, description, images }: Category
                                     fill
                                     priority
                                     className="object-contain pointer-events-none select-none"
-                                    onError={(e: any) => {
-                                        e.target.src = selectedImage.url;
-                                    }}
                                 />
                             </div>
 
@@ -281,11 +278,12 @@ export default function CategorySection({ title, description, images }: Category
     );
 }
 
-function CatCard({ img, isFavorite, onToggleFavorite, onClick }: {
-    img: CategoryImage,
+function CatCard({ item, isFavorite, onToggleFavorite, onClick }: {
+    item: CategoryImage,
     isFavorite: boolean,
     onToggleFavorite: () => void,
-    onClick: () => void
+    onClick: () => void,
+    key?: string | number
 }) {
     const [loaded, setLoaded] = useState(false);
 
@@ -300,7 +298,7 @@ function CatCard({ img, isFavorite, onToggleFavorite, onClick }: {
                 onLoad={() => setLoaded(true)}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5">
-                <p className="text-white text-sm font-bold truncate">{img.title}</p>
+                <p className="text-white text-sm font-bold truncate">{item.title}</p>
             </div>
 
             {/* Fav Button Grid - Fixed Right Bottom with stopPropagation and translucent background */}

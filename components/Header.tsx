@@ -99,7 +99,7 @@ export default function Header() {
                                         <span className="text-sm group-hover/item:text-gx-cyan transition-colors text-white">{cat.name}</span>
                                         <span className="text-[10px] text-slate-500 font-medium">{cat.en}</span>
                                     </div>
-                                    <span className="text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded">{getCategoryCount(cat.id)}</span>
+                                    <span className="text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded">{getCategoryCount(cat.name)}</span>
                                 </button>
                             ))}
                         </div>
@@ -123,7 +123,7 @@ export default function Header() {
                             <button key={cat.id} onClick={() => handleCategoryClick(cat.id)} className="bg-white/5 p-4 rounded-xl flex flex-col items-center justify-center text-center relative group active:bg-white/10 active:scale-[0.98] transition-all border border-white/5">
                                 <span className="text-sm font-bold text-white leading-tight mb-1">{cat.name}</span>
                                 <span className="text-[9px] text-slate-400 mb-2">{cat.en}</span>
-                                <span className="text-[9px] text-gx-cyan opacity-60 font-mono">{getCategoryCount(cat.id)} assets</span>
+                                <span className="text-[9px] text-gx-cyan opacity-60 font-mono">{getCategoryCount(cat.name)} assets</span>
                                 <ChevronRight className="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 text-white/20 group-active:text-gx-cyan group-active:translate-x-1 transition-all" />
                             </button>
                         ))}

@@ -105,7 +105,7 @@ export default function Footer() {
                                             <span>{cat.name}</span>
                                             <span className="text-[10px] text-slate-600 group-hover:text-slate-400 transition-colors">{cat.en}</span>
                                         </div>
-                                        <span className="text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-slate-600 group-hover:text-gx-cyan transition-colors">{getCategoryCount(cat.id)}</span>
+                                        <span className="text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-slate-600 group-hover:text-gx-cyan transition-colors">{getCategoryCount(cat.name)}</span>
                                     </button>
                                 </li>
                             ))}
