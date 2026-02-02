@@ -7,7 +7,7 @@ import MaterialGallery from "@/components/MaterialGallery";
 import JsonLd from "@/components/JsonLd";
 import CategorySection from "@/components/CategorySection";
 import { useSearch } from "@/context/SearchContext";
-import { Menu, Search, Heart } from "lucide-react"; // アイコン追加
+import { Menu, Heart } from "lucide-react";
 
 export default function Home() {
     const { searchQuery, setSearchQuery } = useSearch();
@@ -22,7 +22,7 @@ export default function Home() {
 
     return (
         <div className="flex flex-col min-h-screen bg-slate-950 text-slate-50">
-            {/* --- 正式なナビゲーションヘッダー --- */}
+            {/* ヘッダー：メニューを日本語へ */}
             <header className="fixed top-0 left-0 right-0 z-[100] bg-slate-950/80 backdrop-blur-md border-b border-white/5">
                 <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2 group">
@@ -34,12 +34,11 @@ export default function Home() {
                         </span>
                     </Link>
 
-                    {/* ナビゲーションメニュー */}
                     <nav className="hidden md:flex items-center gap-8">
-                        <Link href="/" className="text-sm font-bold text-white hover:text-cyan-400 transition-colors">HOME</Link>
-                        <Link href="/gallery" className="text-sm font-bold text-slate-400 hover:text-cyan-400 transition-colors">GALLERY</Link>
+                        <Link href="/" className="text-sm font-bold text-white hover:text-cyan-400 transition-colors">ホーム</Link>
+                        <Link href="/gallery" className="text-sm font-bold text-slate-400 hover:text-cyan-400 transition-colors">ギャラリー</Link>
                         <Link href="/favorites" className="text-sm font-bold text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-2">
-                            <Heart className="w-4 h-4" /> FAVORITES
+                            <Heart className="w-4 h-4" /> お気に入り
                         </Link>
                     </nav>
 
@@ -56,11 +55,10 @@ export default function Home() {
                 )}
 
                 <div id="gallery-section" className="py-12 bg-slate-900/30">
-                    <div className="max-w-7xl mx-auto px-6 mb-12">
-                        <h2 className="text-3xl font-black text-white">LATEST ASSETS</h2>
+                    <div className="max-w-7xl mx-auto px-6 mb-12 text-left">
+                        <h2 className="text-3xl font-black text-white">LATEST ASSETS / 最新アセット</h2>
                         <div className="h-1 w-12 bg-cyan-500 mt-2" />
                     </div>
-                    {/* ここで画像拡大機能付きのGalleryを呼び出す */}
                     <MaterialGallery />
                 </div>
             </main>
