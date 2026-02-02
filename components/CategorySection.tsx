@@ -18,32 +18,23 @@ const getSmartRatio = (w: number, h: number) => {
   return stds.reduce((p, c) => Math.abs(c.v - r) < Math.abs(p.v - r) ? c : p).n;
 };
 
-// 🚀 人間味のあるSEO説明文
-const getSeoDescription = (t: string, c: string, id: string) => {
-  const seed = id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-  return `「${t}」は、${c}をテーマに最新の生成AI技術で描かれた${id}番目の作品です。持続可能な未来へのビジョンを、精緻な質感で表現しました。商用利用可能で、プロフェッショナルな制作に最適化されています。クレジット表記も不要です。`;
-};
-
-// 🚀 この DetailModal が他のファイルで使われるため、export が必須です
+// 🚀 export することで、MaterialGallery から呼び出し可能になります
 export function DetailModal({ image, url, onClose }: { image: any; url: string; onClose: () => void }) {
   const [metadata, setMetadata] = useState({ width: 0, height: 0, size: "...", ratio: "---" });
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    // ブラウザ保存済みのお気に入りを確認
     const favs = JSON.parse(localStorage.getItem("favorites") || "[]");
     setIsFavorite(favs.includes(image.id));
     if (typeof window === "undefined" || !url) return;
     const img = new window.Image();
     img.src = url;
-    img.onload = () => setMetadata(prev => ({ 
-      ...prev, width: img.naturalWidth, height: img.naturalHeight, ratio: getSmartRatio(img.naturalWidth, img.naturalHeight) 
-    }));
+    img.onload = () => setMetadata(prev => ({ ...prev, width: img.naturalWidth, height: img.naturalHeight, ratio: getSmartRatio(img.naturalWidth, img.naturalHeight) }));
     fetch(url, { method: 'HEAD' }).then(res => {
       const bytes = parseInt(res.headers.get('content-length') || '0');
       const sizeStr = bytes > 1024 * 1024 ? `${(bytes / (1024 * 1024)).toFixed(2)} MB` : `${(bytes / 1024).toFixed(1)} KB`;
       setMetadata(prev => ({ ...prev, size: sizeStr }));
-    });
+    }).catch(() => {});
   }, [url, image.id]);
 
   const toggleFavorite = () => {
@@ -62,17 +53,16 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/95 backdrop-blur-xl animate-in fade-in">
       <div className="absolute inset-0" onClick={onClose} />
-      <div className="relative flex flex-col lg:flex-row w-full max-w-6xl max-h-[95vh] bg-slate-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-        <button onClick={onClose} className="absolute top-4 right-4 z-[120] p-2 bg-black/60 hover:bg-black text-white rounded-full border border-white/10 transition-transform active:scale-90"><X className="w-6 h-6" /></button>
-        <div className="relative w-full lg:flex-1 h-[40vh] lg:h-auto bg-black flex items-center justify-center p-4 flex-none">
-          <img src={url} alt={image.title} className="max-w-full max-h-full object-contain shadow-2xl" />
-          {/* ❤️ボタン */}
+      <div className="relative flex flex-col lg:flex-row w-full max-w-6xl max-h-[95vh] md:max-h-[85vh] bg-slate-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+        <button onClick={onClose} className="absolute top-4 right-4 z-[120] p-2 bg-black/60 hover:bg-black text-white rounded-full border border-white/10 group"><X className="w-6 h-6 group-hover:rotate-90 transition-transform" /></button>
+        <div className="relative w-full lg:flex-1 h-[40vh] bg-black flex items-center justify-center p-4 flex-none">
+          <img src={url} alt={image.title} className="max-w-full max-h-full object-contain pointer-events-none" />
           <button onClick={toggleFavorite} className={`absolute bottom-6 right-6 p-4 rounded-full backdrop-blur-md border transition-all active:scale-90 shadow-xl ${isFavorite ? "bg-pink-500 border-pink-400 text-white" : "bg-black/50 border-white/20 text-white hover:bg-white hover:text-black"}`}><Heart className={`w-6 h-6 ${isFavorite ? "fill-current" : ""}`} /></button>
         </div>
-        <div className="w-full lg:w-[400px] p-8 flex flex-col overflow-y-auto bg-slate-900 border-l border-white/5 text-left flex-1">
-          <div className="mb-6"><h2 className="text-xl sm:text-2xl font-black text-white italic uppercase tracking-tighter mb-4 leading-tight">{image.title}</h2><div className="bg-white/5 p-4 rounded-2xl border border-white/5 text-slate-300 text-xs leading-relaxed">{getSeoDescription(image.title, image.category, image.id)}</div></div>
-          <div className="flex gap-2 items-stretch mb-8 h-12 sm:h-14 flex-none"><a href={url} download className="flex-[3] flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-white font-bold rounded-2xl shadow-lg active:scale-95"><Download className="w-4 h-4" /><span className="text-xs">無料DL</span></a><div className="flex-[2] flex gap-1.5"><button onClick={()=>window.open(`https://x.com/intent/tweet?url=${encodeURIComponent(window.location.origin+'/gallery/'+image.id)}`,'_blank')} className="flex-1 flex items-center justify-center bg-black rounded-xl text-white border border-white/10"><XLogo className="w-4 h-4" /></button><button onClick={()=>window.open(`https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(window.location.origin+'/gallery/'+image.id)}`,'_blank')} className="flex-1 flex items-center justify-center bg-[#06C755] rounded-xl text-white font-bold text-[10px]">LINE</button></div></div>
-          <div className="space-y-8"><div className="bg-white/5 rounded-2xl border border-white/5 p-4 flex justify-between items-center text-center divide-x divide-white/10 text-white font-mono">{[{l:"解像度",v:metadata.width>0?`${metadata.width}×${metadata.height}`:"-"},{l:"比率",v:metadata.ratio},{l:"サイズ",v:metadata.size},{l:"形式",v:"JPG"}].map((it,i)=>(<div key={i} className="flex-1 flex flex-col px-1"><span className="text-[8px] text-slate-500 font-bold mb-1">{it.l}</span><span className="text-[11px] truncate">{it.v}</span></div>))}</div><div className="space-y-5"><div><h3 className="text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-2">カテゴリー</h3><Link href={`/category/${image.category}`} className="inline-block px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold">{image.category}</Link></div><div><h3 className="text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-2">タグ</h3><div className="flex flex-wrap gap-2">{image.tags?.map((tag: string) => (<Link key={tag} href={`/tags/${tag}`} className="text-[10px] text-slate-400 hover:text-white transition-colors">#{tag}</Link>))}</div></div></div></div>
+        <div className="w-full lg:w-[400px] p-6 sm:p-8 flex flex-col overflow-y-auto bg-slate-900 border-t lg:border-t-0 lg:border-l border-white/5 text-left flex-1 relative z-10">
+          <div className="mb-6"><h2 className="text-xl sm:text-2xl font-black text-white italic uppercase tracking-tighter mb-4 leading-tight">{image.title}</h2><div className="bg-white/5 p-4 rounded-2xl border border-white/5 text-slate-300 text-xs leading-relaxed">「{image.title}」は${image.category}を象徴するAI素材です。商用利用可能・クレジット不要。</div></div>
+          <div className="flex gap-2 items-stretch mb-8 h-12 sm:h-14 flex-none"><a href={url} download className="flex-[3] flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-white font-bold rounded-2xl shadow-lg active:scale-[0.98]"><Download className="w-4 h-4" /><span className="text-xs sm:text-sm font-black uppercase">無料DL</span></a><div className="flex-[2] flex gap-1.5"><button onClick={()=>window.open(`https://x.com/intent/tweet?url=${encodeURIComponent(window.location.origin+'/gallery/'+image.id)}`,'_blank')} className="flex-1 flex items-center justify-center bg-black rounded-xl text-white border border-white/10"><XLogo className="w-4 h-4" /></button><button onClick={()=>window.open(`https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(window.location.origin+'/gallery/'+image.id)}`,'_blank')} className="flex-1 flex items-center justify-center bg-[#06C755] rounded-xl text-white"><span className="text-[10px] font-bold">LINE</span></button></div></div>
+          <div className="space-y-8"><div className="bg-white/5 rounded-2xl border border-white/5 p-4 flex justify-between items-center text-center divide-x divide-white/10 text-white font-mono">{[{l:"解像度",v:metadata.width>0?`${metadata.width}×${metadata.height}`:"-"},{l:"比率",v:metadata.ratio},{l:"サイズ",v:metadata.size},{l:"形式",v:"JPG"}].map((it,i)=>(<div key={i} className="flex-1 flex flex-col px-1"><span className="text-[8px] text-slate-500 font-bold mb-1">{it.l}</span><span className="text-[11px] truncate">{it.v}</span></div>))}</div><div className="space-y-5"><div><h3 className="text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-2">カテゴリー</h3><Link href={`/category/${image.category}`} className="inline-block px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold">{image.category}</Link></div><div><h3 className="text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-2">タグ</h3><div className="flex flex-wrap gap-2">{image.tags?.map((tag: string) => (<Link key={tag} href={`/tags/${tag}`} className="text-[10px] sm:text-[11px] text-slate-400 hover:text-white transition-colors">#{tag}</Link>))}</div></div></div></div>
         </div>
       </div>
     </div>
