@@ -18,7 +18,7 @@ export default function MaterialGallery() {
                 let folder = "grok"; // デフォルト
                 if (item.id.startsWith("mid-")) folder = "mid";
                 if (item.id.startsWith("niji-")) folder = "niji";
-                if (item.id.startsWith("gpt-")) folder = "gpt";   // 👈 ここを実際のフォルダ名に！
+                if (item.id.startsWith("gpt-")) folder = "GPT";   // 👈 ここを実際のフォルダ名に！
                 if (item.id.startsWith("nano-")) folder = "nano"; // 👈 ここを実際のフォルダ名に！
                 if (item.id.startsWith("g-")) folder = "grok";
 
