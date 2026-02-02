@@ -13,20 +13,28 @@ export default function CategorySection({ title, description, images }: any) {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {images.map((img: any) => {
-                    // ✅ フォルダ名の読み替え魔法（g -> grok）
-                    const correctedUrl = img.url.replace('/assets/images/g/', '/assets/images/grok/');
+                    // --- 🛠️ フォルダ名の強制補正 ---
+                    let folder = "grok";
+                    if (img.id.startsWith("mid-")) folder = "mid";
+                    if (img.id.startsWith("niji-")) folder = "niji";
+                    if (img.id.startsWith("gpt-")) folder = "GPT";   // ✅ 大文字に修正
+                    if (img.id.startsWith("nano-")) folder = "nano";
+                    if (img.id.startsWith("g-")) folder = "grok";
+
+                    // 強制的に正しいURLを組み立てる
+                    const finalUrl = `/assets/images/${folder}/${img.id}.jpg`;
                     
                     return (
                         <div key={img.id} className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 border border-white/10">
                             <Image
-                                src={correctedUrl} 
-                                alt={img.title || "Asset"}
+                                src={finalUrl} 
+                                alt={img.title || "AI Asset"}
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-500 group-hover:scale-105"
                                 unoptimized 
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-6 flex flex-col justify-end">
-                                <h3 className="text-white font-bold truncate">{img.title}</h3>
+                                <h3 className="text-white font-bold truncate">{img.title || img.id}</h3>
                             </div>
                         </div>
                     );
