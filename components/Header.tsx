@@ -1,25 +1,54 @@
 "use client";
+
+import React from "react";
 import Link from "next/link";
-import { ImageIcon, LayoutGrid, Tag, Heart, MessageSquare } from "lucide-react";
+import { 
+  Image as ImageIcon, 
+  Grid, 
+  Tag, 
+  Heart, 
+  Mail,
+  Zap
+} from "lucide-react";
 
 export default function Header() {
+  const menuItems = [
+    { name: "ギャラリー", href: "/gallery/", icon: <ImageIcon className="w-4 h-4" /> },
+    { name: "カテゴリー", href: "/", icon: <Grid className="w-4 h-4" /> }, // トップのカテゴリーセクションへ
+    { name: "タグ一覧", href: "/tags/", icon: <Tag className="w-4 h-4" /> },
+    { name: "お気に入り", href: "/favorites/", icon: <Heart className="w-4 h-4" /> },
+    { name: "お問い合わせ", href: "/contact/", icon: <Mail className="w-4 h-4" /> }, // 🚀 リンクを修正
+  ];
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center">
-            <span className="text-slate-950 font-black text-xs">AI</span>
+        {/* ロゴ部分 */}
+        <Link href="/" className="flex items-center gap-2 group">
+          <div className="bg-cyan-500 p-1.5 rounded-lg group-hover:rotate-12 transition-transform">
+            <Zap className="w-5 h-5 text-white fill-current" />
           </div>
-          <span className="text-xl font-black text-white uppercase italic">AI Material Prime</span>
+          <span className="text-xl font-black text-white tracking-tighter uppercase italic">
+            AI MATERIAL PRIME
+          </span>
         </Link>
-        <nav className="hidden lg:flex items-center gap-6">
-          <Link href="/gallery" className="text-[11px] font-bold text-slate-400 hover:text-cyan-400 flex items-center gap-1.5"><ImageIcon className="w-3 h-3" />ギャラリー</Link>
-          {/* ✅ /category/GX などの「[id]」で作った場所へリンクさせます */}
-          <Link href="/category/GX" className="text-[11px] font-bold text-slate-400 hover:text-cyan-400 flex items-center gap-1.5"><LayoutGrid className="w-3 h-3" />カテゴリー</Link>
-          <Link href="/" className="text-[11px] font-bold text-slate-400 hover:text-cyan-400 flex items-center gap-1.5"><Tag className="w-3 h-3" />タグ一覧</Link>
-          <Link href="/" className="text-[11px] font-bold text-slate-400 hover:text-cyan-400 flex items-center gap-1.5"><Heart className="w-3 h-3" />お気に入り</Link>
-          <Link href="mailto:info@example.com" className="text-[11px] font-bold text-slate-400 hover:text-cyan-400 flex items-center gap-1.5"><MessageSquare className="w-3 h-3" />お問い合わせ</Link>
+
+        {/* ナビゲーションメニュー */}
+        <nav className="hidden md:flex items-center gap-8">
+          {menuItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-cyan-400 transition-colors"
+            >
+              {item.icon}
+              {item.name}
+            </Link>
+          ))}
         </nav>
+
+        {/* モバイル用メニュー（必要に応じて） */}
+        <div className="md:hidden text-white text-xs">Menu</div>
       </div>
     </header>
   );
