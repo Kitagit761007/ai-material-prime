@@ -16,16 +16,16 @@ export default function MaterialGallery({ filterCategory }: { filterCategory?: s
         } else {
           setAssets(data);
         }
-      });
+      })
+      .catch(err => console.error("Data fetch error:", err));
   }, [filterCategory]);
 
   const getUrl = (item: any) => {
-    let folder = "grok";
-    if (item.id.startsWith("mid-")) folder = "mid";
-    if (item.id.startsWith("niji-")) folder = "niji";
-    if (item.id.startsWith("gpt-")) folder = "GPT";
-    if (item.id.startsWith("nano-")) folder = "nano";
-    let ext = (folder === "GPT") ? ".png" : ".jpg";
+    const folder = item.id.startsWith("mid-") ? "mid" : 
+                   item.id.startsWith("niji-") ? "niji" : 
+                   item.id.startsWith("gpt-") ? "GPT" : 
+                   item.id.startsWith("nano-") ? "nano" : "grok";
+    const ext = folder === "GPT" ? ".png" : ".jpg";
     return `/assets/images/${folder}/${item.id}${ext}`;
   };
 
@@ -37,20 +37,12 @@ export default function MaterialGallery({ filterCategory }: { filterCategory?: s
           className="relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10 cursor-pointer group"
           onClick={() => setSelectedImage(item)}
         >
-          <Image 
-            src={getUrl(item)} 
-            alt={item.title} 
-            fill 
-            className="object-cover group-hover:scale-110 transition-transform" 
-            unoptimized 
-            onError={(e) => { (e.target as any).style.display = 'none'; }}
-          />
+          <Image src={getUrl(item)} alt={item.title} fill className="object-cover group-hover:scale-110 transition-transform" unoptimized onError={(e) => { (e.target as any).style.display = 'none'; }} />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent p-6 flex flex-col justify-end text-left">
-            <p className="text-white font-bold truncate">{item.title}</p>
+            <p className="text-white font-bold truncate text-sm">{item.title}</p>
           </div>
         </div>
       ))}
-      
       {selectedImage && (
         <DetailModal 
           image={selectedImage} 
