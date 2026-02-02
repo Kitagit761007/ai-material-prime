@@ -7,7 +7,7 @@ import {
   X, Download, Linkedin, Info, Tag as TagIcon, Layers, ChevronRight 
 } from "lucide-react";
 
-// --- 最新の𝕏ロゴ ---
+// --- 最新の𝕏ロゴ（SVG） ---
 const XLogo = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
@@ -26,6 +26,7 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
   useEffect(() => {
     if (typeof window === "undefined" || !url) return;
 
+    // 1. 解像度とアスペクト比を実測
     const img = new window.Image();
     img.src = url;
     img.onload = () => {
@@ -41,6 +42,7 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
       }));
     };
 
+    // 2. ファイルサイズを実測
     fetch(url, { method: 'HEAD' })
       .then(res => {
         const bytes = parseInt(res.headers.get('content-length') || '0');
@@ -52,6 +54,7 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
       .catch(() => setMetadata(prev => ({ ...prev, size: "不明" })));
   }, [url]);
 
+  // シェア用設定
   const shareUrl = typeof window !== "undefined" ? window.location.origin + `/gallery/${image.id}` : "";
   const shareText = `${image.title} - AI MATERIAL PRIME`;
 
@@ -71,7 +74,7 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
 
       <div className="relative flex flex-col lg:flex-row w-full max-w-6xl max-h-[90vh] bg-slate-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl animate-in zoom-in-95 duration-300">
         
-        {/* 閉じるボタン */}
+        {/* 閉じるボタン（画像プレビューの右上に固定） */}
         <button 
           onClick={onClose} 
           className="absolute top-4 right-4 z-[120] p-2 bg-black/50 hover:bg-black/80 text-white rounded-full backdrop-blur-md transition-all border border-white/10 group active:scale-90"
@@ -91,15 +94,32 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
             <p className="text-slate-400 text-sm leading-relaxed">{image.description}</p>
           </div>
 
-          {/* 🚀 ダウンロードボタンを説明のすぐ下に配置 */}
-          <div className="mb-8">
-            <a href={url} download className="flex items-center justify-center gap-2 w-full bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 rounded-2xl transition-all shadow-lg shadow-cyan-500/20 active:scale-[0.98]">
-              <Download className="w-5 h-5" /> 無料ダウンロード
+          {/* 🚀 戦略的アクションエリア：ダウンロード(左) & SNS(右) */}
+          <div className="flex gap-2 items-stretch mb-8">
+            <a 
+              href={url} 
+              download 
+              className="flex-[3] flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 rounded-2xl transition-all shadow-lg shadow-cyan-500/20 active:scale-[0.98]"
+            >
+              <Download className="w-5 h-5" /> 
+              <span className="text-sm">無料DL</span>
             </a>
+
+            <div className="flex-[2] flex gap-1">
+              <button onClick={shareToX} className="flex-1 flex items-center justify-center bg-black rounded-xl text-white hover:bg-slate-900 transition-all border border-white/10" title="X">
+                <XLogo className="w-4 h-4" />
+              </button>
+              <button onClick={shareToLinkedin} className="flex-1 flex items-center justify-center bg-[#0A66C2] rounded-xl text-white hover:bg-[#004182] transition-all" title="LinkedIn">
+                <Linkedin className="w-4 h-4 fill-current" />
+              </button>
+              <button onClick={shareToLine} className="flex-1.5 flex items-center justify-center bg-[#06C755] rounded-xl text-white hover:bg-[#05a347] transition-all" title="LINE">
+                <span className="text-[10px] font-black leading-none tracking-tighter">LINE</span>
+              </button>
+            </div>
           </div>
 
-          <div className="space-y-6 mb-8">
-            {/* 🚀 メタデータをコンパクトに修正 */}
+          <div className="space-y-6">
+            {/* メタデータセクション */}
             <div>
               <h3 className="flex items-center gap-2 text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-3">
                 画像情報
@@ -124,8 +144,8 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
               </div>
             </div>
 
-            {/* カテゴリー & タグ */}
-            <div className="space-y-4">
+            {/* 回遊セクション */}
+            <div className="space-y-4 pt-4 border-t border-white/5">
               <div>
                 <h3 className="text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-2">カテゴリー</h3>
                 <Link href={`/category/${image.category}`} className="inline-block px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold hover:bg-cyan-500/20 transition-all">
@@ -144,26 +164,13 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
               </div>
             </div>
           </div>
-
-          {/* SNSシェア */}
-          <div className="mt-auto pt-6 border-t border-white/5 flex gap-2">
-            <button onClick={shareToX} className="flex-1 flex items-center justify-center p-3 bg-black rounded-xl text-white hover:bg-slate-900 transition-all border border-white/10">
-              <XLogo className="w-5 h-5" />
-            </button>
-            <button onClick={shareToLinkedin} className="flex-1 flex items-center justify-center p-3 bg-[#0A66C2] rounded-xl text-white hover:bg-[#004182] transition-all">
-              <Linkedin className="w-5 h-5 fill-current" />
-            </button>
-            <button onClick={shareToLine} className="flex-[1.5] flex items-center justify-center p-3 bg-[#06C755] rounded-xl text-white hover:bg-[#05a347] transition-all">
-              <span className="text-[13px] font-black tracking-tighter">LINE</span>
-            </button>
-          </div>
         </div>
       </div>
     </div>
   );
 }
 
-// --- カテゴリーセクション ---
+// --- カテゴリーセクション（メイン） ---
 export default function CategorySection({ title, description, images }: { title: string; description: string; images: any[] }) {
   const [selectedImage, setSelectedImage] = useState<any>(null);
 
