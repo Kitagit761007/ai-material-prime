@@ -1,94 +1,65 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Header from "@/components/Header";
 import MaterialGallery from "@/components/MaterialGallery";
-import { useFavorites } from "@/hooks/useFavorites";
-import { Heart, ChevronLeft } from "lucide-react";
 import Link from "next/link";
-
-interface Asset {
-    id: string;
-    url: string;
-    title: string;
-    description: string;
-    category: string;
-    tags: string[];
-}
+import { Heart, ChevronLeft } from "lucide-react";
 
 export default function FavoritesPage() {
-    const { favorites, isLoaded: favsLoaded } = useFavorites();
-    const [allAssets, setAllAssets] = useState<Asset[]>([]);
-    const [isAssetsLoading, setIsAssetsLoading] = useState(true);
+  const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        const loadAssets = async () => {
-            try {
-                const response = await fetch('/data/assets.json');
-                const data = await response.json();
-                setAllAssets(data);
-            } catch (e) {
-                console.error(e);
-            } finally {
-                setIsAssetsLoading(false);
-            }
-        };
-        loadAssets();
-    }, []);
+  useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    setFavoriteIds(favorites);
+    setIsLoading(false);
 
-    if (!favsLoaded || isAssetsLoading) {
-        return <div className="min-h-screen bg-slate-950 flex items-center justify-center">
-            <div className="w-8 h-8 border-2 border-gx-cyan border-t-transparent rounded-full animate-spin" />
-        </div>;
-    }
+    // 更新イベントの監視（モーダルで解除された場合など）
+    const handleUpdate = () => {
+      const updated = JSON.parse(localStorage.getItem("favorites") || "[]");
+      setFavoriteIds(updated);
+    };
+    window.addEventListener("favoritesUpdated", handleUpdate);
+    return () => window.removeEventListener("favoritesUpdated", handleUpdate);
+  }, []);
 
-    // Filter assets whose IDs are in favorites
-    const favoriteAssets = allAssets.filter(asset => favorites.includes(asset.id));
-
-    return (
-        <div className="min-h-screen pb-20 pt-24">
-            <div className="max-w-7xl mx-auto px-6 mb-12">
-                <Link
-                    href="/"
-                    className="inline-flex items-center gap-2 text-slate-500 hover:text-gx-cyan transition-colors mb-8 group"
-                >
-                    <ChevronLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
-                    トップページへ戻る
-                </Link>
-
-                <div className="flex items-center gap-4 mb-2">
-                    <div className="p-3 bg-rose-500/10 rounded-2xl border border-rose-500/20">
-                        <Heart className="w-8 h-8 text-rose-500 fill-rose-500" />
-                    </div>
-                    <div>
-                        <h1 className="text-4xl font-extrabold text-white tracking-tight">
-                            保存済み / Favorites
-                        </h1>
-                        <p className="text-slate-400 text-sm mt-2 flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 bg-rose-500 rounded-full animate-pulse" />
-                            現在 <span className="text-rose-500 font-bold text-base">{favoriteAssets.length}</span> 件の素材が保存されています
-                        </p>
-                    </div>
-                </div>
-                <div className="h-px w-full bg-gradient-to-r from-rose-500/50 via-white/5 to-transparent mt-10" />
-            </div>
-
-            {favoriteAssets.length > 0 ? (
-                <MaterialGallery initialAssets={favoriteAssets} />
-            ) : (
-                <div className="max-w-7xl mx-auto px-6 text-center py-20">
-                    <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6 border border-white/10">
-                        <Heart className="w-10 h-10 text-slate-600" />
-                    </div>
-                    <h2 className="text-2xl font-bold text-white mb-2">保存された画像はありません</h2>
-                    <p className="text-slate-500 mb-8">気になった画像を❤️でお気に入りに追加してみましょう。</p>
-                    <Link
-                        href="/gallery"
-                        className="inline-flex py-3 px-8 bg-gx-cyan text-slate-950 font-bold rounded-xl hover:scale-105 transition-all"
-                    >
-                        ギャラリーを見る
-                    </Link>
-                </div>
-            )}
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans">
+      <Header />
+      <main className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+        <div className="mb-10">
+          <Link href="/" className="inline-flex items-center gap-2 text-slate-500 hover:text-cyan-400 text-sm font-bold transition-colors group">
+            <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            GALLERY TOP
+          </Link>
         </div>
-    );
+
+        <div className="mb-16">
+          <div className="flex items-center gap-3 mb-4">
+            <Heart className="w-5 h-5 text-pink-500 fill-current" />
+            <span className="text-cyan-400 text-[10px] font-black uppercase tracking-[0.2em]">Saved Collection</span>
+          </div>
+          <h1 className="text-5xl md:text-6xl font-black text-white italic uppercase tracking-tighter">
+            お気に入り
+          </h1>
+          <div className="h-1.5 w-24 bg-gradient-to-r from-pink-500 to-transparent mt-6" />
+        </div>
+
+        {!isLoading && favoriteIds.length > 0 ? (
+          <MaterialGallery initialIds={favoriteIds} />
+        ) : !isLoading ? (
+          <div className="py-20 text-center bg-white/5 rounded-3xl border border-white/5">
+            <Heart className="w-16 h-16 text-slate-700 mx-auto mb-6" />
+            <p className="text-slate-400 text-lg mb-8">お気に入りに登録された素材はまだありません。</p>
+            <Link href="/" className="px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-white font-bold rounded-2xl transition-all">
+              素材を探しに行く
+            </Link>
+          </div>
+        ) : (
+          <div className="py-20 text-center text-slate-500">読み込み中...</div>
+        )}
+      </main>
+    </div>
+  );
 }
