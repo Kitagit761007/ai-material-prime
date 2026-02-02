@@ -9,6 +9,7 @@ export default function MaterialGallery({ filterCategory }: { filterCategory?: s
 
   useEffect(() => {
     fetch('/data/assets.json').then(res => res.json()).then(data => {
+      // ✅ もし「カテゴリー指定」があれば、その画像だけを選別する
       if (filterCategory) {
         setAssets(data.filter((item: any) => item.category === filterCategory));
       } else {
@@ -27,11 +28,17 @@ export default function MaterialGallery({ filterCategory }: { filterCategory?: s
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {assets.map(item => (
         <GalleryItem key={item.id} item={item} url={getUrl(item)} onOpen={() => setSelectedImage(item)} />
       ))}
-      {selectedImage && <DetailModal image={selectedImage} url={getUrl(selectedImage)} onClose={() => setSelectedImage(null)} />}
+      {selectedImage && (
+        <DetailModal 
+          image={selectedImage} 
+          url={getUrl(selectedImage)} 
+          onClose={() => setSelectedImage(null)} 
+        />
+      )}
     </div>
   );
 }
@@ -42,7 +49,7 @@ function GalleryItem({ item, url, onOpen }: any) {
   return (
     <div className="relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10 cursor-pointer group" onClick={onOpen}>
       <Image src={url} alt={item.title} fill className="object-cover group-hover:scale-110 transition-transform" unoptimized onError={() => setError(true)} />
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent p-6 flex flex-col justify-end">
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent p-6 flex flex-col justify-end text-left">
         <p className="text-white font-bold truncate">{item.title}</p>
       </div>
     </div>
