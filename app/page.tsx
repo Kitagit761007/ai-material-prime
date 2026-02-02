@@ -7,7 +7,6 @@ import { useSearch } from "@/context/SearchContext";
 import assetsData from "@/public/data/assets.json";
 
 export default function Home() {
-  // setSearchQuery も hook から取り出します
   const { searchQuery, setSearchQuery } = useSearch();
 
   const categories = ["GX", "未来都市", "モビリティ"];
@@ -21,7 +20,7 @@ export default function Home() {
     <div className="min-h-screen bg-slate-950 text-slate-50">
       <Header />
       <main>
-        {/* 🚀 Hero に必要なデータを渡します */}
+        {/* 🚀 Hero に必要な道具（props）を渡します */}
         <Hero searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         
         {!searchQuery && sections.map(section => (
@@ -37,7 +36,7 @@ export default function Home() {
           <h2 className="text-4xl font-black text-white italic uppercase mb-12">
             {searchQuery ? `Search: ${searchQuery}` : "Explore All Assets"}
           </h2>
-          <MaterialGallery filterCategory={searchQuery || undefined} />
+          <MaterialGallery searchQuery={searchQuery || undefined} />
         </div>
       </main>
     </div>
