@@ -12,20 +12,25 @@ export default function CategorySection({ title, description, images }: any) {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {images.map((img: any) => (
-                    <div key={img.id} className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 border border-white/10">
-                        <Image
-                            src={img.url} // ✅ JSONにある "/assets/images/..." をそのまま使う
-                            alt={img.title || "Asset Image"}
-                            fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
-                            unoptimized 
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-6 flex flex-col justify-end">
-                            <h3 className="text-white font-bold truncate">{img.title}</h3>
+                {images.map((img: any) => {
+                    // ✅ フォルダ名の読み替え魔法（g -> grok）
+                    const correctedUrl = img.url.replace('/assets/images/g/', '/assets/images/grok/');
+                    
+                    return (
+                        <div key={img.id} className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 border border-white/10">
+                            <Image
+                                src={correctedUrl} 
+                                alt={img.title || "Asset"}
+                                fill
+                                className="object-cover"
+                                unoptimized 
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-6 flex flex-col justify-end">
+                                <h3 className="text-white font-bold truncate">{img.title}</h3>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
         </section>
     );
