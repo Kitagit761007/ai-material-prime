@@ -7,48 +7,57 @@ import {
   X, Download, Linkedin, Info, Tag as TagIcon, Layers, ChevronRight 
 } from "lucide-react";
 
-// --- 最新の𝕏ロゴ（SVG） ---
+// --- 最新の𝕏ロゴ ---
 const XLogo = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
   </svg>
 );
 
-// 🚀 人間味を持たせたSEO・AdSense特化型ランダム生成ロジック
-const getSeoDescription = (title: string, category: string, id: string) => {
-  // 画像IDからシード値を生成し、常に同じ画像には同じ文章が当たるように固定（SEOの基本）
-  const seed = id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+// 🚀 戦略的アスペクト比・マッピング関数
+const getSmartRatio = (w: number, h: number) => {
+  if (!w || !h) return "---";
+  const ratio = w / h;
+  const standards = [
+    { name: "1:1", val: 1.0, label: "正方形" },
+    { name: "16:9", val: 1.777, label: "ワイド" },
+    { name: "9:16", val: 0.562, label: "スマホ" },
+    { name: "3:2", val: 1.5, label: "標準" },
+    { name: "2:3", val: 0.666, label: "ポスター" },
+    { name: "4:3", val: 1.333, label: "TV" },
+    { name: "3:4", val: 0.75, label: "縦型" },
+    { name: "21:9", val: 2.333, label: "シネマ" }
+  ];
   
-  const intros = [
-    `「${title}」は、${category}の核心を突くビジュアルを追求し、独自の空気感を大切に制作しました。`,
-    `${category}という広大なテーマの中から、特に「${title}」が持つ象徴的な一瞬を切り出しています。`,
-    `${title}の美しさを最大限に引き出すため、AI生成プロセスにおいて数百回の調整を重ねた自信作です。`,
-    `先進的な${category}の概念を具現化した「${title}」は、見る者の想像力を刺激する深いディテールを誇ります。`
-  ];
+  // 最も近い比率を探す
+  const closest = standards.reduce((prev, curr) => 
+    Math.abs(curr.val - ratio) < Math.abs(prev.val - ratio) ? curr : prev
+  );
 
-  const bodies = [
-    `GX（グリーントランスフォーメーション）時代の新たなスタンダードとなるべく、光の屈折や質感の細部にまで徹底的にこだわりました。`,
-    `次世代のクリエイティブシーンを想定し、プロフェッショナルな商用利用でも見劣りしない圧倒的な精細さを実現しています。`,
-    `洗練された構図と色彩のバランスが、ビジネスプレゼンテーションやWebデザインにおいて、これ以上ないインパクトを与えます。`,
-    `環境とテクノロジーが調和する未来の世界観を、最新の生成アルゴリズムによってドラマチックに描き出しました。`
-  ];
-
-  const closings = [
-    "もちろん商用利用可能で、クレジット表記の必要もありません。あなたのプロジェクトに、今すぐ最先端の視覚体験を取り入れてください。",
-    "ライセンスフリーで自由にお使いいただけます。デジタル時代の新しいビジュアルコミュニケーションに、ぜひ本素材をご活用ください。",
-    "妥協のない品質を、すべてのクリエイターへ。AI MATERIAL PRIMEが自信を持って提供する、一点もののデジタルアセットです。",
-    "高品質な素材が、あなたのクリエイティブを強力にバックアップします。ビジネスの成功を導くビジョンビジュアルとしてお役立てください。"
-  ];
-
-  // シード値を使って異なるパーツを組み合わせる（組み合わせパターンは64通り以上）
-  const intro = intros[seed % intros.length];
-  const body = bodies[(seed + 1) % bodies.length];
-  const closing = closings[(seed + 2) % closings.length];
-
-  return `${intro} ${body} ${closing}`;
+  return `${closest.name}`;
 };
 
-// --- 画像詳細モーダル ---
+// 🚀 人間味のあるSEO説明文生成
+const getSeoDescription = (title: string, category: string, id: string) => {
+  const seed = id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  const intros = [
+    `「${title}」は、${category}の核心を突くビジュアルを追求した、${id}番目の独自作品です。`,
+    `${category}という広大なテーマから、特に「${title}」が持つ象徴的な一瞬を切り出しました。`,
+    `${title}の美しさを最大限に引き出すため、AI生成のプロセスで数百回の調整を重ねた自信作です。`
+  ];
+  const bodies = [
+    `GX時代の新たなスタンダードとなるべく、光の屈折や質感の細部にまで徹底的にこだわりました。`,
+    `次世代のクリエイティブを想定し、プロフェッショナルな商用利用でも見劣りしない精細さを実現しています。`,
+    `洗練された色彩バランスが、ビジネスプレゼンやWebデザインに圧倒的なインパクトを与えます。`
+  ];
+  const closings = [
+    "商用利用可能で、クレジット表記も不要。あなたのプロジェクトに、今すぐ最先端の視覚体験を。",
+    "ライセンスフリーで自由にお使いいただけます。デジタル時代の新しい表現にぜひご活用ください。",
+    "高品質な素材がクリエイティブを強力にバックアップ。ビジネスの成功を導くビジュアルとしてお役立てください。"
+  ];
+  return `${intros[seed % intros.length]} ${bodies[(seed + 1) % bodies.length]} ${closings[(seed + 2) % closings.length]}`;
+};
+
 export function DetailModal({ image, url, onClose }: { image: any; url: string; onClose: () => void }) {
   const [metadata, setMetadata] = useState<{ width: number; height: number; size: string; ratio: string }>({
     width: 0, height: 0, size: "...", ratio: "---"
@@ -61,9 +70,12 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
     img.onload = () => {
       const w = img.naturalWidth;
       const h = img.naturalHeight;
-      const calculateGCD = (a: number, b: number): number => (b === 0 ? a : calculateGCD(b, a % b));
-      const common = calculateGCD(w, h);
-      setMetadata({ width: w, height: h, size: "...", ratio: `${w / common}:${h / common}` });
+      setMetadata(prev => ({ 
+        ...prev, 
+        width: w, 
+        height: h, 
+        ratio: getSmartRatio(w, h) // 🚀 スマート比率を適用
+      }));
     };
     fetch(url, { method: 'HEAD' }).then(res => {
       const bytes = parseInt(res.headers.get('content-length') || '0');
@@ -78,9 +90,6 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
   const shareToX = () => window.open(`https://x.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`, '_blank');
   const shareToLinkedin = () => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, '_blank');
   const shareToLine = () => window.open(`https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(shareUrl)}`, '_blank');
-
-  // 🚀 ランダム生成された人間味のある説明文
-  const seoDescription = getSeoDescription(image.title, image.category, image.id);
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/95 backdrop-blur-xl animate-in fade-in duration-300">
@@ -98,16 +107,13 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
         <div className="w-full lg:w-[400px] p-6 sm:p-8 flex flex-col overflow-y-auto bg-slate-900 border-t lg:border-t-0 lg:border-l border-white/5 text-left flex-1 relative z-10">
           <div className="mb-6">
             <h2 className="text-xl sm:text-2xl font-black text-white italic uppercase tracking-tighter mb-4 leading-tight">{image.title}</h2>
-            
-            {/* 🚀 SEO & AdSense対応：高品質な説明文エリア */}
             <div className="bg-white/5 p-4 rounded-2xl border border-white/5 mb-6">
               <p className="text-slate-300 text-xs sm:text-[13px] leading-relaxed antialiased">
-                {seoDescription}
+                {getSeoDescription(image.title, image.category, image.id)}
               </p>
             </div>
           </div>
 
-          {/* 🚀 コンサル提案：DL(左) & SNS(右) のバランス最適化 */}
           <div className="flex gap-2 items-stretch mb-8 h-12 sm:h-14 flex-none">
             <a href={url} download className="flex-[3] flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-white font-bold rounded-2xl transition-all shadow-lg shadow-cyan-500/20 active:scale-[0.98]">
               <Download className="w-4 h-4 sm:w-5 sm:h-5" /> 
@@ -121,10 +127,13 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
           </div>
 
           <div className="space-y-8">
-            {/* 🚀 スペックバー形式の画像情報 */}
+            {/* 🚀 アップデートされた画像情報（横一列） */}
             <div className="bg-white/5 rounded-2xl border border-white/5 p-4 flex justify-between items-center text-center divide-x divide-white/10">
               {[{l:"解像度",v:metadata.width>0?`${metadata.width}×${metadata.height}`:"-"},{l:"比率",v:metadata.ratio},{l:"サイズ",v:metadata.size},{l:"形式",v:"JPG"}].map((it,i)=>(
-                <div key={i} className="flex-1 flex flex-col px-1"><span className="text-[8px] text-slate-500 font-bold mb-1">{it.l}</span><span className="text-[11px] text-white font-mono truncate">{it.v}</span></div>
+                <div key={i} className="flex-1 flex flex-col px-1">
+                  <span className="text-[8px] text-slate-500 font-bold mb-1">{it.l}</span>
+                  <span className="text-[11px] text-white font-mono truncate">{it.v}</span>
+                </div>
               ))}
             </div>
 
