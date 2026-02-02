@@ -14,30 +14,28 @@ export default function MaterialGallery() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
             {assets.map((item: any) => {
-                // --- 🛠️ フォルダ名の強制補正 ---
-                let folder = "grok";
-                if (item.id.startsWith("mid-")) folder = "mid";
-                if (item.id.startsWith("niji-")) folder = "niji";
-                if (item.id.startsWith("gpt-")) folder = "GPT";   // ✅ 大文字に修正
-                if (item.id.startsWith("nano-")) folder = "nano";
-                if (item.id.startsWith("g-")) folder = "grok";
+                // --- 🛠️ フォルダと拡張子の自動補正ロジック ---
+                let url = item.url;
 
-                // URLを強制再構築（拡張子が.jpgであることを前提）
-                const finalUrl = `/assets/images/${folder}/${item.id}.jpg`;
+                // 1. フォルダ名の補正
+                url = url.replace('/assets/images/g/', '/assets/images/grok/');
+                url = url.replace('/assets/images/gpt/', '/assets/images/GPT/');
+
+                // 2. GPTなどの拡張子補正（.jpgで失敗する対策）
+                if (item.id.startsWith('gpt-')) {
+                    url = url.replace('.jpg', '.png');
+                }
 
                 return (
                     <div key={item.id} className="relative rounded-xl overflow-hidden bg-slate-900 border border-white/10">
                         <div className="aspect-[4/3] relative">
                             <Image 
-                                src={finalUrl} 
+                                src={url} 
                                 alt={item.title || item.id} 
                                 fill
                                 className="object-cover"
                                 unoptimized
-                                onError={(e: any) => {
-                                    // 万が一.jpgでダメなら.pngを試す（デバッグ用ヒント）
-                                    console.log(`Failed to load: ${finalUrl}`);
-                                }}
+                                onError={(e) => console.log("Failed to load:", url)}
                             />
                         </div>
                         <div className="p-4 bg-slate-950/80">
