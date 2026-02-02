@@ -22,10 +22,11 @@ export default function FavoritesPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans">
+    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans overflow-x-hidden">
       <Header />
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-pink-500/5 rounded-full blur-[120px] -z-10" />
       <main className="pt-32 pb-20 px-6 max-w-7xl mx-auto text-left">
-        <div className="mb-10">
+        <div className="mb-10 text-left">
           <Link href="/" className="inline-flex items-center gap-2 text-slate-500 hover:text-cyan-400 text-sm font-bold transition-colors group">
             <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             GALLERY TOP
@@ -39,13 +40,13 @@ export default function FavoritesPage() {
           <h1 className="text-5xl md:text-6xl font-black text-white italic uppercase tracking-tighter">お気に入り</h1>
           <div className="h-1.5 w-24 bg-gradient-to-r from-pink-500 to-transparent mt-6" />
         </div>
+
         {!isLoading && favoriteIds.length > 0 ? (
           <MaterialGallery initialIds={favoriteIds} />
         ) : !isLoading ? (
           <div className="py-20 text-center bg-white/5 rounded-3xl border border-white/5">
-            <Heart className="w-16 h-16 text-slate-800 mx-auto mb-6" />
             <p className="text-slate-400 mb-8 font-bold">まだお気に入りはありません</p>
-            <Link href="/" className="px-10 py-4 bg-cyan-500 text-white font-bold rounded-2xl">素材を探しに行く</Link>
+            <Link href="/" className="px-10 py-4 bg-cyan-500 text-white font-bold rounded-2xl transition-all">素材を探しに行く</Link>
           </div>
         ) : null}
       </main>
