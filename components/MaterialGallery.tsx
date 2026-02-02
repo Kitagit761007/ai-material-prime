@@ -1,13 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+// 🚀 CategorySection から新しくなった DetailModal をインポート
 import { DetailModal } from "./CategorySection";
 
-// 🚀 ビルドエラーの主因「initialIds」を型定義に追加
 interface MaterialGalleryProps {
   filterCategory?: string;
   searchQuery?: string;
-  initialIds?: string[]; 
+  initialIds?: string[]; // 🚀 お気に入りIDリストを受け取る準備
 }
 
 export default function MaterialGallery({ 
@@ -26,7 +26,7 @@ export default function MaterialGallery({
       .then(data => {
         let filtered = data;
         
-        // 🚀 お気に入りIDリストによる絞り込み（これが今回の肝）
+        // 🚀 お気に入りIDリストがある場合はそれだけで絞り込む
         if (initialIds) {
           filtered = data.filter((item: any) => initialIds.includes(item.id));
         } else if (filterCategory) {
@@ -35,8 +35,7 @@ export default function MaterialGallery({
           const q = searchQuery.toLowerCase();
           filtered = data.filter((item: any) => 
             item.title.toLowerCase().includes(q) || 
-            item.category.toLowerCase().includes(q) ||
-            (item.tags && item.tags.some((t: string) => t.toLowerCase().includes(q)))
+            item.category.toLowerCase().includes(q)
           );
         }
         
@@ -55,7 +54,7 @@ export default function MaterialGallery({
   if (loading) return <div className="py-20 text-center text-slate-500 animate-pulse font-bold tracking-widest uppercase">Loading Gallery...</div>;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {assets.map(item => (
         <div 
           key={item.id} 
@@ -68,6 +67,8 @@ export default function MaterialGallery({
           </div>
         </div>
       ))}
+      
+      {/* 🚀 新しい DetailModal を使用 */}
       {selectedImage && (
         <DetailModal 
           image={selectedImage} 
