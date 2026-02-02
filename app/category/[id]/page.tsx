@@ -1,17 +1,22 @@
 import Header from "@/components/Header";
 import MaterialGallery from "@/components/MaterialGallery";
 
-// 🚀 ビルド予約リスト
+// 🚀 ビルド予約リスト（サーバーの仕事）
 export async function generateStaticParams() {
   return [
-    { id: 'GX' }, { id: '未来都市' }, { id: 'モビリティ' },
-    { id: 'grok' }, { id: 'GPT' }, { id: 'niji' }, { id: 'mid' }
+    { id: 'GX' },
+    { id: '未来都市' },
+    { id: 'モビリティ' },
+    { id: 'grok' },
+    { id: 'GPT' },
+    { id: 'niji' },
+    { id: 'mid' }
   ];
 }
 
-// 🚀 ページ本体：必ず async にし、params を await します
+// 🚀 18行目：必ず async をつけます
 export default async function CategoryPage({ params }: { params: Promise<{ id: string }> }) {
-  // ここが重要！ params は Promise なので await で中身を取り出します
+  // 🚀 20行目：必ず await を使って、ID（GXなど）を確定させます
   const resolvedParams = await params;
   const categoryId = decodeURIComponent(resolvedParams.id);
 
@@ -25,6 +30,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ id: s
         </h1>
         <div className="h-1 w-20 bg-cyan-500 mt-4 mb-12" />
         
+        {/* 画像の表示を MaterialGallery に任せる */}
         <MaterialGallery filterCategory={categoryId} />
       </main>
     </div>
