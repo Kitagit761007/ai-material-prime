@@ -3,42 +3,37 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { DetailModal } from "./CategorySection";
 
-// 🚀 全てのページ（トップ・検索・お気に入り・タグ）に対応する万能な型定義
+// 🚀 initialIds を受け取れるように型を定義
 interface MaterialGalleryProps {
   filterCategory?: string;
   searchQuery?: string;
-  initialAssets?: any[];
-  onResultCount?: (count: number | null) => void;
+  initialIds?: string[]; 
 }
 
 export default function MaterialGallery({ 
   filterCategory, 
   searchQuery, 
-  initialAssets, 
-  onResultCount 
+  initialIds 
 }: MaterialGalleryProps) {
-  const [assets, setAssets] = useState<any[]>(initialAssets || []);
+  const [assets, setAssets] = useState<any[]>([]);
   const [selectedImage, setSelectedImage] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // お気に入りページなどで既にデータがある場合
-    if (initialAssets) {
-      setAssets(initialAssets);
-      if (onResultCount) onResultCount(initialAssets.length);
-      return;
-    }
-
-    // データの読み込みとフィルタリング
+    setLoading(true);
     fetch('/data/assets.json')
       .then(res => res.json())
       .then(data => {
         let filtered = data;
         
-        if (filterCategory) {
-          // カテゴリーで絞り込み
+        // 🚀 お気に入りIDリストが渡された場合の処理
+        if (initialIds) {
+          filtered = data.filter((item: any) => initialIds.includes(item.id));
+        } 
+        else if (filterCategory) {
           filtered = data.filter((item: any) => item.category === filterCategory);
-        } else if (searchQuery) {
-          // タグまたは検索ワードで絞り込み
+        } 
+        else if (searchQuery) {
           const q = searchQuery.toLowerCase();
           filtered = data.filter((item: any) => 
             item.title.toLowerCase().includes(q) || 
@@ -48,10 +43,13 @@ export default function MaterialGallery({
         }
         
         setAssets(filtered);
-        if (onResultCount) onResultCount(filtered.length);
+        setLoading(false);
       })
-      .catch(err => console.error("Data load failed:", err));
-  }, [filterCategory, searchQuery, initialAssets, onResultCount]);
+      .catch(err => {
+        console.error("Load failed:", err);
+        setLoading(false);
+      });
+  }, [filterCategory, searchQuery, initialIds]);
 
   const getUrl = (item: any) => {
     if (!item) return "";
@@ -63,6 +61,8 @@ export default function MaterialGallery({
     return `/assets/images/${folder}/${item.id}${ext}`;
   };
 
+  if (loading) return <div className="py-20 text-center text-slate-500 animate-pulse font-bold tracking-widest">LOADING...</div>;
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {assets.map(item => (
@@ -71,8 +71,8 @@ export default function MaterialGallery({
           className="relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10 cursor-pointer group"
           onClick={() => setSelectedImage(item)}
         >
-          <Image src={getUrl(item)} alt={item.title} fill className="object-cover group-hover:scale-110 transition-transform" unoptimized />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent p-6 flex flex-col justify-end text-left">
+          <Image src={getUrl(item)} alt={item.title} fill className="object-cover group-hover:scale-110 transition-transform duration-500" unoptimized />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent p-6 flex flex-col justify-end text-left opacity-0 group-hover:opacity-100 transition-opacity">
             <p className="text-white font-bold truncate text-sm">{item.title}</p>
           </div>
         </div>
