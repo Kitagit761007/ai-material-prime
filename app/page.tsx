@@ -44,6 +44,9 @@ export default function Home() {
 
     return (
         <div className="flex flex-col min-h-screen">
+            <h1 style={{ color: 'red', fontSize: '100px', position: 'fixed', top: 0, zIndex: 9999, background: 'yellow' }}>
+  TEST: NEW CODE IS ALIVE
+</h1>
             <JsonLd images={assets.map(a => ({ src: a.url }))} />
             <Hero searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 
