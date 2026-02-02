@@ -9,7 +9,7 @@ import assetsData from "@/public/data/assets.json";
 export default function Home() {
   const { searchQuery, setSearchQuery } = useSearch();
 
-  // 以前の、トップページで完結する表示形式です
+  // カテゴリーごとのプレビュー設定
   const categories = ["GX", "未来都市", "モビリティ"];
   const sections = categories.map(cat => ({
     title: cat,
@@ -18,12 +18,13 @@ export default function Home() {
   }));
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
+    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans">
       <Header />
       <main>
+        {/* 検索機能をHeroに渡す以前の形式 */}
         <Hero searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         
-        {/* 検索中ではない時だけ、カテゴリーセクションを表示 */}
+        {/* 検索中ではない時だけカテゴリーセクションを表示 */}
         {!searchQuery && sections.map(section => (
           <CategorySection 
             key={section.title} 
@@ -33,12 +34,14 @@ export default function Home() {
           />
         ))}
 
+        {/* メインギャラリー：検索ワードがあればそれに基づいて表示 */}
         <div id="gallery-section" className="py-20 px-6 max-w-7xl mx-auto border-t border-white/5">
-          <h2 className="text-4xl font-black text-white italic uppercase mb-12">
-            {searchQuery ? `Search: ${searchQuery}` : "Explore All Assets"}
-          </h2>
-          {/* MaterialGallery が検索やカテゴリーの「表示切り替え」をすべて担当します */}
-          <MaterialGallery filterCategory={searchQuery || undefined} />
+          <div className="mb-12">
+            <h2 className="text-4xl font-black text-white italic uppercase tracking-tighter">
+              {searchQuery ? `Search: ${searchQuery}` : "Explore All Assets"}
+            </h2>
+          </div>
+          <MaterialGallery searchQuery={searchQuery || undefined} />
         </div>
       </main>
     </div>
