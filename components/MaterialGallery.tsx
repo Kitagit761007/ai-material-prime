@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { DetailModal } from "./CategorySection";
 
-// 🚀 initialIds（お気に入りリスト）を認識できるように型を拡張
+// 🚀 ビルドエラーの主因「initialIds」を型定義に追加
 interface MaterialGalleryProps {
   filterCategory?: string;
   searchQuery?: string;
@@ -26,14 +26,12 @@ export default function MaterialGallery({
       .then(data => {
         let filtered = data;
         
-        // 🚀 お気に入りIDリストが渡された場合の処理（これがビルドの肝）
+        // 🚀 お気に入りIDリストによる絞り込み（これが今回の肝）
         if (initialIds) {
           filtered = data.filter((item: any) => initialIds.includes(item.id));
-        } 
-        else if (filterCategory) {
+        } else if (filterCategory) {
           filtered = data.filter((item: any) => item.category === filterCategory);
-        } 
-        else if (searchQuery) {
+        } else if (searchQuery) {
           const q = searchQuery.toLowerCase();
           filtered = data.filter((item: any) => 
             item.title.toLowerCase().includes(q) || 
@@ -45,20 +43,13 @@ export default function MaterialGallery({
         setAssets(filtered);
         setLoading(false);
       })
-      .catch(err => {
-        console.error("Data load failed:", err);
-        setLoading(false);
-      });
+      .catch(() => setLoading(false));
   }, [filterCategory, searchQuery, initialIds]);
 
   const getUrl = (item: any) => {
     if (!item) return "";
-    const folder = item.id.startsWith("mid-") ? "mid" : 
-                   item.id.startsWith("niji-") ? "niji" : 
-                   item.id.startsWith("gpt-") ? "GPT" : 
-                   item.id.startsWith("nano-") ? "nano" : "grok";
-    const ext = folder === "GPT" ? ".png" : ".jpg";
-    return `/assets/images/${folder}/${item.id}${ext}`;
+    const f = item.id.startsWith("mid-") ? "mid" : item.id.startsWith("niji-") ? "niji" : item.id.startsWith("gpt-") ? "GPT" : item.id.startsWith("nano-") ? "nano" : "grok";
+    return `/assets/images/${f}/${item.id}${f === "GPT" ? ".png" : ".jpg"}`;
   };
 
   if (loading) return <div className="py-20 text-center text-slate-500 animate-pulse font-bold tracking-widest uppercase">Loading Gallery...</div>;
@@ -78,7 +69,11 @@ export default function MaterialGallery({
         </div>
       ))}
       {selectedImage && (
-        <DetailModal image={selectedImage} url={getUrl(selectedImage)} onClose={() => setSelectedImage(null)} />
+        <DetailModal 
+          image={selectedImage} 
+          url={getUrl(selectedImage)} 
+          onClose={() => setSelectedImage(null)} 
+        />
       )}
     </div>
   );
