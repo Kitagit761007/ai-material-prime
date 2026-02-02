@@ -74,7 +74,7 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
 
       <div className="relative flex flex-col lg:flex-row w-full max-w-6xl max-h-[90vh] bg-slate-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl animate-in zoom-in-95 duration-300">
         
-        {/* 閉じるボタン（画像プレビューの右上に固定） */}
+        {/* 閉じるボタン */}
         <button 
           onClick={onClose} 
           className="absolute top-4 right-4 z-[120] p-2 bg-black/50 hover:bg-black/80 text-white rounded-full backdrop-blur-md transition-all border border-white/10 group active:scale-90"
@@ -94,26 +94,28 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
             <p className="text-slate-400 text-sm leading-relaxed">{image.description}</p>
           </div>
 
-          {/* 🚀 戦略的アクションエリア：ダウンロード(左) & SNS(右) */}
-          <div className="flex gap-2 items-stretch mb-8">
+          {/* 🚀 戦略的アクションエリア：バランス修正版 */}
+          <div className="flex gap-3 items-stretch mb-8 h-14">
+            {/* メインCTA：無料ダウンロード（幅広） */}
             <a 
               href={url} 
               download 
-              className="flex-[3] flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 rounded-2xl transition-all shadow-lg shadow-cyan-500/20 active:scale-[0.98]"
+              className="flex-[5] flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-white font-bold rounded-2xl transition-all shadow-lg shadow-cyan-500/20 active:scale-[0.98]"
             >
               <Download className="w-5 h-5" /> 
               <span className="text-sm">無料DL</span>
             </a>
 
-            <div className="flex-[2] flex gap-1">
-              <button onClick={shareToX} className="flex-1 flex items-center justify-center bg-black rounded-xl text-white hover:bg-slate-900 transition-all border border-white/10" title="X">
+            {/* サブアクション：SNS拡散（均等割付） */}
+            <div className="flex-[3] flex gap-2">
+              <button onClick={shareToX} className="flex-1 flex items-center justify-center bg-black rounded-xl text-white hover:bg-slate-900 transition-all border border-white/10" title="Share on X">
                 <XLogo className="w-4 h-4" />
               </button>
-              <button onClick={shareToLinkedin} className="flex-1 flex items-center justify-center bg-[#0A66C2] rounded-xl text-white hover:bg-[#004182] transition-all" title="LinkedIn">
+              <button onClick={shareToLinkedin} className="flex-1 flex items-center justify-center bg-[#0A66C2] rounded-xl text-white hover:bg-[#004182] transition-all" title="Share on LinkedIn">
                 <Linkedin className="w-4 h-4 fill-current" />
               </button>
-              <button onClick={shareToLine} className="flex-1.5 flex items-center justify-center bg-[#06C755] rounded-xl text-white hover:bg-[#05a347] transition-all" title="LINE">
-                <span className="text-[10px] font-black leading-none tracking-tighter">LINE</span>
+              <button onClick={shareToLine} className="flex-1 flex items-center justify-center bg-[#06C755] rounded-xl text-white hover:bg-[#05a347] transition-all" title="Share on LINE">
+                <span className="text-xs font-bold leading-none tracking-tight">LINE</span>
               </button>
             </div>
           </div>
