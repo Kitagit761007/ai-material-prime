@@ -6,7 +6,6 @@ export default function MaterialGallery() {
     const [assets, setAssets] = useState([]);
 
     useEffect(() => {
-        // キャッシュを避けるために最新のJSONを読み込む
         fetch(`/data/assets.json?v=${Date.now()}`)
             .then(res => res.json())
             .then(data => setAssets(data));
@@ -17,12 +16,12 @@ export default function MaterialGallery() {
             {assets.map((item: any) => (
                 <div key={item.id} className="relative rounded-xl overflow-hidden bg-slate-900 border border-white/10">
                     <Image 
-                        src={item.url} // ✅ JSONの "/assets/images/..." をそのまま使う
+                        src={item.url} // ✅ 正しい住所を使う
                         alt={item.title} 
                         width={600} 
                         height={400} 
                         className="w-full h-auto object-cover"
-                        unoptimized // ✅ 重要：GitHub Pagesで画像を出すための魔法
+                        unoptimized
                     />
                     <div className="p-4 bg-slate-950/50">
                         <p className="text-white text-sm font-bold truncate">{item.title}</p>
