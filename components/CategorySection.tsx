@@ -15,8 +15,8 @@ export default function CategorySection({ title, description, images }: any) {
                 {images.map((img: any) => (
                     <div key={img.id} className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 border border-white/10">
                         <Image
-                            src={img.url} // ✅ ここが命です。JSONのurlをそのまま使う。
-                            alt={img.title || "Asset"}
+                            src={img.url} // ✅ JSONにある "/assets/images/..." をそのまま使う
+                            alt={img.title || "Asset Image"}
                             fill
                             className="object-cover transition-transform duration-500 group-hover:scale-105"
                             unoptimized 
