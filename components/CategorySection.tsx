@@ -4,14 +4,13 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { 
-  X, Download, Twitter, Linkedin, // Linkedinを追加
-  Link as LinkIcon, Info, Tag as TagIcon, Layers, ChevronRight 
+  X, Download, Linkedin, Info, Tag as TagIcon, Layers, ChevronRight 
 } from "lucide-react";
 
-// --- LINEアイコン（LucideにないためSVGで定義） ---
-const LineIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
-    <path d="M21.35 11.1h-.01c0-2.7-2.2-4.9-4.9-4.9h-9c-2.7 0-4.9 2.2-4.9 4.9v6c0 1.27.48 2.43 1.27 3.3-.15 1.11-.66 2.67-1.3 3.78a.64.64 0 0 0 .96.78c1.43-1.1 3.57-2.32 4.92-2.66.75.32 1.57.5 2.44.5h9.01c2.7 0 4.9-2.2 4.9-4.9v-6c0-.27-.02-.53-.06-.79v-.01zm-4.9 8.9h-9c-2.2 0-4-1.8-4-4v-6c0-2.2 1.8-4 4-4h9c2.2 0 4 1.8 4 4v6c0 2.2-1.8 4-4 4zm-5.8-3.5h-2.8a.5.5 0 0 1-.5-.5v-2.8a.5.5 0 0 1 .5-.5h2.8a.5.5 0 0 1 .5.5v2.8a.5.5 0 0 1-.5.5zm0-1h-1.8v-1.8h1.8v1.8zm5.8 1h-2.8a.5.5 0 0 1-.5-.5v-2.8a.5.5 0 0 1 .5-.5h2.8a.5.5 0 0 1 .5.5v2.8a.5.5 0 0 1-.5.5zm0-1h-1.8v-1.8h1.8v1.8z"/>
+// --- 最新の𝕏ロゴ（SVG） ---
+const XLogo = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
   </svg>
 );
 
@@ -33,10 +32,8 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
     img.onload = () => {
       const w = img.naturalWidth;
       const h = img.naturalHeight;
-      
       const calculateGCD = (a: number, b: number): number => (b === 0 ? a : calculateGCD(b, a % b));
       const common = calculateGCD(w, h);
-      
       setMetadata(prev => ({
         ...prev,
         width: w,
@@ -55,16 +52,14 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
         setMetadata(prev => ({ ...prev, size: sizeStr }));
       })
       .catch(() => setMetadata(prev => ({ ...prev, size: "不明" })));
-
   }, [url]);
 
-  // シェア用URLとテキストの準備
+  // シェア用設定
   const shareUrl = typeof window !== "undefined" ? window.location.origin + `/gallery/${image.id}` : "";
   const shareText = `${image.title} - AI MATERIAL PRIME`;
 
-  // 各SNSのシェア関数
   const shareToX = () => {
-    window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`, '_blank');
+    window.open(`https://x.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`, '_blank');
   };
   const shareToLinkedin = () => {
     window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, '_blank');
@@ -113,7 +108,7 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
                 </div>
                 <div className="bg-white/5 p-3 rounded-xl border border-white/5">
                   <p className="text-[9px] text-slate-500 uppercase font-bold mb-1">Format</p>
-                  <p className="text-sm text-white font-mono uppercase">{url.split('.').pop()}</p>
+                  <p className="text-sm text-white font-mono uppercase font-sans">JPG</p>
                 </div>
               </div>
             </div>
@@ -124,7 +119,7 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
                 <h3 className="flex items-center gap-2 text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-2">
                   <Layers className="w-3 h-3" /> Category
                 </h3>
-                <Link href={`/category/${image.category}`} className="inline-block px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold">
+                <Link href={`/category/${image.category}`} className="inline-block px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold hover:bg-cyan-500/20 transition-all">
                   {image.category}
                 </Link>
               </div>
@@ -134,7 +129,7 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {image.tags?.map((tag: string) => (
-                    <Link key={tag} href={`/tags/${tag}`} className="text-[11px] text-slate-400 hover:text-white">
+                    <Link key={tag} href={`/tags/${tag}`} className="text-[11px] text-slate-400 hover:text-white transition-colors">
                       #{tag}
                     </Link>
                   ))}
@@ -148,21 +143,21 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
               <Download className="w-5 h-5" /> DOWNLOAD
             </a>
             
-            {/* SNSシェアボタン (ここを修正) */}
+            {/* 🚀 最新SNSボタンセクション */}
             <div className="flex gap-2">
-              {/* X (旧Twitter) - 黒 */}
-              <button onClick={shareToX} className="flex-1 flex items-center justify-center p-3 bg-black rounded-xl text-white hover:bg-slate-900 transition-all border border-white/10">
-                <Twitter className="w-5 h-5 fill-current" />
+              {/*𝕏 (最新ロゴ) */}
+              <button onClick={shareToX} className="flex-1 flex items-center justify-center p-3 bg-black rounded-xl text-white hover:bg-slate-900 transition-all border border-white/10" title="Share on 𝕏">
+                <XLogo className="w-5 h-5" />
               </button>
               
-              {/* LinkedIn - 青 */}
-              <button onClick={shareToLinkedin} className="flex-1 flex items-center justify-center p-3 bg-[#0A66C2] rounded-xl text-white hover:bg-[#095aab] transition-all shadow-lg shadow-blue-500/20">
+              {/* LinkedIn (ブランドブルー) */}
+              <button onClick={shareToLinkedin} className="flex-1 flex items-center justify-center p-3 bg-[#0A66C2] rounded-xl text-white hover:bg-[#004182] transition-all shadow-lg shadow-blue-500/10" title="Share on LinkedIn">
                 <Linkedin className="w-5 h-5 fill-current" />
               </button>
               
-              {/* LINE - 緑 */}
-              <button onClick={shareToLine} className="flex-1 flex items-center justify-center p-3 bg-[#06C755] rounded-xl text-white hover:bg-[#05b34c] transition-all shadow-lg shadow-green-500/20">
-                <LineIcon className="w-5 h-5" />
+              {/* LINE (テキスト表示) */}
+              <button onClick={shareToLine} className="flex-[1.5] flex items-center justify-center p-3 bg-[#06C755] rounded-xl text-white hover:bg-[#05a347] transition-all shadow-lg shadow-green-500/10" title="Share on LINE">
+                <span className="text-[13px] font-black tracking-tighter">LINE</span>
               </button>
             </div>
           </div>
