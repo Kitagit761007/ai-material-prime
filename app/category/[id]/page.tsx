@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import MaterialGallery from "@/components/MaterialGallery";
 
-// 🚀 印刷予約：ここで「どのページを作るか」を印刷所に伝えます
+// 🚀 印刷予約リスト（サーバーの仕事）
 export async function generateStaticParams() {
   return [
     { id: 'GX' },
@@ -14,8 +14,9 @@ export async function generateStaticParams() {
   ];
 }
 
-// 画面の構成（サーバー側で組み立て）
+// 🚀 ページを組み立てる（サーバーの仕事）
 export default function CategoryPage({ params }: { params: { id: string } }) {
+  // params.id で直接URLの文字（GXなど）を取得できます
   const categoryId = decodeURIComponent(params.id);
 
   return (
@@ -28,7 +29,7 @@ export default function CategoryPage({ params }: { params: { id: string } }) {
         </h1>
         <div className="h-1 w-20 bg-cyan-500 mt-4 mb-12" />
         
-        {/* 画像の表示処理（クライアント側）にバトンタッチ */}
+        {/* 画像の表示だけをクライアント（MaterialGallery）に任せる */}
         <MaterialGallery filterCategory={categoryId} />
       </main>
     </div>
