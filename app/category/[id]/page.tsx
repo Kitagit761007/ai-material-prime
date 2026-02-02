@@ -4,9 +4,7 @@ import { useParams } from "next/navigation";
 import Header from "@/components/Header";
 import MaterialGallery from "@/components/MaterialGallery";
 
-// 🚀 【重要】印刷予約リスト
-// ここに書いた名前のページが、ビルド時に自動で作られます。
-// あなたのサイトにあるカテゴリー名を正確に（大文字小文字も合わせて）並べてください。
+// 🚀 印刷予約リスト：GitHubに「このページをあらかじめ作って」と伝えます
 export async function generateStaticParams() {
   return [
     { id: 'GX' },
@@ -21,25 +19,20 @@ export async function generateStaticParams() {
 
 export default function CategoryPage() {
   const params = useParams();
-  
-  // URLから「GX」などの名前を受け取ります
+  // URLからカテゴリー名（GXなど）を抜き出します
   const categoryId = params.id ? decodeURIComponent(params.id as string) : "";
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
-      {/* 画面上部の共通メニュー */}
       <Header />
-      
-      <main className="pt-24 pb-20 px-6 max-w-7xl mx-auto">
-        <div className="text-left">
-          <p className="text-cyan-500 font-bold text-xs mb-2 tracking-widest uppercase italic">Category</p>
-          <h1 className="text-5xl font-black text-white italic uppercase tracking-tighter">
-            {categoryId}
-          </h1>
-          <div className="h-1 w-20 bg-cyan-500 mt-4 mb-12" />
-        </div>
+      <main className="pt-24 pb-20 px-6 max-w-7xl mx-auto text-left">
+        <p className="text-cyan-500 font-bold text-xs mb-2 tracking-widest uppercase italic">Category</p>
+        <h1 className="text-5xl font-black text-white italic uppercase tracking-tighter">
+          {categoryId}
+        </h1>
+        <div className="h-1 w-20 bg-cyan-500 mt-4 mb-12" />
         
-        {/* そのカテゴリーの画像だけを表示する機能 */}
+        {/* そのカテゴリーの画像だけを表示（filterCategoryを渡します） */}
         <MaterialGallery filterCategory={categoryId} />
       </main>
     </div>
