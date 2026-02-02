@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import MaterialGallery from "@/components/MaterialGallery";
 
-// 🚀 サーバーの仕事：あらかじめ「GX」「未来都市」などのページを予約・作成する
+// 🚀 ビルド予約：GitHub Pagesはこのリストを見て「GX.html」などを作成します。
 export async function generateStaticParams() {
   return [
     { id: 'GX' },
@@ -14,9 +14,9 @@ export async function generateStaticParams() {
   ];
 }
 
-// 🚀 サーバーの仕事：ページの土台を組み立てる
+// 🚀 ページの土台：ここでは「データを受け取るだけ」に徹します。
 export default async function CategoryPage({ params }: { params: Promise<{ id: string }> }) {
-  // 最新のNext.jsルールに従い、paramsを確定させます
+  // paramsは「Promise」なので、必ず await で待ちます（これが最新のビルドルールです）
   const resolvedParams = await params;
   const categoryId = decodeURIComponent(resolvedParams.id);
 
@@ -30,7 +30,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ id: s
         </h1>
         <div className="h-1 w-20 bg-cyan-500 mt-4 mb-12" />
         
-        {/* 表示処理（動き）は、クライアント側の MaterialGallery に丸投げします */}
+        {/* 実際の画像表示（ブラウザで動く処理）は、MaterialGalleryに丸投げします */}
         <MaterialGallery filterCategory={categoryId} />
       </main>
     </div>
