@@ -197,14 +197,14 @@ export default function MaterialGallery({ initialAssets, searchQuery: searchQuer
     return (
         <section id="gallery-section" className="px-6 pb-20 max-w-7xl mx-auto">
             <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                {visibleItems.map((img: Asset) => (
+                {visibleItems.map((item: Asset) => (
                     <ImageCard
-                        key={img.id}
-                        img={img}
-                        isFavorite={isFavorite(img.id)}
-                        onToggleFavorite={() => toggleFavorite(img.id)}
+                        key={item.id}
+                        item={item}
+                        isFavorite={isFavorite(item.id)}
+                        onToggleFavorite={() => toggleFavorite(item.id)}
                         onTagClick={handleInternalTagClick}
-                        onClick={() => setSelectedImage(img)}
+                        onClick={() => setSelectedImage(item)}
                     />
                 ))}
             </div>
@@ -215,105 +215,111 @@ export default function MaterialGallery({ initialAssets, searchQuery: searchQuer
                     <div className="absolute inset-0 z-0 bg-transparent" onClick={handleManualClose} />
 
                     <div className="relative z-10 w-full h-[100dvh] md:h-[90vh] max-w-[100vw] md:max-w-[95vw] flex flex-col md:flex-row bg-slate-950 md:rounded-3xl overflow-hidden shadow-2xl border-white/10 md:border" onClick={(e: React.MouseEvent) => e.stopPropagation()}>
+                        {(() => {
+                            const item = selectedImage;
+                            return (
+                                <>
+                                    {/* LEFT: Image Viewport */}
+                                    <div
+                                        className="relative flex-1 bg-black/40 flex items-center justify-center min-h-[40vh] md:min-h-0 overflow-hidden"
+                                        onTouchStart={handleTouchStart}
+                                        onTouchEnd={handleTouchEnd}
+                                    >
+                                        <div
+                                            className={`relative w-full h-full p-4 transition-transform duration-500 ease-out will-change-transform ${isZoomed ? "scale-150 cursor-zoom-out" : "scale-100 cursor-zoom-in"}`}
+                                            onClick={handleModalImageClick}
+                                        >
+                                            <Image
+                                                src={item.url}
+                                                alt={item.title}
+                                                fill
+                                                className="object-contain pointer-events-none select-none"
+                                                priority
+                                            />
+                                        </div>
 
-                        {/* LEFT: Image Viewport */}
-                        <div
-                            className="relative flex-1 bg-black/40 flex items-center justify-center min-h-[40vh] md:min-h-0 overflow-hidden"
-                            onTouchStart={handleTouchStart}
-                            onTouchEnd={handleTouchEnd}
-                        >
-                            <div
-                                className={`relative w-full h-full p-4 transition-transform duration-500 ease-out will-change-transform ${isZoomed ? "scale-150 cursor-zoom-out" : "scale-100 cursor-zoom-in"}`}
-                                onClick={handleModalImageClick}
-                            >
-                                <Image
-                                    src={selectedImage.url}
-                                    alt={selectedImage.title}
-                                    fill
-                                    className="object-contain pointer-events-none select-none"
-                                    priority
-                                />
-                            </div>
+                                        {/* Floating Heart */}
+                                        <button
+                                            onClick={(e: React.MouseEvent) => { e.stopPropagation(); toggleFavorite(selectedImage.id); }}
+                                            className={`absolute bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all shadow-2xl z-30 active:scale-90 bg-black/40 backdrop-blur-xl ${isFavorite(selectedImage.id) ? "bg-rose-500 border-rose-500 text-white animate-heart-pop" : "border-white/30 text-white"}`}
+                                        >
+                                            <Heart className={`w-7 h-7 ${isFavorite(selectedImage.id) ? "fill-white" : ""}`} />
+                                        </button>
 
-                            {/* Floating Heart */}
-                            <button
-                                onClick={(e: React.MouseEvent) => { e.stopPropagation(); toggleFavorite(selectedImage.id); }}
-                                className={`absolute bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all shadow-2xl z-30 active:scale-90 bg-black/40 backdrop-blur-xl ${isFavorite(selectedImage.id) ? "bg-rose-500 border-rose-500 text-white animate-heart-pop" : "border-white/30 text-white"}`}
-                            >
-                                <Heart className={`w-7 h-7 ${isFavorite(selectedImage.id) ? "fill-white" : ""}`} />
-                            </button>
+                                        {/* Mobile Close Icon */}
+                                        <button onClick={handleManualClose} className="md:hidden absolute top-4 left-4 p-2 bg-black/40 rounded-full text-white backdrop-blur-md z-30">
+                                            <X className="w-6 h-6" />
+                                        </button>
 
-                            {/* Mobile Close Icon */}
-                            <button onClick={handleManualClose} className="md:hidden absolute top-4 left-4 p-2 bg-black/40 rounded-full text-white backdrop-blur-md z-30">
-                                <X className="w-6 h-6" />
-                            </button>
-
-                            {/* Navigation Arrows */}
-                            <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none z-20">
-                                <button onClick={(e: React.MouseEvent) => { e.stopPropagation(); handlePrevImage(); }} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl active:scale-90">
-                                    <ChevronLeft className="w-8 h-8" />
-                                </button>
-                                <button onClick={(e: React.MouseEvent) => { e.stopPropagation(); handleNextImage(); }} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl active:scale-90">
-                                    <ChevronRight className="w-8 h-8" />
-                                </button>
-                            </div>
-                        </div>
-
-                        {/* RIGHT: Content Panel */}
-                        <div className="w-full md:w-[420px] flex flex-col bg-slate-900 overflow-hidden h-[60vh] md:h-full border-t md:border-t-0 md:border-l border-white/10">
-
-                            <div className="p-6 md:pt-14 bg-slate-950/80 backdrop-blur-md border-b border-white/10 shrink-0 z-10 relative">
-                                <button
-                                    onClick={handleDownload}
-                                    className="flex items-center justify-center gap-3 w-full py-5 bg-white text-slate-950 font-black rounded-2xl hover:bg-gx-cyan hover:text-white transition-all shadow-xl active:scale-95 group"
-                                >
-                                    <Download className="w-6 h-6 group-hover:animate-bounce" />
-                                    FREE DOWNLOAD HD
-                                </button>
-                            </div>
-
-                            <div className="flex-1 overflow-y-auto overflow-x-hidden p-6 md:p-8 space-y-10 scrollbar-thin scrollbar-thumb-white/10 overscroll-contain">
-                                <div>
-                                    <div className="flex items-center gap-2 mb-3">
-                                        <span className="h-0.5 w-6 bg-gx-cyan rounded-full" />
-                                        <span className="text-[10px] font-black text-gx-cyan uppercase tracking-[0.2em]">Asset Details</span>
-                                    </div>
-                                    <h2 className="text-2xl font-bold text-white leading-tight mb-4">{selectedImage.title}</h2>
-                                    <p className="text-slate-400 text-sm leading-relaxed">{selectedImage.description}</p>
-                                </div>
-
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
-                                        <span className="block text-[9px] text-slate-500 uppercase font-black mb-1.5 opacity-60">Resolution</span>
-                                        <span className="text-white text-sm font-bold font-mono">{selectedImage.width} × {selectedImage.height}</span>
-                                    </div>
-                                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
-                                        <span className="block text-[9px] text-slate-500 uppercase font-black mb-1.5 opacity-60">Category</span>
-                                        <span className="text-gx-cyan text-sm font-black uppercase">{selectedImage.category}</span>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <h3 className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-4">Tags</h3>
-                                    <div className="flex flex-wrap gap-2.5">
-                                        {selectedImage.tags.map((tag: string) => (
-                                            <button
-                                                key={tag}
-                                                onClick={() => handleInternalTagClick(tag)}
-                                                className="px-4 py-2 bg-white/5 hover:bg-gx-cyan border border-white/10 hover:border-transparent text-slate-300 hover:text-slate-950 rounded-full text-xs font-bold transition-all active:scale-90"
-                                            >
-                                                {tag}
+                                        {/* Navigation Arrows */}
+                                        <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none z-20">
+                                            <button onClick={(e: React.MouseEvent) => { e.stopPropagation(); handlePrevImage(); }} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl active:scale-90">
+                                                <ChevronLeft className="w-8 h-8" />
                                             </button>
-                                        ))}
+                                            <button onClick={(e: React.MouseEvent) => { e.stopPropagation(); handleNextImage(); }} className="p-4 bg-black/40 text-white rounded-full border border-white/10 backdrop-blur-md pointer-events-auto hover:bg-white hover:text-black transition-all shadow-xl active:scale-90">
+                                                <ChevronRight className="w-8 h-8" />
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        {/* Large Desktop Close */}
-                        <button onClick={handleManualClose} className="hidden md:flex absolute top-4 right-4 p-2.5 bg-white/10 hover:bg-rose-500 text-white rounded-full z-[100] backdrop-blur-md border border-white/10 transition-all active:scale-95 shadow-xl group">
-                            <X className="w-6 h-6 group-hover:rotate-90 transition-transform" />
-                        </button>
+                                    {/* RIGHT: Content Panel */}
+                                    <div className="w-full md:w-[420px] flex flex-col bg-slate-900 overflow-hidden h-[60vh] md:h-full border-t md:border-t-0 md:border-l border-white/10">
+
+                                        <div className="p-6 md:pt-14 bg-slate-950/80 backdrop-blur-md border-b border-white/10 shrink-0 z-10 relative">
+                                            <button
+                                                onClick={handleDownload}
+                                                className="flex items-center justify-center gap-3 w-full py-5 bg-white text-slate-950 font-black rounded-2xl hover:bg-gx-cyan hover:text-white transition-all shadow-xl active:scale-95 group"
+                                            >
+                                                <Download className="w-6 h-6 group-hover:animate-bounce" />
+                                                FREE DOWNLOAD HD
+                                            </button>
+                                        </div>
+
+                                        <div className="flex-1 overflow-y-auto overflow-x-hidden p-6 md:p-8 space-y-10 scrollbar-thin scrollbar-thumb-white/10 overscroll-contain">
+                                            <div>
+                                                <div className="flex items-center gap-2 mb-3">
+                                                    <span className="h-0.5 w-6 bg-gx-cyan rounded-full" />
+                                                    <span className="text-[10px] font-black text-gx-cyan uppercase tracking-[0.2em]">Asset Details</span>
+                                                </div>
+                                                <h2 className="text-2xl font-bold text-white leading-tight mb-4">{item.title}</h2>
+                                                <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
+                                            </div>
+
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
+                                                    <span className="block text-[9px] text-slate-500 uppercase font-black mb-1.5 opacity-60">Resolution</span>
+                                                    <span className="text-white text-sm font-bold font-mono">{item.width} × {item.height}</span>
+                                                </div>
+                                                <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
+                                                    <span className="block text-[9px] text-slate-500 uppercase font-black mb-1.5 opacity-60">Category</span>
+                                                    <span className="text-gx-cyan text-sm font-black uppercase">{item.category}</span>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <h3 className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-4">Tags</h3>
+                                                <div className="flex flex-wrap gap-2.5">
+                                                    {item.tags.map((tag: string) => (
+                                                        <button
+                                                            key={tag}
+                                                            onClick={() => handleInternalTagClick(tag)}
+                                                            className="px-4 py-2 bg-white/5 hover:bg-gx-cyan border border-white/10 hover:border-transparent text-slate-300 hover:text-slate-950 rounded-full text-xs font-bold transition-all active:scale-90"
+                                                        >
+                                                            {tag}
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Large Desktop Close */}
+                                    <button onClick={handleManualClose} className="hidden md:flex absolute top-4 right-4 p-2.5 bg-white/10 hover:bg-rose-500 text-white rounded-full z-[100] backdrop-blur-md border border-white/10 transition-all active:scale-95 shadow-xl group">
+                                        <X className="w-6 h-6 group-hover:rotate-90 transition-transform" />
+                                    </button>
+                                </>
+                            );
+                        })()}
                     </div>
                 </div>
             )}
@@ -321,12 +327,13 @@ export default function MaterialGallery({ initialAssets, searchQuery: searchQuer
     );
 }
 
-function ImageCard({ img, isFavorite, onToggleFavorite, onTagClick, onClick }: {
-    img: Asset,
+function ImageCard({ item, isFavorite, onToggleFavorite, onTagClick, onClick }: {
+    item: Asset,
     isFavorite: boolean,
     onToggleFavorite: () => void,
     onTagClick: (tag: string) => void,
-    onClick: () => void
+    onClick: () => void,
+    key?: string | number
 }) {
     const [loaded, setLoaded] = useState(false);
 
@@ -334,15 +341,15 @@ function ImageCard({ img, isFavorite, onToggleFavorite, onTagClick, onClick }: {
         <div className="relative group rounded-2xl overflow-hidden break-inside-avoid shadow-2xl bg-slate-900/50 border border-white/5 cursor-zoom-in" onClick={onClick}>
             <div className={`absolute inset-0 bg-slate-800 animate-pulse transition-opacity duration-500 ${loaded ? "opacity-0" : "opacity-100"}`} />
             <Image
-                src={img.url}
-                alt={img.title}
+                src={item.url}
+                alt={item.title}
                 width={600}
                 height={800}
                 className={`w-full h-auto object-cover transition-all duration-700 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"} group-hover:scale-105`}
                 onLoad={() => setLoaded(true)}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
-                <p className="text-white text-sm font-bold truncate">{img.title}</p>
+                <p className="text-white text-sm font-bold truncate">{item.title}</p>
             </div>
 
             <button
