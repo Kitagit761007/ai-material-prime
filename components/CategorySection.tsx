@@ -7,7 +7,7 @@ import {
   X, Download, Linkedin, Info, Tag as TagIcon, Layers, ChevronRight 
 } from "lucide-react";
 
-// --- 最新の𝕏ロゴ ---
+// --- 最新の𝕏ロゴ（SVG） ---
 const XLogo = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
@@ -71,7 +71,7 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
 
       <div className="relative flex flex-col lg:flex-row w-full max-w-6xl max-h-[90vh] md:max-h-[85vh] bg-slate-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl animate-in zoom-in-95 duration-300">
         
-        {/* 閉じるボタン（スマホ時は透過背景を強く） */}
+        {/* 閉じるボタン */}
         <button 
           onClick={onClose} 
           className="absolute top-4 right-4 z-[120] p-2 bg-black/60 hover:bg-black text-white rounded-full backdrop-blur-md transition-all border border-white/10 group active:scale-90"
@@ -79,42 +79,40 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
           <X className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
         </button>
 
-        {/* 🚀 左側：プレビュー（スマホ時は高さを抑える） */}
-        <div className="relative w-full lg:flex-1 h-[35vh] sm:h-[45vh] lg:h-auto bg-black flex items-center justify-center p-4 overflow-hidden flex-none">
+        {/* 左側：プレビュー（モバイル時は高さを制限し、重なりを防止） */}
+        <div className="relative w-full lg:flex-1 h-[40vh] sm:h-[45vh] lg:h-auto bg-black flex items-center justify-center p-4 overflow-hidden flex-none">
           <img src={url} alt={image.title} className="max-w-full max-h-full object-contain pointer-events-none shadow-2xl" />
         </div>
 
-        {/* 🚀 右側：情報パネル（スマホ時も独立してスクロール可能に） */}
-        <div className="w-full lg:w-[400px] p-6 sm:p-8 flex flex-col overflow-y-auto bg-slate-900 border-t lg:border-t-0 lg:border-l border-white/5 text-left flex-1">
+        {/* 右側：情報パネル */}
+        <div className="w-full lg:w-[400px] p-6 sm:p-8 flex flex-col overflow-y-auto bg-slate-900 border-t lg:border-t-0 lg:border-l border-white/5 text-left flex-1 relative z-10">
           <div className="mb-6">
-            <h2 className="text-xl sm:text-2xl font-black text-white italic uppercase tracking-tighter mb-2 leading-tight">
-              {image.title}
-            </h2>
-            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              {image.description}
-            </p>
+            <h2 className="text-xl sm:text-2xl font-black text-white italic uppercase tracking-tighter mb-2 leading-tight">{image.title}</h2>
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">{image.description}</p>
           </div>
 
-          {/* ダウンロード & SNSセクション */}
-          <div className="flex gap-2 sm:gap-3 items-stretch mb-8 h-12 sm:h-14 flex-none">
+          {/* 🚀 バランスを最適化したアクションエリア */}
+          <div className="flex gap-2 items-stretch mb-8 h-12 sm:h-14 flex-none">
+            {/* ダウンロード (比率3) */}
             <a 
               href={url} 
               download 
-              className="flex-[4] flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-white font-bold rounded-2xl transition-all shadow-lg shadow-cyan-500/20 active:scale-[0.98]"
+              className="flex-[3] flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-white font-bold rounded-2xl transition-all shadow-lg shadow-cyan-500/20 active:scale-[0.98]"
             >
               <Download className="w-4 h-4 sm:w-5 sm:h-5" /> 
-              <span className="text-xs sm:text-sm">無料DL</span>
+              <span className="text-xs sm:text-sm font-black uppercase">無料DL</span>
             </a>
 
-            <div className="flex-[3] flex gap-1.5">
-              <button onClick={shareToX} className="flex-1 flex items-center justify-center bg-black rounded-xl text-white hover:bg-slate-900 transition-all border border-white/10">
-                <XLogo className="w-3.5 h-3.5 sm:w-4 h-4" />
+            {/* SNS (比率2: 3つのボタンを均等配置) */}
+            <div className="flex-[2] flex gap-1.5">
+              <button onClick={shareToX} className="flex-1 flex items-center justify-center bg-black rounded-xl text-white hover:bg-slate-900 transition-all border border-white/10" title="X">
+                <XLogo className="w-4 h-4" />
               </button>
               <button onClick={shareToLinkedin} className="flex-1 flex items-center justify-center bg-[#0A66C2] rounded-xl text-white hover:bg-[#004182] transition-all">
-                <Linkedin className="w-3.5 h-3.5 sm:w-4 h-4 fill-current" />
+                <Linkedin className="w-4 h-4 fill-current" />
               </button>
-              <button onClick={shareToLine} className="flex-1.2 flex items-center justify-center bg-[#06C755] rounded-xl text-white hover:bg-[#05a347] transition-all">
-                <span className="text-[10px] sm:text-xs font-black leading-none tracking-tight">LINE</span>
+              <button onClick={shareToLine} className="flex-1 flex items-center justify-center bg-[#06C755] rounded-xl text-white hover:bg-[#05a347] transition-all">
+                <span className="text-[10px] font-black leading-none tracking-tighter">LINE</span>
               </button>
             </div>
           </div>
@@ -140,7 +138,7 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
               </div>
             </div>
 
-            {/* 分類情報 */}
+            {/* カテゴリー/タグ */}
             <div className="space-y-4 pt-4 border-t border-white/5">
               <div>
                 <h3 className="text-[10px] font-bold text-cyan-500 uppercase tracking-[0.2em] mb-2">カテゴリー</h3>
@@ -187,7 +185,7 @@ export default function CategorySection({ title, description, images }: { title:
           <p className="text-slate-400 text-sm sm:text-base max-w-xl">{description}</p>
         </div>
         <Link href={`/category/${title}`} className="flex items-center gap-2 text-cyan-400 font-bold hover:text-cyan-300 transition-colors group text-sm sm:text-base">
-          すべて見る <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+          VIEW ALL <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
 
