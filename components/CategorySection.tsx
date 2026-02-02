@@ -13,21 +13,22 @@ export default function CategorySection({ title, description, images }: any) {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {images.map((img: any) => {
-                    // --- 🛠️ フォルダ名の強制補正 ---
-                    let folder = "grok";
-                    if (img.id.startsWith("mid-")) folder = "mid";
-                    if (img.id.startsWith("niji-")) folder = "niji";
-                    if (img.id.startsWith("gpt-")) folder = "GPT";   // ✅ 大文字に修正
-                    if (img.id.startsWith("nano-")) folder = "nano";
-                    if (img.id.startsWith("g-")) folder = "grok";
+                    // --- 🛠️ フォルダと拡張子の自動補正ロジック ---
+                    let url = img.url;
+                    
+                    // 1. フォルダ名の補正
+                    url = url.replace('/assets/images/g/', '/assets/images/grok/');
+                    url = url.replace('/assets/images/gpt/', '/assets/images/GPT/');
 
-                    // 強制的に正しいURLを組み立てる
-                    const finalUrl = `/assets/images/${folder}/${img.id}.jpg`;
+                    // 2. GPTは本来PNGとのことなので、もしURLが.jpgなら.pngに置換してみる
+                    if (img.id.startsWith('gpt-')) {
+                        url = url.replace('.jpg', '.png');
+                    }
                     
                     return (
                         <div key={img.id} className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 border border-white/10">
                             <Image
-                                src={finalUrl} 
+                                src={url} 
                                 alt={img.title || "AI Asset"}
                                 fill
                                 className="object-cover transition-transform duration-500 group-hover:scale-105"
