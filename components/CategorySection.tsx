@@ -293,8 +293,8 @@ function CatCard({ img, isFavorite, onToggleFavorite, onClick }: {
         <div className="group relative rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 cursor-zoom-in aspect-[4/3] shadow-xl" onClick={onClick}>
             <div className={`absolute inset-0 bg-slate-800 animate-pulse transition-opacity duration-500 ${loaded ? "opacity-0" : "opacity-100"}`} />
             <Image
-                src={img.url}
-                alt={img.title}
+                src={item.url}
+                alt={item.title}
                 fill
                 className={`object-cover transition-all duration-700 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"} group-hover:scale-110`}
                 onLoad={() => setLoaded(true)}
