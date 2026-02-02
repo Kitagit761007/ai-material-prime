@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import MaterialGallery from "@/components/MaterialGallery";
 
-// 🚀 ビルド予約：GitHub Pagesはこのリストを見て「GX.html」などを作成します。
+// 🚀 ビルド予約リスト（サーバーの仕事）
 export async function generateStaticParams() {
   return [
     { id: 'GX' },
@@ -14,9 +14,10 @@ export async function generateStaticParams() {
   ];
 }
 
-// 🚀 ページの土台：ここでは「データを受け取るだけ」に徹します。
+// 🚀 ページを組み立てる（サーバーの仕事）
+// ※ params を「Promise」という箱として受け取るのが、ビルドを通すための絶対条件です
 export default async function CategoryPage({ params }: { params: Promise<{ id: string }> }) {
-  // paramsは「Promise」なので、必ず await で待ちます（これが最新のビルドルールです）
+  // paramsの箱を開けて、中身（categoryId）を取り出すまで「待つ（await）」
   const resolvedParams = await params;
   const categoryId = decodeURIComponent(resolvedParams.id);
 
@@ -30,7 +31,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ id: s
         </h1>
         <div className="h-1 w-20 bg-cyan-500 mt-4 mb-12" />
         
-        {/* 実際の画像表示（ブラウザで動く処理）は、MaterialGalleryに丸投げします */}
+        {/* 画像の表示だけを、クライアント側（MaterialGallery）に任せる */}
         <MaterialGallery filterCategory={categoryId} />
       </main>
     </div>
