@@ -1,62 +1,107 @@
 "use client";
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import { DetailModal } from "./CategorySection";
 
-interface MaterialGalleryProps {
-  filterCategory?: string;
+import Link from "next/link";
+import Image from "next/image";
+import assetsData from "@/public/data/assets.json";
+
+type Asset = {
+  id: string;
+  title: string;
+  category: string;
+  description?: string;
+  tags?: string[];
+  // データによって image/url/src 等がある可能性があるので any で拾う
+  image?: string;
+  url?: string;
+  src?: string;
+  thumbnail?: string;
+  thumb?: string;
+};
+
+type Props = {
   searchQuery?: string;
-  initialIds?: string[];
-  onResultCount?: (count: number) => void; 
+};
+
+function pickImageSrc(item: any): string {
+  return (
+    item?.image ||
+    item?.url ||
+    item?.src ||
+    item?.thumbnail ||
+    item?.thumb ||
+    ""
+  );
 }
 
-export default function MaterialGallery({ 
-  filterCategory, 
-  searchQuery, 
-  initialIds,
-  onResultCount 
-}: MaterialGalleryProps) {
-  const [assets, setAssets] = useState<any[]>([]);
-  const [selectedImage, setSelectedImage] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+function normalize(s: string) {
+  return (s ?? "").toLowerCase().trim();
+}
 
-  useEffect(() => {
-    setLoading(true);
-    fetch('/data/assets.json')
-      .then(res => res.json())
-      .then(data => {
-        let filtered = data;
-        if (initialIds) {
-          filtered = data.filter((item: any) => initialIds.includes(item.id));
-        } else if (filterCategory) {
-          filtered = data.filter((item: any) => item.category === filterCategory);
-        } else if (searchQuery) {
-          const q = searchQuery.toLowerCase();
-          filtered = data.filter((item: any) => item.title.toLowerCase().includes(q));
-        }
-        setAssets(filtered);
-        if (onResultCount) onResultCount(filtered.length);
-        setLoading(false);
+export default function MaterialGallery({ searchQuery }: Props) {
+  const assets = assetsData as Asset[];
+  const q = normalize(searchQuery ?? "");
+
+  const filtered = q
+    ? assets.filter((a) => {
+        const hay = [
+          a.id,
+          a.title,
+          a.category,
+          a.description ?? "",
+          ...(a.tags ?? []),
+        ]
+          .join(" ")
+          .toLowerCase();
+        return hay.includes(q);
       })
-      .catch(() => setLoading(false));
-  }, [filterCategory, searchQuery, initialIds, onResultCount]);
+    : assets;
 
-  const getUrl = (item: any) => {
-    if (!item) return "";
-    const f = item.id.startsWith("mid-") ? "mid" : item.id.startsWith("niji-") ? "niji" : item.id.startsWith("gpt-") ? "GPT" : item.id.startsWith("nano-") ? "nano" : "grok";
-    return `/assets/images/${f}/${item.id}${f === "GPT" ? ".png" : ".jpg"}`;
-  };
-
-  if (loading) return <div className="py-20 text-center text-slate-500 font-bold uppercase">Loading...</div>;
+  if (!filtered || filtered.length === 0) {
+    return (
+      <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6 text-slate-300">
+        該当する素材が見つかりませんでした。キーワードを変えて再検索してください。
+      </div>
+    );
+  }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {assets.map(item => (
-        <div key={item.id} className="relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10 cursor-pointer" onClick={() => setSelectedImage(item)}>
-          <Image src={getUrl(item)} alt={item.title} fill className="object-cover" unoptimized />
-        </div>
-      ))}
-      {selectedImage && <DetailModal image={selectedImage} url={getUrl(selectedImage)} onClose={() => setSelectedImage(null)} />}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {filtered.map((item: any) => {
+        const href = `/assets/${item.id}/`;
+        const src = pickImageSrc(item);
+
+        return (
+          <Link
+            key={item.id}
+            href={href}
+            className="group relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10 cursor-pointer block"
+          >
+            {src ? (
+              <Image
+                src={src}
+                alt={item.title ?? item.id}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                unoptimized
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-white/40 text-sm">
+                no image
+              </div>
+            )}
+
+            {/* うっすら情報（任意） */}
+            <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/70 to-transparent">
+              <div className="text-white font-semibold text-sm line-clamp-1">
+                {item.title ?? item.id}
+              </div>
+              <div className="text-white/70 text-xs line-clamp-1">
+                {item.category ?? ""}
+              </div>
+            </div>
+          </Link>
+        );
+      })}
     </div>
   );
 }

@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "originalFile": "test.jpg",
+    "webpUrl": "/assets/processed/webp/test.webp",
+    "thumbnailUrl": "/assets/processed/thumb/test-thumb.webp"
+  }
+]
