@@ -9,7 +9,7 @@ export default function MobileNav() {
 
     const navItems = [
         { name: "ホーム", href: "/", icon: Home },
-        { name: "カテゴリー", href: "/categories", icon: LayoutGrid },
+        { name: "カテゴリー", href: "/categories/", icon: LayoutGrid },
         { name: "検索", href: "/search", icon: Search },
         { name: "タグ", href: "/tags", icon: Tag },
         { name: "保存済み", href: "/favorites", icon: Heart },

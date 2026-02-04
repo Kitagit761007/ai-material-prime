@@ -16,8 +16,8 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
     metadataBase: new URL('https://ai-material-prime.com'),
     title: {
-        default: 'AI Material Prime | 未来を描くAI生成画像素材サイト',
-        template: '%s | AI Material Prime'
+        default: 'GX Prime Visuals | 未来を描くAI生成画像素材サイト',
+        template: '%s | GX Prime Visuals'
     },
     description: '水素エネルギーやスマートシティなど、次世代のテクノロジーをテーマにした高品質なAI生成画像素材を無料で提供しています。商用利用可・クレジット表記不要。',
     keywords: ['AI生成画像', '水素エネルギー', 'スマートシティ', 'GX', '未来都市', 'フリー素材'],
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
         type: 'website',
         locale: 'ja_JP',
         url: 'https://ai-material-prime.com',
-        siteName: 'AI Material Prime',
-        title: 'AI Material Prime | 未来を描くAI生成画像素材サイト',
+        siteName: 'GX Prime Visuals',
+        title: 'GX Prime Visuals | 未来を描くAI生成画像素材サイト',
         description: '次世代テクノロジーをテーマにした高品質なAI生成画像素材サイト。',
         images: [
             {
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'AI Material Prime | 未来を描くAI生成画像素材サイト',
+        title: 'GX Prime Visuals | 未来を描くAI生成画像素材サイト',
         description: '次世代テクノロジーをテーマにした高品質なAI生成画像素材サイト。',
         images: ['/assets/images/hydrogen_bus_future_city.png'],
     },

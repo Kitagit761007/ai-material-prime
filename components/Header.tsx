@@ -1,23 +1,27 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { 
-  Image as ImageIcon, 
-  Grid, 
-  Tag, 
-  Heart, 
+import {
+  Image as ImageIcon,
+  Grid,
+  Tag,
+  Heart,
   Mail,
-  Zap
+  Zap,
+  Menu,
+  X
 } from "lucide-react";
 
 export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const menuItems = [
     { name: "ギャラリー", href: "/gallery/", icon: <ImageIcon className="w-4 h-4" /> },
-    { name: "カテゴリー", href: "/", icon: <Grid className="w-4 h-4" /> }, // トップのカテゴリーセクションへ
+    { name: "カテゴリー", href: "/categories/", icon: <Grid className="w-4 h-4" /> },
     { name: "タグ一覧", href: "/tags/", icon: <Tag className="w-4 h-4" /> },
     { name: "お気に入り", href: "/favorites/", icon: <Heart className="w-4 h-4" /> },
-    { name: "お問い合わせ", href: "/contact/", icon: <Mail className="w-4 h-4" /> }, // 🚀 リンクを修正
+    { name: "お問い合わせ", href: "/contact/", icon: <Mail className="w-4 h-4" /> },
   ];
 
   return (
@@ -29,7 +33,7 @@ export default function Header() {
             <Zap className="w-5 h-5 text-white fill-current" />
           </div>
           <span className="text-xl font-black text-white tracking-tighter uppercase italic">
-            AI MATERIAL PRIME
+            GX Prime Visuals
           </span>
         </Link>
 
@@ -47,9 +51,34 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* モバイル用メニュー（必要に応じて） */}
-        <div className="md:hidden text-white text-xs">Menu</div>
+        {/* モバイル用メニューボタン */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2 text-white hover:text-cyan-400 transition-colors"
+          aria-label={mobileMenuOpen ? "メニューを閉じる" : "メニューを開く"}
+        >
+          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
+
+      {/* モバイルメニューパネル */}
+      {mobileMenuOpen && (
+        <div className="md:hidden absolute top-16 left-0 right-0 bg-slate-950/95 backdrop-blur-md border-b border-white/5 shadow-xl">
+          <nav className="flex flex-col p-4 gap-2">
+            {menuItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-3 p-3 text-slate-300 hover:text-cyan-400 hover:bg-white/5 rounded-lg transition-all"
+              >
+                {item.icon}
+                <span className="font-medium">{item.name}</span>
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, Download, Heart } from "lucide-react";
+import { ChevronLeft, Download, Heart, Tag as TagIcon, Grid } from "lucide-react";
+import ShareButtons from "@/components/ShareButtons";
 
 interface Asset {
     id: string;
@@ -112,8 +113,8 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
                         <button
                             onClick={toggleFavorite}
                             className={`absolute bottom-6 right-6 p-4 rounded-full border transition-all ${isFavorite
-                                    ? "bg-pink-500 text-white border-pink-400"
-                                    : "bg-black/50 text-white border-white/20 hover:bg-black/70"
+                                ? "bg-pink-500 text-white border-pink-400"
+                                : "bg-black/50 text-white border-white/20 hover:bg-black/70"
                                 }`}
                         >
                             <Heart className={isFavorite ? "fill-current" : ""} />
@@ -121,17 +122,38 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
                     </div>
 
                     {/* Info Section */}
-                    <div className="w-full lg:w-[400px] p-8 text-left">
+                    <div className="w-full lg:w-[450px] p-8 text-left">
                         <h1 className="text-3xl font-black text-white italic uppercase mb-4 tracking-tighter">
                             {asset.title}
                         </h1>
 
-                        <div className="bg-white/5 p-4 rounded-2xl border border-white/5 mb-6 text-slate-300 text-sm">
+                        <div className="bg-white/5 p-4 rounded-2xl border border-white/5 mb-6 text-slate-300 text-sm leading-relaxed">
                             {asset.description || "高品質AIビジュアル素材。商用利用可能。"}
                         </div>
 
+                        {/* Category */}
+                        {asset.category && (
+                            <div className="mb-4">
+                                <div className="flex items-center gap-2 text-slate-400 text-xs mb-2">
+                                    <Grid className="w-4 h-4" />
+                                    <span>カテゴリー</span>
+                                </div>
+                                <Link
+                                    href={`/category/${encodeURIComponent(asset.category)}`}
+                                    className="inline-block px-4 py-2 bg-slate-800 hover:bg-cyan-500 text-white rounded-lg transition-colors font-medium"
+                                >
+                                    {asset.category}
+                                </Link>
+                            </div>
+                        )}
+
+                        {/* Tags */}
                         {asset.tags && asset.tags.length > 0 && (
                             <div className="mb-6">
+                                <div className="flex items-center gap-2 text-slate-400 text-xs mb-2">
+                                    <TagIcon className="w-4 h-4" />
+                                    <span>タグ</span>
+                                </div>
                                 <div className="flex flex-wrap gap-2">
                                     {asset.tags.map((tag, index) => (
                                         <Link
@@ -148,26 +170,59 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
                             </div>
                         )}
 
+                        {/* Share Buttons */}
+                        <div className="mb-6 pb-6 border-b border-white/10">
+                            <ShareButtons
+                                title={asset.title}
+                                url={`/material/${asset.id}`}
+                                imageUrl={imageUrl}
+                            />
+                        </div>
+
+                        {/* Download Button */}
                         <a
                             href={imageUrl}
                             download
-                            className="flex items-center justify-center gap-2 w-full bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 rounded-2xl transition-colors"
+                            className="flex items-center justify-center gap-2 w-full bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 rounded-2xl transition-colors mb-4"
                         >
                             <Download className="w-5 h-5" />
                             無料ダウンロード
                         </a>
 
-                        {asset.category && (
-                            <div className="mt-6 pt-6 border-t border-white/10">
-                                <p className="text-slate-500 text-sm mb-2">カテゴリー</p>
-                                <Link
-                                    href={`/category/${asset.category}`}
-                                    className="text-gx-cyan hover:text-cyan-400 font-bold transition-colors"
-                                >
-                                    {asset.category}
+                        {/* Usage Info */}
+                        <div className="bg-slate-800/50 p-4 rounded-xl text-xs text-slate-400 space-y-1">
+                            <p>✓ 商用利用可能</p>
+                            <p>✓ クレジット表記不要</p>
+                            <p>✓ 加工・編集OK</p>
+                            <p className="pt-2">
+                                <Link href="/guide" className="text-cyan-400 hover:underline">
+                                    利用ガイドを見る →
                                 </Link>
-                            </div>
-                        )}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Additional Content for SEO */}
+                <div className="mt-12 max-w-4xl mx-auto">
+                    <div className="bg-slate-900 rounded-2xl p-8 border border-white/10">
+                        <h2 className="text-2xl font-black text-white mb-4">この画像について</h2>
+                        <div className="space-y-4 text-slate-300 leading-relaxed">
+                            <p>
+                                この画像は、最新のAI技術を使用して生成された高品質なビジュアル素材です。
+                                {asset.category && `「${asset.category}」カテゴリーに分類され、`}
+                                次世代のテクノロジーやGX（グリーントランスフォーメーション）をテーマにしたコンテンツ制作に最適です。
+                            </p>
+                            <p>
+                                商用プロジェクト、Webサイト、プレゼンテーション、SNS投稿など、
+                                様々な用途で自由にご利用いただけます。クレジット表記は不要で、
+                                加工や編集も自由に行っていただけます。
+                            </p>
+                            <p>
+                                GX Prime Visualsでは、未来志向のビジュアルコンテンツを通じて、
+                                持続可能な社会の実現に貢献することを目指しています。
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

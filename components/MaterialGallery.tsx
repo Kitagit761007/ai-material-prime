@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import FavoriteButton from "./FavoriteButton";
 
 interface MaterialGalleryProps {
   filterCategory?: string;
@@ -51,9 +52,14 @@ export default function MaterialGallery({
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {assets.map(item => (
-        <Link key={item.id} href={`/material/${item.id}`} className="relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10 cursor-pointer hover:border-gx-cyan/50 transition-all group">
-          <Image src={getUrl(item)} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" unoptimized />
-        </Link>
+        <div key={item.id} className="relative group">
+          <Link href={`/material/${item.id}`} className="relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10 cursor-pointer hover:border-gx-cyan/50 transition-all block">
+            <Image src={getUrl(item)} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" unoptimized />
+          </Link>
+          <div className="absolute top-2 right-2 z-10">
+            <FavoriteButton assetId={item.id} size="md" />
+          </div>
+        </div>
       ))}
     </div>
   );

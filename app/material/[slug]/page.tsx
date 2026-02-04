@@ -53,7 +53,7 @@ export async function generateMetadata({
         }`;
 
     return {
-        title: `${asset.title} | AI Material Prime`,
+        title: `${asset.title} | GX Prime Visuals`,
         description: asset.description || "高品質AIビジュアル素材。商用利用可能。",
         openGraph: {
             title: asset.title,
