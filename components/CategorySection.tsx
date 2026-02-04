@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { X, Download, Heart, ChevronRight } from "lucide-react";
+import FavoriteButton from "./FavoriteButton";
 
 export function DetailModal({ image, url, onClose }: { image: any; url: string; onClose: () => void }) {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -60,11 +61,29 @@ export default function CategorySection({ title, description, images }: { title:
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {images.map((img) => (
-          <Link key={img.id} href={`/material/${img.id}`} className="relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity group">
-            <Image src={getUrl(img)} alt={img.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" unoptimized />
-          </Link>
-        ))}
-      </div>
-    </section>
-  );
-}
+  <div
+    key={img.id}
+    className="relative aspect-[4/3] rounded-2xl overflow-hidden group"
+  >
+    <Link href={`/material/${img.id}`} className="block w-full h-full">
+      <Image
+        src={getUrl(img)}
+        alt={img.title}
+        fill
+        className="object-cover group-hover:scale-105 transition-transform duration-300"
+        unoptimized
+      />
+    </Link>
+
+    {/* ❤️ お気に入りボタン */}
+    <div
+  className="absolute top-3 right-3 z-10"
+  onClick={(e) => {
+  e.preventDefault();
+  e.stopPropagation();
+}}
+>
+  <FavoriteButton imageId={img.id} />
+</div>
+  </div>
+))}
