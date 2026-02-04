@@ -48,7 +48,6 @@ export function DetailModal({ image, url, onClose }: { image: any; url: string; 
 }
 
 export default function CategorySection({ title, description, images }: { title: string; description: string; images: any[] }) {
-  const [selectedImage, setSelectedImage] = useState<any>(null);
   const getUrl = (item: any) => {
     const f = item.id.startsWith("mid-") ? "mid" : item.id.startsWith("niji-") ? "niji" : item.id.startsWith("gpt-") ? "GPT" : item.id.startsWith("nano-") ? "nano" : "grok";
     return `/assets/images/${f}/${item.id}${f === "GPT" ? ".png" : ".jpg"}`;
@@ -61,12 +60,11 @@ export default function CategorySection({ title, description, images }: { title:
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {images.map((img) => (
-          <div key={img.id} className="relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer" onClick={() => setSelectedImage(img)}>
-            <Image src={getUrl(img)} alt={img.title} fill className="object-cover" unoptimized />
-          </div>
+          <Link key={img.id} href={`/material/${img.id}`} className="relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity group">
+            <Image src={getUrl(img)} alt={img.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" unoptimized />
+          </Link>
         ))}
       </div>
-      {selectedImage && <DetailModal image={selectedImage} url={getUrl(selectedImage)} onClose={() => setSelectedImage(null)} />}
     </section>
   );
 }

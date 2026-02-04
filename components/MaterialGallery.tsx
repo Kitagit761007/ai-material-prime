@@ -1,23 +1,22 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { DetailModal } from "./CategorySection";
+import Link from "next/link";
 
 interface MaterialGalleryProps {
   filterCategory?: string;
   searchQuery?: string;
   initialIds?: string[];
-  onResultCount?: (count: number) => void; 
+  onResultCount?: (count: number) => void;
 }
 
-export default function MaterialGallery({ 
-  filterCategory, 
-  searchQuery, 
+export default function MaterialGallery({
+  filterCategory,
+  searchQuery,
   initialIds,
-  onResultCount 
+  onResultCount
 }: MaterialGalleryProps) {
   const [assets, setAssets] = useState<any[]>([]);
-  const [selectedImage, setSelectedImage] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -52,11 +51,10 @@ export default function MaterialGallery({
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {assets.map(item => (
-        <div key={item.id} className="relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10 cursor-pointer" onClick={() => setSelectedImage(item)}>
-          <Image src={getUrl(item)} alt={item.title} fill className="object-cover" unoptimized />
-        </div>
+        <Link key={item.id} href={`/material/${item.id}`} className="relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10 cursor-pointer hover:border-gx-cyan/50 transition-all group">
+          <Image src={getUrl(item)} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" unoptimized />
+        </Link>
       ))}
-      {selectedImage && <DetailModal image={selectedImage} url={getUrl(selectedImage)} onClose={() => setSelectedImage(null)} />}
     </div>
   );
 }
