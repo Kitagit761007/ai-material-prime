@@ -150,7 +150,7 @@ export default function CategorySection({
                 e.stopPropagation();
               }}
             >
-              <FavoriteButton imageId={img.id} />
+              <FavoriteButton assetId={img.id} />
             </div>
           </div>
         ))}
