@@ -23,6 +23,25 @@ export default function GuidePage() {
                     <p className="text-slate-400 text-lg">
                         GX Prime Visualsの画像素材を安心してご利用いただくための完全ガイドです。
                     </p>
+                    {/* 要点まとめ */}
+<section className="bg-slate-900 rounded-2xl p-8 border border-white/10">
+  <p className="text-xs font-bold text-slate-400 tracking-widest uppercase italic mb-2">
+    Summary
+  </p>
+  <h2 className="text-2xl font-black text-white mb-4">このサイトの画像素材について（要点）</h2>
+
+  <div className="grid gap-3 text-slate-300">
+    <p className="text-green-400 font-bold">✓ 商用利用：可能</p>
+    <p className="text-green-400 font-bold">✓ 加工・編集：可能</p>
+    <p className="text-blue-400 font-bold">✓ クレジット表記：不要（任意）</p>
+
+    <div className="h-px bg-white/10 my-2" />
+
+    <p className="text-red-400 font-bold">✕ 再配布・再販売：禁止</p>
+    <p className="text-red-400 font-bold">✕ 自作発言：禁止（作者を偽る行為）</p>
+    <p className="text-red-400 font-bold">✕ AI学習用途：禁止</p>
+  </div>
+</section>
                 </div>
 
                 <div className="space-y-12">
