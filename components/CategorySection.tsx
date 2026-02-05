@@ -105,12 +105,16 @@ export default function CategorySection({
       ? "nano"
       : "grok";
 
-    return "/assets/images/" + f + "/" + item.id + (f === "GPT" ? ".png" : ".jpg");
+    return (
+      "/assets/images/" + f + "/" + item.id + (f === "GPT" ? ".png" : ".jpg")
+    );
   };
 
   return (
-    <section className="py-20 px-6 max-w-7xl mx-auto">
-      <div className="flex items-end justify-between mb-10 text-left">
+    // ✅ 変更：py-20 → pt-10 pb-16（上を詰めて、下は適度に残す）
+    <section className="pt-10 pb-16 px-6 max-w-7xl mx-auto">
+      {/* ✅ 変更：mb-10 → mb-8 */}
+      <div className="flex items-end justify-between mb-8 text-left">
         <div>
           <h2 className="text-4xl font-black text-white italic uppercase mb-2 tracking-tighter">
             {title}
