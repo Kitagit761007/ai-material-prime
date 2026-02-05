@@ -23,17 +23,6 @@ export default function Home() {
       <main>
         {/* 検索機能をHeroに渡す以前の形式 */}
         <Hero searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-
-        {/* ↓ 画像が下にあることを明示（PCで特に重要） */}
-        <div className="px-6 mt-6 flex justify-center">
-          <a
-            href="#gallery-section"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-slate-200 text-sm font-bold transition-all"
-          >
-            ↓ 画像を見る（Explore All Assets）
-          </a>
-        </div>
-
         {/* 検索中ではない時だけカテゴリーセクションを表示 */}
         {!searchQuery &&
           sections.map((section) => (
