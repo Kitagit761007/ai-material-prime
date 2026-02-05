@@ -124,6 +124,11 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
+  <Link href="/guide" className="text-slate-400 hover:text-gx-cyan transition-colors text-sm">
+    利用ガイド (Guide)
+  </Link>
+</li>
+                            <li>
                                 <Link href="/contact" className="text-slate-400 hover:text-gx-cyan transition-colors text-sm font-bold">
                                     お問い合わせ (Contact)
                                 </Link>
