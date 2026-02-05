@@ -39,7 +39,7 @@ export default function Home() {
   id="gallery-section"
   className="pt-8 pb-16 px-6 max-w-7xl mx-auto border-t border-white/5"
 >
-          <div className="mb-12">
+          <div className="mb-8">
             <h2 className="text-4xl font-black text-white italic uppercase tracking-tighter">
               {searchQuery ? `Search: ${searchQuery}` : "Explore All Assets"}
             </h2>
