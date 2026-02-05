@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   Image as ImageIcon,
@@ -10,17 +10,44 @@ import {
   Mail,
   Zap,
   Menu,
-  X
+  X,
 } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [favoriteCount, setFavoriteCount] = useState(0);
+
+  useEffect(() => {
+    const loadFavCount = () => {
+      try {
+        const favs = JSON.parse(localStorage.getItem("favoriteIds") || "[]");
+        setFavoriteCount(Array.isArray(favs) ? favs.length : 0);
+      } catch {
+        setFavoriteCount(0);
+      }
+    };
+
+    loadFavCount();
+    window.addEventListener("favoritesUpdated", loadFavCount);
+    return () => window.removeEventListener("favoritesUpdated", loadFavCount);
+  }, []);
 
   const menuItems = [
     { name: "ギャラリー", href: "/gallery/", icon: <ImageIcon className="w-4 h-4" /> },
     { name: "カテゴリー", href: "/categories/", icon: <Grid className="w-4 h-4" /> },
     { name: "タグ一覧", href: "/tags/", icon: <Tag className="w-4 h-4" /> },
-    { name: "お気に入り", href: "/favorites/", icon: <Heart className="w-4 h-4" /> },
+    {
+      name: "お気に入り",
+      href: "/favorites/",
+      icon: (
+        <span className="inline-flex items-center gap-2">
+          <Heart className="w-4 h-4" />
+          <span className="text-[10px] font-bold text-pink-400 tabular-nums">
+            {favoriteCount}
+          </span>
+        </span>
+      ),
+    },
     { name: "お問い合わせ", href: "/contact/", icon: <Mail className="w-4 h-4" /> },
   ];
 
