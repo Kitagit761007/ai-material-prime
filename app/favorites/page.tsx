@@ -54,6 +54,9 @@ export default function FavoritesPage() {
           <div className="py-20 text-center bg-white/5 rounded-3xl border border-white/5">
             <Heart className="w-16 h-16 text-slate-800 mx-auto mb-6" />
             <p className="text-slate-400 mb-8 font-bold">まだお気に入りはありません</p>
+            <p className="text-slate-500 text-sm mb-8">
+  画像詳細の ❤️ を押すと、ここに保存されます。
+</p>
             <Link href="/" className="px-10 py-4 bg-cyan-500 text-white font-bold rounded-2xl">
               素材を探しに行く
             </Link>
