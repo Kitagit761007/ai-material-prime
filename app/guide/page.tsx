@@ -1,3 +1,4 @@
+import CreditCopyBox from "@/components/CreditCopyBox";
 import Header from "@/components/Header";
 import Link from "next/link";
 import { BookOpen, Download, Shield, AlertCircle } from "lucide-react";
@@ -116,9 +117,7 @@ export default function GuidePage() {
                             <p className="text-sm">
                                 ただし、表記いただける場合は以下のように記載していただけると幸いです：
                             </p>
-                            <div className="bg-slate-800 p-4 rounded-lg font-mono text-sm">
-                                画像提供：<Link href="/" className="text-cyan-400 hover:underline">GX Prime Visuals</Link>
-                            </div>
+                            <CreditCopyBox />
                         </div>
                     </section>
 
