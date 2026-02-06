@@ -55,9 +55,13 @@ export default function Header() {
 
   // ✅ カテゴリ総数（assets.jsonにcategoryが入っている前提）
   const categoryTotalCount = useMemo(() => {
-    return assets.filter((a: any) => typeof a?.category === "string" && a.category.trim() !== "")
-      .length;
-  }, [assets]);
+  const set = new Set(
+    assets
+      .map((a: any) => (typeof a?.category === "string" ? a.category.trim() : ""))
+      .filter((c: string) => c !== "")
+  );
+  return set.size; // ← これが 8 になる
+}, [assets]);
 
   const menuItems = [
     { name: "ギャラリー", href: "/gallery/", icon: <ImageIcon className="w-4 h-4" /> },
