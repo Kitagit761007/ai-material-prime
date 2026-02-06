@@ -18,27 +18,29 @@ export const metadata = {
 };
 
 function toPublicImageUrl(asset: Asset): string {
-  // 1) assets.json に url があるならそれを使う（最優先）
+  // MaterialGallery と同じロジックで「id → URL」を作る（これが正）
+  const id = (asset.id ?? "").toString().trim();
+  if (id) {
+    const folder = id.startsWith("mid-")
+      ? "mid"
+      : id.startsWith("niji-")
+      ? "niji"
+      : id.startsWith("gpt-")
+      ? "GPT"
+      : id.startsWith("nano-")
+      ? "nano"
+      : "grok";
+
+    const ext = folder === "GPT" ? ".png" : ".jpg";
+    return `/assets/images/${folder}/${id}${ext}`;
+  }
+
+  // 保険：idが無いデータだけ url を使う
   if (typeof asset.url === "string" && asset.url.trim() !== "") {
     return asset.url;
   }
 
-  // 2) 保険：idから推測（既存MaterialGalleryのロジックに寄せる）
-  const id = (asset.id ?? "").toString();
-  if (!id) return "/og.png"; // ない場合の最後の保険（存在する画像に変えてOK）
-
-  const folder = id.startsWith("mid-")
-    ? "mid"
-    : id.startsWith("niji-")
-    ? "niji"
-    : id.startsWith("gpt-")
-    ? "GPT"
-    : id.startsWith("nano-")
-    ? "nano"
-    : "grok";
-
-  const ext = folder === "GPT" ? ".png" : ".jpg";
-  return `/assets/images/${folder}/${id}${ext}`;
+  return "";
 }
 
 export default function CategoriesPage() {
