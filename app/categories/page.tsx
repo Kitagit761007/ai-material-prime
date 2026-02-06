@@ -116,8 +116,8 @@ export default function CategoriesPage() {
                       priority={false}
                     />
                     {/* 読みやすさのためのオーバーレイ */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/55 to-slate-950/35" />
-                    <div className="absolute inset-0 bg-slate-950/20" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/40 to-slate-950/25" />
+                    <div className="absolute inset-0 bg-slate-950/10" />
                   </div>
                 )}
 
