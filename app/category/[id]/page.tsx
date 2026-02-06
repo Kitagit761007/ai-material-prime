@@ -46,7 +46,7 @@ export default async function CategoryPage({
         <div className="h-1 w-20 bg-cyan-500 mt-4 mb-12" />
 
         {/* カテゴリ名で絞り込み（MaterialGallery側がタグ検索しか対応してない場合は次で直す） */}
-        <MaterialGallery searchQuery={categoryName} />
+        <MaterialGallery category={categoryName} />
       </main>
     </div>
   );
