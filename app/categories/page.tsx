@@ -102,7 +102,7 @@ export default function CategoriesPage() {
               <Link
                 key={category}
                 href={`/category/${encodeURIComponent(category)}`}
-                className="group relative p-8 bg-slate-900 rounded-2xl border border-white/10 hover:border-cyan-500/50 transition-all hover:scale-105 overflow-hidden"
+                className="object-cover opacity-50 group-hover:opacity-65 transition-opacity duration-300 brightness-110 saturate-110 contrast-105"
               >
                 {/* 代表画像（背景） */}
                 {coverUrl && (
