@@ -1,11 +1,11 @@
 import CreditCopyBox from "@/components/CreditCopyBox";
 import Header from "@/components/Header";
 import Link from "next/link";
-import { BookOpen, Download, Shield, AlertCircle, Scale, ExternalLink } from "lucide-react";
+import { BookOpen, Download, Shield, AlertCircle } from "lucide-react";
 
 export const metadata = {
   title: "利用ガイド | GX Prime Visuals",
-  description: "画像の使い方、商用利用、クレジット表記、禁止事項について説明します。",
+  description: "画像の使い方、商用利用、クレジット表記について詳しく説明します。",
 };
 
 export default function GuidePage() {
@@ -22,36 +22,31 @@ export default function GuidePage() {
           </h1>
           <div className="h-1 w-20 bg-cyan-500 mb-6" />
           <p className="text-slate-400 text-lg">
-            GX Prime Visualsの画像素材を安心してご利用いただくためのガイドです。
+            GX Prime Visualsの画像素材を安心してご利用いただくための完全ガイドです。
           </p>
-
-          {/* 要点まとめ */}
-          <section className="mt-8 bg-slate-900 rounded-2xl p-8 border border-white/10">
-            <p className="text-xs font-bold text-slate-400 tracking-widest uppercase italic mb-2">
-              Summary
-            </p>
-            <h2 className="text-2xl font-black text-white mb-4">
-              このサイトの画像素材について（要点）
-            </h2>
-
-            <div className="grid gap-3 text-slate-300">
-              <p className="text-green-400 font-bold">✓ 商用利用：可能</p>
-              <p className="text-green-400 font-bold">✓ 加工・編集：可能</p>
-              <p className="text-blue-400 font-bold">✓ クレジット表記：不要（任意）</p>
-
-              <div className="h-px bg-white/10 my-2" />
-
-              <p className="text-red-400 font-bold">✕ 再配布・再販売：禁止</p>
-              <p className="text-red-400 font-bold">✕ 自作発言：禁止（作者を偽る行為）</p>
-              <p className="text-red-400 font-bold">
-                ✕ AI学習目的での大規模収集・データセット化：禁止
-              </p>
-              <p className="text-slate-400 text-sm leading-relaxed mt-2">
-                ※自動取得（スクレイピング）などによる大量ダウンロード・再配布目的の収集も禁止です。
-              </p>
-            </div>
-          </section>
         </div>
+
+        {/* 要点まとめ */}
+        <section className="bg-slate-900 rounded-2xl p-8 border border-white/10 mb-12">
+          <p className="text-xs font-bold text-slate-400 tracking-widest uppercase italic mb-2">
+            Summary
+          </p>
+          <h2 className="text-2xl font-black text-white mb-4">
+            このサイトの画像素材について（要点）
+          </h2>
+
+          <div className="grid gap-3 text-slate-300">
+            <p className="text-green-400 font-bold">✓ 商用利用：可能</p>
+            <p className="text-green-400 font-bold">✓ 加工・編集：可能</p>
+            <p className="text-blue-400 font-bold">✓ クレジット表記：不要（任意）</p>
+
+            <div className="h-px bg-white/10 my-2" />
+
+            <p className="text-red-400 font-bold">✕ 再配布・再販売：禁止</p>
+            <p className="text-red-400 font-bold">✕ 自作発言：禁止（作者を偽る行為）</p>
+            <p className="text-red-400 font-bold">✕ AI学習用途：禁止</p>
+          </div>
+        </section>
 
         <div className="space-y-12">
           {/* ダウンロード方法 */}
@@ -125,30 +120,6 @@ export default function GuidePage() {
             </div>
           </section>
 
-          {/* 権利・免責（AdSense的に強い） */}
-          <section className="bg-slate-900 rounded-2xl p-8 border border-white/10">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-white/5 rounded-lg">
-                <Scale className="w-6 h-6 text-slate-200" />
-              </div>
-              <h2 className="text-2xl font-black text-white">AI生成画像と権利について</h2>
-            </div>
-
-            <div className="space-y-4 text-slate-300">
-              <p>
-                当サイトの画像はAIにより生成されたもので、実在の人物・場所・企業・製品を意図的に描写するものではありません。
-                ただし、偶然の一致により、ロゴ・商標・デザイン等が第三者の権利に抵触する可能性があります。
-              </p>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                ご利用前に、ロゴ・商標・人物の特定につながる要素が含まれていないか、利用者の責任で最終確認をお願いします。
-              </p>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                権利者からの申し立て（削除依頼等）があった場合は、速やかに調査・対応します。
-                お手数ですが <a className="text-cyan-400 hover:text-cyan-300 underline" href="/contact">お問い合わせ</a> よりご連絡ください。
-              </p>
-            </div>
-          </section>
-
           {/* 禁止事項 */}
           <section className="bg-slate-900 rounded-2xl p-8 border border-red-500/20">
             <div className="flex items-center gap-3 mb-4">
@@ -160,12 +131,11 @@ export default function GuidePage() {
             <div className="space-y-4 text-slate-300">
               <p>以下の行為は禁止されています：</p>
               <ul className="list-disc list-inside space-y-2">
-                <li>画像素材そのものを再配布・販売すること（素材集/ストック用途を含む）</li>
-                <li>素材サイトやストックフォトサービスで配布・販売すること</li>
+                <li>画像素材そのものを再配布・販売すること</li>
+                <li>画像を素材サイトやストックフォトサービスで配布すること</li>
                 <li>公序良俗に反する用途での使用</li>
-                <li>第三者の権利を侵害する使用（商標・ロゴ・人物など）</li>
-                <li>AIモデルの学習目的での大規模収集・データセット化</li>
-                <li>自動取得（スクレイピング）等による大量ダウンロード</li>
+                <li>第三者の権利を侵害する使用</li>
+                <li>AIモデルの学習データとして使用すること</li>
               </ul>
             </div>
           </section>
@@ -183,7 +153,7 @@ export default function GuidePage() {
               <div>
                 <h3 className="font-bold text-white mb-2">Q. ダウンロード数に制限はありますか？</h3>
                 <p className="text-slate-300">
-                  A. いいえ、制限はありません。ただし自動取得や再配布目的の大量収集は禁止です。
+                  A. いいえ、制限はありません。必要な画像を自由にダウンロードしてください。
                 </p>
               </div>
               <div>
@@ -192,28 +162,6 @@ export default function GuidePage() {
                   A. いいえ、事前申請や連絡は不要です。自由にご利用ください。
                 </p>
               </div>
-            </div>
-          </section>
-
-          {/* Policy links（AdSense的に強い導線） */}
-          <section className="bg-slate-900 rounded-2xl p-8 border border-white/10">
-            <h2 className="text-2xl font-black text-white mb-4">関連ポリシー</h2>
-            <p className="text-slate-400 text-sm mb-4">
-              本ガイドは概要です。詳細な条件・免責は以下をご確認ください。
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link
-                href="/terms"
-                className="inline-flex items-center gap-2 px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 rounded-xl transition-colors"
-              >
-                利用規約 <ExternalLink className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/privacy"
-                className="inline-flex items-center gap-2 px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 rounded-xl transition-colors"
-              >
-                プライバシーポリシー <ExternalLink className="w-4 h-4" />
-              </Link>
             </div>
           </section>
         </div>
