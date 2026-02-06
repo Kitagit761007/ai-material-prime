@@ -1,1 +1,15 @@
+import type { MetadataRoute } from "next";
 
+export default function robots(): MetadataRoute.Robots {
+  const siteUrl = "https://ai-material-prime.com";
+
+  return {
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+      },
+    ],
+    sitemap: `${siteUrl}/sitemap.xml`,
+  };
+}
