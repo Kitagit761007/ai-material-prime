@@ -123,6 +123,7 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
   }
 
   if (!asset) return null;
+  const tags = Array.isArray(asset.tags) ? asset.tags : [];
 
   return (
     <div className="min-h-screen bg-slate-950 pt-24 pb-12">
@@ -228,14 +229,14 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
                     </div>
                   )}
 
-                  {asset.tags && asset.tags.length > 0 && (
+                  {tags.length > 0 && (
                     <div>
                       <div className="flex items-center gap-2 text-slate-400 text-xs mb-2">
                         <TagIcon className="w-4 h-4" />
                         <span>タグ</span>
                       </div>
                       <div className="flex flex-wrap gap-2">
-                        {asset.tags.map((tag, index) => (
+                        {tags.map((tag, index) => (
                           <Link
                             key={index}
                             href={`/search?q=${encodeURIComponent(tag.replace("#", ""))}`}
@@ -353,10 +354,10 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
                   </p>
                 )}
 
-                {asset.tags?.length > 0 && (
+                {tags.length > 0 && (
                   <p className="mt-1">
                     タグ：{" "}
-                    {asset.tags.map((t, i) => (
+                    {tags.map((t, i) => (
                       <span key={t}>
                         <Link
                           href={`/search?q=${encodeURIComponent(t.replace("#", ""))}`}
