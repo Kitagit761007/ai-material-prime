@@ -2,7 +2,6 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Grid, Tag, Heart, Mail, Menu, X } from "lucide-react";
 
 export default function Header() {
@@ -46,7 +45,7 @@ export default function Header() {
     };
   }, []);
 
-  // カテゴリ総数（assets.jsonにcategoryが入っている前提）
+  // カテゴリ総数
   const categoryTotalCount = useMemo(() => {
     const set = new Set(
       assets
@@ -77,7 +76,9 @@ export default function Header() {
       icon: (
         <span className="inline-flex items-center gap-2">
           <Heart className="w-4 h-4" />
-          <span className="text-[10px] font-bold text-pink-400 tabular-nums">{favoriteCount}</span>
+          <span className="text-[10px] font-bold text-pink-400 tabular-nums">
+            {favoriteCount}
+          </span>
         </span>
       ),
     },
@@ -87,7 +88,66 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* ロゴ部分 */}
+        {/* ロゴ */}
         <Link href="/" className="flex items-center gap-2 group">
           <div className="bg-cyan-500 p-1.5 rounded-lg group-hover:rotate-12 transition-transform">
-            {/* ✅ lucide の*
+            {/* ✅ SVGは next/image を避けて <img> にする（ビルド安定） */}
+            <img
+              src="/brand/bolt.svg"
+              alt="GX Prime Visuals"
+              width={20}
+              height={20}
+              className="w-5 h-5"
+            />
+          </div>
+
+          <span className="text-xl font-black text-white tracking-tighter uppercase italic">
+            GX Prime Visuals
+          </span>
+        </Link>
+
+        {/* PCメニュー */}
+        <nav className="hidden md:flex items-center gap-8">
+          {menuItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-cyan-400 transition-colors"
+            >
+              {item.icon}
+              {item.name}
+            </Link>
+          ))}
+        </nav>
+
+        {/* モバイルメニューボタン */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2 text-white hover:text-cyan-400 transition-colors"
+          aria-label={mobileMenuOpen ? "メニューを閉じる" : "メニューを開く"}
+        >
+          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {/* モバイルメニュー */}
+      {mobileMenuOpen && (
+        <div className="md:hidden absolute top-16 left-0 right-0 bg-slate-950/95 backdrop-blur-md border-b border-white/5 shadow-xl">
+          <nav className="flex flex-col p-4 gap-2">
+            {menuItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-3 p-3 text-slate-300 hover:text-cyan-400 hover:bg-white/5 rounded-lg transition-all"
+              >
+                {item.icon}
+                <span className="font-medium">{item.name}</span>
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+}
