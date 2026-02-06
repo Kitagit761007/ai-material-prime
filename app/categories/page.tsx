@@ -1,11 +1,15 @@
 import Header from "@/components/Header";
 import Link from "next/link";
+import Image from "next/image";
 import { Grid } from "lucide-react";
 import fs from "fs";
 import path from "path";
 
 interface Asset {
+  id?: string | null;
   category?: string | null;
+  url?: string | null;   // assets.json にある想定: "/assets/images/g/g-11.jpg"
+  score?: number | null; // あるなら代表選定に使う
 }
 
 export const metadata = {
@@ -13,21 +17,61 @@ export const metadata = {
   description: "カテゴリー別にAI生成素材を探す",
 };
 
+function toPublicImageUrl(asset: Asset): string {
+  // 1) assets.json に url があるならそれを使う（最優先）
+  if (typeof asset.url === "string" && asset.url.trim() !== "") {
+    return asset.url;
+  }
+
+  // 2) 保険：idから推測（既存MaterialGalleryのロジックに寄せる）
+  const id = (asset.id ?? "").toString();
+  if (!id) return "/og.png"; // ない場合の最後の保険（存在する画像に変えてOK）
+
+  const folder = id.startsWith("mid-")
+    ? "mid"
+    : id.startsWith("niji-")
+    ? "niji"
+    : id.startsWith("gpt-")
+    ? "GPT"
+    : id.startsWith("nano-")
+    ? "nano"
+    : "grok";
+
+  const ext = folder === "GPT" ? ".png" : ".jpg";
+  return `/assets/images/${folder}/${id}${ext}`;
+}
+
 export default function CategoriesPage() {
   // Read assets.json at build time
   const filePath = path.join(process.cwd(), "public", "data", "assets.json");
   const fileContents = fs.readFileSync(filePath, "utf8");
   const assets: Asset[] = JSON.parse(fileContents);
 
-  // Build counts: { "水中": 12, ... }
+  // category -> count
   const categoryCountMap: Record<string, number> = {};
+
+  // category -> best asset (score最大)
+  const categoryCoverMap: Record<string, Asset> = {};
+
   for (const a of assets) {
     const c = (a?.category ?? "").trim();
     if (!c) continue;
+
     categoryCountMap[c] = (categoryCountMap[c] ?? 0) + 1;
+
+    const current = categoryCoverMap[c];
+    const curScore = typeof current?.score === "number" ? current!.score! : -Infinity;
+    const nextScore = typeof a?.score === "number" ? a!.score! : -Infinity;
+
+    // scoreがあるなら最大を採用。scoreが無い同士なら最初に入ったものを維持。
+    if (!current) {
+      categoryCoverMap[c] = a;
+    } else if (nextScore > curScore) {
+      categoryCoverMap[c] = a;
+    }
   }
 
-  // Get unique categories (only non-empty), sorted
+  // ユニークカテゴリ（空除外）
   const categories = Object.keys(categoryCountMap).sort((a, b) =>
     a.localeCompare(b, "ja")
   );
@@ -49,31 +93,53 @@ export default function CategoriesPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category) => {
             const count = categoryCountMap[category] ?? 0;
+            const coverAsset = categoryCoverMap[category];
+            const coverUrl = coverAsset ? toPublicImageUrl(coverAsset) : "";
 
             return (
               <Link
                 key={category}
                 href={`/category/${encodeURIComponent(category)}`}
-                className="group relative p-8 bg-slate-900 rounded-2xl border border-white/10 hover:border-cyan-500/50 transition-all hover:scale-105"
+                className="group relative p-8 bg-slate-900 rounded-2xl border border-white/10 hover:border-cyan-500/50 transition-all hover:scale-105 overflow-hidden"
               >
-                <div className="flex items-center gap-4">
+                {/* 代表画像（背景） */}
+                {coverUrl && (
+                  <div className="absolute inset-0">
+                    <Image
+                      src={coverUrl}
+                      alt={`${category} cover`}
+                      fill
+                      className="object-cover opacity-35 group-hover:opacity-45 transition-opacity duration-300"
+                      unoptimized
+                      priority={false}
+                    />
+                    {/* 読みやすさのためのオーバーレイ */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/55 to-slate-950/35" />
+                    <div className="absolute inset-0 bg-slate-950/20" />
+                  </div>
+                )}
+
+                {/* 前景コンテンツ */}
+                <div className="relative flex items-center gap-4">
                   <div className="p-3 bg-cyan-500/10 rounded-xl group-hover:bg-cyan-500/20 transition-colors">
                     <Grid className="w-8 h-8 text-cyan-500" />
                   </div>
 
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3">
-                      <h2 className="text-2xl font-black text-white group-hover:text-cyan-400 transition-colors truncate">
+                      <h2 className="text-2xl font-black text-white group-hover:text-cyan-200 transition-colors truncate">
                         {category}
                       </h2>
 
                       {/* 件数バッジ */}
-                      <span className="text-xs font-bold tabular-nums text-slate-200/90 bg-white/5 px-2 py-1 rounded-lg border border-white/10 group-hover:border-cyan-500/30 transition-colors">
+                      <span className="text-xs font-bold tabular-nums text-slate-200/90 bg-white/10 px-2 py-1 rounded-lg border border-white/10 group-hover:border-cyan-500/30 transition-colors">
                         {count}
                       </span>
                     </div>
 
-                    <p className="text-sm text-slate-400 mt-1">素材を見る →</p>
+                    <p className="text-sm text-slate-300/80 mt-1">
+                      素材を見る →
+                    </p>
                   </div>
                 </div>
               </Link>
