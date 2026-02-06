@@ -8,7 +8,6 @@ import {
   Tag,
   Heart,
   Mail,
-  Zap,
   Menu,
   X,
 } from "lucide-react";
@@ -102,7 +101,14 @@ export default function Header() {
         {/* ロゴ部分 */}
         <Link href="/" className="flex items-center gap-2 group">
           <div className="bg-cyan-500 p-1.5 rounded-lg group-hover:rotate-12 transition-transform">
-            <Zap className="w-5 h-5 text-white fill-current" />
+            <ImageIcon
+  src="/brand/bolt.svg"
+  alt="GX Prime Visuals"
+  width={20}
+  height={20}
+  className="w-5 h-5"
+  priority
+/>
           </div>
           <span className="text-xl font-black text-white tracking-tighter uppercase italic">
             GX Prime Visuals
