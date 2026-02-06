@@ -18,27 +18,35 @@ export const metadata = {
 };
 
 function toPublicImageUrl(asset: Asset): string {
-  // 1) url があるなら最優先
-  if (typeof asset.url === "string" && asset.url.trim() !== "") {
-    return asset.url.trim();
+  // ✅ 1) まず id から作る（MaterialGallery と同じ考え方）
+  const id = (asset.id ?? "").toString().trim();
+  if (id) {
+    const folder = id.startsWith("mid-")
+      ? "mid"
+      : id.startsWith("niji-")
+      ? "niji"
+      : id.startsWith("gpt-")
+      ? "GPT"
+      : id.startsWith("nano-")
+      ? "nano"
+      : "grok";
+
+    const ext = folder === "GPT" ? ".png" : ".jpg";
+    return `/assets/images/${folder}/${id}${ext}`;
   }
 
-  // 2) 保険：idから推測（MaterialGallery と同系統）
-  const id = (asset.id ?? "").toString().trim();
-  if (!id) return "";
+  // ✅ 2) url は fallback（形式だけ整える）
+  const raw = (asset.url ?? "").toString().trim();
+  if (raw) {
+    // "assets/..." で来たら "/assets/..." に補正
+    if (raw.startsWith("assets/")) return `/${raw}`;
+    // "/assets/..." or "http..." はそのまま
+    if (raw.startsWith("/") || raw.startsWith("http")) return raw;
+    // その他は先頭に / を付けてみる
+    return `/${raw}`;
+  }
 
-  const folder = id.startsWith("mid-")
-    ? "mid"
-    : id.startsWith("niji-")
-    ? "niji"
-    : id.startsWith("gpt-")
-    ? "GPT"
-    : id.startsWith("nano-")
-    ? "nano"
-    : "grok";
-
-  const ext = folder === "GPT" ? ".png" : ".jpg";
-  return `/assets/images/${folder}/${id}${ext}`;
+  return "";
 }
 
 export default function CategoriesPage() {
