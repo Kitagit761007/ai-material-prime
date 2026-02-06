@@ -3,20 +3,24 @@ import path from "path";
 import Header from "@/components/Header";
 import MaterialGallery from "@/components/MaterialGallery";
 
-// 🚀 カテゴリページの予約リスト（静的出力用）
+// ✅ 静的出力で “存在するカテゴリだけ” を生成させる
+export const dynamicParams = false; // これがないと未生成パスにアクセスされて404になりやすい
+
 export async function generateStaticParams() {
-  // assets.json を読み込む
   const filePath = path.join(process.cwd(), "public", "data", "assets.json");
   const fileContents = fs.readFileSync(filePath, "utf8");
   const assets = JSON.parse(fileContents) as Array<{ category?: string | null }>;
 
-  // カテゴリ一覧をユニーク化
   const categories = Array.from(
-    new Set(assets.map((a) => a.category).filter((c): c is string => !!c && c.trim() !== ""))
+    new Set(
+      assets
+        .map((a) => (a.category ?? "").trim())
+        .filter((c) => c.length > 0)
+    )
   );
 
-  // URLセグメントは encode して返す（/category/%E... 形式に合わせる）
-  return categories.map((category) => ({ id: encodeURIComponent(category) }));
+  // ✅ ここで encode しない（Next側がURLとして扱うときに自動で処理する）
+  return categories.map((category) => ({ id: category }));
 }
 
 export default async function CategoryPage({
@@ -26,7 +30,7 @@ export default async function CategoryPage({
 }) {
   const resolvedParams = await params;
 
-  // URLの %E... を日本語に戻す
+  // ✅ 念のため decode（%E... でも、日本語でも両対応）
   const categoryName = decodeURIComponent(resolvedParams.id);
 
   return (
@@ -41,7 +45,7 @@ export default async function CategoryPage({
         </h1>
         <div className="h-1 w-20 bg-cyan-500 mt-4 mb-12" />
 
-        {/* MaterialGallery に「検索ワード」としてカテゴリ名を渡します */}
+        {/* カテゴリ名で絞り込み（MaterialGallery側がタグ検索しか対応してない場合は次で直す） */}
         <MaterialGallery searchQuery={categoryName} />
       </main>
     </div>
