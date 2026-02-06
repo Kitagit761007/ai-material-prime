@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import {
   Image as ImageIcon,
@@ -16,7 +16,9 @@ import {
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [favoriteCount, setFavoriteCount] = useState(0);
+  const [assets, setAssets] = useState<any[]>([]);
 
+  // お気に入り数
   useEffect(() => {
     const loadFavCount = () => {
       try {
@@ -32,9 +34,48 @@ export default function Header() {
     return () => window.removeEventListener("favoritesUpdated", loadFavCount);
   }, []);
 
+  // assets.json 取得（カテゴリ件数用）
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/data/assets.json", { cache: "no-store" })
+      .then((res) => res.json())
+      .then((data) => {
+        if (cancelled) return;
+        setAssets(Array.isArray(data) ? data : []);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setAssets([]);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // ✅ カテゴリ総数（assets.jsonにcategoryが入っている前提）
+  const categoryTotalCount = useMemo(() => {
+    return assets.filter((a: any) => typeof a?.category === "string" && a.category.trim() !== "")
+      .length;
+  }, [assets]);
+
   const menuItems = [
     { name: "ギャラリー", href: "/gallery/", icon: <ImageIcon className="w-4 h-4" /> },
-    { name: "カテゴリー", href: "/categories/", icon: <Grid className="w-4 h-4" /> },
+
+    // ✅ カテゴリーだけ件数バッジを表示
+    {
+      name: "カテゴリー",
+      href: "/categories/",
+      icon: (
+        <span className="inline-flex items-center gap-2">
+          <Grid className="w-4 h-4" />
+          <span className="text-[10px] font-bold text-slate-200/80 tabular-nums bg-white/5 px-1.5 py-0.5 rounded">
+            {categoryTotalCount}
+          </span>
+        </span>
+      ),
+    },
+
     { name: "タグ一覧", href: "/tags/", icon: <Tag className="w-4 h-4" /> },
     {
       name: "お気に入り",
