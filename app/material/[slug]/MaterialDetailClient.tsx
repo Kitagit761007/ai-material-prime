@@ -144,7 +144,11 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
 
             {/* Share Buttons */}
             <div className="mb-6 pb-6 border-b border-white/10">
-              <ShareButtons title={asset.title} url={`/material/${asset.id}`} imageUrl={imageUrl} />
+              <ShareButtons
+                title={asset.title}
+                url={`/material/${asset.id}`}
+                imageUrl={imageUrl}
+              />
             </div>
 
             {/* Download Button */}
@@ -171,28 +175,75 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
           </div>
         </div>
 
-        {/* Additional Content for SEO */}
+        {/* ✅ ①：AIテンプレ臭の強い文章を撤去し、事実ベースの情報ブロックへ置換 */}
         <div className="mt-12 max-w-4xl mx-auto">
           <div className="bg-slate-900 rounded-2xl p-8 border border-white/10">
-            <h2 className="text-2xl font-black text-white mb-4">この画像について</h2>
+            <h2 className="text-2xl font-black text-white mb-4">素材情報</h2>
+
             <div className="space-y-4 text-slate-300 leading-relaxed">
-              <p>
-                この画像は、最新のAI技術を使用して生成された高品質なビジュアル素材です。
-                {asset.category && `「${asset.category}」カテゴリーに分類され、`}
-                次世代のテクノロジーやGX（グリーントランスフォーメーション）をテーマにしたコンテンツ制作に最適です。
-              </p>
-              <p>
-                商用プロジェクト、Webサイト、プレゼンテーション、SNS投稿など、
-                様々な用途で自由にご利用いただけます。クレジット表記は不要で、
-                加工や編集も自由に行っていただけます。
-              </p>
-              <p>
-                GX Prime Visualsでは、未来志向のビジュアルコンテンツを通じて、
-                持続可能な社会の実現に貢献することを目指しています。
-              </p>
+              {/* 補足（descriptionがある場合はそのまま表示） */}
+              {asset.description ? (
+                <p>{asset.description}</p>
+              ) : (
+                <p>
+                  タイトル・カテゴリ・タグなどの情報から検索できる素材ページです。
+                  ダウンロード前に利用条件と仕様をご確認ください。
+                </p>
+              )}
+
+              {/* 利用条件（要点） */}
+              <div className="bg-slate-800/40 p-4 rounded-xl text-sm text-slate-300">
+                <p className="font-bold text-white mb-2">利用条件（要点）</p>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>商用利用：可</li>
+                  <li>クレジット：任意</li>
+                  <li>加工・編集：可</li>
+                  <li>
+                    再配布：不可（素材の再アップロード／素材集化／再販売を含む）
+                  </li>
+                </ul>
+                <p className="mt-3">
+                  <Link href="/guide" className="text-cyan-400 hover:underline">
+                    詳細は利用ガイド →
+                  </Link>
+                </p>
+              </div>
+
+              {/* カテゴリ・タグ（事実情報） */}
+              <div className="text-sm text-slate-400">
+                {asset.category && (
+                  <p>
+                    カテゴリ：{" "}
+                    <Link
+                      href={`/category/${encodeURIComponent(asset.category)}`}
+                      className="text-cyan-400 hover:underline"
+                    >
+                      {asset.category}
+                    </Link>
+                  </p>
+                )}
+
+                {asset.tags?.length > 0 && (
+                  <p className="mt-1">
+                    タグ：{" "}
+                    {asset.tags.map((t, i) => (
+                      <span key={t}>
+                        <Link
+                          href={`/search?q=${encodeURIComponent(t.replace("#", ""))}`}
+                          className="text-cyan-400 hover:underline"
+                        >
+                          {t}
+                        </Link>
+                        {i < asset.tags.length - 1 ? " / " : ""}
+                      </span>
+                    ))}
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         </div>
+        {/* ✅ ①ここまで */}
       </div>
     </div>
   );
