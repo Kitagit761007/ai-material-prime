@@ -3,7 +3,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import {
-  Image as ImageIcon,
+  Image as GalleryIcon,
   Grid,
   Tag,
   Heart,
@@ -36,6 +36,7 @@ export default function Header() {
   // assets.json 取得（カテゴリ件数用）
   useEffect(() => {
     let cancelled = false;
+
     fetch("/data/assets.json", { cache: "no-store" })
       .then((res) => res.json())
       .then((data) => {
@@ -54,16 +55,22 @@ export default function Header() {
 
   // ✅ カテゴリ総数（assets.jsonにcategoryが入っている前提）
   const categoryTotalCount = useMemo(() => {
-  const set = new Set(
-    assets
-      .map((a: any) => (typeof a?.category === "string" ? a.category.trim() : ""))
-      .filter((c: string) => c !== "")
-  );
-  return set.size; // ← これが 8 になる
-}, [assets]);
+    const set = new Set(
+      assets
+        .map((a: any) =>
+          typeof a?.category === "string" ? a.category.trim() : ""
+        )
+        .filter((c: string) => c !== "")
+    );
+    return set.size;
+  }, [assets]);
 
   const menuItems = [
-    { name: "ギャラリー", href: "/gallery/", icon: <ImageIcon className="w-4 h-4" /> },
+    {
+      name: "ギャラリー",
+      href: "/gallery/",
+      icon: <GalleryIcon className="w-4 h-4" />,
+    },
 
     // ✅ カテゴリーだけ件数バッジを表示
     {
@@ -101,15 +108,16 @@ export default function Header() {
         {/* ロゴ部分 */}
         <Link href="/" className="flex items-center gap-2 group">
           <div className="bg-cyan-500 p-1.5 rounded-lg group-hover:rotate-12 transition-transform">
-            <ImageIcon
-  src="/brand/bolt.svg"
-  alt="GX Prime Visuals"
-  width={20}
-  height={20}
-  className="w-5 h-5"
-  priority
-/>
+            {/* ✅ ここが重要：lucideのImageIconではなく img で表示 */}
+            <img
+              src="/brand/bolt.svg"
+              alt="GX Prime Visuals"
+              width={20}
+              height={20}
+              className="w-5 h-5"
+            />
           </div>
+
           <span className="text-xl font-black text-white tracking-tighter uppercase italic">
             GX Prime Visuals
           </span>
