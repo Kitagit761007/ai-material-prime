@@ -137,177 +137,175 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
         </Link>
 
         <div className="bg-slate-900 rounded-3xl overflow-hidden border border-white/10">
-          {/* 画像 */}
-          <div className="relative bg-black flex items-center justify-center p-8">
-            <div className="relative w-full aspect-square max-w-3xl">
-              <Image
-                src={imageUrl}
-                alt={asset.title}
-                fill
-                className="object-contain"
-                unoptimized
-              />
-            </div>
+  <div className="flex flex-col lg:flex-row">
+    {/* 左：画像（PCは左50%） */}
+    <div className="relative w-full lg:w-1/2 bg-black flex items-center justify-center p-6">
+      <div className="relative w-full aspect-square max-w-3xl">
+        <Image
+          src={imageUrl}
+          alt={asset.title}
+          fill
+          className="object-contain"
+          unoptimized
+        />
+      </div>
 
-            <div className="absolute bottom-6 right-6">
-              <FavoriteButton assetId={asset.id} size="lg" />
-            </div>
+      <div className="absolute bottom-6 right-6">
+        <FavoriteButton assetId={asset.id} size="lg" />
+      </div>
+    </div>
+
+    {/* 右：情報（PCは右50%） */}
+    <div className="w-full lg:w-1/2 p-8">
+      {/* タイトル */}
+      <h1 className="text-3xl font-black text-white italic uppercase tracking-tighter">
+        {asset.title}
+      </h1>
+
+      {/* DL（最優先） */}
+      <div className="mt-5 bg-white/5 rounded-2xl border border-white/10 p-4">
+        <a
+          href={imageUrl}
+          download
+          className="flex items-center justify-center gap-2 w-full bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 rounded-2xl transition-colors"
+        >
+          <Download className="w-5 h-5" />
+          無料ダウンロード
+        </a>
+
+        <div className="mt-3 text-xs text-slate-400 space-y-1">
+          <p>✓ 商用利用可能</p>
+          <p>✓ クレジット表記不要</p>
+          <p>✓ 加工・編集OK</p>
+          <p className="pt-2">
+            <Link href="/guide" className="text-cyan-400 hover:underline">
+              利用ガイドを見る →
+            </Link>
+          </p>
+        </div>
+      </div>
+
+      {/* メタデータ */}
+      <div className="mt-4 bg-white/5 rounded-2xl border border-white/10 p-4">
+        <p className="text-xs text-slate-400 mb-3 font-bold">メタデータ</p>
+
+        <div className="text-sm text-slate-200 space-y-2">
+          <div className="flex justify-between gap-4">
+            <span className="text-slate-400">形式</span>
+            <span className="font-medium">
+              {fileExt ? fileExt.toUpperCase() : "—"}
+            </span>
           </div>
-
-          {/* 情報 */}
-          <div className="p-8">
-            {/* タイトル */}
-            <h1 className="text-3xl font-black text-white italic uppercase tracking-tighter">
-              {asset.title}
-            </h1>
-
-            {/* ✅ ⑤：左=DL / 右=メタデータ（タイトル直下） */}
-            <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* 左：ダウンロード */}
-              <div className="bg-white/5 rounded-2xl border border-white/10 p-4">
-                <a
-                  href={imageUrl}
-                  download
-                  className="flex items-center justify-center gap-2 w-full bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 rounded-2xl transition-colors"
-                >
-                  <Download className="w-5 h-5" />
-                  無料ダウンロード
-                </a>
-
-                <div className="mt-3 text-xs text-slate-400 space-y-1">
-                  <p>✓ 商用利用可能</p>
-                  <p>✓ クレジット表記不要</p>
-                  <p>✓ 加工・編集OK</p>
-                  <p className="pt-2">
-                    <Link href="/guide" className="text-cyan-400 hover:underline">
-                      利用ガイドを見る →
-                    </Link>
-                  </p>
-                </div>
-              </div>
-
-              {/* 右：メタデータ */}
-              <div className="bg-white/5 rounded-2xl border border-white/10 p-4">
-                <p className="text-xs text-slate-400 mb-3 font-bold">メタデータ</p>
-
-                <div className="text-sm text-slate-200 space-y-2">
-                  <div className="flex justify-between gap-4">
-                    <span className="text-slate-400">形式</span>
-                    <span className="font-medium">{fileExt ? fileExt.toUpperCase() : "—"}</span>
-                  </div>
-
-                  <div className="flex justify-between gap-4">
-                    <span className="text-slate-400">ピクセル</span>
-                    <span className="font-medium">{dimensions || "—"}</span>
-                  </div>
-
-                  <div className="flex justify-between gap-4">
-                    <span className="text-slate-400">アスペクト比</span>
-                    <span className="font-medium">{asset.aspectRatio || "—"}</span>
-                  </div>
-
-                  <div className="flex justify-between gap-4">
-                    <span className="text-slate-400">ファイルサイズ</span>
-                    <span className="font-medium">{asset.size || "—"}</span>
-                  </div>
-                </div>
-
-                {/* カテゴリ/タグも「メタ側」に寄せる（情報価値UP） */}
-                <div className="mt-4 pt-4 border-t border-white/10">
-                  {asset.category && (
-                    <div className="mb-3">
-                      <div className="flex items-center gap-2 text-slate-400 text-xs mb-2">
-                        <Grid className="w-4 h-4" />
-                        <span>カテゴリー</span>
-                      </div>
-                      <Link
-                        href={`/category/${encodeURIComponent(asset.category)}`}
-                        className="inline-block px-4 py-2 bg-slate-800 hover:bg-cyan-500 text-white rounded-lg transition-colors font-medium text-sm"
-                      >
-                        {asset.category}
-                      </Link>
-                    </div>
-                  )}
-
-                  {tags.length > 0 && (
-                    <div>
-                      <div className="flex items-center gap-2 text-slate-400 text-xs mb-2">
-                        <TagIcon className="w-4 h-4" />
-                        <span>タグ</span>
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {tags.map((tag, index) => (
-                          <Link
-                            key={index}
-                            href={`/search?q=${encodeURIComponent(tag.replace("#", ""))}`}
-                            className="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs hover:bg-gx-cyan hover:text-white transition-colors"
-                          >
-                            {tag}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* ✅ ⑤：メタの下＝説明文 */}
-            <div className="mt-5 bg-white/5 p-4 rounded-2xl border border-white/10 text-slate-200 text-sm leading-relaxed">
-              {asset.description ? (
-                asset.description
-              ) : (
-                <span className="text-slate-400">
-                  説明文が未設定です。利用条件とメタデータをご確認ください。
-                </span>
-              )}
-            </div>
-
-            {/* ✅ ④：SNSボタン（X / LinkedIn / LINE / URLコピー） */}
-            <div className="mt-5">
-              <p className="text-xs text-slate-400 mb-2 font-bold">共有</p>
-
-              <div className="flex flex-wrap gap-2">
-                <a
-                  href={shareLinks.x}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 transition-colors text-sm"
-                >
-                  X
-                </a>
-
-                <a
-                  href={shareLinks.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 transition-colors text-sm"
-                >
-                  <Linkedin className="w-4 h-4" />
-                  LinkedIn
-                </a>
-
-                <a
-                  href={shareLinks.line}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 transition-colors text-sm"
-                >
-                  LINE
-                </a>
-
-                <button
-                  type="button"
-                  onClick={handleCopy}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 transition-colors text-sm"
-                >
-                  <Copy className="w-4 h-4" />
-                  {copied ? "コピーしました" : "URLコピー"}
-                </button>
-              </div>
-            </div>
+          <div className="flex justify-between gap-4">
+            <span className="text-slate-400">ピクセル</span>
+            <span className="font-medium">{dimensions || "—"}</span>
+          </div>
+          <div className="flex justify-between gap-4">
+            <span className="text-slate-400">アスペクト比</span>
+            <span className="font-medium">{asset.aspectRatio || "—"}</span>
+          </div>
+          <div className="flex justify-between gap-4">
+            <span className="text-slate-400">ファイルサイズ</span>
+            <span className="font-medium">{asset.size || "—"}</span>
           </div>
         </div>
+
+        {/* カテゴリ・タグ */}
+        <div className="mt-4 pt-4 border-t border-white/10">
+          {asset.category && (
+            <div className="mb-3">
+              <div className="flex items-center gap-2 text-slate-400 text-xs mb-2">
+                <Grid className="w-4 h-4" />
+                <span>カテゴリー</span>
+              </div>
+              <Link
+                href={`/category/${encodeURIComponent(asset.category)}`}
+                className="inline-block px-4 py-2 bg-slate-800 hover:bg-cyan-500 text-white rounded-lg transition-colors font-medium text-sm"
+              >
+                {asset.category}
+              </Link>
+            </div>
+          )}
+
+          {tags.length > 0 && (
+            <div>
+              <div className="flex items-center gap-2 text-slate-400 text-xs mb-2">
+                <TagIcon className="w-4 h-4" />
+                <span>タグ</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {tags.map((tag, index) => (
+                  <Link
+                    key={index}
+                    href={`/search?q=${encodeURIComponent(tag.replace("#", ""))}`}
+                    className="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs hover:bg-gx-cyan hover:text-white transition-colors"
+                  >
+                    {tag}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* 説明 */}
+      <div className="mt-4 bg-white/5 p-4 rounded-2xl border border-white/10 text-slate-200 text-sm leading-relaxed">
+        {asset.description ? (
+          asset.description
+        ) : (
+          <span className="text-slate-400">
+            説明文が未設定です。利用条件とメタデータをご確認ください。
+          </span>
+        )}
+      </div>
+
+      {/* SNS（右カラムに配置） */}
+      <div className="mt-4">
+        <p className="text-xs text-slate-400 mb-2 font-bold">共有</p>
+        <div className="flex flex-wrap gap-2">
+          <a
+            href={shareLinks.x}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 transition-colors text-sm"
+          >
+            X
+          </a>
+
+          <a
+            href={shareLinks.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 transition-colors text-sm"
+          >
+            <Linkedin className="w-4 h-4" />
+            LinkedIn
+          </a>
+
+          <a
+            href={shareLinks.line}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 transition-colors text-sm"
+          >
+            LINE
+          </a>
+
+          <button
+            type="button"
+            onClick={handleCopy}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 transition-colors text-sm"
+          >
+            <Copy className="w-4 h-4" />
+            {copied ? "コピーしました" : "URLコピー"}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
         {/* ①で置換した「素材情報」ブロックは、いったん残してOK（ただし重複が気になるなら後で削除） */}
         <div className="mt-12 max-w-4xl mx-auto">
