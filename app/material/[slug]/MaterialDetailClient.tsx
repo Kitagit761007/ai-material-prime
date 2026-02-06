@@ -313,29 +313,22 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
             <h2 className="text-2xl font-black text-white mb-4">素材情報</h2>
 
             <div className="space-y-4 text-slate-300 leading-relaxed">
-              {asset.description ? (
-                <p>{asset.description}</p>
-              ) : (
-                <p>
-                  タイトル・カテゴリ・タグなどの情報から検索できる素材ページです。
-                  ダウンロード前に利用条件と仕様をご確認ください。
-                </p>
-              )}
+  <p className="text-slate-400 text-sm">
+    このセクションでは、利用条件とカテゴリ・タグ情報を確認できます。
+  </p>
 
-              <div className="bg-slate-800/40 p-4 rounded-xl text-sm text-slate-300">
-                <p className="font-bold text-white mb-2">利用条件（要点）</p>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>商用利用：可</li>
-                  <li>クレジット：任意</li>
-                  <li>加工・編集：可</li>
-                  <li>
-                    再配布：不可（素材の再アップロード／素材集化／再販売を含む）
-                  </li>
-                </ul>
-                <p className="mt-3">
-                  <Link href="/guide" className="text-cyan-400 hover:underline">
-                    詳細は利用ガイド →
-                  </Link>
+  <div className="bg-slate-800/40 p-4 rounded-xl text-sm text-slate-300">
+    <p className="font-bold text-white mb-2">利用条件（要点）</p>
+    <ul className="list-disc pl-5 space-y-1">
+      <li>商用利用：可</li>
+      <li>クレジット：任意</li>
+      <li>加工・編集：可</li>
+      <li>再配布：不可（素材の再アップロード／素材集化／再販売を含む）</li>
+    </ul>
+    <p className="mt-3">
+      <Link href="/guide" className="text-cyan-400 hover:underline">
+        詳細は利用ガイド →
+      </Link>
                 </p>
               </div>
 
