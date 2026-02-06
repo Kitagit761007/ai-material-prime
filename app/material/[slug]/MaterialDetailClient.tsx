@@ -365,7 +365,7 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
                         >
                           {t}
                         </Link>
-                        {i < asset.tags.length - 1 ? " / " : ""}
+                       {i < tags.length - 1 ? " / " : ""}
                       </span>
                     ))}
                   </p>
