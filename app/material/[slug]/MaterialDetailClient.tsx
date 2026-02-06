@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -24,11 +23,10 @@ interface Asset {
   height?: number;
   size?: string; // "228 kB" など
   aspectRatio?: string; // "2:3" など
-  url?: string; // "/assets/images/..." が入っている場合もある
+  url?: string; // "/assets/images/..." など（あれば）
 }
 
 export default function MaterialDetailClient({ slug }: { slug: string }) {
-  const router = useRouter();
   const [asset, setAsset] = useState<Asset | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -37,7 +35,6 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
 
   // 画像URL生成（id接頭辞からフォルダを決定）
   const getImageUrl = (item: Asset) => {
-    if (!item) return "";
     const f = item.id.startsWith("mid-")
       ? "mid"
       : item.id.startsWith("niji-")
@@ -50,56 +47,60 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
     return `/assets/images/${f}/${item.id}${f === "GPT" ? ".png" : ".jpg"}`;
   };
 
+  // ページURL（共有/コピー用）
   useEffect(() => {
-    // 共有/コピー用のURL
-    if (typeof window !== "undefined") setPageUrl(window.location.href);
+    if (typeof window !== "undefined") {
+      setPageUrl(window.location.href);
+    }
   }, []);
 
+  // データ取得（404遷移はしない＝落ちない）
   useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+
     fetch("/data/assets.json")
       .then((res) => res.json())
       .then((data: Asset[]) => {
+        if (cancelled) return;
         const found = data.find((item) => item.id === slug);
-        if (found) setAsset(found);
-        else router.push("/404");
+        setAsset(found ?? null);
         setLoading(false);
       })
       .catch(() => {
+        if (cancelled) return;
+        setAsset(null);
         setLoading(false);
-        router.push("/404");
       });
-  }, [slug, router]);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-950">
-        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-gx-cyan" />
-      </div>
-    );
-  }
+    return () => {
+      cancelled = true;
+    };
+  }, [slug]);
 
-  if (!asset) return null;
+  const imageUrl = useMemo(() => (asset ? getImageUrl(asset) : ""), [asset]);
 
-  // tags を必ず配列にする（TypeScriptエラー回避）
-  const tags = Array.isArray(asset.tags) ? asset.tags : [];
-
-  const imageUrl = useMemo(() => getImageUrl(asset), [asset]);
+  // tags を必ず配列にする（TypeScript/実行時ともに安全）
+  const tags = useMemo(() => {
+    if (!asset) return [];
+    return Array.isArray(asset.tags) ? asset.tags : [];
+  }, [asset]);
 
   const fileExt = useMemo(() => {
-    // asset.url があればそれも参照（なければ生成したimageUrlで判定）
+    if (!asset) return "";
     const u = asset.url || imageUrl;
     const m = u.match(/\.([a-zA-Z0-9]+)$/);
     return m ? m[1].toLowerCase() : "";
-  }, [asset.url, imageUrl]);
+  }, [asset, imageUrl]);
 
   const dimensions = useMemo(() => {
-    if (!asset.width || !asset.height) return "";
+    if (!asset?.width || !asset?.height) return "";
     return `${asset.width} × ${asset.height}px`;
-  }, [asset.width, asset.height]);
+  }, [asset?.width, asset?.height]);
 
   const shareLinks = useMemo(() => {
     const url = pageUrl || "";
-    const text = asset.title ? encodeURIComponent(asset.title) : "";
+    const text = asset?.title ? encodeURIComponent(asset.title) : "";
     const encUrl = encodeURIComponent(url);
 
     return {
@@ -111,7 +112,7 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
         ? `https://social-plugins.line.me/lineit/share?url=${encUrl}`
         : "",
     };
-  }, [pageUrl, asset.title]);
+  }, [pageUrl, asset?.title]);
 
   const handleCopy = async () => {
     if (!pageUrl) return;
@@ -120,9 +121,39 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1400);
     } catch {
-      // 権限NG等は何もしない
+      // 権限NG等は何もしない（誤情報を出さない）
     }
   };
+
+  // ローディング
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-950">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-gx-cyan" />
+      </div>
+    );
+  }
+
+  // 見つからない（落ちない表示）
+  if (!asset) {
+    return (
+      <div className="min-h-screen bg-slate-950 pt-24 pb-12">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="bg-slate-900 border border-white/10 rounded-2xl p-6 text-slate-200">
+            <p className="font-bold text-white">素材が見つかりませんでした</p>
+            <p className="text-sm text-slate-400 mt-2">
+              URLが間違っているか、data/assets.json に存在しないIDです。
+            </p>
+            <div className="mt-4">
+              <Link href="/" className="text-cyan-400 hover:underline">
+                トップへ戻る →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-950 pt-24 pb-12">
@@ -190,7 +221,9 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
 
                   {/* 右：メタ（空きを埋める） */}
                   <div className="bg-black/10 rounded-2xl border border-white/10 p-4">
-                    <p className="text-xs text-slate-400 mb-3 font-bold">メタデータ</p>
+                    <p className="text-xs text-slate-400 mb-3 font-bold">
+                      メタデータ
+                    </p>
 
                     <div className="text-sm text-slate-200 space-y-2">
                       <div className="flex justify-between gap-4">
@@ -323,7 +356,7 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
           </div>
         </div>
 
-        {/* 下部の「素材情報」ブロックは削除（重複排除） */}
+        {/* 下部の素材情報セクションは削除（重複排除） */}
       </div>
     </div>
   );
