@@ -8,7 +8,7 @@ import path from "path";
 interface Asset {
   id?: string | null;
   category?: string | null;
-  url?: string | null;   // assets.json にある想定: "/assets/images/g/g-11.jpg"
+  url?: string | null;   // assets.json にある想定: "/assets/images/.."
   score?: number | null; // あるなら代表選定に使う
 }
 
@@ -18,29 +18,27 @@ export const metadata = {
 };
 
 function toPublicImageUrl(asset: Asset): string {
-  // MaterialGallery と同じロジックで「id → URL」を作る（これが正）
-  const id = (asset.id ?? "").toString().trim();
-  if (id) {
-    const folder = id.startsWith("mid-")
-      ? "mid"
-      : id.startsWith("niji-")
-      ? "niji"
-      : id.startsWith("gpt-")
-      ? "GPT"
-      : id.startsWith("nano-")
-      ? "nano"
-      : "grok";
-
-    const ext = folder === "GPT" ? ".png" : ".jpg";
-    return `/assets/images/${folder}/${id}${ext}`;
-  }
-
-  // 保険：idが無いデータだけ url を使う
+  // 1) url があるなら最優先
   if (typeof asset.url === "string" && asset.url.trim() !== "") {
-    return asset.url;
+    return asset.url.trim();
   }
 
-  return "";
+  // 2) 保険：idから推測（MaterialGallery と同系統）
+  const id = (asset.id ?? "").toString().trim();
+  if (!id) return "";
+
+  const folder = id.startsWith("mid-")
+    ? "mid"
+    : id.startsWith("niji-")
+    ? "niji"
+    : id.startsWith("gpt-")
+    ? "GPT"
+    : id.startsWith("nano-")
+    ? "nano"
+    : "grok";
+
+  const ext = folder === "GPT" ? ".png" : ".jpg";
+  return `/assets/images/${folder}/${id}${ext}`;
 }
 
 export default function CategoriesPage() {
@@ -51,8 +49,7 @@ export default function CategoriesPage() {
 
   // category -> count
   const categoryCountMap: Record<string, number> = {};
-
-  // category -> best asset (score最大)
+  // category -> best asset (score最大 or 最初)
   const categoryCoverMap: Record<string, Asset> = {};
 
   for (const a of assets) {
@@ -62,13 +59,17 @@ export default function CategoriesPage() {
     categoryCountMap[c] = (categoryCountMap[c] ?? 0) + 1;
 
     const current = categoryCoverMap[c];
-    const curScore = typeof current?.score === "number" ? current!.score! : -Infinity;
-    const nextScore = typeof a?.score === "number" ? a!.score! : -Infinity;
-
-    // scoreがあるなら最大を採用。scoreが無い同士なら最初に入ったものを維持。
     if (!current) {
       categoryCoverMap[c] = a;
-    } else if (nextScore > curScore) {
+      continue;
+    }
+
+    const curScore =
+      typeof current?.score === "number" ? (current.score as number) : -Infinity;
+    const nextScore =
+      typeof a?.score === "number" ? (a.score as number) : -Infinity;
+
+    if (nextScore > curScore) {
       categoryCoverMap[c] = a;
     }
   }
@@ -102,23 +103,23 @@ export default function CategoriesPage() {
               <Link
                 key={category}
                 href={`/category/${encodeURIComponent(category)}`}
-                className="object-cover opacity-50 group-hover:opacity-65 transition-opacity duration-300 brightness-110 saturate-110 contrast-105"
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900 p-8 transition-all hover:scale-[1.02] hover:border-cyan-500/40"
               >
-                {/* 代表画像（背景） */}
+                {/* 背景画像（カードにだけ影響。テキストは薄くならない） */}
                 {coverUrl && (
-                  <div className="absolute inset-0">
+                  <>
                     <Image
                       src={coverUrl}
                       alt={`${category} cover`}
                       fill
-                      className="object-cover opacity-35 group-hover:opacity-45 transition-opacity duration-300"
+                      className="absolute inset-0 object-cover opacity-30 transition-opacity duration-300 group-hover:opacity-40"
                       unoptimized
                       priority={false}
                     />
-                    {/* 読みやすさのためのオーバーレイ */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/45 via-slate-950/30 to-slate-950/18" />
-                    <div className="absolute inset-0 bg-slate-950/06" />
-                  </div>
+                    {/* 読みやすさ用の薄幕（opacityで全体を薄くしない） */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/60 via-slate-950/35 to-slate-950/20" />
+                    <div className="absolute inset-0 bg-black/15 transition-colors duration-300 group-hover:bg-black/10" />
+                  </>
                 )}
 
                 {/* 前景コンテンツ */}
