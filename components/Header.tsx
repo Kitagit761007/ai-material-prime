@@ -2,15 +2,8 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import {
-  Image as GalleryIcon,
-  Grid,
-  Tag,
-  Heart,
-  Mail,
-  Menu,
-  X,
-} from "lucide-react";
+import Image from "next/image";
+import { Grid, Tag, Heart, Mail, Menu, X } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -53,26 +46,18 @@ export default function Header() {
     };
   }, []);
 
-  // ✅ カテゴリ総数（assets.jsonにcategoryが入っている前提）
+  // カテゴリ総数（assets.jsonにcategoryが入っている前提）
   const categoryTotalCount = useMemo(() => {
     const set = new Set(
       assets
-        .map((a: any) =>
-          typeof a?.category === "string" ? a.category.trim() : ""
-        )
+        .map((a: any) => (typeof a?.category === "string" ? a.category.trim() : ""))
         .filter((c: string) => c !== "")
     );
     return set.size;
   }, [assets]);
 
   const menuItems = [
-    {
-      name: "ギャラリー",
-      href: "/gallery/",
-      icon: <GalleryIcon className="w-4 h-4" />,
-    },
-
-    // ✅ カテゴリーだけ件数バッジを表示
+    { name: "ギャラリー", href: "/gallery/", icon: <span className="text-sm">🖼️</span> },
     {
       name: "カテゴリー",
       href: "/categories/",
@@ -85,7 +70,6 @@ export default function Header() {
         </span>
       ),
     },
-
     { name: "タグ一覧", href: "/tags/", icon: <Tag className="w-4 h-4" /> },
     {
       name: "お気に入り",
@@ -93,9 +77,7 @@ export default function Header() {
       icon: (
         <span className="inline-flex items-center gap-2">
           <Heart className="w-4 h-4" />
-          <span className="text-[10px] font-bold text-pink-400 tabular-nums">
-            {favoriteCount}
-          </span>
+          <span className="text-[10px] font-bold text-pink-400 tabular-nums">{favoriteCount}</span>
         </span>
       ),
     },
@@ -108,63 +90,4 @@ export default function Header() {
         {/* ロゴ部分 */}
         <Link href="/" className="flex items-center gap-2 group">
           <div className="bg-cyan-500 p-1.5 rounded-lg group-hover:rotate-12 transition-transform">
-            {/* ✅ ここが重要：lucideのImageIconではなく img で表示 */}
-            <img
-              src="/brand/bolt.svg"
-              alt="GX Prime Visuals"
-              width={20}
-              height={20}
-              className="w-5 h-5"
-            />
-          </div>
-
-          <span className="text-xl font-black text-white tracking-tighter uppercase italic">
-            GX Prime Visuals
-          </span>
-        </Link>
-
-        {/* ナビゲーションメニュー */}
-        <nav className="hidden md:flex items-center gap-8">
-          {menuItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-cyan-400 transition-colors"
-            >
-              {item.icon}
-              {item.name}
-            </Link>
-          ))}
-        </nav>
-
-        {/* モバイル用メニューボタン */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-white hover:text-cyan-400 transition-colors"
-          aria-label={mobileMenuOpen ? "メニューを閉じる" : "メニューを開く"}
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      {/* モバイルメニューパネル */}
-      {mobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 right-0 bg-slate-950/95 backdrop-blur-md border-b border-white/5 shadow-xl">
-          <nav className="flex flex-col p-4 gap-2">
-            {menuItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-3 p-3 text-slate-300 hover:text-cyan-400 hover:bg-white/5 rounded-lg transition-all"
-              >
-                {item.icon}
-                <span className="font-medium">{item.name}</span>
-              </Link>
-            ))}
-          </nav>
-        </div>
-      )}
-    </header>
-  );
-}
+            {/* ✅ lucide の*
