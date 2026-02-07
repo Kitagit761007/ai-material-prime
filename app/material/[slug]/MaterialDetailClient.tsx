@@ -194,7 +194,15 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
     };
   }, [slug]);
 
-  const imageUrl = useMemo(() => (asset ? getImageUrl(asset) : ""), [asset]);
+  const imageUrl = useMemo(() => {
+  if (!asset) return "";
+  const u = String(asset.url || "").trim();
+  // assets.json に url がある場合はそれを優先（例外対応）
+  if (u) return u.startsWith("/") ? u : `/${u}`;
+  // url が無ければ従来ロジック
+  return getImageUrl(asset);
+}, [asset]);
+
 
   // tags を必ず配列にする（TypeScript/実行時ともに安全）
   const tags = useMemo(() => {
