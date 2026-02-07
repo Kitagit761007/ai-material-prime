@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
+
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -32,6 +34,13 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
 
   const [pageUrl, setPageUrl] = useState<string>("");
   const [copied, setCopied] = useState(false);
+  const searchParams = useSearchParams();
+
+const backHref = useMemo(() => {
+  const v = searchParams.get("from");
+  if (!v || !v.startsWith("/")) return "/";
+  return v;
+}, [searchParams]);
 
   // 画像URL生成（id接頭辞からフォルダを決定）
   const getImageUrl = (item: Asset) => {
@@ -159,12 +168,12 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
     <div className="min-h-screen bg-slate-950 pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-6">
         <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-slate-500 hover:text-gx-cyan transition-colors mb-8 group"
-        >
-          <ChevronLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
-          トップページへ戻る
-        </Link>
+  href={backHref}
+  className="inline-flex items-center gap-2 text-slate-500 hover:text-gx-cyan transition-colors mb-8 group"
+>
+  <ChevronLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
+  前のページに戻る
+</Link>
 
         {/* 2カラム：左=画像 / 右=情報（スマホは縦） */}
         <div className="bg-slate-900 rounded-3xl overflow-hidden border border-white/10">
