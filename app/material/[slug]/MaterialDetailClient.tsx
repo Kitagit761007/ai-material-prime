@@ -60,6 +60,17 @@ function normalizeTags(tags: any): string[] {
 function buildDescription(item: Asset): string {
   const title = String(item?.title || "").trim();
   const category = String(item?.category || "").trim();
+    // タイトルから“固有語”を1つ抽出（テンプレ感を下げる）
+  const titleTokens = title
+    .replace(/[：:・、,。.!?()（）【】\[\]「」『』]/g, " ")
+    .split(/\s+/)
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .filter((s) => s.length >= 2 && s.length <= 10);
+
+  const subject = titleTokens.length > 0 ? pick(titleTokens, seed, 11) : "";
+  const subjectPhrase = subject ? `「${subject}」を含む` : "";
+
   const tags = normalizeTags(item?.tags);
 
   const seed = hashString(String(item?.id || title || category || "gx"));
@@ -80,10 +91,10 @@ function buildDescription(item: Asset): string {
 
   // “AIっぽさ”が出やすい形容や煽りを避け、用途・文脈中心にする
   const openings = [
-    `本素材は「${theme}」を軸に、資料やWebに使いやすいトーンでまとめたビジュアルです。`,
-    `GXの文脈で説明しやすい構図を意識し、「${theme}」の方向性を整理した素材です。`,
-    `プレゼンやサイトのキービジュアルとして扱いやすいよう、「${theme}」をテーマに仕上げています。`,
-  ];
+  `本素材は${subjectPhrase}「${theme}」を軸に、資料やWebに使いやすいトーンでまとめたビジュアルです。`,
+  `GXの文脈で説明しやすい構図を意識し、${subjectPhrase}「${theme}」の方向性を整理した素材です。`,
+  `プレゼンやサイトのキービジュアルとして扱いやすいよう、${subjectPhrase}「${theme}」をテーマに仕上げています。`,
+];
 
   const details = [
     `要素を盛りすぎず、見出しや図表を重ねても破綻しにくい構成にしています。`,
