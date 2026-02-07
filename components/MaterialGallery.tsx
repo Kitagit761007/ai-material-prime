@@ -114,8 +114,14 @@ export default function MaterialGallery({
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {assets.map((item) => (
-        <div key={item.id} className="relative group">
+        // ✅ ここが重要：カードに「確実な箱（高さ）」を与える
+        <div
+          key={item.id}
+          className="relative group w-full aspect-[4/3] overflow-hidden rounded-xl"
+        >
+          {/* ✅ Image fill の親を Link にするので、Link 側を relative にして箱いっぱいに広げる */}
           <Link
+            className="absolute inset-0 block relative"
             href={{
               pathname: `/material/${item.id}`,
               query: { from: "/gallery" },
@@ -130,8 +136,8 @@ export default function MaterialGallery({
             />
           </Link>
 
+          {/* ✅ お気に入りボタンは画像の上に表示 */}
           <div className="absolute top-2 right-2 z-10">
-            {/* ✅ FavoriteButton 側のpropsが assetId 仕様の前提で統一 */}
             <FavoriteButton assetId={item.id} size="md" />
           </div>
         </div>
