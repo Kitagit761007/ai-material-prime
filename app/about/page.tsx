@@ -1,57 +1,133 @@
-export const metadata = {
-    title: '当サイトについて | GX Prime Visuals',
-    description: 'GX Prime Visualsのミッションとビジョンについて。',
-};
+"use client";
+
+import Link from "next/link";
 
 export default function AboutPage() {
-    return (
-        <div className="min-h-screen py-24 px-6">
-            <div className="max-w-4xl mx-auto">
-                <h1 className="text-4xl md:text-6xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-gx-cyan to-gx-emerald">
-                    GX Prime Visualsについて
-                </h1>
+  return (
+    <main className="min-h-screen bg-[#050505] text-slate-300 py-20 px-6">
+      <div className="max-w-3xl mx-auto backdrop-blur-xl bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 md:p-12 shadow-2xl">
+        {/* Back */}
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-gx-cyan hover:text-white transition-colors mb-8 group font-bold"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="transition-transform group-hover:-translate-x-1"
+          >
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+          ホームへ戻る
+        </Link>
 
-                {/* English Summary Section */}
-                <div className="mb-16 p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-xl shadow-2xl">
-                    <h2 className="text-xs font-bold text-gx-cyan uppercase tracking-widest mb-4">[About This Site]</h2>
-                    <p className="text-slate-300 text-base leading-relaxed font-medium">
-                        This site provides high-quality, AI-generated futuristic architectural assets for creators worldwide. All resources are available for free to support your creative projects.
-                    </p>
-                </div>
+        <h1 className="text-4xl font-extrabold text-white mb-10 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
+          当サイトについて
+        </h1>
 
-                <section className="mb-20 space-y-8">
-                    <h2 className="text-2xl font-bold text-white border-l-4 border-gx-cyan pl-4">
-                        ミッション
-                    </h2>
-                    <p className="text-slate-300 text-lg leading-relaxed">
-                        GX Prime Visualsは、脱炭素社会の実現に向けた企業の取り組みを、最先端のAI技術によって「可視化」し、加速させることを使命としています。
-                        <br /><br />
-                        複雑で目に見えにくいエネルギー技術や環境ソリューションを、美しく、直感的なビジュアルアセットとして提供することで、投資家、ステークホルダー、そして一般消費者への訴求力を最大化します。
-                    </p>
-                </section>
+        {/* Summary */}
+        <div className="mb-10 p-6 bg-white/[0.03] border border-white/[0.08] rounded-2xl">
+          <p className="text-xs font-bold text-slate-200 uppercase tracking-widest mb-3">
+            SUMMARY
+          </p>
 
-                <section className="mb-20 space-y-8">
-                    <h2 className="text-2xl font-bold text-white border-l-4 border-gx-emerald pl-4">
-                        品質へのこだわり
-                    </h2>
-                    <p className="text-slate-300 text-lg leading-relaxed">
-                        当サイトのアセットはすべて、独自の「Anti-Gravity Pipeline」によって生成・選別されています。
-                        構図、ライティング、そして科学的な整合性を考慮した厳格なスコアリングシステム（GX Score）を通過した画像のみが公開されます。
-                        これにより、プレゼンテーション資料、ウェブサイト、IR資料など、あらゆるビジネスシーンで即戦力となる高いクオリティを保証します。
-                    </p>
-                </section>
-
-                <section className="space-y-8">
-                    <h2 className="text-2xl font-bold text-white border-l-4 border-white pl-4">
-                        ご利用について
-                    </h2>
-                    <p className="text-slate-300 text-lg leading-relaxed">
-                        掲載されている画像は、GX推進を目的とする限りにおいて、商用・非商用を問わず幅広くご利用いただけます。
-                        <br />
-                        高解像度データの提供や、特定のテーマに基づいたカスタム生成のご依頼については、お問い合わせフォームよりご相談ください。
-                    </p>
-                </section>
+          <div className="grid gap-3 text-sm text-slate-300">
+            <div className="flex gap-2">
+              <span className="text-gx-cyan">✓</span>
+              <span>
+                AI Material Prime（GX Prime Visuals）は、未来・次世代テクノロジー領域の世界観をテーマにした
+                AI生成画像素材を提供するサイトです。
+              </span>
             </div>
+            <div className="flex gap-2">
+              <span className="text-gx-cyan">✓</span>
+              <span>
+                素材は<strong className="text-white">商用・非商用</strong>で利用可能で、
+                <strong className="text-white">クレジット表記は任意</strong>です。
+                詳細は<strong className="text-white">利用規約</strong>をご確認ください。
+              </span>
+            </div>
+            <div className="flex gap-2">
+              <span className="text-gx-cyan">✓</span>
+              <span>
+                ご連絡は<strong className="text-white">お問い合わせフォーム</strong>よりお願いいたします（返信目安：3営業日以内）。
+              </span>
+            </div>
+          </div>
         </div>
-    );
+
+        <section className="space-y-10 text-sm md:text-base leading-relaxed">
+          {/* Purpose */}
+          <div>
+            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
+              サイトの目的
+            </h2>
+            <p className="text-slate-400 border-l-2 border-white/10 pl-4">
+              当サイトは、プレゼン資料・Webサイト・動画・広告・SNS投稿などに使いやすい「未来感のあるビジュアル素材」を、
+              誰でも扱える形で提供することを目的としています。素材の利用条件は明確にし、安心して使える運用を心がけています。
+            </p>
+          </div>
+
+          {/* Operator */}
+          <div>
+            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
+              運営者情報
+            </h2>
+            <ul className="list-disc list-inside space-y-2 text-slate-400 border-l-2 border-white/10 pl-4">
+              <li>サイト名：AI Material Prime（GX Prime Visuals）</li>
+              <li>運営：GX Prime Visuals（運営）</li>
+              <li>所在地：Japan</li>
+              <li>
+                連絡先：
+                <Link href="/contact/" className="text-white underline decoration-white/20 hover:decoration-white/60">
+                  お問い合わせフォーム
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Ads */}
+          <div>
+            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
+              広告掲載について
+            </h2>
+            <p className="text-slate-400 border-l-2 border-white/10 pl-4">
+              当サイトでは、運営継続のために広告配信サービス（例：Google AdSense）を利用する場合があります。
+              広告の配信にあたってはCookie等が使用されることがあります。詳細は
+              <Link href="/privacy/" className="text-white underline decoration-white/20 hover:decoration-white/60">
+                プライバシーポリシー
+              </Link>
+              をご確認ください。
+            </p>
+          </div>
+
+          {/* Disclaimer */}
+          <div>
+            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
+              免責事項
+            </h2>
+            <p className="text-slate-400 border-l-2 border-white/10 pl-4">
+              当サイトの掲載内容・素材の利用によって生じた損害等について、運営者は一切の責任を負いません。
+              各素材の利用可否は、利用者ご自身の責任においてご判断ください。規約・ポリシーは必要に応じて予告なく更新される場合があります。
+            </p>
+          </div>
+
+          <div className="pt-8 border-t border-white/10 text-xs text-slate-500">
+            最終更新：2026年2月6日
+          </div>
+        </section>
+      </div>
+    </main>
+  );
 }

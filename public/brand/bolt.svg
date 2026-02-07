@@ -1,0 +1,9 @@
+<!-- /public/brand/bolt.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-label="GX bolt">
+  <!-- 背景なし（透過） -->
+  <path
+    d="M145 12 L54 148 H121 L111 244 L202 108 H135 Z"
+    fill="currentColor"
+  />
+</svg>
+

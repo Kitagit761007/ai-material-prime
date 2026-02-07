@@ -6,6 +6,9 @@
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
+    /* ✅ 追加：レイアウト共通の安全余白（Single Source of Truth） */
+    --header-h: 80px;
+    --bottom-nav-h: 72px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,6 +17,12 @@
         --background-start-rgb: 0, 0, 0;
         --background-end-rgb: 0, 0, 0;
     }
+}
+/* ✅ ここに追加（PCでは下部ナビ分の余白を0にする） */
+@media (min-width: 768px) {
+  :root {
+    --bottom-nav-h: 0px;
+  }
 }
 
 body {

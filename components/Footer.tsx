@@ -97,17 +97,20 @@ export default function Footer() {
                         <ul className="grid grid-cols-1 gap-3">
                             {categories.map((cat) => (
                                 <li key={cat.id}>
-                                    <button
-                                        onClick={(e) => handleCategoryClick(cat.id, e)}
-                                        className="w-full text-slate-400 hover:text-white transition-colors text-sm flex items-center justify-between group text-left"
-                                    >
-                                        <div className="flex flex-col">
-                                            <span>{cat.name}</span>
-                                            <span className="text-[10px] text-slate-600 group-hover:text-slate-400 transition-colors">{cat.en}</span>
-                                        </div>
-                                        <span className="text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-slate-600 group-hover:text-gx-cyan transition-colors">{getCategoryCount(cat.name)}</span>
-                                    </button>
-                                </li>
+  <Link
+    href={`/category/${encodeURIComponent(cat.id)}/`}
+    className="w-full text-slate-400 hover:text-white transition-colors text-sm flex items-center justify-between group text-left"
+  >
+    <div className="flex flex-col">
+      <span>{cat.name}</span>
+      <span className="text-[10px] text-slate-600 group-hover:text-slate-400 transition-colors">{cat.en}</span>
+    </div>
+    <span className="text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-slate-600 group-hover:text-gx-cyan transition-colors">
+      {getCategoryCount(cat.id)}
+    </span>
+  </Link>
+</li>
+
                             ))}
                         </ul>
                     </div>
@@ -123,6 +126,11 @@ export default function Footer() {
                                     当サイトについて (About)
                                 </Link>
                             </li>
+                            <li>
+  <Link href="/guide" className="text-slate-400 hover:text-gx-cyan transition-colors text-sm">
+    利用ガイド (Guide)
+  </Link>
+</li>
                             <li>
                                 <Link href="/contact" className="text-slate-400 hover:text-gx-cyan transition-colors text-sm font-bold">
                                     お問い合わせ (Contact)

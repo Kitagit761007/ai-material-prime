@@ -22,6 +22,7 @@ export default function Home() {
 
   // トップで見せたいカテゴリ（まずは固定）
   const categories = ["GX", "未来都市", "モビリティ"];
+<<<<<<< HEAD
 
   // トップ用のカテゴリ説明（SEO/AdSense的に「中身のある日本語」に寄せる）
   const categoryDescriptions: Record<string, string> = {
@@ -46,10 +47,18 @@ export default function Home() {
     .filter((s) => s.images.length > 0);
 
   const hasSearch = Boolean(searchQuery && searchQuery.trim().length > 0);
+=======
+  const sections = categories.map((cat) => ({
+    title: cat,
+    description: `${cat}のビジュアルコレクション。`,
+    images: assetsData.filter((asset) => asset.category === cat).slice(0, 3),
+  }));
+>>>>>>> main
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 font-sans">
       <Header />
+<<<<<<< HEAD
 
       <main>
         {/* ヒーロー（検索） */}
@@ -69,6 +78,31 @@ export default function Home() {
             <p className="mt-3 text-slate-400 text-sm leading-relaxed">
               ※各画像の利用可否や注意点は、サイト内の表記に従ってください。掲載内容は必要に応じて更新します。
             </p>
+=======
+      <main>
+        {/* 検索機能をHeroに渡す以前の形式 */}
+        <Hero searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        {/* 検索中ではない時だけカテゴリーセクションを表示 */}
+        {!searchQuery &&
+          sections.map((section) => (
+            <CategorySection
+              key={section.title}
+              title={section.title}
+              description={section.description}
+              images={section.images}
+            />
+          ))}
+
+        {/* メインギャラリー：検索ワードがあればそれに基づいて表示 */}
+        <div
+  id="gallery-section"
+  className="pt-8 pb-16 px-6 max-w-7xl mx-auto border-t border-white/5"
+>
+          <div className="mb-8">
+            <h2 className="text-4xl font-black text-white italic uppercase tracking-tighter">
+              {searchQuery ? `Search: ${searchQuery}` : "Explore All Assets"}
+            </h2>
+>>>>>>> main
           </div>
         </section>
 
