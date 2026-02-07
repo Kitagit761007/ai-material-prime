@@ -127,6 +127,7 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
 
   const [pageUrl, setPageUrl] = useState<string>("");
   const [copied, setCopied] = useState(false);
+  const [descOpen, setDescOpen] = useState(false);
   const searchParams = useSearchParams();
 
   const backHref = useMemo(() => {
@@ -413,9 +414,37 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
               </div>
 
               {/* 説明（短い場合だけ自動補完） */}
-              <div className="mt-4 bg-white/5 p-5 rounded-2xl border border-white/10 text-slate-200 text-base leading-relaxed">
-                {descriptionText}
-              </div>
+              {/* 説明（要約＋折りたたみ詳細） */}
+<div className="mt-4 bg-white/5 p-5 rounded-2xl border border-white/10 text-slate-200 text-base leading-relaxed">
+  {/* 要約（1文） */}
+  <p className="text-slate-200">
+    {(() => {
+      const t = String(descriptionText || "").trim();
+      // 最初の「。」までを要約として採用（なければ先頭70文字）
+      const i = t.indexOf("。");
+      if (i >= 0) return t.slice(0, i + 1);
+      return t.length > 70 ? `${t.slice(0, 70)}…` : t;
+    })()}
+  </p>
+
+  {/* 開閉ボタン */}
+  <button
+    type="button"
+    onClick={() => setDescOpen((v) => !v)}
+    className="mt-3 text-sm text-cyan-300 hover:text-cyan-200 transition-colors"
+    aria-expanded={descOpen}
+  >
+    {descOpen ? "詳細を閉じる" : "詳細を読む"}
+  </button>
+
+  {/* 詳細（本文） */}
+  {descOpen && (
+    <p className="mt-3 text-slate-300 whitespace-pre-line">
+      {descriptionText}
+    </p>
+  )}
+</div>
+
 
               {/* 共有（右カラムに配置） */}
               <div className="mt-4">
