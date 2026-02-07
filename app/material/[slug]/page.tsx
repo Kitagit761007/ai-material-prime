@@ -1,4 +1,5 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { Suspense } from "react";
 import fs from "fs";
 import path from "path";
 import MaterialDetailClient from "./MaterialDetailClient";
@@ -81,5 +82,10 @@ export default function MaterialDetailPage({
 }: {
     params: { slug: string };
 }) {
-    return <MaterialDetailClient slug={params.slug} />;
+  return (
+    <Suspense fallback={null}>
+      <MaterialDetailClient slug={params.slug} />
+    </Suspense>
+  );
+
 }
