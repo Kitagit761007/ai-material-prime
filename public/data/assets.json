@@ -837,8 +837,12 @@
   "title": "GX研究ドーム：未来都市の脱炭素技術開発拠点",
   "url": "/assets/images/grok/g-49.jpg",
   "width": 1280,
-  "height": 720
-},
+  "height": 720,
+  "aspectRatio": "16:9",
+  "size": "380 kB",
+  "category": "未来都市",
+  "tags": ["GX", "脱炭素", "未来都市"]
+  },
   {
     "id": "g-50",
     "title": "夕陽のGXタワー：脱炭素社会の達成を告げる灯火",
