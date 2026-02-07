@@ -36,11 +36,14 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
   const [copied, setCopied] = useState(false);
   const searchParams = useSearchParams();
 
-const backHref = useMemo(() => {
-  const v = searchParams.get("from");
-  if (!v || !v.startsWith("/")) return "/";
-  return v;
-}, [searchParams]);
+  const searchParams = useSearchParams();
+
+  const backHref = useMemo(() => {
+    const v = searchParams.get("from");
+    if (!v || !v.startsWith("/")) return "/";
+    return v;
+  }, [searchParams]);
+
 
   // 画像URL生成（id接頭辞からフォルダを決定）
   const getImageUrl = (item: Asset) => {
