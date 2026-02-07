@@ -149,14 +149,14 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
     return v;
   }, [searchParams]);
 
-  // 画像URL生成（urlがあれば最優先）
+// 画像URL生成（assets.json の url があれば最優先）
 const getImageUrl = (item: Asset) => {
   // ✅ assets.json に url が入っている素材は、それを最優先で使う
-  if (item.url && typeof item.url === "string") {
+  if (item?.url && typeof item.url === "string") {
     return item.url.startsWith("/") ? item.url : `/${item.url}`;
   }
 
-  // url が無い素材は、従来ロジックで生成
+  // ✅ url が無い（または空）場合だけ、従来ルールで生成
   const f = item.id.startsWith("mid-")
     ? "mid"
     : item.id.startsWith("niji-")
