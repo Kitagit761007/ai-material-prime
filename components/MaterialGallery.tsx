@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FavoriteButton from "./FavoriteButton";
+import { usePathname, useSearchParams } from "next/navigation";
 
 interface MaterialGalleryProps {
   filterCategory?: string;
@@ -20,6 +21,10 @@ export default function MaterialGallery({
 }: MaterialGalleryProps) {
   const [assets, setAssets] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // ✅ 現在地（直前ページとして戻したいURL）を取得
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   // 初期IDの有無を明確化（undefined と [] を区別）
   const hasInitialIds = useMemo(() => Array.isArray(initialIds), [initialIds]);
@@ -111,23 +116,26 @@ export default function MaterialGallery({
     );
   }
 
+  // ✅ 「直前のページ」を文字列として確定（pathname + ?query）
+  const currentFrom = (() => {
+    const qs = searchParams.toString();
+    return qs ? `${pathname}?${qs}` : pathname;
+  })();
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {assets.map((item) => (
-        // ✅ カードの箱：ここでサイズ（比率）を確定
         <div
           key={item.id}
           className="relative group w-full aspect-[4/3] overflow-hidden rounded-xl"
         >
-          {/* ✅ クリック領域はカード全面：absolute inset-0 */}
           <Link
             className="absolute inset-0 block"
             href={{
               pathname: `/material/${item.id}`,
-              query: { from: "/gallery" },
+              query: { from: currentFrom },
             }}
           >
-            {/* ✅ Image fill の直親は relative + サイズ100% が必須 */}
             <div className="relative w-full h-full">
               <Image
                 src={getUrl(item)}
@@ -139,7 +147,6 @@ export default function MaterialGallery({
             </div>
           </Link>
 
-          {/* ✅ お気に入りボタンは画像の上に表示 */}
           <div className="absolute top-2 right-2 z-10">
             <FavoriteButton assetId={item.id} size="md" />
           </div>
