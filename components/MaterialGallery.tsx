@@ -4,7 +4,6 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FavoriteButton from "./FavoriteButton";
-import { usePathname, useSearchParams } from "next/navigation";
 
 interface MaterialGalleryProps {
   filterCategory?: string;
@@ -22,12 +21,19 @@ export default function MaterialGallery({
   const [assets, setAssets] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // ✅ 現在地（直前ページとして戻したいURL）を取得
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  // ✅ 「直前ページ（現在地）」を from に入れるための状態
+  // 初期値は安全側（/gallery）にしておく（初回描画時の一瞬用）
+  const [currentFrom, setCurrentFrom] = useState<string>("/gallery");
 
   // 初期IDの有無を明確化（undefined と [] を区別）
   const hasInitialIds = useMemo(() => Array.isArray(initialIds), [initialIds]);
+
+  // ✅ クライアントでのみ現在URLを取得（ルーター依存なし）
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const from = `${window.location.pathname}${window.location.search}`;
+    setCurrentFrom(from || "/gallery");
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -115,12 +121,6 @@ export default function MaterialGallery({
       </div>
     );
   }
-
-  // ✅ 「直前のページ」を文字列として確定（pathname + ?query）
-  const currentFrom = (() => {
-    const qs = searchParams.toString();
-    return qs ? `${pathname}?${qs}` : pathname;
-  })();
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
