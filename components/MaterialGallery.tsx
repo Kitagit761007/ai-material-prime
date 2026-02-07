@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -115,8 +116,10 @@ export default function MaterialGallery({
       {assets.map((item) => (
         <div key={item.id} className="relative group">
           <Link
-            href={`/material/${item.id}`}
-            className="relative aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10 cursor-pointer hover:border-gx-cyan/50 transition-all block"
+            href={{
+              pathname: `/material/${item.id}`,
+              query: { from: "/gallery" },
+            }}
           >
             <Image
               src={getUrl(item)}
