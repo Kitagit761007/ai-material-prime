@@ -149,19 +149,27 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
     return v;
   }, [searchParams]);
 
-  // 画像URL生成（id接頭辞からフォルダを決定）
-  const getImageUrl = (item: Asset) => {
-    const f = item.id.startsWith("mid-")
-      ? "mid"
-      : item.id.startsWith("niji-")
-      ? "niji"
-      : item.id.startsWith("gpt-")
-      ? "GPT"
-      : item.id.startsWith("nano-")
-      ? "nano"
-      : "grok";
-    return `/assets/images/${f}/${item.id}${f === "GPT" ? ".png" : ".jpg"}`;
-  };
+  // 画像URL生成（urlがあれば最優先）
+const getImageUrl = (item: Asset) => {
+  // ✅ assets.json に url が入っている素材は、それを最優先で使う
+  if (item.url && typeof item.url === "string") {
+    return item.url.startsWith("/") ? item.url : `/${item.url}`;
+  }
+
+  // url が無い素材は、従来ロジックで生成
+  const f = item.id.startsWith("mid-")
+    ? "mid"
+    : item.id.startsWith("niji-")
+    ? "niji"
+    : item.id.startsWith("gpt-")
+    ? "GPT"
+    : item.id.startsWith("nano-")
+    ? "nano"
+    : "grok";
+
+  return `/assets/images/${f}/${item.id}${f === "GPT" ? ".png" : ".jpg"}`;
+};
+
 
   // ページURL（共有/コピー用）
   useEffect(() => {
