@@ -60,7 +60,12 @@ function normalizeTags(tags: any): string[] {
 function buildDescription(item: Asset): string {
   const title = String(item?.title || "").trim();
   const category = String(item?.category || "").trim();
-    // タイトルから“固有語”を1つ抽出（テンプレ感を下げる）
+  const tags = normalizeTags(item?.tags);
+
+  // seed はここで確定（これより下で使う）
+  const seed = hashString(String(item?.id || title || category || "gx"));
+
+  // タイトルから“固有語”を1つ抽出（テンプレ感を下げる）
   const titleTokens = title
     .replace(/[：:・、,。.!?()（）【】\[\]「」『』]/g, " ")
     .split(/\s+/)
@@ -70,10 +75,6 @@ function buildDescription(item: Asset): string {
 
   const subject = titleTokens.length > 0 ? pick(titleTokens, seed, 11) : "";
   const subjectPhrase = subject ? `「${subject}」を含む` : "";
-
-  const tags = normalizeTags(item?.tags);
-
-  const seed = hashString(String(item?.id || title || category || "gx"));
 
   const has = (kw: string) =>
     tags.some((t) => String(t).includes(kw)) ||
@@ -88,6 +89,7 @@ function buildDescription(item: Asset): string {
     has("宇宙") ? "宇宙・先端技術" :
     has("水中") ? "水中・環境技術" :
     "GXコンセプト";
+
 
   // “AIっぽさ”が出やすい形容や煽りを避け、用途・文脈中心にする
   const openings = [
