@@ -28,6 +28,99 @@ interface Asset {
   url?: string; // "/assets/images/..." など（あれば）
 }
 
+/**
+ * 説明文を「大量でも破綻しにくい」形で自動補完する。
+ * - 既存descriptionが十分長ければそれを優先
+ * - 短い/未設定のみ補完
+ * - 固定1文テンプレではなく、複数文ブロックから決定的に組み立てる
+ */
+function hashString(input: string): number {
+  let h = 0;
+  for (let i = 0; i < input.length; i++) {
+    h = (h * 31 + input.charCodeAt(i)) >>> 0;
+  }
+  return h;
+}
+
+function pick<T>(arr: T[], seed: number, offset: number): T {
+  return arr[(seed + offset) % arr.length];
+}
+
+function normalizeTags(tags: any): string[] {
+  if (!tags) return [];
+  if (Array.isArray(tags)) return tags.map(String);
+  if (typeof tags === "string")
+    return tags
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
+  return [];
+}
+
+function buildDescription(item: Asset): string {
+  const title = String(item?.title || "").trim();
+  const category = String(item?.category || "").trim();
+  const tags = normalizeTags(item?.tags);
+
+  const seed = hashString(String(item?.id || title || category || "gx"));
+
+  const has = (kw: string) =>
+    tags.some((t) => String(t).includes(kw)) ||
+    category.includes(kw) ||
+    title.includes(kw);
+
+  const theme =
+    has("モビリティ") ? "次世代モビリティ" :
+    has("未来都市") ? "未来都市" :
+    has("エネルギー") ? "クリーンエネルギー" :
+    has("脱炭素") ? "脱炭素" :
+    has("宇宙") ? "宇宙・先端技術" :
+    has("水中") ? "水中・環境技術" :
+    "GXコンセプト";
+
+  // “AIっぽさ”が出やすい形容や煽りを避け、用途・文脈中心にする
+  const openings = [
+    `本素材は「${theme}」を軸に、資料やWebに使いやすいトーンでまとめたビジュアルです。`,
+    `GXの文脈で説明しやすい構図を意識し、「${theme}」の方向性を整理した素材です。`,
+    `プレゼンやサイトのキービジュアルとして扱いやすいよう、「${theme}」をテーマに仕上げています。`,
+  ];
+
+  const details = [
+    `要素を盛りすぎず、見出しや図表を重ねても破綻しにくい構成にしています。`,
+    `視線の流れと余白を整えているため、スライドの扉絵やセクション区切りにも馴染みます。`,
+    `背景としても主役としても使えるよう、情報量と抜け感のバランスを取っています。`,
+  ];
+
+  const useCases = [
+    `提案書、事業紹介、ピッチ資料、LP、バナー、記事サムネイルなど、未来志向の訴求が必要な場面で利用できます。`,
+    `社内説明、採用資料、イベント告知、サービス紹介など、トーンを整えたい用途に向いています。`,
+    `プレゼンの表紙や見出し背景、プロダクト紹介の補助素材として扱いやすい内容です。`,
+  ];
+
+  const gxLines = [
+    `脱炭素、スマートシティ、技術革新といった話題と相性が良く、抽象概念を視覚的に補助します。`,
+    `GX領域の説明で起きがちな温度差を埋めるための、共通イメージとして活用できます。`,
+    `言葉だけでは伝わりにくい方向性を、合意形成のための補助素材として支えます。`,
+  ];
+
+  const license = [
+    `商用利用・加工に対応し、クレジット表記は不要です（再配布は禁止）。`,
+    `商用利用や編集加工が可能で、クレジットは不要です（素材の再配布は不可）。`,
+    `商用利用OK・クレジット不要で利用できます（再配布のみ禁止）。`,
+  ];
+
+  const s1 = pick(openings, seed, 1);
+  const s2 = pick(details, seed, 2);
+  const s3 = pick(useCases, seed, 3);
+  const s4 = pick(gxLines, seed, 4);
+  const s5 = pick(license, seed, 5);
+
+  const extra = `利用条件の詳細は利用ガイドをご確認ください。`;
+
+  const base = `${s1}${s2}${s3}${s4}${s5}`;
+  return base.length < 190 ? `${base}${extra}` : base;
+}
+
 export default function MaterialDetailClient({ slug }: { slug: string }) {
   const [asset, setAsset] = useState<Asset | null>(null);
   const [loading, setLoading] = useState(true);
@@ -41,7 +134,6 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
     if (!v || !v.startsWith("/")) return "/";
     return v;
   }, [searchParams]);
-
 
   // 画像URL生成（id接頭辞からフォルダを決定）
   const getImageUrl = (item: Asset) => {
@@ -108,6 +200,18 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
     return `${asset.width} × ${asset.height}px`;
   }, [asset?.width, asset?.height]);
 
+  // ✅ 説明文（短い場合だけ自動補完）
+  const descriptionText = useMemo(() => {
+    if (!asset) return "";
+    const raw = String(asset.description || "").trim();
+
+    // 既存が十分長いなら尊重（将来の手動上書きに対応）
+    if (raw.length >= 120) return raw;
+
+    // 短い/無い場合は一括で自然文を補完
+    return buildDescription(asset);
+  }, [asset]);
+
   const shareLinks = useMemo(() => {
     const url = pageUrl || "";
     const text = asset?.title ? encodeURIComponent(asset.title) : "";
@@ -169,12 +273,12 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
     <div className="min-h-screen bg-slate-950 pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-6">
         <Link
-  href={backHref}
-  className="inline-flex items-center gap-2 text-slate-500 hover:text-gx-cyan transition-colors mb-8 group"
->
-  <ChevronLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
-  前のページに戻る
-</Link>
+          href={backHref}
+          className="inline-flex items-center gap-2 text-slate-500 hover:text-gx-cyan transition-colors mb-8 group"
+        >
+          <ChevronLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
+          前のページに戻る
+        </Link>
 
         {/* 2カラム：左=画像 / 右=情報（スマホは縦） */}
         <div className="bg-slate-900 rounded-3xl overflow-hidden border border-white/10">
@@ -308,15 +412,9 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
                 </div>
               </div>
 
-              {/* 説明（読みやすく） */}
+              {/* 説明（短い場合だけ自動補完） */}
               <div className="mt-4 bg-white/5 p-5 rounded-2xl border border-white/10 text-slate-200 text-base leading-relaxed">
-                {asset.description ? (
-                  asset.description
-                ) : (
-                  <span className="text-slate-400">
-                    説明文が未設定です。利用条件とメタデータをご確認ください。
-                  </span>
-                )}
+                {descriptionText}
               </div>
 
               {/* 共有（右カラムに配置） */}
