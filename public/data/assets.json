@@ -833,21 +833,11 @@
     "url": "/assets/images/g/g-48.jpg"
   },
   {
-    "id": "g-49",
-    "title": "GX研究ドーム：未来都市の脱炭素技術開発拠点",
-    "description": "環境技術の研究・実証施設. イノベーション拠点として、世界中の脱炭素ソリューションが集約されます。",
-    "category": "未来都市",
-    "score": 93,
-    "width": 1280,
-    "height": 720,
-    "size": "380 kB",
-    "aspectRatio": "16:9",
-    "tags": [
-      "GX",
-      "脱炭素",
-      "未来都市"
-    ],
-    "url": "/assets/images/g/g-49.jpg"
+  "id": "g-49",
+  "title": "...",
+  "url": "...",
+  "width": ...,
+  ...
   },
   {
     "id": "g-50",
