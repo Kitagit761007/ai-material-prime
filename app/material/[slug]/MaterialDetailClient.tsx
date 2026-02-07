@@ -36,8 +36,6 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
   const [copied, setCopied] = useState(false);
   const searchParams = useSearchParams();
 
-  const searchParams = useSearchParams();
-
   const backHref = useMemo(() => {
     const v = searchParams.get("from");
     if (!v || !v.startsWith("/")) return "/";
