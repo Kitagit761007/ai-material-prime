@@ -114,26 +114,29 @@ export default function MaterialGallery({
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {assets.map((item) => (
-        // ✅ ここが重要：カードに「確実な箱（高さ）」を与える
+        // ✅ カードの箱：ここでサイズ（比率）を確定
         <div
           key={item.id}
           className="relative group w-full aspect-[4/3] overflow-hidden rounded-xl"
         >
-          {/* ✅ Image fill の親を Link にするので、Link 側を relative にして箱いっぱいに広げる */}
+          {/* ✅ クリック領域はカード全面：absolute inset-0 */}
           <Link
-            className="absolute inset-0 block relative"
+            className="absolute inset-0 block"
             href={{
               pathname: `/material/${item.id}`,
               query: { from: "/gallery" },
             }}
           >
-            <Image
-              src={getUrl(item)}
-              alt={item.title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
-              unoptimized
-            />
+            {/* ✅ Image fill の直親は relative + サイズ100% が必須 */}
+            <div className="relative w-full h-full">
+              <Image
+                src={getUrl(item)}
+                alt={item.title || ""}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                unoptimized
+              />
+            </div>
           </Link>
 
           {/* ✅ お気に入りボタンは画像の上に表示 */}
