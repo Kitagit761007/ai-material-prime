@@ -325,7 +325,7 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 pt-24 pb-12">
+    <div className="min-h-screen bg-slate-950 pb-12">
       <div className="max-w-7xl mx-auto px-6">
         <Link
           href={backHref}
