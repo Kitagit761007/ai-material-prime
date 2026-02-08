@@ -88,18 +88,21 @@ export default function MaterialGallery({
   }, [filterCategory, searchQuery, initialIds, hasInitialIds, onResultCount]);
 
   const getUrl = (item: any) => {
-    if (!item) return "";
-    const f = item.id.startsWith("mid-")
-      ? "mid"
-      : item.id.startsWith("niji-")
-      ? "niji"
-      : item.id.startsWith("gpt-")
-      ? "GPT"
-      : item.id.startsWith("nano-")
-      ? "nano"
-      : "grok";
-    return `/assets/images/${f}/${item.id}${f === "GPT" ? ".png" : ".jpg"}`;
-  };
+  if (!item) return "";
+
+  const f = item.id.startsWith("mid-")
+    ? "mid"
+    : item.id.startsWith("niji-")
+    ? "niji"
+    : item.id.startsWith("gpt-")
+    ? "grok"   // ✅ ここだけ変更（GPT → grok）
+    : item.id.startsWith("nano-")
+    ? "nano"
+    : "grok";
+
+  const ext = item.id.startsWith("gpt-") ? ".png" : ".jpg"; // ✅ gptだけpng
+  return `/assets/images/${f}/${item.id}${ext}`;
+};
 
   if (loading) {
     return (
