@@ -4,14 +4,14 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "利用規約",
   description:
-    "GX Prime Visuals（AI Material Prime）の利用規約です。商用利用、加工、クレジット表記、再配布禁止、AI学習用途の禁止などの条件を定めます。",
+    "GX Prime Visuals（AI Material Prime）の利用規約です。画像素材の商用利用可否、加工可否、クレジット表記、再配布・転売禁止、AI学習利用禁止などの条件を定めます。",
   alternates: {
     canonical: "/terms/",
   },
   openGraph: {
     title: "利用規約 | GX Prime Visuals",
     description:
-      "GX Prime Visuals（AI Material Prime）の利用規約です。商用利用、加工、クレジット表記、再配布禁止、AI学習用途の禁止などの条件を定めます。",
+      "GX Prime Visuals（AI Material Prime）の利用規約です。商用利用可・加工可・クレジット表記任意。再配布・転売禁止、AI学習用途禁止などの条件を定めます。",
     url: "https://ai-material-prime.com/terms/",
     siteName: "GX Prime Visuals",
     locale: "ja_JP",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "利用規約 | GX Prime Visuals",
     description:
-      "GX Prime Visuals（AI Material Prime）の利用規約。商用利用、加工、クレジット、再配布禁止、AI学習禁止。",
+      "GX Prime Visuals（AI Material Prime）の利用規約。商用利用可・加工可・クレジット表記任意。再配布・転売禁止、AI学習用途禁止。",
   },
 };
 
@@ -29,6 +29,7 @@ export default function TermsOfService() {
   return (
     <main className="min-h-screen bg-[#050505] text-slate-300 py-20 px-6">
       <div className="max-w-3xl mx-auto backdrop-blur-xl bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 md:p-12 shadow-2xl">
+        {/* Back */}
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-gx-cyan hover:text-white transition-colors mb-8 group font-bold"
@@ -65,12 +66,14 @@ export default function TermsOfService() {
               <span className="text-gx-cyan">✓</span>
               <span>商用・非商用で利用できます（個人・法人問わず）。</span>
             </div>
+
             <div className="flex gap-2">
               <span className="text-gx-cyan">✓</span>
               <span>
                 加工・編集は<strong className="text-white">可能</strong>です。
               </span>
             </div>
+
             <div className="flex gap-2">
               <span className="text-gx-cyan">✓</span>
               <span>
@@ -86,6 +89,7 @@ export default function TermsOfService() {
                 <strong className="text-white">自作発言（作者を偽る行為）</strong>は禁止です。
               </span>
             </div>
+
             <div className="flex gap-2">
               <span className="text-red-400">✕</span>
               <span>
@@ -95,6 +99,7 @@ export default function TermsOfService() {
                 は禁止です。
               </span>
             </div>
+
             <div className="flex gap-2">
               <span className="text-red-400">✕</span>
               <span>
@@ -128,9 +133,7 @@ export default function TermsOfService() {
             </li>
             <li className="flex gap-2 text-gx-emerald">
               <span className="text-gx-emerald">•</span>
-              <span>
-                Redistribution or selling the images as standalone assets is prohibited.
-              </span>
+              <span>Redistribution or selling the images as standalone assets is prohibited.</span>
             </li>
             <li className="flex gap-2 text-red-300">
               <span className="text-red-300">•</span>
@@ -272,7 +275,9 @@ export default function TermsOfService() {
               <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
               10. お問い合わせ
             </h2>
-            <p className="leading-relaxed">本規約に関するお問い合わせは、お問い合わせページよりご連絡ください。</p>
+            <p className="leading-relaxed">
+              本規約に関するお問い合わせは、お問い合わせページよりご連絡ください。
+            </p>
             <div className="mt-4">
               <Link
                 href="/contact/"
