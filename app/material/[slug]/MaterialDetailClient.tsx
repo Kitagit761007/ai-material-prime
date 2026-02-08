@@ -1,4 +1,18 @@
 "use client";
+const normalizeDescription = (text: string) => {
+  const lines = (text || "")
+    .replace(/\r\n/g, "\n")
+    .split("\n")
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  const out: string[] = [];
+  for (const line of lines) {
+    if (out.length === 0 || out[out.length - 1] !== line) out.push(line);
+  }
+  return out.join("\n");
+};
+
 
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -448,7 +462,7 @@ const getImageUrl = (item: Asset) => {
   {/* 要約（1文） */}
   <p className="text-slate-200">
     {(() => {
-      const t = String(descriptionText || "").trim();
+      const t = String(dedupeRepeat(descriptionText || "")).trim();
       // 最初の「。」までを要約として採用（なければ先頭70文字）
       const i = t.indexOf("。");
       if (i >= 0) return t.slice(0, i + 1);
@@ -469,7 +483,7 @@ const getImageUrl = (item: Asset) => {
   {/* 詳細（本文） */}
   {descOpen && (
     <p className="mt-3 text-slate-300 whitespace-pre-line">
-      {descriptionText}
+      {dedupeRepeat(descriptionText || "")}
     </p>
   )}
 </div>
