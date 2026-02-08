@@ -1,6 +1,29 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "当サイトについて",
+  description:
+    "GX Prime Visualsは、未来・次世代テクノロジー領域の世界観をテーマにしたAI生成画像素材を無料で提供します。商用利用可・加工可・クレジット表記任意。",
+  alternates: {
+    canonical: "/about/",
+  },
+  openGraph: {
+    title: "当サイトについて | GX Prime Visuals",
+    description:
+      "GX Prime Visualsは、未来・次世代テクノロジー領域の世界観をテーマにしたAI生成画像素材を無料で提供します。商用利用可・加工可・クレジット表記任意。",
+    url: "https://ai-material-prime.com/about/",
+    siteName: "GX Prime Visuals",
+    locale: "ja_JP",
+    type: "article",
+  },
+  twitter: {
+    card: "summary",
+    title: "当サイトについて | GX Prime Visuals",
+    description:
+      "GX Prime Visualsは、未来・次世代テクノロジー領域の世界観をテーマにしたAI生成画像素材を無料で提供します。",
+  },
+};
 
 export default function AboutPage() {
   return (
@@ -32,10 +55,10 @@ export default function AboutPage() {
           当サイトについて
         </h1>
 
-        {/* Summary */}
+        {/* Key Points */}
         <div className="mb-10 p-6 bg-white/[0.03] border border-white/[0.08] rounded-2xl">
           <p className="text-xs font-bold text-slate-200 uppercase tracking-widest mb-3">
-            SUMMARY
+            Key Points
           </p>
 
           <div className="grid gap-3 text-sm text-slate-300">
@@ -88,7 +111,10 @@ export default function AboutPage() {
               <li>所在地：Japan</li>
               <li>
                 連絡先：
-                <Link href="/contact/" className="text-white underline decoration-white/20 hover:decoration-white/60">
+                <Link
+                  href="/contact/"
+                  className="text-white underline decoration-white/20 hover:decoration-white/60"
+                >
                   お問い合わせフォーム
                 </Link>
               </li>
@@ -104,7 +130,10 @@ export default function AboutPage() {
             <p className="text-slate-400 border-l-2 border-white/10 pl-4">
               当サイトでは、運営継続のために広告配信サービス（例：Google AdSense）を利用する場合があります。
               広告の配信にあたってはCookie等が使用されることがあります。詳細は
-              <Link href="/privacy/" className="text-white underline decoration-white/20 hover:decoration-white/60">
+              <Link
+                href="/privacy/"
+                className="text-white underline decoration-white/20 hover:decoration-white/60"
+              >
                 プライバシーポリシー
               </Link>
               をご確認ください。
