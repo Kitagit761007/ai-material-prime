@@ -66,8 +66,15 @@ export const viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ja">
+    <html lang="ja" className={inter.className}>
       <head>
+        <Script
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6312883356862609"
+  crossOrigin="anonymous"
+  strategy="afterInteractive"
+/>
+
         {process.env.NEXT_PUBLIC_GTM_ID && (
           <Script
             id="gtm-script"
