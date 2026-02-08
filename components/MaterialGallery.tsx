@@ -136,14 +136,13 @@ export default function MaterialGallery({
             }}
           >
             <div className="relative w-full h-full">
-              <img
-                src={getUrl(item)}
-                alt={item.title || ""}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-                unoptimized
-              />
-            </div>
+  <img
+    src={getUrl(item)}
+    alt={item.title || ""}
+    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+    loading="lazy"
+  />
+</div>
           </Link>
 
           <div className="absolute top-2 right-2 z-10">
