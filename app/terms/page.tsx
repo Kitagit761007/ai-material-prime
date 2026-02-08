@@ -31,10 +31,10 @@ export default function TermsOfService() {
           利用規約
         </h1>
 
-        {/* ✅ Summary Section (JP) */}
+        {/* ✅ Key Points (JP) */}
         <div className="mb-8 p-6 bg-white/[0.03] border border-white/[0.08] rounded-2xl">
           <p className="text-xs font-bold text-slate-200 uppercase tracking-widest mb-3">
-            Summary（要点）
+            Key Points
           </p>
 
           <div className="grid gap-3 text-sm text-slate-300">
@@ -189,18 +189,12 @@ export default function TermsOfService() {
               <li>
                 当サイトの画像を<strong className="text-white">自作発言</strong>する行為、作者・出所を偽る行為。
               </li>
-              <li>
-                犯罪行為、または公序良俗に反する目的での利用。
-              </li>
-              <li>
-                第三者の権利を侵害する利用、または侵害を助長する利用。
-              </li>
+              <li>犯罪行為、または公序良俗に反する目的での利用。</li>
+              <li>第三者の権利を侵害する利用、または侵害を助長する利用。</li>
               <li>
                 <strong className="text-white">AIモデルの学習データ</strong>として使用すること（収集・スクレイピング・再学習等を含む）。
               </li>
-              <li>
-                当サイトと提携・公式であるかのように誤認させる表示・利用。
-              </li>
+              <li>当サイトと提携・公式であるかのように誤認させる表示・利用。</li>
             </ul>
           </div>
 
@@ -260,7 +254,7 @@ export default function TermsOfService() {
             </p>
             <div className="mt-4">
               <Link
-                href="/contact"
+                href="/contact/"
                 className="inline-flex items-center gap-2 px-5 py-3 bg-gx-cyan/20 hover:bg-gx-cyan/30 text-white font-bold rounded-xl transition-colors"
               >
                 お問い合わせページへ
