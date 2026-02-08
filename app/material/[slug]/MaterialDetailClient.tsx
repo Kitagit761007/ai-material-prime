@@ -1,18 +1,4 @@
 "use client";
-const normalizeDescription = (text: string) => {
-  const lines = (text || "")
-    .replace(/\r\n/g, "\n")
-    .split("\n")
-    .map((s) => s.trim())
-    .filter(Boolean);
-
-  const out: string[] = [];
-  for (const line of lines) {
-    if (out.length === 0 || out[out.length - 1] !== line) out.push(line);
-  }
-  return out.join("\n");
-};
-
 
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -28,6 +14,26 @@ import {
   Linkedin,
 } from "lucide-react";
 import FavoriteButton from "@/components/FavoriteButton";
+
+/**
+ * 説明文の「連続重複（同じ行が続く）」を除去して正規化する（表示側だけで吸収）
+ * - 改行を揃える
+ * - 空行・空白を整理
+ * - 直前と同じ行は1回に畳む
+ */
+const normalizeDescription = (text: string) => {
+  const lines = (text || "")
+    .replace(/\r\n/g, "\n")
+    .split("\n")
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  const out: string[] = [];
+  for (const line of lines) {
+    if (out.length === 0 || out[out.length - 1] !== line) out.push(line);
+  }
+  return out.join("\n");
+};
 
 interface Asset {
   id: string;
@@ -96,21 +102,26 @@ function buildDescription(item: Asset): string {
     title.includes(kw);
 
   const theme =
-    has("モビリティ") ? "次世代モビリティ" :
-    has("未来都市") ? "未来都市" :
-    has("エネルギー") ? "クリーンエネルギー" :
-    has("脱炭素") ? "脱炭素" :
-    has("宇宙") ? "宇宙・先端技術" :
-    has("水中") ? "水中・環境技術" :
-    "GXコンセプト";
-
+    has("モビリティ")
+      ? "次世代モビリティ"
+      : has("未来都市")
+      ? "未来都市"
+      : has("エネルギー")
+      ? "クリーンエネルギー"
+      : has("脱炭素")
+      ? "脱炭素"
+      : has("宇宙")
+      ? "宇宙・先端技術"
+      : has("水中")
+      ? "水中・環境技術"
+      : "GXコンセプト";
 
   // “AIっぽさ”が出やすい形容や煽りを避け、用途・文脈中心にする
   const openings = [
-  `本素材は${subjectPhrase}「${theme}」を軸に、資料やWebに使いやすいトーンでまとめたビジュアルです。`,
-  `GXの文脈で説明しやすい構図を意識し、${subjectPhrase}「${theme}」の方向性を整理した素材です。`,
-  `プレゼンやサイトのキービジュアルとして扱いやすいよう、${subjectPhrase}「${theme}」をテーマに仕上げています。`,
-];
+    `本素材は${subjectPhrase}「${theme}」を軸に、資料やWebに使いやすいトーンでまとめたビジュアルです。`,
+    `GXの文脈で説明しやすい構図を意識し、${subjectPhrase}「${theme}」の方向性を整理した素材です。`,
+    `プレゼンやサイトのキービジュアルとして扱いやすいよう、${subjectPhrase}「${theme}」をテーマに仕上げています。`,
+  ];
 
   const details = [
     `要素を盛りすぎず、見出しや図表を重ねても破綻しにくい構成にしています。`,
@@ -163,27 +174,26 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
     return v;
   }, [searchParams]);
 
-// 画像URL生成（assets.json の url があれば最優先）
-const getImageUrl = (item: Asset) => {
-  // ✅ assets.json に url が入っている素材は、それを最優先で使う
-  if (item?.url && typeof item.url === "string") {
-    return item.url.startsWith("/") ? item.url : `/${item.url}`;
-  }
+  // 画像URL生成（assets.json の url があれば最優先）
+  const getImageUrl = (item: Asset) => {
+    // ✅ assets.json に url が入っている素材は、それを最優先で使う
+    if (item?.url && typeof item.url === "string") {
+      return item.url.startsWith("/") ? item.url : `/${item.url}`;
+    }
 
-  // ✅ url が無い（または空）場合だけ、従来ルールで生成
-  const f = item.id.startsWith("mid-")
-    ? "mid"
-    : item.id.startsWith("niji-")
-    ? "niji"
-    : item.id.startsWith("gpt-")
-    ? "GPT"
-    : item.id.startsWith("nano-")
-    ? "nano"
-    : "grok";
+    // ✅ url が無い（または空）場合だけ、従来ルールで生成
+    const f = item.id.startsWith("mid-")
+      ? "mid"
+      : item.id.startsWith("niji-")
+      ? "niji"
+      : item.id.startsWith("gpt-")
+      ? "GPT"
+      : item.id.startsWith("nano-")
+      ? "nano"
+      : "grok";
 
-  return `/assets/images/${f}/${item.id}${f === "GPT" ? ".png" : ".jpg"}`;
-};
-
+    return `/assets/images/${f}/${item.id}${f === "GPT" ? ".png" : ".jpg"}`;
+  };
 
   // ページURL（共有/コピー用）
   useEffect(() => {
@@ -217,14 +227,13 @@ const getImageUrl = (item: Asset) => {
   }, [slug]);
 
   const imageUrl = useMemo(() => {
-  if (!asset) return "";
-  const u = String(asset.url || "").trim();
-  // assets.json に url がある場合はそれを優先（例外対応）
-  if (u) return u.startsWith("/") ? u : `/${u}`;
-  // url が無ければ従来ロジック
-  return getImageUrl(asset);
-}, [asset]);
-
+    if (!asset) return "";
+    const u = String(asset.url || "").trim();
+    // assets.json に url がある場合はそれを優先（例外対応）
+    if (u) return u.startsWith("/") ? u : `/${u}`;
+    // url が無ければ従来ロジック
+    return getImageUrl(asset);
+  }, [asset]);
 
   // tags を必ず配列にする（TypeScript/実行時ともに安全）
   const tags = useMemo(() => {
@@ -262,7 +271,9 @@ const getImageUrl = (item: Asset) => {
     const encUrl = encodeURIComponent(url);
 
     return {
-      x: url ? `https://twitter.com/intent/tweet?url=${encUrl}&text=${text}` : "",
+      x: url
+        ? `https://twitter.com/intent/tweet?url=${encUrl}&text=${text}`
+        : "",
       linkedin: url
         ? `https://www.linkedin.com/sharing/share-offsite/?url=${encUrl}`
         : "",
@@ -370,7 +381,10 @@ const getImageUrl = (item: Asset) => {
                       <p>✓ クレジット表記不要</p>
                       <p>✓ 加工・編集OK</p>
                       <p className="pt-2">
-                        <Link href="/guide" className="text-cyan-400 hover:underline">
+                        <Link
+                          href="/guide"
+                          className="text-cyan-400 hover:underline"
+                        >
                           利用ガイドを見る →
                         </Link>
                       </p>
@@ -398,7 +412,9 @@ const getImageUrl = (item: Asset) => {
 
                       <div className="flex justify-between gap-4">
                         <span className="text-slate-400">比率</span>
-                        <span className="font-medium">{asset.aspectRatio || "—"}</span>
+                        <span className="font-medium">
+                          {asset.aspectRatio || "—"}
+                        </span>
                       </div>
 
                       <div className="flex justify-between gap-4">
@@ -443,7 +459,9 @@ const getImageUrl = (item: Asset) => {
                       {tags.map((tag, index) => (
                         <Link
                           key={`${tag}-${index}`}
-                          href={`/search?q=${encodeURIComponent(tag.replace("#", ""))}`}
+                          href={`/search?q=${encodeURIComponent(
+                            tag.replace("#", "")
+                          )}`}
                           className="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs hover:bg-gx-cyan hover:text-white transition-colors"
                         >
                           {tag}
@@ -456,38 +474,55 @@ const getImageUrl = (item: Asset) => {
                 </div>
               </div>
 
-              {/* 説明（短い場合だけ自動補完） */}
-              {/* 説明（要約＋折りたたみ詳細） */}
-<div className="mt-4 bg-white/5 p-5 rounded-2xl border border-white/10 text-slate-200 text-base leading-relaxed">
-  {/* 要約（1文） */}
-  <p className="text-slate-200">
-    {(() => {
-      const t = String(dedupeRepeat(descriptionText || "")).trim();
-      // 最初の「。」までを要約として採用（なければ先頭70文字）
-      const i = t.indexOf("。");
-      if (i >= 0) return t.slice(0, i + 1);
-      return t.length > 70 ? `${t.slice(0, 70)}…` : t;
-    })()}
-  </p>
+              {/* 説明（要約＋折りたたみ詳細：重複表示を根絶） */}
+              <div className="mt-4 bg-white/5 p-5 rounded-2xl border border-white/10 text-slate-200 text-base leading-relaxed">
+                {(() => {
+                  // 1) まず表示側で重複を吸収
+                  const t = normalizeDescription(
+                    String(descriptionText || "")
+                  ).trim();
 
-  {/* 開閉ボタン */}
-  <button
-    type="button"
-    onClick={() => setDescOpen((v) => !v)}
-    className="mt-3 text-sm text-cyan-300 hover:text-cyan-200 transition-colors"
-    aria-expanded={descOpen}
-  >
-    {descOpen ? "詳細を閉じる" : "詳細を読む"}
-  </button>
+                  // 2) 要約（1文 or 先頭70文字）
+                  const dot = t.indexOf("。");
+                  const summary =
+                    dot >= 0
+                      ? t.slice(0, dot + 1)
+                      : t.length > 70
+                      ? `${t.slice(0, 70)}…`
+                      : t;
 
-  {/* 詳細（本文） */}
-  {descOpen && (
-    <p className="mt-3 text-slate-300 whitespace-pre-line">
-      {dedupeRepeat(descriptionText || "")}
-    </p>
-  )}
-</div>
+                  // 3) 詳細は「全文」ではなく「残り」だけ（要約と重複させない）
+                  const remainder =
+                    dot >= 0
+                      ? t.slice(dot + 1).trimStart()
+                      : t.length > 70
+                      ? t.slice(70).trimStart()
+                      : "";
 
+                  return (
+                    <>
+                      <p className="text-slate-200">{summary}</p>
+
+                      {remainder && (
+                        <button
+                          type="button"
+                          onClick={() => setDescOpen((v) => !v)}
+                          className="mt-3 text-sm text-cyan-300 hover:text-cyan-200 transition-colors"
+                          aria-expanded={descOpen}
+                        >
+                          {descOpen ? "詳細を閉じる" : "詳細を読む"}
+                        </button>
+                      )}
+
+                      {descOpen && remainder && (
+                        <p className="mt-3 text-slate-300 whitespace-pre-line">
+                          {remainder}
+                        </p>
+                      )}
+                    </>
+                  );
+                })()}
+              </div>
 
               {/* 共有（右カラムに配置） */}
               <div className="mt-4">
