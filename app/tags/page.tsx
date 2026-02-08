@@ -53,7 +53,7 @@ export default function TagsPage() {
     };
 
     return (
-        <div className="flex flex-col min-h-screen pt-24 pb-12">
+        <div className="flex flex-col min-h-screen pt-16 md:pt-24 pb-12">
             <div className="max-w-7xl mx-auto px-6 w-full mb-12">
                 <Link
                     href="/"
