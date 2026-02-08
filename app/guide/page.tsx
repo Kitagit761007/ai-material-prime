@@ -120,32 +120,60 @@ export default function GuidePage() {
             </div>
           </section>
 
-<section aria-labelledby="license-notes">
-  <h2 id="license-notes">補足（重要）</h2>
+          {/* 補足（重要）：カードUIに統一（内容は変更しない） */}
+          <section
+            aria-labelledby="license-notes"
+            className="bg-slate-900 rounded-2xl p-8 border border-white/10"
+          >
+            <p className="text-xs font-bold text-slate-400 tracking-widest uppercase italic mb-2">
+              Notes
+            </p>
+            <h2 id="license-notes" className="text-2xl font-black text-white mb-4">
+              補足（重要）
+            </h2>
 
-  <h3>再配布・再販売の具体例</h3>
-  <ul>
-    <li>✅ 許可：Webサイト/ブログ/動画/広告/資料/印刷物など「制作物の一部」として使用</li>
-    <li>✅ 許可：案件制作でクライアント成果物に組み込む（画像が埋め込まれた状態）</li>
-    <li>❌ 禁止：画像ファイルを素材として配布できる形で提供（素材集、テンプレ同梱、ZIP配布、ストック投稿、再アップロード等）</li>
-    <li>❌ 禁止：当サイト画像のURLをまとめて共有し、第三者が直接ダウンロードできる形で提供</li>
-  </ul>
+            <div className="space-y-8 text-slate-300">
+              <div>
+                <h3 className="text-lg font-bold text-white mb-2">
+                  再配布・再販売の具体例
+                </h3>
+                <ul className="list-disc list-inside space-y-2">
+                  <li>✅ 許可：Webサイト/ブログ/動画/広告/資料/印刷物など「制作物の一部」として使用</li>
+                  <li>✅ 許可：案件制作でクライアント成果物に組み込む（画像が埋め込まれた状態）</li>
+                  <li>❌ 禁止：画像ファイルを素材として配布できる形で提供（素材集、テンプレ同梱、ZIP配布、ストック投稿、再アップロード等）</li>
+                  <li>❌ 禁止：当サイト画像のURLをまとめて共有し、第三者が直接ダウンロードできる形で提供</li>
+                </ul>
+              </div>
 
-  <h3>AI学習用途の禁止範囲</h3>
-  <ul>
-    <li>❌ 禁止：モデル学習/追加学習（LoRA等）</li>
-    <li>❌ 禁止：データセット化（学習用フォルダへの保存目的の収集を含む）</li>
-    <li>❌ 禁止：スクレイピング等による自動収集</li>
-  </ul>
+              <div className="h-px bg-white/10" />
 
-  <h3>免責</h3>
-  <ul>
-    <li>当サイトは、素材の正確性・完全性・特定目的適合性・権利非侵害を保証しません。</li>
-    <li>利用により生じたいかなる損害についても、法令で許される範囲で責任を負いません。</li>
-  </ul>
-</section>
+              <div>
+                <h3 className="text-lg font-bold text-white mb-2">
+                  AI学習用途の禁止範囲
+                </h3>
+                <ul className="list-disc list-inside space-y-2">
+                  <li>❌ 禁止：モデル学習/追加学習（LoRA等）</li>
+                  <li>❌ 禁止：データセット化（学習用フォルダへの保存目的の収集を含む）</li>
+                  <li>❌ 禁止：スクレイピング等による自動収集</li>
+                </ul>
+              </div>
 
-          
+              <div className="h-px bg-white/10" />
+
+              <div>
+                <h3 className="text-lg font-bold text-white mb-2">免責</h3>
+                <ul className="list-disc list-inside space-y-2">
+                  <li>
+                    当サイトは、素材の正確性・完全性・特定目的適合性・権利非侵害を保証しません。
+                  </li>
+                  <li>
+                    利用により生じたいかなる損害についても、法令で許される範囲で責任を負いません。
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
           {/* 禁止事項 */}
           <section className="bg-slate-900 rounded-2xl p-8 border border-red-500/20">
             <div className="flex items-center gap-3 mb-4">
