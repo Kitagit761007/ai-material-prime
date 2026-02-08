@@ -227,18 +227,15 @@ export default function ContactPage() {
               />
             </div>
 
-            {/* ✅ プライバシー同意（AdSense/審査で印象が良い） */}
+            {/* ✅ プライバシー同意 */}
             <div className="flex items-start gap-3 p-4 rounded-2xl border border-white/10 bg-white/5">
-              <input
-                id="agree"
-                name="agree"
-                type="checkbox"
-                required
-                className="mt-1"
-              />
+              <input id="agree" name="agree" type="checkbox" required className="mt-1" />
               <label htmlFor="agree" className="text-sm text-slate-300 leading-relaxed">
                 <span className="text-white font-bold">プライバシーポリシー</span>に同意の上、送信します。{" "}
-                <Link href="/privacy" className="text-gx-cyan hover:text-white underline underline-offset-4">
+                <Link
+                  href="/privacy/"
+                  className="text-gx-cyan hover:text-white underline underline-offset-4"
+                >
                   プライバシーポリシーを見る
                 </Link>
               </label>
@@ -267,16 +264,22 @@ export default function ContactPage() {
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 bg-white/5 rounded-2xl border border-white/5 text-center">
-            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Response Time</p>
+            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">
+              Response Time
+            </p>
             <p className="text-white">3営業日以内に返信</p>
           </div>
           <div className="p-6 bg-white/5 rounded-2xl border border-white/5 text-center">
-            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Support</p>
+            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">
+              Support
+            </p>
             <p className="text-white">商用・特注対応可能</p>
           </div>
           <div className="p-6 bg-white/5 rounded-2xl border border-white/5 text-center">
-            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Location</p>
-            <p className="text-white font-mono">Kyoto, Japan</p>
+            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">
+              Location
+            </p>
+            <p className="text-white font-mono">Japan</p>
           </div>
         </div>
       </div>
