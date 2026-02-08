@@ -282,6 +282,9 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
         : "",
     };
   }, [pageUrl, asset?.title]);
+  const shareBtn =
+  "inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 transition-colors text-sm h-10";
+
 
   const handleCopy = async () => {
     if (!pageUrl) return;
