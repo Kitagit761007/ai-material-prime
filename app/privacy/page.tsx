@@ -1,6 +1,29 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "プライバシーポリシー",
+  description:
+    "GX Prime Visuals（AI Material Prime）のプライバシーポリシーです。お問い合わせ対応のための情報取得、Cookie等の利用、広告配信（Google AdSense等）について説明します。",
+  alternates: {
+    canonical: "/privacy/",
+  },
+  openGraph: {
+    title: "プライバシーポリシー | GX Prime Visuals",
+    description:
+      "GX Prime Visuals（AI Material Prime）のプライバシーポリシーです。お問い合わせ対応のための情報取得、Cookie等の利用、広告配信（Google AdSense等）について説明します。",
+    url: "https://ai-material-prime.com/privacy/",
+    siteName: "GX Prime Visuals",
+    locale: "ja_JP",
+    type: "article",
+  },
+  twitter: {
+    card: "summary",
+    title: "プライバシーポリシー | GX Prime Visuals",
+    description:
+      "GX Prime Visuals（AI Material Prime）のプライバシーポリシー。情報取得、Cookie、広告配信（Google AdSense等）について。",
+  },
+};
 
 export default function PrivacyPolicyPage() {
   return (
