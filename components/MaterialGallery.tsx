@@ -137,7 +137,7 @@ export default function MaterialGallery({
             }}
           >
             <div className="relative w-full h-full">
-              <Image
+              <img
                 src={getUrl(item)}
                 alt={item.title || ""}
                 fill
