@@ -1,35 +1,76 @@
-import CreditCopyBox from "@/components/CreditCopyBox";
-import Header from "@/components/Header";
+import type { Metadata } from "next";
 import Link from "next/link";
+import CreditCopyBox from "@/components/CreditCopyBox";
 import { BookOpen, Download, Shield, AlertCircle } from "lucide-react";
 
-export const metadata = {
-  title: "利用ガイド | GX Prime Visuals",
-  description: "画像の使い方、商用利用、クレジット表記について詳しく説明します。",
+export const metadata: Metadata = {
+  title: "利用ガイド",
+  description:
+    "GX Prime Visuals（AI Material Prime）の画像素材の使い方、商用利用、クレジット表記、禁止事項（再配布・転売・AI学習用途）について詳しく説明します。",
+  alternates: {
+    canonical: "/guide/",
+  },
+  openGraph: {
+    title: "利用ガイド | GX Prime Visuals",
+    description:
+      "GX Prime Visuals（AI Material Prime）の画像素材の使い方、商用利用、クレジット表記、禁止事項（再配布・転売・AI学習用途）について詳しく説明します。",
+    url: "https://ai-material-prime.com/guide/",
+    siteName: "GX Prime Visuals",
+    locale: "ja_JP",
+    type: "article",
+  },
+  twitter: {
+    card: "summary",
+    title: "利用ガイド | GX Prime Visuals",
+    description:
+      "GX Prime Visuals（AI Material Prime）の画像素材の使い方、商用利用、クレジット表記、禁止事項（再配布・転売・AI学習用途）について。",
+  },
 };
 
 export default function GuidePage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      <Header />
-      <main className="pt-24 pb-20 px-6 max-w-4xl mx-auto">
+    <main className="min-h-screen bg-slate-950 text-slate-50 py-20 px-6">
+      <div className="max-w-4xl mx-auto">
+        {/* Back */}
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-gx-cyan hover:text-white transition-colors mb-10 group font-bold"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="transition-transform group-hover:-translate-x-1"
+          >
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+          ホームへ戻る
+        </Link>
+
+        {/* Hero */}
         <div className="mb-12">
-          <p className="text-cyan-500 font-bold text-xs mb-2 tracking-widest uppercase italic">
+          <p className="text-gx-cyan font-bold text-xs mb-2 tracking-widest uppercase italic">
             Guide
           </p>
           <h1 className="text-5xl font-black text-white italic uppercase tracking-tighter mb-4">
             利用ガイド
           </h1>
-          <div className="h-1 w-20 bg-cyan-500 mb-6" />
+          <div className="h-1 w-20 bg-gx-cyan mb-6" />
           <p className="text-slate-400 text-lg">
-            GX Prime Visualsの画像素材を安心してご利用いただくための完全ガイドです。
+            GX Prime Visualsの画像素材を安心してご利用いただくためのガイドです。
           </p>
         </div>
 
         {/* 要点まとめ */}
         <section className="bg-slate-900 rounded-2xl p-8 border border-white/10 mb-12">
           <p className="text-xs font-bold text-slate-400 tracking-widest uppercase italic mb-2">
-            Summary
+            Key Points
           </p>
           <h2 className="text-2xl font-black text-white mb-4">
             このサイトの画像素材について（要点）
@@ -46,17 +87,26 @@ export default function GuidePage() {
             <p className="text-red-400 font-bold">✕ 自作発言：禁止（作者を偽る行為）</p>
             <p className="text-red-400 font-bold">✕ AI学習用途：禁止</p>
           </div>
+
+          <div className="mt-5 text-xs text-slate-400">
+            詳細なルールは{" "}
+            <Link href="/terms/" className="text-white underline decoration-white/20 hover:decoration-white/60">
+              利用規約
+            </Link>{" "}
+            をご確認ください。
+          </div>
         </section>
 
         <div className="space-y-12">
           {/* ダウンロード方法 */}
           <section className="bg-slate-900 rounded-2xl p-8 border border-white/10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-cyan-500/10 rounded-lg">
-                <Download className="w-6 h-6 text-cyan-500" />
+              <div className="p-2 bg-gx-cyan/10 rounded-lg">
+                <Download className="w-6 h-6 text-gx-cyan" />
               </div>
               <h2 className="text-2xl font-black text-white">画像のダウンロード方法</h2>
             </div>
+
             <div className="space-y-4 text-slate-300">
               <p>
                 1. <strong className="text-white">画像を選ぶ</strong>：ギャラリーやカテゴリーから気に入った画像を探します
@@ -68,7 +118,7 @@ export default function GuidePage() {
                 3. <strong className="text-white">ダウンロード</strong>：「無料ダウンロード」ボタンをクリックして保存します
               </p>
               <p className="text-sm text-slate-400 mt-4">
-                ※ ダウンロードにはアカウント登録は不要です。すべて無料でご利用いただけます。
+                ※ ダウンロードにアカウント登録は不要です。すべて無料でご利用いただけます。
               </p>
             </div>
           </section>
@@ -81,11 +131,13 @@ export default function GuidePage() {
               </div>
               <h2 className="text-2xl font-black text-white">商用利用について</h2>
             </div>
+
             <div className="space-y-4 text-slate-300">
               <p className="text-lg font-bold text-green-400">✓ 商用利用可能です</p>
               <p>
                 当サイトの画像素材は、個人・法人を問わず、商用プロジェクトでご利用いただけます。
               </p>
+
               <div className="bg-slate-800 p-4 rounded-lg mt-4">
                 <p className="font-bold text-white mb-2">利用可能な用途例：</p>
                 <ul className="list-disc list-inside space-y-1 text-sm">
@@ -108,6 +160,7 @@ export default function GuidePage() {
               </div>
               <h2 className="text-2xl font-black text-white">クレジット表記について</h2>
             </div>
+
             <div className="space-y-4 text-slate-300">
               <p className="text-lg font-bold text-blue-400">クレジット表記は不要です</p>
               <p>
@@ -120,7 +173,7 @@ export default function GuidePage() {
             </div>
           </section>
 
-          {/* 補足（重要）：カードUIに統一（内容は変更しない） */}
+          {/* 補足（重要） */}
           <section
             aria-labelledby="license-notes"
             className="bg-slate-900 rounded-2xl p-8 border border-white/10"
@@ -163,12 +216,8 @@ export default function GuidePage() {
               <div>
                 <h3 className="text-lg font-bold text-white mb-2">免責</h3>
                 <ul className="list-disc list-inside space-y-2">
-                  <li>
-                    当サイトは、素材の正確性・完全性・特定目的適合性・権利非侵害を保証しません。
-                  </li>
-                  <li>
-                    利用により生じたいかなる損害についても、法令で許される範囲で責任を負いません。
-                  </li>
+                  <li>当サイトは、素材の正確性・完全性・特定目的適合性・権利非侵害を保証しません。</li>
+                  <li>利用により生じたいかなる損害についても、法令で許される範囲で責任を負いません。</li>
                 </ul>
               </div>
             </div>
@@ -182,6 +231,7 @@ export default function GuidePage() {
               </div>
               <h2 className="text-2xl font-black text-white">禁止事項</h2>
             </div>
+
             <div className="space-y-4 text-slate-300">
               <p>以下の行為は禁止されています：</p>
               <ul className="list-disc list-inside space-y-2">
@@ -222,13 +272,17 @@ export default function GuidePage() {
 
         <div className="mt-12 text-center">
           <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-white font-bold rounded-xl transition-colors"
+            href="/contact/"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gx-cyan hover:bg-gx-cyan/90 text-white font-bold rounded-xl transition-colors"
           >
             その他のご質問はこちら
           </Link>
         </div>
-      </main>
-    </div>
+
+        <div className="pt-10 mt-12 border-t border-white/10 text-xs text-slate-500">
+          最終更新：2026年2月8日
+        </div>
+      </div>
+    </main>
   );
 }
