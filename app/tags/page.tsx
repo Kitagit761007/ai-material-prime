@@ -54,7 +54,7 @@ export default function TagsPage() {
 
     return (
         <div className="flex flex-col min-h-screen pt-16 md:pt-24 pb-12">
-            <div className="max-w-7xl mx-auto px-6 w-full mb-12">
+            <div className="max-w-7xl mx-auto px-6 w-full mb-6 md:mb-12">
                 <Link
                     href="/"
                     className="inline-flex items-center gap-2 text-slate-500 hover:text-gx-cyan transition-colors mb-8 group"
