@@ -32,15 +32,24 @@ export default function PrivacyPolicyPage() {
           プライバシーポリシー
         </h1>
 
-        {/* Summary */}
+        {/* Key points */}
         <div className="mb-10 p-6 bg-white/[0.03] border border-white/[0.08] rounded-2xl">
           <p className="text-xs font-bold text-slate-200 uppercase tracking-widest mb-3">
-            SUMMARY（要点）
+            Key Points
           </p>
           <div className="grid gap-3 text-sm text-slate-300">
             <div className="flex gap-2">
               <span className="text-gx-cyan">✓</span>
-              <span>当サイトは、お問い合わせ対応のために送信情報（氏名・メール・本文等）を取得します。</span>
+              <span>
+                当サイトは、
+                <Link
+                  href="/contact/"
+                  className="text-white underline decoration-white/20 hover:decoration-white/60 mx-1"
+                >
+                  お問い合わせ
+                </Link>
+                対応のために送信情報（氏名・メール・本文等）を取得します。
+              </span>
             </div>
             <div className="flex gap-2">
               <span className="text-gx-cyan">✓</span>
@@ -61,7 +70,10 @@ export default function PrivacyPolicyPage() {
               <br />
               当サイトで配布している画像素材の利用条件（商用利用の可否、クレジット表記の要否、再配布・転売の禁止、AI学習への利用禁止等）は、
               プライバシーポリシーではなく
-              <Link href="/terms/" className="text-white underline decoration-white/20 hover:decoration-white/60">
+              <Link
+                href="/terms/"
+                className="text-white underline decoration-white/20 hover:decoration-white/60 ml-1"
+              >
                 利用規約
               </Link>
               に定めています。詳細は利用規約をご確認ください。
@@ -82,8 +94,12 @@ export default function PrivacyPolicyPage() {
               当サイトでは、以下の情報を取得する場合があります。
             </p>
             <ul className="list-disc list-inside space-y-2 text-slate-400 border-l-2 border-white/10 pl-4">
-              <li>お問い合わせフォーム送信時：お名前、メールアドレス、会社名（任意）、お問い合わせ内容</li>
-              <li>アクセス情報：閲覧ページ、参照元、IPアドレス、ユーザーエージェント、Cookie等（取得される場合）</li>
+              <li>
+                お問い合わせフォーム送信時：お名前、メールアドレス、会社名（任意）、お問い合わせ内容
+              </li>
+              <li>
+                アクセス情報：閲覧ページ、参照元、IPアドレス、ユーザーエージェント、Cookie等（取得される場合）
+              </li>
             </ul>
           </div>
 
@@ -164,7 +180,10 @@ export default function PrivacyPolicyPage() {
             </h2>
             <p className="text-slate-400 border-l-2 border-white/10 pl-4">
               本ポリシーに関するお問い合わせは
-              <Link href="/contact/" className="text-white underline decoration-white/20 hover:decoration-white/60">
+              <Link
+                href="/contact/"
+                className="text-white underline decoration-white/20 hover:decoration-white/60 ml-1"
+              >
                 お問い合わせフォーム
               </Link>
               よりお願いいたします。
