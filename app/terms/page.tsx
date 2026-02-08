@@ -1,6 +1,29 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "利用規約",
+  description:
+    "GX Prime Visuals（AI Material Prime）の利用規約です。商用利用、加工、クレジット表記、再配布禁止、AI学習用途の禁止などの条件を定めます。",
+  alternates: {
+    canonical: "/terms/",
+  },
+  openGraph: {
+    title: "利用規約 | GX Prime Visuals",
+    description:
+      "GX Prime Visuals（AI Material Prime）の利用規約です。商用利用、加工、クレジット表記、再配布禁止、AI学習用途の禁止などの条件を定めます。",
+    url: "https://ai-material-prime.com/terms/",
+    siteName: "GX Prime Visuals",
+    locale: "ja_JP",
+    type: "article",
+  },
+  twitter: {
+    card: "summary",
+    title: "利用規約 | GX Prime Visuals",
+    description:
+      "GX Prime Visuals（AI Material Prime）の利用規約。商用利用、加工、クレジット、再配布禁止、AI学習禁止。",
+  },
+};
 
 export default function TermsOfService() {
   return (
@@ -249,9 +272,7 @@ export default function TermsOfService() {
               <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
               10. お問い合わせ
             </h2>
-            <p className="leading-relaxed">
-              本規約に関するお問い合わせは、お問い合わせページよりご連絡ください。
-            </p>
+            <p className="leading-relaxed">本規約に関するお問い合わせは、お問い合わせページよりご連絡ください。</p>
             <div className="mt-4">
               <Link
                 href="/contact/"
