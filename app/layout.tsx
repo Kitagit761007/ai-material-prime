@@ -68,14 +68,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ja" className={inter.className}>
       <head>
+        {/* AdSense account meta */}
         <meta name="google-adsense-account" content="ca-pub-6312883356862609" />
-        <Script
-  async
-  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6312883356862609"
-  crossOrigin="anonymous"
-  strategy="afterInteractive"
-/>
 
+        {/* AdSense script */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6312883356862609"
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
+        />
+
+        {/* GTM（設定している場合のみ） */}
         {process.env.NEXT_PUBLIC_GTM_ID && (
           <Script
             id="gtm-script"
@@ -92,7 +96,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         )}
 
-        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-J0S6KYW409" />
+        {/* GA4（gtag） */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-J0S6KYW409"
+        />
         <Script
           id="ga-script"
           strategy="afterInteractive"
@@ -107,15 +115,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `,
           }}
         />
-
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
       </head>
 
-      <body className={inter.className}>
+      {/* bodyのclassはhtml側で付与済みなので削除（重複防止） */}
+      <body>
         <SearchProvider>
           <FavoritesProvider>
+            {/* GTM noscript（設定している場合のみ） */}
             {process.env.NEXT_PUBLIC_GTM_ID && (
               <noscript>
                 <iframe
@@ -130,10 +136,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <PwaHandler />
             <Header />
 
-            {/* ✅ 変更点：
-                - pt-20 を廃止
-                - globals.css で定義した CSS 変数に追従（将来の変更は globals.css だけでOK）
-                - 下部固定ナビ分も同様に追従（PCでは 0px にできる） */}
             <main
               className="min-h-screen"
               style={{
