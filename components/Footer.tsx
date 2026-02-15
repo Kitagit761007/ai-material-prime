@@ -77,6 +77,7 @@ export default function Footer() {
             >
               GX Prime Visuals
             </Link>
+
             <p className="text-slate-400 text-xs leading-relaxed max-w-xs">
               ビジネス・プレゼンテーションのための
               <br />
@@ -84,9 +85,10 @@ export default function Footer() {
               <br />
               <span className="text-slate-500 block mt-2 leading-tight">
                 All images are AI-generated and available for free commercial and
-                personal use under a royalty-free license.
+                personal use under a royalty-free license. See Terms for details.
               </span>
             </p>
+
             <div className="flex flex-col gap-1">
               <span className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">
                 License
@@ -97,6 +99,27 @@ export default function Footer() {
                 Commercial Use OK / No Attribution Required
               </span>
             </div>
+
+            <div className="flex flex-wrap gap-2 pt-2">
+              <Link
+                href="/terms/"
+                className="inline-flex items-center rounded-md border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
+              >
+                Terms
+              </Link>
+              <Link
+                href="/guide/"
+                className="inline-flex items-center rounded-md border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
+              >
+                Guide
+              </Link>
+              <Link
+                href="/business/"
+                className="inline-flex items-center rounded-md border border-gx-cyan/30 bg-gx-cyan/10 px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-gx-cyan hover:bg-gx-cyan/20 transition-colors"
+              >
+                Business
+              </Link>
+            </div>
           </div>
 
           {/* Column 2: Categories */}
@@ -104,6 +127,7 @@ export default function Footer() {
             <h3 className="text-white font-bold text-sm tracking-wider uppercase flex items-center gap-2">
               Categories
             </h3>
+
             <ul className="grid grid-cols-1 gap-3">
               {categories.map((cat) => (
                 <li key={cat.id}>
@@ -124,6 +148,26 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+
+            <div className="mt-4 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+              <p className="text-[10px] font-mono uppercase tracking-widest text-slate-500 mb-2">
+                Quick Jump
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {categories.slice(0, 4).map((cat) => (
+                  <button
+                    key={cat.id}
+                    onClick={(e) => handleCategoryClick(cat.id, e as any)}
+                    className="inline-flex items-center rounded-md border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
+                  >
+                    {cat.name}
+                  </button>
+                ))}
+              </div>
+              <p className="mt-2 text-[10px] text-slate-500 leading-relaxed">
+                ホームのギャラリーへスクロールします（フィルター適用）。
+              </p>
+            </div>
           </div>
 
           {/* Column 3: Legal & Info */}
@@ -134,12 +178,25 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <Link
+                  href="/business/"
+                  className="text-slate-400 hover:text-gx-cyan transition-colors text-sm font-bold"
+                >
+                  法人向け (Business)
+                </Link>
+                <p className="text-[10px] text-slate-600 mt-1 leading-relaxed">
+                  11枚パック・特注生成の相談窓口
+                </p>
+              </li>
+
+              <li>
+                <Link
                   href="/about/"
                   className="text-slate-400 hover:text-gx-cyan transition-colors text-sm"
                 >
                   当サイトについて (About)
                 </Link>
               </li>
+
               <li>
                 <Link
                   href="/guide/"
@@ -148,6 +205,7 @@ export default function Footer() {
                   利用ガイド (Guide)
                 </Link>
               </li>
+
               <li>
                 <Link
                   href="/contact/"
@@ -156,6 +214,7 @@ export default function Footer() {
                   お問い合わせ (Contact)
                 </Link>
               </li>
+
               <li className="pt-4 border-t border-white/5">
                 <Link
                   href="/terms/"
@@ -189,21 +248,81 @@ export default function Footer() {
                 Free Assets for All Creators
               </span>
             </p>
-            <Link
-              href="/contact/"
-              className="inline-flex items-center justify-center w-full px-4 py-3 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white text-sm font-bold rounded-lg transition-all"
-            >
-              お問い合わせフォーム
-            </Link>
+
+            <div className="space-y-3">
+              <Link
+                href="/contact/"
+                className="inline-flex items-center justify-center w-full px-4 py-3 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white text-sm font-bold rounded-lg transition-all"
+              >
+                お問い合わせフォーム
+              </Link>
+
+              <Link
+                href="/business/"
+                className="inline-flex items-center justify-center w-full px-4 py-3 bg-gx-cyan/15 border border-gx-cyan/25 hover:bg-gx-cyan/20 hover:border-gx-cyan/40 text-white text-sm font-bold rounded-lg transition-all"
+              >
+                法人向けの相談（11枚パック／特注）
+              </Link>
+
+              <div className="rounded-lg border border-white/10 bg-white/[0.03] p-4">
+                <p className="text-[10px] font-mono uppercase tracking-widest text-slate-500">
+                  For Business
+                </p>
+                <p className="mt-2 text-[11px] text-slate-400 leading-relaxed">
+                  目的・媒体・納期が分かる範囲でOKです。
+                  見積・提案時に、提供方法や条件を個別に合意します。
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <Link
+                    href="/terms/"
+                    className="inline-flex items-center rounded-md border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
+                  >
+                    Terms
+                  </Link>
+                  <Link
+                    href="/privacy/"
+                    className="inline-flex items-center rounded-md border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
+                  >
+                    Privacy
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 space-y-4 md:space-y-0 text-slate-500">
           <p className="text-[10px] font-mono uppercase">
-            © {currentYear} GX Prime Visuals. All images are AI-generated and
-            available for free commercial and personal use.
+            © {currentYear} GX Prime Visuals. AI-generated assets. Commercial use
+            OK / No attribution required. See /terms for details.
           </p>
-          <div className="flex gap-4 text-[10px] font-mono uppercase tracking-wider">
+
+          <div className="flex flex-wrap items-center gap-4 text-[10px] font-mono uppercase tracking-wider">
+            <Link
+              href="/business/"
+              className="text-slate-500 hover:text-gx-cyan transition-colors"
+            >
+              Business
+            </Link>
+            <Link
+              href="/terms/"
+              className="text-slate-500 hover:text-slate-200 transition-colors"
+            >
+              Terms
+            </Link>
+            <Link
+              href="/privacy/"
+              className="text-slate-500 hover:text-slate-200 transition-colors"
+            >
+              Privacy
+            </Link>
+            <Link
+              href="/contact/"
+              className="text-slate-500 hover:text-slate-200 transition-colors"
+            >
+              Contact
+            </Link>
+            <span className="hidden md:inline">•</span>
             <span>Built for Future</span>
             <span>•</span>
             <span>Japan</span>
