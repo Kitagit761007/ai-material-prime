@@ -4,14 +4,14 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "利用規約",
   description:
-    "GX Prime Visuals（AI Material Prime）の利用規約です。画像素材の商用利用可否、加工可否、クレジット表記、再配布・転売禁止、AI学習利用禁止などの条件を定めます。",
+    "GX Prime Visuals（AI Material Prime）の利用規約です。画像素材の商用利用可否、加工可否、クレジット表記、再配布・転売禁止、AI学習利用禁止、ならびに当サイト運営者による公式提供（法人向けパック／特注制作）の取扱いを定めます。",
   alternates: {
     canonical: "/terms/",
   },
   openGraph: {
     title: "利用規約 | GX Prime Visuals",
     description:
-      "GX Prime Visuals（AI Material Prime）の利用規約です。商用利用可・加工可・クレジット表記任意。再配布・転売禁止、AI学習用途禁止などの条件を定めます。",
+      "GX Prime Visuals（AI Material Prime）の利用規約です。商用利用可・加工可・クレジット表記任意。再配布・転売禁止、AI学習用途禁止。公式提供（法人向けパック／特注制作）の取扱いを定めます。",
     url: "https://ai-material-prime.com/terms/",
     siteName: "GX Prime Visuals",
     locale: "ja_JP",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "利用規約 | GX Prime Visuals",
     description:
-      "GX Prime Visuals（AI Material Prime）の利用規約。商用利用可・加工可・クレジット表記任意。再配布・転売禁止、AI学習用途禁止。",
+      "GX Prime Visuals（AI Material Prime）の利用規約。商用利用可・加工可・クレジット表記任意。再配布・転売禁止、AI学習用途禁止。公式提供（法人向けパック／特注制作）の取扱いを定めます。",
   },
 };
 
@@ -81,6 +81,14 @@ export default function TermsOfService() {
               </span>
             </div>
 
+            <div className="flex gap-2">
+              <span className="text-gx-cyan">✓</span>
+              <span>
+                当サイト運営者が提供する<strong className="text-white">公式提供（法人向けパック／特注制作）</strong>
+                は本規約に従って提供されます。
+              </span>
+            </div>
+
             <div className="h-px bg-white/10 my-1" />
 
             <div className="flex gap-2">
@@ -121,7 +129,7 @@ export default function TermsOfService() {
           <ul className="text-sm text-slate-300 space-y-2 list-none">
             <li className="flex gap-2">
               <span className="text-gx-cyan">•</span>
-              <span>All assets are free for commercial and personal use.</span>
+              <span>Assets may be used for commercial and personal projects.</span>
             </li>
             <li className="flex gap-2">
               <span className="text-gx-cyan">•</span>
@@ -138,6 +146,13 @@ export default function TermsOfService() {
             <li className="flex gap-2 text-red-300">
               <span className="text-red-300">•</span>
               <span>Using the assets for AI training datasets is prohibited.</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-gx-cyan">•</span>
+              <span>
+                Official offerings by the site operator (business packs / custom commissions) are permitted
+                under these Terms.
+              </span>
             </li>
           </ul>
         </div>
@@ -158,7 +173,26 @@ export default function TermsOfService() {
           <div>
             <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
               <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
-              2. 権利帰属
+              2. 定義
+            </h2>
+            <ul className="list-disc list-inside space-y-2 text-slate-400 border-l-2 border-white/10 pl-4">
+              <li>
+                「ユーザー」：当サイトを閲覧・ダウンロード・利用する個人または法人をいいます。
+              </li>
+              <li>
+                「公式提供」：当サイト運営者が提供する法人向けパック提供、特注生成（カスタム制作）、
+                およびこれらに付随する選定・構成・編集・納品整理等の制作支援をいいます。
+              </li>
+              <li>
+                「再配布」：コンテンツを第三者が入手できる状態で公開・共有・譲渡・貸与・送付する行為（有償無償を問いません）をいいます。
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
+              3. 権利帰属
             </h2>
             <p className="leading-relaxed">
               当サイトに掲載されるコンテンツに関する権利は、当サイト運営者または正当な権利者に帰属します。
@@ -169,7 +203,7 @@ export default function TermsOfService() {
           <div>
             <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
               <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
-              3. AI生成素材について（注意事項）
+              4. AI生成素材について（注意事項）
             </h2>
             <p className="leading-relaxed">
               当サイトの画像はAI技術を用いて生成されたアセットです。
@@ -187,7 +221,7 @@ export default function TermsOfService() {
           <div>
             <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
               <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
-              4. 利用許諾（できること）
+              5. 利用許諾（できること）
             </h2>
             <ul className="list-disc list-inside space-y-2 text-slate-400 border-l-2 border-white/10 pl-4">
               <li>個人・法人を問わず、商用・非商用を問わず利用できます。</li>
@@ -201,7 +235,7 @@ export default function TermsOfService() {
           <div>
             <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
               <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
-              5. 禁止事項（してはいけないこと）
+              6. 禁止事項（してはいけないこと）
             </h2>
             <ul className="list-disc list-inside space-y-2 text-slate-400 border-l-2 border-gx-emerald/30 pl-4">
               <li>
@@ -222,12 +256,39 @@ export default function TermsOfService() {
               </li>
               <li>当サイトと提携・公式であるかのように誤認させる表示・利用。</li>
             </ul>
+
+            <div className="mt-4 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] text-slate-400 text-sm leading-relaxed">
+              <strong className="text-white">補足：</strong>
+              上記の禁止は、第三者が当サイト素材を「素材として」再配布・転売することを防ぐためのものです。
+              ユーザーの制作物（Webページ、広告、資料、動画、印刷物など）に組み込んで利用すること自体は、前条の範囲で許可されます。
+            </div>
           </div>
 
           <div>
             <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
               <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
-              6. 違反時の対応
+              7. 公式提供（法人向けパック／特注制作）について（例外）
+            </h2>
+            <p className="leading-relaxed">
+              前条「6. 禁止事項」に定める「素材集、テンプレ集、ダウンロードパック等としての配布・販売」は、
+              第三者が当サイト素材を主な価値として再配布・転売する行為を禁止する趣旨です。
+            </p>
+            <p className="leading-relaxed mt-3">
+              一方で、当サイト運営者が行う<strong className="text-white">公式提供</strong>（法人向けパック提供、特注生成、これらに付随する制作支援）は、
+              本規約に従って提供され、前条の禁止事項における「第三者による再配布・転売」の禁止趣旨には該当しません。
+            </p>
+
+            <div className="mt-4 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] text-slate-400 text-sm leading-relaxed">
+              <strong className="text-white">重要：</strong>
+              公式提供により提供されたデータについても、ユーザーは素材そのものを再配布・転売・貸与することはできません。
+              （前条「6. 禁止事項」は引き続き適用されます。）
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
+              8. 違反時の対応
             </h2>
             <p className="leading-relaxed">
               ユーザーが本規約に違反した場合、当サイト運営者は、事前の通知なく当該ユーザーの利用停止、
@@ -238,7 +299,7 @@ export default function TermsOfService() {
           <div>
             <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
               <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
-              7. 免責事項
+              9. 免責事項
             </h2>
             <p className="leading-relaxed">
               当サイトのコンテンツを利用したことによって生じたトラブル、損害、損失について、当サイト運営者は一切の責任を負いません。
@@ -250,7 +311,7 @@ export default function TermsOfService() {
           <div>
             <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
               <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
-              8. 規約の変更
+              10. 規約の変更
             </h2>
             <p className="leading-relaxed">
               当サイト運営者は、必要に応じて本規約を変更できるものとします。
@@ -262,7 +323,7 @@ export default function TermsOfService() {
           <div>
             <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
               <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
-              9. 準拠法・管轄
+              11. 準拠法・管轄
             </h2>
             <p className="leading-relaxed">
               本規約は日本法に準拠します。本規約または当サイトの利用に関して紛争が生じた場合、
@@ -273,7 +334,7 @@ export default function TermsOfService() {
           <div>
             <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
               <span className="w-1.5 h-6 bg-gx-cyan rounded-full"></span>
-              10. お問い合わせ
+              12. お問い合わせ
             </h2>
             <p className="leading-relaxed">
               本規約に関するお問い合わせは、お問い合わせページよりご連絡ください。
@@ -289,7 +350,7 @@ export default function TermsOfService() {
           </div>
 
           <div className="pt-8 border-t border-white/10 text-xs text-slate-500">
-            最終改定：2026年2月6日
+            最終改定：2026年2月15日
           </div>
         </section>
       </div>
