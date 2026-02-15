@@ -9,16 +9,17 @@ type Status = "idle" | "submitting" | "success" | "error";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mykdgvpo";
 
 /**
- * 目的（B2B受注最適化）
- * - 法人受注に必要な情報を最小追加で回収（用途/納期/予算/支払い希望/参照URL）
- * - 問い合わせ種別を明確化（11枚パック/特注/相談/ライセンス）
- * - Formspree受信を読みやすく（件名=_subject、返信先=_replyto、要点=summary）
- * - bot対策（_gotcha）
+ * 戦略意図：
+ * - 法人受注に必要な情報を最小追加で回収（用途/媒体/納期/予算/決裁/利用範囲）
+ * - 問い合わせの種類を明確化（11枚パック/特注/相談）
+ * - Formspreeのメール通知が止まりにくい「FormData送信」を採用
+ * - 受信側で見やすい：_subject / _replyto / message先頭に要点ブロック
  */
 export default function ContactPage() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
 
+  // フォーム入力（controlledにしすぎず、必要な箇所だけ state 管理）
   const [inquiryType, setInquiryType] = useState<
     "business_pack" | "custom" | "consult" | "license" | "other"
   >("consult");
@@ -131,10 +132,28 @@ export default function ContactPage() {
     setUseCases((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
+  const resetStates = () => {
+    setInquiryType("consult");
+    setBudgetRange("unknown");
+    setDeadline("unknown");
+    setUseCases({
+      proposal: false,
+      website: false,
+      sns: false,
+      ads: false,
+      video: false,
+      print: false,
+      other: false,
+    });
+    setPaymentPref("undecided");
+    setAgreeTerms(false);
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (status === "submitting") return;
 
+    // 必須同意（Terms + Privacy）
     if (!agreeTerms) {
       setStatus("error");
       setErrorMsg("利用規約とプライバシーポリシーへの同意が必要です。");
@@ -148,100 +167,78 @@ export default function ContactPage() {
     const formData = new FormData(formEl);
 
     // ✅ Formspree推奨ハニーポット（ここが埋まってたらbot）
-    const gotcha = (formData.get("_gotcha") ?? "").toString().trim();
+    const gotcha = String(formData.get("_gotcha") ?? "").trim();
     if (gotcha) {
       setStatus("success");
       formEl.reset();
+      resetStates();
       return;
     }
 
-    const data = Object.fromEntries(formData.entries());
-
-    // ✅ メール一覧で判別できる件名（Formspreeは _subject を使う）
+    // ✅ 受信側で見やすい件名（Formspreeは _subject を使用）
     const subject = `[GX Prime Visuals] ${inquiryTypeLabel} / ${budgetLabel} / ${deadlineLabel} / ${selectedUseCasesLabel}`;
+    formData.set("_subject", subject);
 
-    // ✅ 受信本文の冒頭に「要点ブロック」を作る
+    // ✅ Reply-To（返信を押すと相手に返るように）
+    const email = String(formData.get("email") ?? "").trim();
+    if (email) formData.set("_replyto", email);
+
+    // ✅ “要点ブロック” を本文先頭に差し込む（メールで最重要）
     const summary = [
       `【種別】${inquiryTypeLabel}`,
       `【用途】${selectedUseCasesLabel}`,
       `【納期】${deadlineLabel}`,
       `【予算】${budgetLabel}`,
       `【支払い】${paymentLabel}`,
-      data.company ? `【会社】${data.company}` : null,
-      data.reference ? `【参考】${data.reference}` : null,
-      `【送信元】${pageUrl || "unknown"}`,
-      `【送信時刻】${new Date().toISOString()}`,
-    ]
-      .filter(Boolean)
-      .join("\n");
+    ].join("\n");
 
-    // ✅ Formspree向けpayload（“ラベルのみ”を送ってノイズ削減）
-    const payload = {
-      _subject: subject,
-      _replyto: (data.email ?? "").toString(),
+    const originalMessage = String(formData.get("message") ?? "");
+    formData.set("message", `${summary}\n\n${originalMessage}`);
 
-      name: (data.name ?? "").toString(),
-      company: (data.company ?? "").toString(),
-      email: (data.email ?? "").toString(),
-      reference: (data.reference ?? "").toString(),
+    // ✅ Formspreeの一覧（Submissions）で見やすくするための項目
+    formData.set("inquiry_type", inquiryType);
+    formData.set("inquiry_type_label", inquiryTypeLabel);
+    formData.set("use_cases", selectedUseCasesLabel);
+    formData.set("budget_range", budgetRange);
+    formData.set("budget_label", budgetLabel);
+    formData.set("desired_deadline", deadline);
+    formData.set("deadline_label", deadlineLabel);
+    formData.set("payment_preference", paymentPref);
+    formData.set("payment_label", paymentLabel);
 
-      inquiry_type: inquiryTypeLabel,
-      use_cases: selectedUseCasesLabel,
-      budget: budgetLabel,
-      deadline: deadlineLabel,
-      payment: paymentLabel,
-
-      summary,
-      message: (data.message ?? "").toString(),
-
-      // 追加メタ（必要最低限）
-      _page: pageUrl || "unknown",
-      _timestamp: new Date().toISOString(),
-    };
+    // ✅ 付加情報
+    formData.set("_page", pageUrl || "unknown");
+    formData.set("_ua", typeof navigator !== "undefined" ? navigator.userAgent : "unknown");
+    formData.set("_timestamp", new Date().toISOString());
 
     try {
+      // ✅ JSONではなく FormData で送る（メール通知が安定しやすい）
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json",
+          // Content-Type は付けない（ブラウザが multipart/form-data を自動で付与）
         },
-        body: JSON.stringify(payload),
+        body: formData,
       });
 
       if (response.ok) {
         setStatus("success");
         formEl.reset();
-
-        // state reset
-        setInquiryType("consult");
-        setBudgetRange("unknown");
-        setDeadline("unknown");
-        setUseCases({
-          proposal: false,
-          website: false,
-          sns: false,
-          ads: false,
-          video: false,
-          print: false,
-          other: false,
-        });
-        setPaymentPref("undecided");
-        setAgreeTerms(false);
-        return;
-      }
-
-      let msg = "送信に失敗しました。時間をおいて再度お試しください。";
-      try {
-        const j = await response.json();
-        if (j?.errors?.length) {
-          msg = j.errors.map((x: any) => x.message).join(" / ");
+        resetStates();
+      } else {
+        let msg = "送信に失敗しました。時間をおいて再度お試しください。";
+        try {
+          const j = await response.json();
+          if (j?.errors?.length) {
+            msg = j.errors.map((x: any) => x.message).join(" / ");
+          }
+        } catch {
+          // ignore
         }
-      } catch {
-        // ignore
+        setErrorMsg(msg);
+        setStatus("error");
       }
-      setErrorMsg(msg);
-      setStatus("error");
     } catch (err) {
       console.error(err);
       setErrorMsg("ネットワークエラーが発生しました。通信状況を確認して再度お試しください。");
@@ -327,7 +324,7 @@ export default function ContactPage() {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-8" noValidate>
-            {/* ✅ honeypot（Formspree推奨：_gotcha） */}
+            {/* ✅ Formspree推奨 honeypot */}
             <input
               type="text"
               name="_gotcha"
@@ -337,7 +334,7 @@ export default function ContactPage() {
               aria-hidden="true"
             />
 
-            {/* 0) 問い合わせ種別（最重要） */}
+            {/* 0) 問い合わせ種別 */}
             <div className="space-y-3">
               <div className="flex items-end justify-between gap-4">
                 <label className="text-sm font-bold text-slate-300 ml-1">
@@ -354,6 +351,7 @@ export default function ContactPage() {
                   { key: "custom", title: "特注生成（カスタム制作）", desc: "要件に合わせて制作" },
                   { key: "consult", title: "相談して決めたい", desc: "最適な提案が欲しい" },
                   { key: "license", title: "ライセンス/規約の確認", desc: "利用可否・条件の確認" },
+                  { key: "other", title: "その他", desc: "上記以外の内容" },
                 ].map((opt) => (
                   <button
                     key={opt.key}
@@ -384,8 +382,8 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              {/* hidden（フォーム側でも残す：ログ用途） */}
-              <input type="hidden" name="inquiry_type_raw" value={inquiryType} />
+              {/* hidden: state値も送る（FormDataに入る） */}
+              <input type="hidden" name="inquiry_type" value={inquiryType} />
             </div>
 
             {/* 1) 基本情報 */}
@@ -440,7 +438,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* 2) 法人向けの要件（相談/見積が早くなる） */}
+            {/* 2) 要件（任意） */}
             <div className="space-y-6 rounded-3xl border border-white/10 bg-white/[0.03] p-6">
               <div className="flex items-center justify-between gap-3">
                 <div>
@@ -483,6 +481,7 @@ export default function ContactPage() {
                     </label>
                   ))}
                 </div>
+                <input type="hidden" name="use_cases" value={selectedUseCasesLabel} />
               </div>
 
               {/* 納期 */}
@@ -512,6 +511,7 @@ export default function ContactPage() {
                     </button>
                   ))}
                 </div>
+                <input type="hidden" name="desired_deadline" value={deadline} />
               </div>
 
               {/* 予算 */}
@@ -540,9 +540,10 @@ export default function ContactPage() {
                     </button>
                   ))}
                 </div>
+                <input type="hidden" name="budget_range" value={budgetRange} />
               </div>
 
-              {/* 支払い希望（仮でも可） */}
+              {/* 支払い希望 */}
               <div className="space-y-2">
                 <label className="text-sm font-bold text-slate-300 ml-1">
                   支払い希望（任意・将来の決済導入の参考）
@@ -569,9 +570,10 @@ export default function ContactPage() {
                     </button>
                   ))}
                 </div>
+                <input type="hidden" name="payment_preference" value={paymentPref} />
               </div>
 
-              {/* 参照URL（任意） */}
+              {/* 参照URL */}
               <div className="space-y-2">
                 <label htmlFor="reference" className="text-sm font-bold text-slate-300 ml-1">
                   参考URL（任意）
@@ -610,7 +612,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            {/* 4) 同意（Privacy + Terms） */}
+            {/* 4) 同意 */}
             <div className="space-y-3">
               <div className="flex items-start gap-3 p-4 rounded-2xl border border-white/10 bg-white/5">
                 <input
@@ -687,7 +689,7 @@ export default function ContactPage() {
         </div>
 
         <div className="mt-8 text-center text-xs text-slate-600">
-          参考：
+          参考：{" "}
           <Link
             href="/business/"
             className="text-gx-cyan hover:text-white underline underline-offset-4"
