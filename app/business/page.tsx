@@ -1,4 +1,5 @@
 // ai-material-prime/app/business/page.tsx
+import Image from "next/image";
 
 export const metadata = {
   title: "法人向け | 11枚パック & 特注生成 | GX Prime Visuals",
@@ -77,6 +78,20 @@ export default function BusinessPage() {
           </a>
           に準拠した形で整理し、導入判断を前に進めます。
         </p>
+
+        <div className="my-6 overflow-hidden rounded-lg border">
+          <Image
+            src="/assets/images/business-samples/key-visual_1200.jpg"
+            alt="Business Hero Key Visual"
+            width={1200}
+            height={675}
+            className="h-auto w-full"
+            priority
+          />
+          <p className="p-3 text-xs opacity-70">
+            ※サンプルは低解像度です（実納品は用途に合わせて提供）。無断転載は禁止。
+          </p>
+        </div>
 
         <CTA />
         <p className="text-sm leading-6 opacity-80">
