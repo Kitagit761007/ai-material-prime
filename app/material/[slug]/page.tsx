@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import fs from "fs";
 import path from "path";
+import { generateDescription } from "@/lib/description";
 import MaterialDetailClient from "./MaterialDetailClient";
 
 interface Asset {
@@ -41,6 +42,8 @@ export async function generateMetadata({
         };
     }
 
+    const description = generateDescription(asset);
+
     const folder = asset.id.startsWith("mid-")
         ? "mid"
         : asset.id.startsWith("niji-")
@@ -55,10 +58,10 @@ export async function generateMetadata({
 
     return {
         title: `${asset.title} | GX Prime Visuals`,
-        description: asset.description || "高品質AIビジュアル素材。商用利用可能。",
+        description: description,
         openGraph: {
             title: asset.title,
-            description: asset.description || "高品質AIビジュアル素材。商用利用可能。",
+            description: description,
             images: [
                 {
                     url: imageUrl,
@@ -71,7 +74,7 @@ export async function generateMetadata({
         twitter: {
             card: "summary_large_image",
             title: asset.title,
-            description: asset.description || "高品質AIビジュアル素材。商用利用可能。",
+            description: description,
             images: [imageUrl],
         },
     };
@@ -82,10 +85,10 @@ export default function MaterialDetailPage({
 }: {
     params: { slug: string };
 }) {
-  return (
-    <Suspense fallback={null}>
-      <MaterialDetailClient slug={params.slug} />
-    </Suspense>
-  );
+    return (
+        <Suspense fallback={null}>
+            <MaterialDetailClient slug={params.slug} />
+        </Suspense>
+    );
 
 }
