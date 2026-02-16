@@ -55,7 +55,6 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
 
     const [pageUrl, setPageUrl] = useState<string>("");
     const [copied, setCopied] = useState(false);
-    const [descOpen, setDescOpen] = useState(false);
     const searchParams = useSearchParams();
 
     const backHref = useMemo(() => {
@@ -361,52 +360,18 @@ export default function MaterialDetailClient({ slug }: { slug: string }) {
                                 </div>
                             </div>
 
-                            {/* 説明（要約＋折りたたみ詳細：重複表示を根絶） */}
+                            {/* 説明（全文表示） */}
                             <div className="mt-4 bg-white/5 p-5 rounded-2xl border border-white/10 text-slate-200 text-base leading-relaxed">
                                 {(() => {
-                                    // 1) まず表示側で重複を吸収
+                                    // 1) 表示側で重複を吸収
                                     const t = normalizeDescription(
                                         String(descriptionText || "")
                                     ).trim();
 
-                                    // 2) 要約（1文 or 先頭70文字）
-                                    const dot = t.indexOf("。");
-                                    const summary =
-                                        dot >= 0
-                                            ? t.slice(0, dot + 1)
-                                            : t.length > 70
-                                                ? `${t.slice(0, 70)}…`
-                                                : t;
-
-                                    // 3) 詳細は「全文」ではなく「残り」だけ（要約と重複させない）
-                                    const remainder =
-                                        dot >= 0
-                                            ? t.slice(dot + 1).trimStart()
-                                            : t.length > 70
-                                                ? t.slice(70).trimStart()
-                                                : "";
-
                                     return (
-                                        <>
-                                            <p className="text-slate-200">{summary}</p>
-
-                                            {remainder && (
-                                                <button
-                                                    type="button"
-                                                    onClick={() => setDescOpen((v) => !v)}
-                                                    className="mt-3 text-sm text-cyan-300 hover:text-cyan-200 transition-colors"
-                                                    aria-expanded={descOpen}
-                                                >
-                                                    {descOpen ? "詳細を閉じる" : "詳細を読む"}
-                                                </button>
-                                            )}
-
-                                            {descOpen && remainder && (
-                                                <p className="mt-3 text-slate-300 whitespace-pre-line">
-                                                    {remainder}
-                                                </p>
-                                            )}
-                                        </>
+                                        <p className="text-slate-200 whitespace-pre-line">
+                                            {t}
+                                        </p>
                                     );
                                 })()}
                             </div>
